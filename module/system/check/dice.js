@@ -5,6 +5,7 @@ export async function domainCheck(actor){
     let domain, vocations, bonus, malus, lignee, people
 
     let checkOptions = await GetRollOptions()
+    console.log(checkOptions)
 
     if(checkOptions.cancelled){
         return;
@@ -35,8 +36,8 @@ export async function domainCheck(actor){
       dice3d;
     }
 
-    async function GetRollOptions({template = "systems/shaanworld/templates/chat/domainCheck.hbs"} = {}){
-        const html = await renderTemplate(template, {actor});
+    async function GetRollOptions({template = "systems/shaanworld/templates/chat/domainCheck.hbs", domain = null, vocations = {vocation1: null, vocation2:null}, bonus = null, malus = null, lignee = false, people = false} = {}){
+        const html = await renderTemplate(template, {actor, domain, vocations, bonus, malus, lignee, people});
         const actorData = actor.toObject(!1);
         const config = CONFIG.shaanworld
     
@@ -65,7 +66,12 @@ export async function domainCheck(actor){
     }
     function _processDomainCheckOptions(form) {
         return {
-        domain: parseInt(form.domain?.value),
+        domain: form.domain?.value,
+        vocations: {vocation1: form.vocation1.value, vocation2: form.vocation2.value},
+        bonus: parseInt(form.bonus?.value),
+        malus: parseInt(form.malus?.value),
+        lignee: form.lignee?.checked,
+        people: form.people?.checked,
         }
     }
 }

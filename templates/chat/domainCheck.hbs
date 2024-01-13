@@ -1,7 +1,7 @@
 <form>
     <div class="form-group check">
         <div class="domain">
-            <select class="domain-select" name="domain">
+            <select class="domain" name="domain" data-actor-id="{{actor._id}}">
                 {{#select domain}}
                     {{#each actor.system.domains as |domain|}}
                         <option value="{{@key}}">{{@key}}</option>
@@ -10,9 +10,9 @@
             </select>
         </div>
         <div class="vocations">
-            <select name="vocation1">
+            <select class="vocation1" name="vocation1">
             </select>
-            <select name="vocation2">
+            <select class="vocation2" name="vocation2">
 
             </select>
         </div>
@@ -20,11 +20,11 @@
     <div class="form-group">
         <div class="bonus">
             <label>Bonus</label>
-            <input type="number" name="bonus" value="bonus"/>
+            <input type="number" name="bonus"/>
         </div>
         <div class="malus">
             <label>Malus</label>
-            <input type="number" name="malus" value="malus"/>
+            <input type="number" name="malus"/>
         </div>
     </div>
     <div class="form-group">

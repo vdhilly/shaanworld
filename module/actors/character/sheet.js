@@ -76,25 +76,39 @@ export class ActorSheetSW extends ActorSheet {
     );
   }
   prepareVocations(sheetData) {
-    const beforeUpdate = JSON.parse(JSON.stringify(sheetData.data.domains))
-    const actorDomains = JSON.parse(JSON.stringify(this.actor.system.domains))
+    const beforeUpdate = JSON.parse(JSON.stringify(sheetData.actor.system.domains))
+    // console.log(sheetData.actor.system)
 
     for (const domain of sheetData.config.domains) {
       let domainVocations = sheetData.items.filter(function (item) {
-        return item.system.domain == domain;
+        return item.system.domain === domain;
       });
+      console.log(domainVocations)
   
       let d = domain.toLowerCase().replace('é', 'e');
   
-      sheetData.data.domains[d].vocations.push(...domainVocations);
-    }
-    const domains = sheetData.data.domains 
+      for (const vocation of domainVocations) {
+        const isUnique = !sheetData.data.domains[d].vocations.some(existingVocation =>
+          existingVocation._id === vocation._id
+        );
 
-      if(JSON.stringify(domains) !== JSON.stringify(beforeUpdate) || JSON.stringify(domains) !== JSON.stringify(actorDomains)) {
-        this.actor.update({
-          "system.domains": domains
-        })
+        if (isUnique) {
+          sheetData.data.domains[d].vocations.push(vocation);
+        }
       }
+    }
+
+    this.updateVocations(sheetData, beforeUpdate)
+  }
+  updateVocations(sheetData, beforeUpdate){
+    const domains = sheetData.actor.system.domains
+
+    for(const domainKey in domains){
+      if(JSON.stringify(domains[domainKey]) !== JSON.stringify(beforeUpdate[domainKey])){
+        this.actor.update({[`system.domains.${domainKey}`]: domains[domainKey]})
+        console.log("oui")
+      }
+    }
   }
   activateListeners($html){
     super.activateListeners($html);

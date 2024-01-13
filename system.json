@@ -1,0 +1,111 @@
+{
+  "id": "shaanworld",
+  "title": "Shaan World",
+  "description": "Le système de jeu officiel basé sur le jeu Shaan World d'Igor Polouchine et Julien Bès édité par Origames",
+  "authors": [
+    {
+      "name": "Pouet",
+      "flags": {}
+    },
+    {
+      "name": "Shaan World",
+      "url": "https://www.shaan-world.com/",
+      "flags": {}
+    }
+  ],
+  "version": "1.0",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "11",
+    "maximum": "11"
+  },
+  "esmodules": ["scripts/shaanworld.js"],
+  "scripts": [],
+  "languages": [
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json",
+      "flags": {}
+    },
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    }
+  ],
+  "styles": ["styles/styles.css"],
+  "packs": [
+    {
+      "name": "lignee",
+      "label": "Lignées",
+      "system": "shaanworld",
+      "path": "packs/lignee",
+      "type": "Item",
+      "flags": {}
+    },
+    {
+      "name": "people",
+      "label": "Peuples",
+      "system": "shaanworld",
+      "path": "packs/people",
+      "type": "Item",
+      "flags": {}
+    },
+    {
+      "name": "archetypes",
+      "label": "Archétypes",
+      "system": "shaanworld",
+      "path": "packs/archetypes",
+      "type": "Item",
+      "flags": {}
+    },
+    {
+      "name": "vocations",
+      "label": "Vocations",
+      "system": "shaanworld",
+      "path": "packs/vocations",
+      "type": "Item",
+      "flags": {}
+    },
+    {
+      "name": "temper",
+      "label": "Tempéraments",
+      "system": "shaanworld",
+      "path": "packs/temper",
+      "type": "Item",
+      "flags": {}
+    },
+    {
+      "name": "role",
+      "label": "Rôles",
+      "system": "shaanworld",
+      "path": "packs/role",
+      "type": "Item",
+      "flags": {}
+    },
+    {
+      "name": "quest",
+      "label": "Quêtes",
+      "system": "shaanworld",
+      "path": "packs/quest",
+      "type": "Item",
+      "flags": {}
+    },
+    {
+      "name": "rupture",
+      "label": "Ruptures",
+      "system": "shaanworld",
+      "path": "packs/rupture",
+      "type": "Item",
+      "flags": {}
+    }
+  ],
+  "background": "systems/shaanrenaissance/assets/banniere_foundry.png",
+  "gridDistance": 5,
+  "gridUnits": "m",
+  "url": "https://github.com/YoimPouet/shaanworld",
+  "manifest": "",
+  "download": ""
+}

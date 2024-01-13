@@ -1,0 +1,37 @@
+<div class="tab abilities" data-group="primary" data-tab="abilities">
+  <div style="width: 50%;">
+    <label class="character-abilities-label label-polygon">{{localize
+        "SW.Labels.Abilities"
+      }}</label>
+    <div class="whitebox pouvoirs">
+      {{#each data.abilities as |rang key|}}
+        <div class="pouvoir-rank">
+          <label class="pouvoir-rank-label green-label">{{localize
+              (concat "SW.Labels." key)
+            }}</label>
+          {{#each rang as |ability i|}}
+            <div class="pouvoir-item">
+              <input
+                class="isUsed"
+                type="checkbox"
+                title="SW.Abilities.Used"
+                name="{{concat 'system.abilities.' key '.' i '.isUsed'}}"
+                {{checked ability.isUsed}}
+              />
+              <label class="pouvoir-label">{{localize
+                  (concat "SW.Abilities." i)
+                }}</label>
+              <input
+                class="isLearned"
+                type="checkbox"
+                title="SW.Abilities.Learned"
+                name="{{concat 'system.abilities.' key '.' i '.isLearned'}}"
+                {{checked ability.isLearned}}
+              />
+            </div>
+          {{/each}}
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

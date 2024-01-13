@@ -1,0 +1,209 @@
+{
+  "Actor": {
+    "types": ["character"],
+    "templates": {
+      "common": {}
+    },
+    "character": {
+      "trihns": {
+        "ame": {
+          "base": 0,
+          "temp": 0,
+          "isMaintained": false,
+          "isHealed":false
+        },
+        "corps": {
+          "base": 0,
+          "temp": 0,
+          "isMaintained": false,
+          "isHealed":false
+        },
+        "esprit": {
+          "base": 0,
+          "temp": 0,
+          "isMaintained": false,
+          "isHealed":false
+        }
+      },
+      "domains": {
+        "technique": {
+          "rank": 0,
+          "vocation":{},
+          "vocations": []
+        },
+        "savoir": {
+          "rank": 0,
+          "vocation":{},
+          "vocations": []
+        },
+        "social": {
+          "rank": 0,
+          "vocation":{},
+          "vocations": []
+        },
+        "arts": {
+          "rank": 0,
+          "vocation":{},
+          "vocations": []
+        },
+        "shaan": {
+          "rank": 0,
+          "vocation":{},
+          "vocations": []
+        },
+        "magie": {
+          "rank": 0,
+          "vocation":{},
+          "vocations": []
+        },
+        "rituels": {
+          "rank": 0,
+          "vocation":{},
+          "vocations": []
+        },
+        "survie": {
+          "rank": 0,
+          "vocation":{},
+          "vocations": []
+        },
+        "combat": {
+          "rank": 0,
+          "vocation":{},
+          "vocations": []
+        },
+        "necrose": {
+          "rank": 0,
+          "vocation":{},
+          "vocations": []
+        }
+      },
+      "abilities": {
+        "apprenti": {
+          "apprenti1": {
+            "isUsed": false,
+            "isLearned": false
+          },
+          "apprenti2": {
+            "isUsed": false,
+            "isLearned": false
+          },
+          "apprenti3": {
+            "isUsed": false,
+            "isLearned": false
+          },
+          "apprenti4": {
+            "isUsed": false,
+            "isLearned": false
+          },
+          "apprenti5": {
+            "isUsed": false,
+            "isLearned": false
+          },
+          "apprenti6": {
+            "isUsed": false,
+            "isLearned": false
+          },
+          "apprenti7": {
+            "isUsed": false,
+            "isLearned": false
+          }
+        },
+        "initie": {
+          "initie1": {
+            "isUsed": false,
+            "isLearned": false
+          },
+          "initie2": {
+            "isUsed": false,
+            "isLearned": false
+          },
+          "initie3": {
+            "isUsed": false,
+            "isLearned": false
+          },
+          "initie4": {
+            "isUsed": false,
+            "isLearned": false
+          },
+          "initie5": {
+            "isUsed": false,
+            "isLearned": false
+          }
+        },
+        "maitre": {
+          "maitre1": {
+            "isUsed": false,
+            "isLearned": false
+          },
+          "maitre2": {
+            "isUsed": false,
+            "isLearned": false
+          },
+          "maitre3": {
+            "isUsed": false,
+            "isLearned": false
+          },
+          "maitre4": {
+            "isUsed": false,
+            "isLearned": false
+          },
+          "maitre5": {
+            "isUsed": false,
+            "isLearned": false
+          }
+        },
+        "legende": {
+          "legende1": {
+            "isUsed": false,
+            "isLearned": false
+          },
+          "legende2": {
+            "isUsed": false,
+            "isLearned": false
+          },
+          "legende3": {
+            "isUsed": false,
+            "isLearned": false
+          }
+        }
+      },
+      "biography": {
+        "appearance": "",
+        "background": "",
+        "campagne": {
+          "notes": "",
+          "gm": "",
+          "allies": "",
+          "enemies": ""
+        }
+      },
+      "temper":"",
+      "role":""
+    }
+  },
+  "Item": {
+    "types": ["lignee", "people", "archetype", "vocation"],
+    "templates": {
+      "common": {}
+    },
+    "lignee": {
+      "domain":"",
+      "bonus":"",
+      "description":""
+    },
+    "people": {
+      "domain":"",
+      "bonus":"",
+      "description":""
+    },
+    "archetype": {},
+    "vocation": {
+      "bonus":0,
+      "description":"",
+      "domain":"",
+      "origine":"",
+      "equipment":"",
+      "active":false
+    }
+  }
+}

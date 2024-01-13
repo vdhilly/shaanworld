@@ -1,0 +1,40 @@
+<form>
+    <div class="form-group check">
+        <div class="domain">
+            <select class="domain-select" name="domain">
+                {{#select domain}}
+                    {{#each actor.system.domains as |domain|}}
+                        <option value="{{@key}}">{{@key}}</option>
+                    {{/each}}
+                {{/select}}
+            </select>
+        </div>
+        <div class="vocations">
+            <select name="vocation1">
+            </select>
+            <select name="vocation2">
+
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="bonus">
+            <label>Bonus</label>
+            <input type="number" name="bonus" value="bonus"/>
+        </div>
+        <div class="malus">
+            <label>Malus</label>
+            <input type="number" name="malus" value="malus"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="lignee">
+            <label>Bonus de Lignée (-1 énergie)</label>
+            <input type="checkbox" name="lignee" {{checked lignee}}>
+        </div>
+        <div class="people">
+            <label>Bonus de Peuple (-1 énergie)</label>
+            <input type="checkbox" name="people" {{checked people}}>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,31 @@
+<form class="item sheet crb-style vocation" autocomplete="off">
+    {{~> "systems/shaanworld/templates/items/partials/header.hbs"}}
+    <div class="details">
+        <div class="item-domain">
+            <label for="domain">{{localize "SW.Labels.domain"}}</label>
+            <select id="domain" name="system.domain">
+            {{#select data.domain}}
+                {{#each config.domains as |domain|}}
+                <option value="{{domain}}">{{domain}}</option>
+                {{/each}}
+            {{/select}}
+            </select>
+        </div>
+        <div class="item-bonus">
+            <label class="green-label" for="bonus">{{localize "SW.Labels.bonus"}}</label>
+            <input type="number" id="bonus" name="system.bonus" value="{{data.bonus}}">
+        </div>
+        <div class="item-origine">
+            <label class="green-label" for="origine">{{localize "SW.Labels.origine"}}</label>
+            <input type="number" id="origine" name="system.origine" value="{{data.origine}}">
+        </div>
+        <div class="item-description">
+            <label class="green-label" for="description">{{localize "SW.Labels.description"}}</label>
+            <textarea name="system.description">{{data.description}}</textarea>
+        </div>
+        <div class="item-equipment">
+            <label class="green-label" for="equipment">{{localize "SW.Labels.equipment"}}</label>
+            <textarea name="system.equipment">{{data.equipment}}</textarea>
+        </div>
+    </div>
+</form>

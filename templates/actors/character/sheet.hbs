@@ -1,0 +1,52 @@
+<form class="actor sheet crb-style character" autocomplete="off">
+<header>
+    <img id="logo" src="systems/shaanworld/assets/logo-shaan-world.png" width="200">
+    <nav class="sheet-navigation" data-group="primary">
+    <a
+      class="item"
+      data-tab="character"
+      title="{{localize 'SW.Labels.Character'}}"
+    >
+      {{localize 'SW.Labels.Character'}}
+    </a>
+
+    <a
+      class="item"
+      data-tab="abilities"
+      title="{{localize 'SW.Labels.Abilities'}}"
+    >
+      {{localize 'SW.Labels.Abilities'}}
+    </a>
+
+        <a
+      class="item"
+      data-tab="possessions"
+      title="{{localize 'SW.Labels.Possessions'}}"
+    >
+      {{localize 'SW.Labels.Possessions'}}
+    </a>
+
+    <a
+      class="item"
+      data-tab="biography"
+      title="{{localize 'SW.Labels.Biography'}}"
+    >
+      {{localize 'SW.Labels.Biography'}}
+    </a>
+  </nav>
+
+</header>
+  <section class="sheet-body">
+    <section class="sheet-content">
+      {{! General }}
+      {{~> "systems/shaanworld/templates/actors/character/partials/general.hbs" }}
+      {{! Pouvoirs }}
+      {{~> "systems/shaanworld/templates/actors/character/partials/abilities.hbs" }}
+      {{!-- Possessions --}}
+      {{~> "systems/shaanworld/templates/actors/character/partials/possessions.hbs" }}
+      {{! Biography }}
+      {{~> "systems/shaanworld/templates/actors/character/partials/biography.hbs" }}
+
+    </section>
+  </section>
+</form>

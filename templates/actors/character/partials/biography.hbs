@@ -1,0 +1,127 @@
+<div class="tab biography" data-group="primary" data-tab="biography">
+  <div style="width:50%">
+    <label class="character-notes-label label-polygon">{{localize
+        "SW.Labels.Notes"
+      }}</label>
+    <div class="whitebox notes">
+      <nav class="nav-notes" data-group="secondary">
+        <a
+          class="item"
+          data-tab="userNotes"
+          title="{{localize 'SW.Labels.Notes'}}"
+        >
+          {{localize "SW.Labels.Notes"}}
+        </a>
+        {{#if user.isGM}}
+          <a
+            class="item"
+            data-tab="gmNotes"
+            title="{{localize 'SW.Labels.gmNotes'}}"
+          >
+            {{localize "SW.Labels.gmNotes"}}
+          </a>
+        {{/if}}
+        <a
+          class="item"
+          data-tab="background"
+          title="{{localize 'SW.Labels.background'}}"
+        >
+          {{localize "SW.Labels.background"}}
+        </a>
+        <a
+          class="item"
+          data-tab="appearance"
+          title="{{localize 'SW.Labels.appearance'}}"
+        >
+          {{localize "SW.Labels.appearance"}}
+        </a>
+      </nav>
+      <section class="notes-content">
+        <div class="tab userNotes" data-group="secondary" data-tab="userNotes">
+          <div class="userNotes-container">
+            {{editor
+              enrichedUserNotes
+              target="system.biography.campagne.notes"
+              button=true
+              owner=owner
+              editable=editable
+              engine="prosemirror"
+            }}
+          </div>
+        </div>
+        <div class="tab gmNotes" data-group="secondary" data-tab="gmNotes">
+          <div class="gmNotes-container">
+            {{editor
+              enrichedGMnotes
+              target="system.biography.campagne.gm"
+              button=true
+              owner=owner
+              editable=editable
+              engine="prosemirror"
+            }}
+          </div>
+        </div>
+        <div
+          class="tab background"
+          data-group="secondary"
+          data-tab="background"
+        >
+          <div class="background-container">
+            {{editor
+              enrichedBGnotes
+              target="system.biography.background"
+              button=true
+              owner=owner
+              editable=editable
+              engine="prosemirror"
+            }}
+          </div>
+        </div>
+        <div
+          class="tab appearance"
+          data-group="secondary"
+          data-tab="appearance"
+        >
+          <div class="appearance-container">
+            {{editor
+              enrichedAppearanceNotes
+              target="system.biography.appearance"
+              button=true
+              owner=owner
+              editable=editable
+              engine="prosemirror"
+            }}
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div style="width:48%; margin-left:5px;">
+    <label class="allies-notes-label label-polygon">{{localize
+        "SW.Labels.Allies"
+      }}</label>
+    <div class="whitebox allies">
+      {{editor
+        enrichedAlliesNotes
+        target="system.biography.campagne.allies"
+        button=true
+        owner=owner
+        editable=editable
+        engine="prosemirror"
+      }}
+    </div>
+    <label class="enemies-notes-label label-polygon">{{localize
+        "SW.Labels.Enemies"
+      }}</label>
+    <div class="whitebox enemies">
+      {{editor
+        enrichedEnemiesNotes
+        target="system.biography.campagne.enemies"
+        button=true
+        owner=owner
+        editable=editable
+        engine="prosemirror"
+      }}
+    </div>
+  </div>
+</div>

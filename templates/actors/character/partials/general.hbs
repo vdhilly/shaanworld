@@ -1,0 +1,377 @@
+<div class="tab character" data-group="primary" data-tab="character">
+  <label class="character-name-label label-polygon" for="character-name">{{localize
+      "SW.Labels.Name"
+    }}</label>
+  <div class="whitebox box-character-name">
+    <input id="character-name" type="text" name="name" value="{{actor.name}}" />
+  </div>
+  <section class="whitebox circle-box" style="height:573px">
+    <section class="circle">
+      {{! DOMAINES }}
+      {{! Esprit }}
+      <input
+        style="top: 390px; left: 237px;"
+        data-domain="technique"
+        data-trihn="esprit"
+        type="number"
+        class="domain-input"
+        name="system.domains.technique.rank"
+        value="{{data.domains.technique.rank}}"
+      />
+      <input
+        style="top: 316px;left: 161px;"
+        data-domain="savoir"
+        data-trihn="esprit"
+        type="number"
+        class="domain-input"
+        name="system.domains.savoir.rank"
+        value="{{data.domains.savoir.rank}}"
+      />
+      <input
+        style="top: 224px;left: 129px;"
+        data-domain="social"
+        data-trihn="esprit"
+        type="number"
+        class="domain-input"
+        name="system.domains.social.rank"
+        value="{{data.domains.social.rank}}"
+      />
+      {{! Ame }}
+      <input
+        style="top: 139px;left: 165px;"
+        data-domain="arts"
+        data-trihn="ame"
+        type="number"
+        class="domain-input"
+        name="system.domains.arts.rank"
+        value="{{data.domains.arts.rank}}"
+      />
+      <input
+        style="top: 113px;left: 217px;"
+        data-domain="shaan"
+        data-trihn="ame"
+        type="number"
+        class="domain-input"
+        name="system.domains.shaan.rank"
+        value="{{data.domains.shaan.rank}}"
+      />
+      <input
+        style="top: 139px;left: 266px;"
+        data-domain="magie"
+        data-trihn="ame"
+        type="number"
+        class="domain-input"
+        name="system.domains.magie.rank"
+        value="{{data.domains.magie.rank}}"
+      />
+      {{! Corps }}
+      <input
+        style="top: 225px;left: 304px;"
+        data-domain="rituels"
+        data-trihn="corps"
+        type="number"
+        class="domain-input"
+        name="system.domains.rituels.rank"
+        value="{{data.domains.rituels.rank}}"
+      />
+      <input
+        style="top: 317px;left: 272px;"
+        data-domain="survie"
+        data-trihn="corps"
+        type="number"
+        class="domain-input"
+        name="system.domains.survie.rank"
+        value="{{data.domains.survie.rank}}"
+      />
+      <input
+        style="top: 389px;left: 191px;"
+        data-domain="combat"
+        data-trihn="corps"
+        type="number"
+        class="domain-input"
+        name="system.domains.combat.rank"
+        value="{{data.domains.combat.rank}}"
+      />
+      {{! Necrose }}
+      <input
+        style="top: 430px;left: 50px;"
+        data-domain="necrose"
+        data-trihn="necrose"
+        type="number"
+        class="domain-input"
+        name="system.domains.necrose.rank"
+        value="{{data.domains.necrose.rank}}"
+      />
+
+      {{! TRIHNS }}
+      {{! Esprit }}
+      <input
+        style="top: 300px;left: -55px;"
+        data-trihn="esprit"
+        type="number"
+        class="trihn-input base"
+        name="system.trihns.esprit.base"
+        value="{{data.trihns.esprit.base}}"
+      />
+      <input
+        style="top: 277px;left: -64px;font-size: 27px; width:35px;"
+        data-trihn="esprit"
+        type="number"
+        class="trihn-input temp"
+        name="system.trihns.esprit.temp"
+        value="{{data.trihns.esprit.temp}}"
+      />
+      {{! Ame }}
+      <input
+        style="top: 244px;left: -76px;"
+        data-trihn="ame"
+        type="number"
+        class="trihn-input base"
+        name="system.trihns.ame.base"
+        value="{{data.trihns.ame.base}}"
+      />
+      <input
+        style="top: 217px;left: -91px;font-size: 27px; width:35px;"
+        data-trihn="ame"
+        type="number"
+        class="trihn-input temp"
+        name="system.trihns.ame.temp"
+        value="{{data.trihns.ame.temp}}"
+      />
+      {{! Corps }}
+      <input
+        style="top: 328px;left: -119px;"
+        data-trihn="corps"
+        type="number"
+        class="trihn-input base"
+        name="system.trihns.corps.base"
+        value="{{data.trihns.corps.base}}"
+      />
+      <input
+        style="top: 296px;left: -129px;font-size: 27px; width:35px;"
+        data-trihn="corps"
+        type="number"
+        class="trihn-input temp"
+        name="system.trihns.corps.temp"
+        value="{{data.trihns.corps.temp}}"
+      />
+      <section class="vocations">
+        <div
+          style="top: 343px;left: 117px;"
+          data-vocation-domain="technique"
+          class="vocation-box whitebox"
+        ><label class="character-vocation-label">{{localize
+              "SW.Labels.Vocation"
+            }}</label><select name="system.domains.technique.vocation">{{#select data.domains.technique.vocation}}{{#each data.domains.technique.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} | {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
+        <div
+          style="top: 182px;left: 72px;"
+          data-vocation-domain="savoir"
+          class="vocation-box whitebox"
+        ><label class="character-vocation-label">{{localize
+              "SW.Labels.Vocation"
+            }}</label><select name="system.domains.savoir.vocation">{{#select data.domains.savoir.vocation}}{{#each data.domains.savoir.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} | {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
+        <div
+          style="top: 11px;left: 76px;"
+          data-vocation-domain="social"
+          class="vocation-box whitebox"
+        ><label class="character-vocation-label">{{localize
+              "SW.Labels.Vocation"
+            }}</label><select name="system.domains.social.vocation">{{#select data.domains.social.vocation}}{{#each data.domains.social.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} | {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
+        <div
+          style="top: -153px;left: 179px;"
+          data-vocation-domain="arts"
+          class="vocation-box whitebox"
+        ><label class="character-vocation-label">{{localize
+              "SW.Labels.Vocation"
+            }}</label><select name="system.domains.arts.vocation">{{#select data.domains.arts.vocation}}{{#each data.domains.arts.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} | {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
+        <div
+          style="top: -243px; left: 306px;"
+          data-vocation-domain="shaan"
+          class="vocation-box whitebox"
+        ><label class="character-vocation-label">{{localize
+              "SW.Labels.Vocation"
+            }}</label><select name="system.domains.shaan.vocation">{{#select data.domains.shaan.vocation}}{{#each data.domains.shaan.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} | {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
+        <div
+          style="top: -286px;left: 434px;"
+          data-vocation-domain="magie"
+          class="vocation-box whitebox"
+        ><label class="character-vocation-label">{{localize
+              "SW.Labels.Vocation"
+            }}</label><select name="system.domains.magie.vocation">{{#select data.domains.magie.vocation}}{{#each data.domains.magie.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} | {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
+        <div
+          style="top: -249px;left: 528px;"
+          data-vocation-domain="rituels"
+          class="vocation-box whitebox"
+        ><label class="character-vocation-label">{{localize
+              "SW.Labels.Vocation"
+            }}</label><select name="system.domains.rituels.vocation">{{#select data.domains.rituels.vocation}}{{#each data.domains.rituels.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} | {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
+        <div
+          style="top: -208px;left: 530px;"
+          data-vocation-domain="survie"
+          class="vocation-box whitebox"
+        ><label class="character-vocation-label">{{localize
+              "SW.Labels.Vocation"
+            }}</label><select name="system.domains.survie.vocation">{{#select data.domains.survie.vocation}}{{#each data.domains.survie.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} | {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
+        <div
+          style="top: -178px;left: 486px;"
+          data-vocation-domain="combat"
+          class="vocation-box whitebox"
+        ><label class="character-vocation-label">{{localize
+              "SW.Labels.Vocation"
+            }}</label><select name="system.domains.combat.vocation">{{#select data.domains.combat.vocation}}{{#each data.domains.combat.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} | {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
+        <div
+          style="top: -164px;left: 373px;"
+          data-vocation-domain="necrose"
+          class="vocation-box whitebox"
+        ><label class="character-vocation-label">{{localize
+              "SW.Labels.Vocation"
+            }}</label><select name="system.domains.necrose.vocation">{{#select data.domains.necrose.vocation}}{{#each data.domains.necrose.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} | {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
+      </section>
+      <div class="frame-container">
+        <div class="frame image-container">
+            <img class="player-image" alt="{{actor.name}}" src="{{actor.img}}" title="{{actor.name}}" {{#if editable}}data-edit="img"{{/if}} />
+            <a class="hover-icon" data-action="show-image"><i class="fa-solid fa-image fa-fw"></i></a>
+        </div>
+      </div>
+    </section>
+  </section>
+  <div class="whitebox character-details">
+          {{!-- Lignée --}}
+          <div class="pc pc_bloodline item" data-item-id="{{bloodline._id}}">
+            <div class="input">
+                <label class="details-label green-label" style="font-weight:700;">{{localize "Item.lignee"}}</label>
+                <h3>
+                    <span class="value">{{bloodline.name}}</span>
+                    {{#if @root.editable}}
+                    {{#if bloodline}}
+                        <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
+                    {{else}}
+                        <a class="open-compendium" data-compendium="shaanworld.peuples"><i class="fas fa-fw fa-circle-plus"></i></a>
+                    {{/if}}
+                    {{/if}}                        
+                </h3>
+            </div>            
+        </div>
+        {{!-- Peuple --}}
+          <div class="pc pc_people item" data-item-id="{{people._id}}">
+            <div class="input">
+                <label class="details-label green-label" style="font-weight:700;">{{localize "Item.people"}}</label>
+                <h3>
+                    <span class="value">{{people.name}}</span>
+                    {{#if @root.editable}}
+                    {{#if people}}
+                        <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
+                    {{else}}
+                        <a class="open-compendium" data-compendium="shaanworld.people"><i class="fas fa-fw fa-circle-plus"></i></a>
+                    {{/if}}
+                    {{/if}}                        
+                </h3>
+            </div>            
+        </div>
+          {{!-- Archétype --}}
+          <div class="pc pc_archetype item" data-item-id="{{archetype._id}}">
+            <div class="input">
+                <label class="details-label green-label" style="font-weight:700;">{{localize "Item.archetype"}}</label>
+                <h3>
+                    <span class="value">{{archetype.name}}</span>
+                    {{#if @root.editable}}
+                    {{#if archetype}}
+                        <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
+                    {{else}}
+                        <a class="open-compendium" data-compendium="shaanworld.archetypes"><i class="fas fa-fw fa-circle-plus"></i></a>
+                    {{/if}}
+                    {{/if}}                        
+                </h3>
+            </div>            
+        </div>
+        <div class="pc pc_temper">
+          <div class="input">
+          <label for="" class="green-label">{{localize "SW.Labels.Temper"}}</label>
+          <input type="text" name="system.temper" value="{{data.temper}}">
+          </div>
+        </div>
+        <div class="pc pc_role">
+          <div class="input">
+            <label for="" class="green-label">{{localize "SW.Labels.Role"}}</label>
+          <input type="text" name="system.role" value="{{data.role}}">
+          </div>
+        </div>
+  </div>
+  <div class="character-experience">
+    <label for="current-exp" style="margin-bottom:10px">{{localize "SW.Labels.exp"}}</label>
+    <div class="exp-box">
+          <div class="whitebox" style="height: 35px;">
+      <input id="current-exp" type="number" class="current-exp">
+    </div>
+    <input type="number" class="max-exp">
+  </div>
+  <div class="entretien-soin">
+    <span>{{localize "SW.Labels.entretien"}}</span>
+    <div class="character-entretien whitebox">
+      <label for="entretien-esprit">{{localize "SW.Labels.esprit"}}</label>
+      <input
+        id="entretien-esprit"
+        style="top: 265px;left: -251px;"
+        type="checkbox"
+        data-trihn="esprit"
+        name="system.trihns.esprit.isMaintained"
+        {{checked data.trihns.esprit.isMaintained}}
+      />
+      <label for="entretien-ame">{{localize "SW.Labels.ame"}}</label>
+      <input
+        id="entretien-ame"
+        style="top: 201px;left: -198px;"
+        type="checkbox"
+        data-trihn="ame"
+        name="system.trihns.ame.isMaintained"
+        {{checked data.trihns.ame.isMaintained}}
+      />
+      <label for="entretien-corps">{{localize "SW.Labels.corps"}}</label>
+      <input
+        id="entretien-corpst"
+        style="top:273px;left:-207.7px"
+        type="checkbox"
+        data-trihn="corps"
+        name="system.trihns.corps.isMaintained"
+        {{checked data.trihns.corps.isMaintained}}
+      />
+    </div>
+    <span>{{localize "SW.Labels.soins"}}</span>
+    <div class="character-soins whitebox">
+      <label for="soin-esprit">{{localize "SW.Labels.esprit"}}</label>
+      <input
+        style="top: 265px;left: -251px;"
+        id="soin-esprit"
+        type="checkbox"
+        data-trihn="esprit"
+        name="system.trihns.esprit.isHealed"
+        {{checked data.trihns.esprit.isHealed}}
+      />
+      <label for="soin-ame">{{localize "SW.Labels.ame"}}</label>
+      <input
+        id="soin-ame"
+        style="top: 201px;left: -198px;"
+        type="checkbox"
+        data-trihn="ame"
+        name="system.trihns.ame.isHealed"
+        {{checked data.trihns.ame.isHealed}}
+      />
+      <label for="soin-corps">{{localize "SW.Labels.corps"}}</label>
+      <input
+        id="soin-corps"
+        style="top:273px;left:-207.7px"
+        type="checkbox"
+        data-trihn="corps"
+        name="system.trihns.corps.isHealed"
+        {{checked data.trihns.corps.isHealed}}
+      />
+    </div>
+    <a class="domainCheck">
+      {{> "systems/shaanworld/templates/actors/icons/d10Yellow.hbs"}}
+      {{> "systems/shaanworld/templates/actors/icons/d10Blue.hbs"}}
+      {{> "systems/shaanworld/templates/actors/icons/d10Red.hbs"}}
+      {{> "systems/shaanworld/templates/actors/icons/d10Black.hbs"}}
+    </a>
+  </div>
+  </div>
+</div>

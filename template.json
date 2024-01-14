@@ -169,7 +169,9 @@
       },
       "biography": {
         "appearance": "",
-        "background": "",
+        "quest":"",
+        "background":"",
+        "rupture":"",
         "campagne": {
           "notes": "",
           "gm": "",
@@ -177,12 +179,15 @@
           "enemies": ""
         }
       },
-      "temper":"",
-      "role":""
+      "temper1":"",
+      "temper2":"",
+      "archetype":"",
+      "ressources":"",
+      "artefacts":""
     }
   },
   "Item": {
-    "types": ["lignee", "people", "archetype", "vocation"],
+    "types": ["lignee", "people", "vocation", "role"],
     "templates": {
       "common": {}
     },
@@ -196,7 +201,6 @@
       "bonus":"",
       "description":""
     },
-    "archetype": {},
     "vocation": {
       "bonus":0,
       "description":"",
@@ -204,6 +208,9 @@
       "origine":"",
       "equipment":"",
       "active":false
+    }, 
+    "role": {
+      "description":""
     }
   }
 }

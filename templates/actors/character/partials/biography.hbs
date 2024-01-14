@@ -66,10 +66,33 @@
           data-group="secondary"
           data-tab="background"
         >
+          <label class="green-label">{{localize "SW.Labels.quest"}}</label>
+          <div class="quest-container">
+            {{editor
+              enrichedQuestNotes
+              target="system.biography.quest"
+              button=true
+              owner=owner
+              editable=editable
+              engine="prosemirror"
+            }}
+          </div>
+          <label class="green-label">{{localize "SW.Labels.backgroundL"}}</label>
           <div class="background-container">
             {{editor
-              enrichedBGnotes
+              enrichedBGNotes
               target="system.biography.background"
+              button=true
+              owner=owner
+              editable=editable
+              engine="prosemirror"
+            }}
+          </div>
+          <label class="green-label">{{localize "SW.Labels.rupture"}}</label>
+          <div class="rupture-container">
+            {{editor
+              enrichedRuptureNotes
+              target="system.biography.rupture"
               button=true
               owner=owner
               editable=editable

@@ -4,7 +4,16 @@
         "SW.Labels.Artefacts"
       }}</label>
     <div class="whitebox artefacts">
-
+      <div class="artefacts-container">
+            {{editor
+              enrichedArtefactsNotes
+              target="system.artefacts"
+              button=true
+              owner=owner
+              editable=editable
+              engine="prosemirror"
+            }}
+      </div>
     </div>
   </div>
   <div style="width:50%;margin-left:3px;">
@@ -12,7 +21,16 @@
         "SW.Labels.Ressources"
       }}</label>
     <div class="whitebox ressources">
-
+         <div class="ressources-container">
+            {{editor
+              enrichedRessourcesNotes
+              target="system.ressources"
+              button=true
+              owner=owner
+              editable=editable
+              engine="prosemirror"
+            }}
+          </div>
     </div>
   </div>
 </div>

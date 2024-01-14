@@ -4,7 +4,7 @@
             <select class="domain" name="domain" data-actor-id="{{actor._id}}">
                 {{#select domain}}
                     {{#each actor.system.domains as |domain|}}
-                        <option value="{{@key}}">{{@key}}</option>
+                        <option value="{{@key}}">{{localize (concat "SW.domains." @key)}}</option>
                     {{/each}}
                 {{/select}}
             </select>

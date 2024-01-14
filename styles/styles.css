@@ -25,6 +25,17 @@
   font-family: ITCOfficinaSans;
   text-transform: uppercase;
 }
+.actor.sheet select {
+  width: calc(100% - 2px);
+  min-width: 20px;
+  height: var(--form-field-height);
+  padding: 1px 3px;
+  margin: 0;
+  margin-top: 2px;
+  border: none;
+  background-color: rgba(28, 28, 28, 0.1);
+  border-radius:none;
+}
 label.green-label {
   color: var(--green-bg);
 }
@@ -66,9 +77,22 @@ label.green-label {
   z-index: 10;
 }
 .actor.sheet .domainCheck {
-  position:relative;
+  position: relative;
   top: -565px;
-  left: -337px;
+  left: -15px;
+  display: grid;
+  grid-template-rows: 0.1fr 0.1fr;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  font-family:Komikazoom;
+  color: var(--green-bg)
+}
+.actor.sheet .domainCheck:hover span {
+  text-shadow: #404d48 !important
 }
 .actor.sheet .domainCheck svg {
   width:25px;
@@ -128,6 +152,9 @@ label.green-label {
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
   border-radius: 10px;
+}
+.domain-input:focus, .trihn-input:focus, .current-exp:focus, .max-exp:focus, .input input {
+  box-shadow:none !important;
 }
 input.domain-input {
   width: 30px;
@@ -298,7 +325,8 @@ section.vocations {
 .actor.sheet .character-details .input {
   display: flex;
   flex-direction: row;
-  width: 300px;
+  width: 326px;
+  gap:5px;
 }
 .actor.sheet .character-details .pc label {
   align-self: center;
@@ -315,6 +343,7 @@ section.vocations {
   margin: 0;
   padding: 8px 4px 6px;
   width: calc(100% - 6px);
+  justify-content:space-between;
 }
 .actor.sheet .character-details input {
   background-color: rgba(28, 28, 28, 0.1);
@@ -325,10 +354,16 @@ section.vocations {
   line-height: 1;
   margin: 0;
   padding: 8px 4px 6px;
-  width: calc(100% - 6px);
+  width: calc(100% - 169px);
 }
 .actor.sheet.character .character-details .pc h3 a {
   margin-left: auto;
+}
+.actor.sheet.character .character-details .pc h3 .item-controls {
+  float: right;
+  position: relative;
+  right: -2px;
+  display:flex;
 }
 .actor.sheet.character .character-details .pc h3 a i {
   float: right;
@@ -339,8 +374,11 @@ section.vocations {
 .actor.sheet .character-experience {
   width: 136px;
   position: relative;
-  top: -583px;
+  top: -207px;
   left: 584px;
+}
+.actor.sheet .character-experience label {
+  color: var(--green-bg)
 }
 .actor.sheet .character-experience .exp-box {
   display: flex;
@@ -366,8 +404,11 @@ section.vocations {
 /* Entretien Soin */
 .actor.sheet .entretien-soin {
   position: relative;
-  top: 348px;
+  top: 22px;
   left: -81px;
+}
+.actor.sheet .entretien-soin label {
+  color: var(--green-bg)
 }
 .actor.sheet .entretien-soin .whitebox {
   width:220px;
@@ -464,6 +505,12 @@ section.vocations {
   color: #ffffff;
   z-index: 2;
 }
+.actor.sheet .whitebox.artefacts .artefacts-container {
+  height: 100%
+}
+.actor.sheet .whitebox.artefacts .artefacts-container .editor {
+  height:100%
+}
 .character-ressources-label {
   background: var(--green-bg);
   position: relative;
@@ -478,7 +525,13 @@ section.vocations {
 }
 .actor.sheet .whitebox.ressources {
   padding: 5px;
-  height: 200px;
+  height: 500px;
+}
+.actor.sheet .whitebox.ressources .ressources-container {
+  height: 100%
+}
+.actor.sheet .whitebox.ressources .ressources-container .editor {
+  height:100%
 }
 
 /* Biography */
@@ -575,9 +628,22 @@ section.vocations {
 }
 .actor.sheet .whitebox.notes .notes-content .userNotes-container,
 .actor.sheet .whitebox.notes .notes-content .gmNotes-container,
-.actor.sheet .whitebox.notes .notes-content .background-container,
 .actor.sheet .whitebox.notes .notes-content .appearance-container {
   height: 100%;
+}
+.actor.sheet .whitebox.notes .notes-content .tab.background {
+ display: grid;
+ height: 97%;
+ grid-template-rows: 15px 1fr 15px 1fr 15px 1fr;
+ grid-template-columns: 1fr;
+ gap: 2px;
+ margin-top: 2px;
+}
+.actor.sheet .whitebox.notes .notes-content .tab.background:first-child{
+  border-bottom: 3px solid var(--green-bg);
+}
+.actor.sheet .whitebox.notes .notes-content .tab.background:last-child{
+  border-top: 3px solid var(--green-bg);
 }
 .actor.sheet .whitebox.notes .editor,
 .actor.sheet .whitebox.enemies .editor,
@@ -591,7 +657,6 @@ section.vocations {
 }
 
 /* ITEMS */
-
 .item.sheet .window-content {
   background: var(--green-bg)
 }
@@ -859,4 +924,211 @@ section.vocations {
   width: 100% !important;
   resize: none;
   height: 335px !important;
+}
+
+/* ITEM ARCHETYPE */
+/* ITEM ROLE */
+.item.sheet.role {
+  display: grid;
+  grid-template-rows: 70px 1fr;
+  grid-template-columns: 1fr;
+  gap:5px;
+}
+.item.sheet.role input {
+  background-color: rgba(28, 28, 28, 0.1);
+  border: none;
+  color: var(--body);
+  display: flex;
+  font: 700 var(--font-size-14) var(--body-serif);
+  line-height: 1;
+  margin: 0;
+  margin-left: 3px;
+  padding: 8px 4px 6px;
+  width: calc(100% - 6px);
+}
+.item.sheet.role .sheet-header {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+}
+.item.sheet.role .sheet-header h2 {
+  border: none;
+  margin:0;
+}
+.item.sheet.role .sheet-header h2 input {
+  height: 50px;
+  font-family: Komikazoom;
+  font-size: var(--font-size-28);
+}
+.item.sheet.role .item-description {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+}
+.item.sheet.role .item-description textarea {
+  border: none;
+  border-radius: none;
+  width: 100% !important;
+  resize: none;
+  height: 204px !important;
+}
+
+/* DOMAIN CHECK */
+
+/* DIALOG DOMAIN CHECK */
+.dialog .window-content{
+  background: var(--green-bg)
+}
+.dialog .domain, .dialog .vocation1, .dialog .vocation2, .dialog .bonus, .dialog .malus, .dialog .lignee, .dialog .people {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+}
+
+/* CHAT DOMAIN CHECK */
+.dice-roll.domainCheck {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.1fr 1fr;
+  gap:5px;
+}
+.dice-roll.domainCheck h2 {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  justify-content: center;
+  display: flex;
+  font-family: Komikazoom
+}
+.chat-message.roll-message {
+  border-radius:0;
+  background:var(--green-bg) !important;
+}
+.dice-roll.domainCheck .dice {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template: 1fr;
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+}
+.dice-roll.domainCheck .dice.necrose {
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+.dice-roll.domainCheck .dice.necrose img {
+  height: 68px;
+  align-self:center;
+}
+.dice-roll.domainCheck .dice img {
+  border: none;
+}
+.dice-roll.domainCheck .dice .die {
+  opacity: 0.6;
+}
+.dice-roll.domainCheck .dice .die.Necrose{
+  opacity:1 !important;
+}
+.dice-roll.domainCheck .dice .die.trihnDie {
+  opacity: 1 !important; 
+}
+.dice-roll.domainCheck .details {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.1fr 0.7fr 1fr;
+  gap:5px;
+}
+.dice-roll.domainCheck .domain{
+  display:flex;
+  justify-content:center;
+  padding: 4px;
+  text-transform:capitalize;
+  font-family: Komikazoom
+}
+.dice-roll.domainCheck .domain.Esprit {
+  background-color:var(--esprit);
+  color:#fffcdb
+}
+.dice-roll.domainCheck .domain.Ame {
+  background-color:var(--ame);
+  color: #d5eefc;
+}
+.dice-roll.domainCheck .domain.Corps {
+  background-color:var(--corps);
+  color: #fbdaca;
+}
+.dice-roll.domainCheck .domain.Necrose {
+  background-color:var(--necrose);
+  color: black;
+}
+.dice-roll.domainCheck .vocations {
+  display:grid;
+  grid-template-rows: 0.5fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  gap:5px;
+  padding:5px;
+  align-items:center;
+}
+.dice-roll.domainCheck .vocations .vocation-label {
+  grid-area: 1 / 1 / 2 / 3;
+  font-family: Komikazoom;
+}
+.dice-roll.domainCheck .vocations span {
+  display: flex;
+  justify-content: center;
+}
+.dice-roll.domainCheck .vocation.Technique, .dice-roll.domainCheck .vocation.Savoir, .dice-roll.domainCheck .vocation.Social {
+  border: 3px solid var(--esprit)
+}
+.dice-roll.domainCheck .vocation.Arts, .dice-roll.domainCheck .vocation.Shaan, .dice-roll.domainCheck .vocation.Magie {
+  border: 3px solid var(--ame)
+}
+.dice-roll.domainCheck .vocation.Rituels, .dice-roll.domainCheck .vocation.Survie, .dice-roll.domainCheck .vocation.Combat {
+  border: 3px solid var(--corps)
+}
+.dice-roll.domainCheck .vocation.Nécrose {
+  border: 3px solid var(--necrose)
+}
+.dice-roll.domainCheck .modifiers {
+  display:grid;
+  grid-template-rows:1fr 1fr;
+  grid-template-columns:1fr 1fr;
+  gap:5px;
+}
+.dice-roll.domainCheck .modifiers span {
+  display:flex;
+  justify-content:center;
+  font-family: Komikazoom;
+}
+.dice-roll.domainCheck .modifiers .bonus, .dice-roll.domainCheck .modifiers .malus, .dice-roll.domainCheck .modifiers .lignee, .dice-roll.domainCheck .modifiers .people {
+  display:grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+}
+.dice-roll.domainCheck .pertes {
+  display:flex;
+  justify-content:center;
+  font-family: Komikazoom;
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+}
+.dice-roll.domainCheck .score {
+  display:flex;
+  justify-content:center;
+  font-family: Komikazoom;
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+}
+.dice-roll.domainCheck button {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
 }

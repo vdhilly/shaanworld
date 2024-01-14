@@ -8,7 +8,7 @@ export class CheckDialog extends Dialog {
 
         function updateVocOptions(selectedDomain, vocation1, vocation2, actor){
             
-            const selectedDomainVoc = actor.system.domains[selectedDomain]
+            const selectedDomainVoc = actor.system.domains[selectedDomain].vocations
             const otherDomainVoc = []
             for (const domainKey in actor.system.domains){
                 const domain = actor.system.domains[domainKey]
@@ -19,9 +19,31 @@ export class CheckDialog extends Dialog {
                 }
             }
 
-    
-            console.log(selectedDomainVoc);
-            console.log(otherDomainVoc)
+            vocation1.innerHTML = "";
+            vocation2.innerHTML = ""
+
+            const empty = document.createElement('option');
+            empty.value = 0
+            empty.textContent = ""
+            const empty2 = document.createElement('option');
+            empty.value = 0
+            empty.textContent = ""
+            vocation1.appendChild(empty)
+            vocation2.appendChild(empty2)
+            
+            
+            selectedDomainVoc.forEach(function (vocation) {
+                const optionElement = document.createElement('option');
+                optionElement.value = vocation._id;
+                optionElement.textContent = vocation.name + " +" + vocation.system.bonus
+                vocation1.appendChild(optionElement);
+            })
+            otherDomainVoc.forEach(function (vocation) {
+                const optionElement = document.createElement('option');
+                optionElement.value = vocation._id;
+                optionElement.textContent = vocation.name + " +" + vocation.system.bonus
+                vocation2.appendChild(optionElement);
+            })
 
         }
 
@@ -35,9 +57,7 @@ export class CheckDialog extends Dialog {
             updateVocOptions(domainSelect.value, vocation1Select, vocation2Select, actor)
 
             domainSelect.addEventListener('change', function () {
-                console.log(actor)
                 updateVocOptions(domainSelect.value, vocation1Select, vocation2Select, actor)
-                console.log("oui")
             })
         }
     }

@@ -2,6 +2,7 @@ import { shaanworld } from "../../module/config.js";
 import { registerHandlebarsHelpers } from "../handlebars.js";
 import { templatePaths } from "../preloadTemplates.js";
 import { registerFonts } from "../register-fonts.js";
+import shaanworldHooks from "./shaanworldHooks.js";
 
 export const Init = {
   listen: () => {
@@ -14,6 +15,8 @@ export const Init = {
       preloadHandleBarTemplates();
 
       game.shaanworld = {};
+
+      shaanworldHooks()
     });
   },
 };

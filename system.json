@@ -54,14 +54,6 @@
       "flags": {}
     },
     {
-      "name": "archetypes",
-      "label": "Archétypes",
-      "system": "shaanworld",
-      "path": "packs/archetypes",
-      "type": "Item",
-      "flags": {}
-    },
-    {
       "name": "vocations",
       "label": "Vocations",
       "system": "shaanworld",
@@ -70,34 +62,10 @@
       "flags": {}
     },
     {
-      "name": "temper",
-      "label": "Tempéraments",
-      "system": "shaanworld",
-      "path": "packs/temper",
-      "type": "Item",
-      "flags": {}
-    },
-    {
       "name": "role",
       "label": "Rôles",
       "system": "shaanworld",
       "path": "packs/role",
-      "type": "Item",
-      "flags": {}
-    },
-    {
-      "name": "quest",
-      "label": "Quêtes",
-      "system": "shaanworld",
-      "path": "packs/quest",
-      "type": "Item",
-      "flags": {}
-    },
-    {
-      "name": "rupture",
-      "label": "Ruptures",
-      "system": "shaanworld",
-      "path": "packs/rupture",
       "type": "Item",
       "flags": {}
     }

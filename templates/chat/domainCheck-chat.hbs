@@ -1,0 +1,49 @@
+<div class="dice-roll SW domainCheck chat-card" data-actor-id="{{actorID}}">
+    <h2 class="title">
+        <div class="check-type">{{localize "chat.domainCheck.title"}}</div>
+    </h2>
+    <div class="dice {{domain}}">
+        {{#each roll.dice as |die|}}
+            <div class="die {{die.flavor}} {{#if (eq die.flavor @root.domainFlavor)}}trihnDie{{/if}}">
+                <img src="systems/shaanworld/assets/dice/{{die.flavor}}/d10_{{#if (eq die.flavor "Esprit")}}jaune{{/if}}{{#if (eq die.flavor "Ame")}}bleu{{/if}}{{#if (eq die.flavor "Corps")}}rouge{{/if}}{{#if (eq die.flavor "Necrose")}}noir{{/if}}_{{die.total}}.png">
+            </div>
+            <input type="hidden" class="dice-value" value="{{die.total}}">
+        {{/each}}
+    </div>
+    <button class="puiser">Puiser</button>
+    <div class="details">
+        <span class="domain {{domainFlavor}}">{{domain}} +{{domainLevel}}</span>
+        <div class="vocations">
+            <span class="vocation-label">{{localize "chat.domainCheck.options.vocations"}}</span>
+            {{#each vocations as |vocation|}}
+                <div class="vocation {{vocation.system.domain}}">
+                    {{#if vocation}}
+                        <span>{{vocation.name}} + {{vocation.system.bonus}}</span>
+                    {{else}}
+                        <span>Aucune</span>
+                    {{/if}}
+                </div>
+            {{/each}}
+        </div>
+        <div class="modifiers">
+            <div class="bonus">
+                <span class="modifier-label">{{localize "chat.domainCheck.options.bonus"}}</span>
+                <span>{{#if bonus}}+{{bonus}}{{else}}0{{/if}}</span>
+            </div>
+            <div class="malus">
+                <span class="modifier-label">{{localize "chat.domainCheck.options.malus"}}</span>
+                <span>{{#if malus}}-{{malus}}{{else}}0{{/if}}</span>
+            </div>
+            <div class="lignee">
+                <span class="modifier-label">{{localize "chat.domainCheck.options.lignee"}}</span>
+                <span>{{#if lignee}}+2{{else}}0{{/if}}</span>
+            </div>
+            <div class="people">
+                <span class="modifier-label">{{localize "chat.domainCheck.options.people"}}</span>
+                <span>{{#if people}}+2{{else}}0{{/if}}</span>
+            </div>
+        </div>
+        <span class="pertes">{{perte}}</span>
+    </div>
+    <span class="score">Score : {{score}}</span>
+</div>

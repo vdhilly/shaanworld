@@ -3,7 +3,8 @@
     "lignee": "Lignée",
     "people": "Peuple",
     "archetype": "Archétype",
-    "vocation": "Vocation"
+    "vocation": "Vocation",
+    "role": "Rôle"
   },
   "SW": {
     "Labels": {
@@ -25,7 +26,7 @@
       "legende": "Pouvoirs de légende (NIV 14-15)",
       "BloodlineField": "Champ de Lignée",
       "PeopleField": "Champ de Peuple",
-      "Artefacts": "Artéfacts",
+      "Artefacts": "Equipement",
       "Ressources": "Ressources",
       "Notes": "Notes",
       "gmNotes": "Notes du MJ",
@@ -42,7 +43,10 @@
       "bonus":"Bonus",
       "description":"Description",
       "origine":"Origine",
-      "equipment":"Équipement"
+      "equipment":"Équipement",
+      "backgroundL": "Vécu",
+      "rupture":"Rupture",
+      "quest":"Quête"
     },
     "Abilities": {
       "Used": "Si le pouvoir a été utilisé",
@@ -67,6 +71,40 @@
       "legende1": "Rajouter 2 dés d'action",
       "legende2": "Regagner 5 énergies",
       "legende3": "Relancer les 3 dés. En Nécrose : lance 3 dés et les additionner"
+    },
+    "domains":{
+      "technique":"Technique",
+      "savoir":"Savoir",
+      "social":"Savoir",
+      "arts":"Arts",
+      "shaan":"Shaan",
+      "magie":"Magie",
+      "rituels":"Rituels",
+      "survie":"Survie",
+      "combat":"Combat",
+      "necrose":"Nécrose"
+    }
+  },
+  "chat":{
+    "domainCheck":{
+      "title":"Test de Domaine",
+      "options":{
+        "domain":"Domaine",
+        "vocations":"Vocations",
+        "bonus":"Bonus",
+        "malus":"Malus",
+        "lignee":"Bonus de Lignée",
+        "people":"Bonus de Peuple"
+      },
+      "pertes":{
+        "low":"-1 énergie",
+        "medium":"-2 énergies",
+        "great":"-3 énergies et un malus narratif"
+      }
+    },
+    "actions":{
+      "roll": "Lancer",
+      "cancel":"Annuler"
     }
   }
 }

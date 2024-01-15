@@ -212,8 +212,16 @@ section.circle input[type="checkbox"][data-trihn="corps"]:checked {
   border-radius: 10px;
   overflow: hidden;
 }
+.whitebox.vocation-box .vocation {
+  display:flex;
+}
+.whitebox.vocation-box .vocation .item-controls {
+  flex:1;
+  align-self:center;
+  justify-self:center;
+}
 .whitebox.vocation-box select {
-  height: 77%;
+  height: 46px;
   width: 100%;
   flex-wrap: wrap;
   display: flex;

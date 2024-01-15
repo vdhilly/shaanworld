@@ -159,73 +159,145 @@
         <div
           style="top: 343px;left: 109px;"
           data-vocation-domain="technique"
-          class="vocation-box whitebox"
+          class="vocation-box whitebox item" data-item-id="{{data.domains.technique.vocation}}"
         ><label class="character-vocation-label">{{localize
               "SW.Labels.Vocation"
-            }}</label><select name="system.domains.technique.vocation">{{#select data.domains.technique.vocation}}{{#each data.domains.technique.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
+            }}</label>
+            <div class="vocation">
+              <select name="system.domains.technique.vocation">{{#select data.domains.technique.vocation}}{{#each data.domains.technique.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select>
+              <div class="item-controls">
+                  <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
+                  <a class="vocation-delete"><i class="fas fa-fw fa-trash"></i></a>
+              </div>
+            </div>          
+          </div>
         <div
           style="top: 182px;left: 65px;"
           data-vocation-domain="savoir"
-          class="vocation-box whitebox"
+          class="vocation-box whitebox item" data-item-id="{{data.domains.savoir.vocation}}"
         ><label class="character-vocation-label">{{localize
               "SW.Labels.Vocation"
-            }}</label><select name="system.domains.savoir.vocation">{{#select data.domains.savoir.vocation}}{{#each data.domains.savoir.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
+            }}</label>
+            <div class="vocation">
+              <select name="system.domains.savoir.vocation">{{#select data.domains.savoir.vocation}}{{#each data.domains.savoir.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select>
+              <div class="item-controls">
+                  <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
+                  <a class="vocation-delete"><i class="fas fa-fw fa-trash"></i></a>
+              </div>
+            </div>            
+          </div>
         <div
           style="top: 11px;left: 68px;"
           data-vocation-domain="social"
-          class="vocation-box whitebox"
+          class="vocation-box whitebox item" data-item-id="{{data.domains.social.vocation}}"
         ><label class="character-vocation-label">{{localize
               "SW.Labels.Vocation"
-            }}</label><select name="system.domains.social.vocation">{{#select data.domains.social.vocation}}{{#each data.domains.social.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
+            }}</label>
+            <div class="vocation">
+              <select name="system.domains.social.vocation">{{#select data.domains.social.vocation}}{{#each data.domains.social.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select>
+              <div class="item-controls">
+                  <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
+                  <a class="vocation-delete"><i class="fas fa-fw fa-trash"></i></a>
+              </div>
+            </div>            
+          </div>
         <div
           style="top: -161px;left: 179px;"
           data-vocation-domain="arts"
-          class="vocation-box whitebox"
+          class="vocation-box whitebox item" data-item-id="{{data.domains.arts.vocation}}"
         ><label class="character-vocation-label">{{localize
               "SW.Labels.Vocation"
-            }}</label><select name="system.domains.arts.vocation">{{#select data.domains.arts.vocation}}{{#each data.domains.arts.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
+            }}</label>
+            <div class="vocation">
+              <select name="system.domains.arts.vocation">{{#select data.domains.arts.vocation}}{{#each data.domains.arts.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select>
+              <div class="item-controls">
+                  <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
+                  <a class="vocation-delete"><i class="fas fa-fw fa-trash"></i></a>
+              </div>
+            </div>            
+          </div>
         <div
           style="top: -251px; left: 306px;"
           data-vocation-domain="shaan"
-          class="vocation-box whitebox"
+          class="vocation-box whitebox item" data-item-id="{{data.domains.shaan.vocation}}"
         ><label class="character-vocation-label">{{localize
               "SW.Labels.Vocation"
-            }}</label><select name="system.domains.shaan.vocation">{{#select data.domains.shaan.vocation}}{{#each data.domains.shaan.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
+            }}</label>
+            <div class="vocation">
+              <select name="system.domains.shaan.vocation">{{#select data.domains.shaan.vocation}}{{#each data.domains.shaan.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select>
+              <div class="item-controls">
+                  <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
+                  <a class="vocation-delete"><i class="fas fa-fw fa-trash"></i></a>
+              </div>
+            </div>            
+          </div>
         <div
           style="top: -291px;left: 434px;"
           data-vocation-domain="magie"
-          class="vocation-box whitebox"
+          class="vocation-box whitebox item" data-item-id="{{data.domains.magie.vocation}}"
         ><label class="character-vocation-label">{{localize
               "SW.Labels.Vocation"
-            }}</label><select name="system.domains.magie.vocation">{{#select data.domains.magie.vocation}}{{#each data.domains.magie.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
+            }}</label>
+            <div class="vocation">
+              <select name="system.domains.magie.vocation">{{#select data.domains.magie.vocation}}{{#each data.domains.magie.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select>
+              <div class="item-controls">
+                  <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
+                  <a class="vocation-delete"><i class="fas fa-fw fa-trash"></i></a>
+              </div>
+            </div>            
+          </div>
         <div
           style="top: -249px;left: 536px;"
           data-vocation-domain="rituels"
-          class="vocation-box whitebox"
+          class="vocation-box whitebox item" data-item-id="{{data.domains.rituels.vocation}}"
         ><label class="character-vocation-label">{{localize
               "SW.Labels.Vocation"
-            }}</label><select name="system.domains.rituels.vocation">{{#select data.domains.rituels.vocation}}{{#each data.domains.rituels.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
-        <div
-          style="top: -208px;left: 538px;"
-          data-vocation-domain="survie"
-          class="vocation-box whitebox"
+            }}</label>
+            <div class="vocation">
+              <select name="system.domains.rituels.vocation">{{#select data.domains.rituels.vocation}}{{#each data.domains.rituels.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select>
+              <div class="item-controls">
+                  <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
+                  <a class="vocation-delete"><i class="fas fa-fw fa-trash"></i></a>
+              </div>
+            </div>
+          </div>
+        <div style="top: -208px;left: 538px;" data-vocation-domain="survie" class="vocation-box whitebox item" data-item-id="{{data.domains.survie.vocation}}"
         ><label class="character-vocation-label">{{localize
               "SW.Labels.Vocation"
-            }}</label><select name="system.domains.survie.vocation">{{#select data.domains.survie.vocation}}{{#each data.domains.survie.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
+            }}</label>
+            <div class="vocation">
+              <select name="system.domains.survie.vocation">{{#select data.domains.survie.vocation}}{{#each data.domains.survie.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select>
+              <div class="item-controls">
+                  <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
+                  <a class="vocation-delete"><i class="fas fa-fw fa-trash"></i></a>
+              </div>
+            </div>
+        </div>
         <div
           style="top: -178px;left: 494px;"
           data-vocation-domain="combat"
-          class="vocation-box whitebox"
+          class="vocation-box whitebox item" data-item-id="{{data.domains.combat.vocation}}"
         ><label class="character-vocation-label">{{localize
               "SW.Labels.Vocation"
-            }}</label><select name="system.domains.combat.vocation">{{#select data.domains.combat.vocation}}{{#each data.domains.combat.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
-        <div
-          style="top: -148px;left: 373px;"
-          data-vocation-domain="necrose"
-          class="vocation-box whitebox"
-        ><label class="character-vocation-label">{{localize
-              "SW.Labels.Vocation"
-            }}</label><select name="system.domains.necrose.vocation">{{#select data.domains.necrose.vocation}}{{#each data.domains.necrose.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select></div>
+            }}</label>
+            <div class="vocation">
+              <select name="system.domains.combat.vocation">{{#select data.domains.combat.vocation}}{{#each data.domains.combat.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select>
+              <div class="item-controls">
+                  <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
+                  <a class="vocation-delete"><i class="fas fa-fw fa-trash"></i></a>
+              </div>
+            </div>
+            </div>
+        <div style="top: -148px;left: 373px;" data-vocation-domain="necrose" class="vocation-box whitebox item" data-item-id="{{data.domains.necrose.vocation}}">
+          <label class="character-vocation-label">{{localize "SW.Labels.Vocation"}}</label>
+            <div class="vocation">
+              <select name="system.domains.necrose.vocation">{{#select data.domains.necrose.vocation}}{{#each data.domains.necrose.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select>
+              <div class="item-controls">
+                  <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
+                  <a class="vocation-delete"><i class="fas fa-fw fa-trash"></i></a>
+              </div>
+            </div>            
+          </div>
       </section>
       <div class="frame-container">
         <div class="frame image-container">

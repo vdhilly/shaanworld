@@ -131,6 +131,7 @@ export class ActorSheetSW extends ActorSheet {
   }
   prepareVocations(sheetData) {
     const beforeUpdate = JSON.parse(JSON.stringify(sheetData.actor.system.domains))
+    const actorBefore = JSON.parse(JSON.stringify(this.actor.system.domains))
     // console.log(sheetData.actor.system)
 
     for (const domain of sheetData.config.domains) {
@@ -168,6 +169,7 @@ export class ActorSheetSW extends ActorSheet {
 
     $html.find(".domainCheck").click(this._onDomainCheck.bind(this));
     $html.find(".item-edit").click(this._onItemEdit.bind(this));
+    $html.find(".vocation-delete").click(this._onVocationDelete.bind(this));
     $html.find(".item-delete").click(this._onItemDelete.bind(this));
 
     const imageLink = htmlQuery(html, "a[data-action=show-image]");
@@ -203,14 +205,60 @@ export class ActorSheetSW extends ActorSheet {
     event.preventDefault();
     let element = event.target;
     let itemId = element.closest(".item").dataset.itemId;
+    if(!itemId){
+      return console.log("Aucun item n'a été trouvé")
+    }
     let item = this.actor.items.get(itemId);
 
     item.sheet.render(true);
+  }
+  _onVocationDelete(event){
+    event.preventDefault();
+    let element = event.target;
+    let itemId = element.closest(".item").dataset.itemId;
+    let domain = element.closest(".item").dataset.vocationDomain
+    if(!itemId){
+        itemId = this.actor.system.domains[domain].vocations[0]._id 
+        this.actor.system.domains[domain].vocations.forEach((obj, index) => {
+          if (obj._id === itemId) {
+            // Remove the object at the current index
+            const filteredVocations = this.actor.system.domains[domain].vocations.filter(function (vocation) {
+              return vocation._id !== itemId
+            });
+            this.actor.update({[`system.domains.${domain}.vocations`]: filteredVocations})
+          }
+        });
+        if(this.actor.system.domains[domain].vocations == itemId){
+          this.actor.update({[`system.domains.${domain}.vocation`]:""})
+        }
+        return this.actor.deleteEmbeddedDocuments("Item", [itemId])
+    }
+
+    if(this.actor.system.domains[domain].vocation == itemId){
+      const indexToRemove = this.actor.system.domains[domain].vocations;
+      this.actor.system.domains[domain].vocations.forEach((obj, index) => {
+        if (obj._id === itemId) {
+          // Remove the object at the current index
+          const filteredVocations = this.actor.system.domains[domain].vocations.filter(function (vocation) {
+            return vocation._id !== itemId
+          });
+          this.actor.update({[`system.domains.${domain}.vocations`]: filteredVocations})
+        }
+      });
+      if(this.actor.system.domains[domain].vocations == itemId){
+        this.actor.update({[`system.domains.${domain}.vocation`]:""})
+      }
+      return this.actor.deleteEmbeddedDocuments("Item", [itemId])
+    }
+
   }
   _onItemDelete(event) {
     event.preventDefault();
     let element = event.target;
     let itemId = element.closest(".item").dataset.itemId;
-    return this.actor.deleteEmbeddedDocuments("Item", [itemId]);
+    if(!itemId){
+      return console.log("Aucun item n'a été trouvé")
+    }
+    return this.actor.deleteEmbeddedDocuments("Item", [itemId]) 
   }
 }

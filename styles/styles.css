@@ -976,10 +976,50 @@ section.vocations {
 /* DOMAIN CHECK */
 
 /* DIALOG DOMAIN CHECK */
-.dialog .window-content{
+.dialog.check .window-content{
   background: var(--green-bg)
 }
-.dialog .domain, .dialog .vocation1, .dialog .vocation2, .dialog .bonus, .dialog .malus, .dialog .lignee, .dialog .people {
+.dialog.check form select {
+  border: none;
+  border-radius:0;
+  display: flex;
+  width: calc(100%)
+}
+.dialog.check form input {
+  border: none;
+  border-radius:0;
+  display: flex;
+  width: calc(100%)
+}
+.dialog.check form label {
+  font-family: Komikazoom;
+  display: flex;
+  justify-content: center;
+}
+.dialog.check .domain-container, .dialog.check .vocation, .dialog.check .bonus, .dialog.check .malus, .dialog.check .lignee, .dialog.check .people {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+}
+.dialog.check .form-group.check {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap:2px;
+}
+.dialog.check .domain-container {
+    justify-self: center;
+    grid-area: 1 / 1 / 2 / 3;
+    display: flex;
+    flex-direction: column;
+    width:200px
+}
+.dialog.check button {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+}
+.dialog.check button.default {
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);

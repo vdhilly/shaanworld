@@ -1,6 +1,7 @@
 <form>
     <div class="form-group check">
-        <div class="domain">
+        <div class="domain-container">
+            <label>{{localize "SW.Labels.domain"}}</label>
             <select class="domain" name="domain" data-actor-id="{{actor._id}}">
                 {{#select domain}}
                     {{#each actor.system.domains as |domain|}}
@@ -9,11 +10,14 @@
                 {{/select}}
             </select>
         </div>
-        <div class="vocations">
+        <div class="vocation">
+            <label>{{localize "SW.Labels.vocation"}}</label>
             <select class="vocation1" name="vocation1">
             </select>
+        </div>
+        <div class="vocation">
+            <label>{{localize "SW.Labels.vocation"}}</label>
             <select class="vocation2" name="vocation2">
-
             </select>
         </div>
     </div>

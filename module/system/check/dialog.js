@@ -5,6 +5,9 @@ export class CheckDialog extends Dialog {
         const html = $html[0];
     
         const formGroup = html.querySelector('.form-group.check')
+        if(formGroup){
+            $(formGroup).closest(".app.dialog").addClass("check")
+        }
 
         function updateVocOptions(selectedDomain, vocation1, vocation2, actor){
             

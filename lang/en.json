@@ -1,10 +1,111 @@
 {
+  "Item": {
+    "lignee": "Lignée",
+    "people": "Peuple",
+    "archetype": "Archétype",
+    "vocation": "Vocation",
+    "role": "Rôle"
+  },
   "SW": {
     "Labels": {
       "Character": "Personnage",
       "Abilities": "Pouvoirs",
       "Biography": "Biographie",
-      "Name": "Nom"
+      "Possessions": "Possessions",
+      "Name": "Nom",
+      "Vocation": "Vocations",
+      "vocation":"Vocation",
+      "Bloodline": "Lignée",
+      "People": "Peuple",
+      "Archetype": "Archétype",
+      "Temper": "Tempéraments",
+      "Role": "Rôle",
+      "exp": "POINTS D'EXPÉRIENCE :",
+      "apprenti": "Pouvoirs d’apprenti (NIV 5-7)",
+      "initie": "Pouvoirs d’initié (NIV 8-10)",
+      "maitre": "Pouvoirs de maître (NIV 11-13)",
+      "legende": "Pouvoirs de légende (NIV 14-15)",
+      "BloodlineField": "Champ de Lignée",
+      "PeopleField": "Champ de Peuple",
+      "Artefacts": "Equipement",
+      "Ressources": "Ressources",
+      "Notes": "Notes",
+      "gmNotes": "Notes du MJ",
+      "appearance": "Apparence",
+      "background": "Histoire",
+      "Allies": "Alliés",
+      "Enemies": "Ennemies",
+      "esprit":"Esprit",
+      "ame":"Âme",
+      "corps":"Corps",
+      "entretien":"Entretien",
+      "soins":"Soins (MAX +5)",
+      "domain":"Domaine",
+      "bonus":"Bonus",
+      "description":"Description",
+      "origine":"Origine",
+      "equipment":"Équipement",
+      "backgroundL": "Vécu",
+      "rupture":"Rupture",
+      "quest":"Quête"
+    },
+    "Abilities": {
+      "Used": "Si le pouvoir a été utilisé",
+      "Learned": "Si le pouvoir a été appris",
+      "apprenti1": "Puiser sans perte",
+      "apprenti2": "Échanger 5 énergies",
+      "apprenti3": "Regagner 2 énergies",
+      "apprenti4": "Bonus de +2",
+      "apprenti5": "Ignorer 1 malus",
+      "apprenti6": "Relancer le dé d'action",
+      "apprenti7": "Relancer les 2 dés non-actifs",
+      "initie1": "Puiser pour additionner",
+      "initie2": "Regagner 3 énergies",
+      "initie3": "Bonus de +3",
+      "initie4": "Annuler 1 perte d'adversité",
+      "initie5": "Relancer 2 dés sur 3. En Nécrose : lancer 2 dés et choisir le meilleur",
+      "maitre1": "Rajouter un dé d'action",
+      "maitre2": "Regagner 4 énergies",
+      "maitre3": "Bonus de +4",
+      "maitre4": "Action avec énergie à -3",
+      "maitre5": "Relancer les 3 dés. En Nécrose : lance 2 dés et les additionner",
+      "legende1": "Rajouter 2 dés d'action",
+      "legende2": "Regagner 5 énergies",
+      "legende3": "Relancer les 3 dés. En Nécrose : lance 3 dés et les additionner"
+    },
+    "domains":{
+      "technique":"Technique",
+      "savoir":"Savoir",
+      "social":"Savoir",
+      "arts":"Arts",
+      "shaan":"Shaan",
+      "magie":"Magie",
+      "rituels":"Rituels",
+      "survie":"Survie",
+      "combat":"Combat",
+      "necrose":"Nécrose"
+    }
+  },
+  "chat":{
+    "domainCheck":{
+      "title":"Test de Domaine",
+      "options":{
+        "domain":"Domaine",
+        "vocations":"Vocations",
+        "bonus":"Bonus",
+        "malus":"Malus",
+        "lignee":"Bonus de Lignée",
+        "people":"Bonus de Peuple"
+      },
+      "pertes":{
+        "low":"-1 énergie",
+        "medium":"-2 énergies",
+        "great":"-3 énergies et un malus narratif"
+      }
+    },
+    "actions":{
+      "roll": "Lancer",
+      "cancel":"Annuler"
     }
   }
 }

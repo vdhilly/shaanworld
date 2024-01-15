@@ -13,7 +13,7 @@
       "flags": {}
     }
   ],
-  "version": "1.0",
+  "version": "1.0.1",
   "compatibility": {
     "minimum": "11",
     "verified": "11",
@@ -83,5 +83,5 @@
   "gridUnits": "m",
   "url": "https://github.com/YoimPouet/shaanworld",
   "manifest": "https://raw.githubusercontent.com/YoimPouet/shaanworld/main/system.json",
-  "download": "https://github.com/YoimPouet/shaanworld/releases/download/v1.0/shaanworld.zip"
+  "download": "https://github.com/YoimPouet/shaanworld/releases/download/v1.0.1/shaanworld.zip"
 }

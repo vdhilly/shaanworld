@@ -11,6 +11,15 @@
   font-family: ITCOfficinaSans;
   src: url(../fonts/itc-officina-sans-lt-book.ttf);
 }
+@font-face {
+  font-family: Komikazoom;
+  src: url(../fonts/KAMIKZOM.ttf);
+}
+h3 {
+  font-family: Komikazoom;
+  font-weight: 400;
+  border: 0;
+}
 .actor.sheet .fa-solid,.actor.sheet .fas {
   font-weight: 500;
 }

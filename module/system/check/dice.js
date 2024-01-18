@@ -99,7 +99,6 @@ export async function domainCheck(actor){
         domainDice = Necrose;
         domainFlavor = "Necrose"
     }
-    console.log(domainFlavor)
 
     let score; 
     if(domainFlavor !== "Necrose") {
@@ -167,10 +166,9 @@ export async function domainCheck(actor){
         perte: perte
     })
 
-
+    
     async function GetRollOptions({template = "systems/shaanworld/templates/chat/domainCheck.hbs", domain = null, vocations = {vocation1: null, vocation2:null}, bonus = null, malus = null, lignee = false, people = false} = {}){
         const html = await renderTemplate(template, {actor, domain, vocations, bonus, malus, lignee, people});
-        const actorData = actor.toObject(!1);
         const config = CONFIG.shaanworld
     
         return new Promise((resolve) => {

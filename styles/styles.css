@@ -11,7 +11,7 @@
   font-family: ITCOfficinaSans;
   src: url(../fonts/itc-officina-sans-lt-book.ttf);
 }
-.fa-solid, .fas {
+.actor.sheet .fa-solid,.actor.sheet .fas {
   font-weight: 500;
 }
 .system-shaanworld #pause img {

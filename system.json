@@ -37,6 +37,14 @@
   ],
   "styles": ["styles/styles.css"],
   "packs": [
+      {
+      "name": "macros",
+      "label": "Macros",
+      "system": "shaanworld",
+      "path": "packs/macros",
+      "type": "Macro",
+      "flags": {}
+    },
     {
       "name": "lignee",
       "label": "Lignées",

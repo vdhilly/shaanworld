@@ -133,7 +133,7 @@ export class ActorSheetSW extends ActorSheet {
   prepareVocations(sheetData) {
     const beforeUpdate = JSON.parse(JSON.stringify(sheetData.actor.system.domains))
     const actorBefore = JSON.parse(JSON.stringify(this.actor.system.domains))
-    // console.log(sheetData.actor.system)
+
 
     for (const domain of sheetData.config.domains) {
       let domainVocations = sheetData.items.filter(function (item) {
@@ -191,14 +191,12 @@ export class ActorSheetSW extends ActorSheet {
         const compendium = game.packs.get(
           event.currentTarget.dataset.compendium
         );
-        console.log(compendium)
         compendium && compendium.render(!0);
       }
     });
   }
   _onDomainCheck(event){
     let actor = this.actor
-    console.log(actor)
 
     Dice.domainCheck(actor)
   }
@@ -210,7 +208,6 @@ export class ActorSheetSW extends ActorSheet {
       return console.log("Aucun item n'a été trouvé")
     }
     let item = this.actor.items.get(itemId);
-    console.log(itemId)
 
     item.sheet.render(true);
   }
@@ -259,13 +256,17 @@ export class ActorSheetSW extends ActorSheet {
 
   }
   _onItemDelete(event) {
-    event.preventDefault();
-    let element = event.target;
-    let itemId = element.closest(".item").dataset.itemId;
-    if(!itemId){
-      return console.log("Aucun item n'a été trouvé")
+    try {
+      event.preventDefault();
+      let element = event.target;
+      let itemId = element.closest(".item").dataset.itemId;
+      if(!itemId){
+        throw new Error("itemId is not defined")
+      }
+      return this.actor.deleteEmbeddedDocuments("Item", [itemId]) 
+    } catch (error){
+      console.error(error)
     }
-    return this.actor.deleteEmbeddedDocuments("Item", [itemId]) 
   }
   async _onDropItem(event, data){
     let items = await super._onDropItem(event, data);

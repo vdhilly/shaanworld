@@ -3,6 +3,7 @@ import { character } from "./actors/character/document.js";
 import { ItemSW } from "./items/document.js";
 import { Vocation } from "./items/vocation/document.js";
 import { domainCheck } from "./system/check/dice.js";
+import { getSelectedOrOwnActors } from "./utils/utils.js";
 
 export const shaanworld = {};
 
@@ -24,4 +25,7 @@ shaanworld.archetypes = ["Technicien", "Savant", "Médiateur", "Artiste", "Shaan
 
 shaanworld.macros = {
   domainCheck: domainCheck
+}
+shaanworld.utils = {
+  getSelectedOrOwnActors: getSelectedOrOwnActors
 }

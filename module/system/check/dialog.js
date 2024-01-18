@@ -12,6 +12,7 @@ export class CheckDialog extends Dialog {
         function updateVocOptions(selectedDomain, vocation1, vocation2, actor){
             
             const selectedDomainVoc = actor.system.domains[selectedDomain].vocations
+
             const otherDomainVoc = []
             for (const domainKey in actor.system.domains){
                 const domain = actor.system.domains[domainKey]

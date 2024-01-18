@@ -423,9 +423,9 @@
     <label for="current-exp" style="margin-bottom:10px">{{localize "SW.Labels.exp"}}</label>
     <div class="exp-box">
           <div class="whitebox" style="height: 35px;">
-      <input id="current-exp" type="number" class="current-exp">
+      <input name="system.currentXP" value="{{data.currentXP}}" id="current-exp" type="number" class="current-exp">
     </div>
-    <input type="number" class="max-exp">
+    <input name="system.maxXP" value="{{data.maxXP}}" type="number" class="max-exp">
   </div>
   <div class="entretien-soin">
     <span>{{localize "SW.Labels.entretien"}}</span>

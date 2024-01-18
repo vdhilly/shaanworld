@@ -5,6 +5,7 @@ export function objectHasKey(obj, key) {
 
 export function getSelectedOrOwnActors(types, useOwnCharacter = !0) {
     const actors = canvas.tokens.controlled.flatMap((token => token.actor ? token.actor : [])).filter((actor => actor.isOwner)).filter((actor => !types || actor.isOfType(...types)));
+    
     return 0 === actors.length && game.user.character && useOwnCharacter && actors.push(game.user.character), actors
 }
 
@@ -110,10 +111,7 @@ export function fontAwesomeIcon(glyph, {
         icon = document.createElement("i");
     return icon.classList.add(styleClass, glyphClass), fixedWidth && icon.classList.add("fa-fw"), icon
 }
-export const PHYSICAL_ITEM_TYPES = new Set(["Armement", "Armimale", "Artefact", "Manuscrit", "Outil", "Protection", "Relation", "Richesse", "Technologie", "Transport", "Bâtiment"]);
-export const CHARACTER_ACTOR_TYPES = ["Personnage","PNJ","Shaani","Créature","Réseau"];
-export const CHARACTER_SHEET_TABS = ["character", "powers", "symbioses", "details","morphe", "magic", "acquis", "biography"]
-export const CHARACTER_SCHEMES = {element: ["moi", "lui", "eau", "terre", "animal", "vegetal", "air", "feu", "objet", "limbes"], action: ["controle", "deplacement", "non-perception", "mutation", "perception"], cles: ["comme", "dans", "sur", "de", "en"], frequence: ["frequence1", "frequence2", "frequence3", "frequence4"], portee: ["contact", "interaction", "distance", "horizon"], duree: ["duree1", "duree2", "duree3", "duree4"], cibles: ["cibles1", "cibles2", "cibles3", "cibles4"]}
+export const CHARACTER_ACTOR_TYPES = ["character"];
 
 export function isItemSystemData(data) {
     return (0, isObject)(data) && (0, isObject)(data.description) && "string" == typeof data.description.value && Array.isArray(data.rules) && (null === data.slug || "string" == typeof data.slug)

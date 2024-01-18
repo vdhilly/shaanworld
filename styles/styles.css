@@ -27,6 +27,10 @@ h3 {
   content: url("../assets/symbole_pause.webp");
   object-fit: contain;
 }
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
 ::-webkit-scrollbar-thumb {
   outline: none;
   border-radius: 3px;
@@ -53,10 +57,13 @@ label.green-label {
 }
 .sheet.character .window-content {
   padding: 0 !important;
-  overflow-y: hidden !important;
+  overflow-y: scroll;
 }
 .sheet.character .window-resizable-handle {
   display: none;
+}
+.sheet.character .window-content{
+  background: var(--green-bg);
 }
 .actor.sheet.character {
   background: var(--green-bg);
@@ -228,6 +235,8 @@ section.circle input[type="checkbox"][data-trihn="corps"]:checked {
   display:flex;
   flex-direction: column;;
   padding-left: 3px;
+  overflow-y:scroll;
+  height:56px;
 }
 .whitebox.vocation-box .vocation div {
   display: flex; 
@@ -239,7 +248,7 @@ section.circle input[type="checkbox"][data-trihn="corps"]:checked {
   flex: 1;
   align-self: center;
   justify-content:right;
-  font-size: 11px;
+  font-size: 10px;
   z-index: 10;
 }
 
@@ -403,9 +412,10 @@ section.vocations {
   top: -2px;
 }
 .actor.sheet .character-experience {
+  margin-top: -213px;
   width: 136px;
   position: relative;
-  top: -196px;
+  top: 14px;
   left: 584px;
 }
 .actor.sheet .character-experience label {

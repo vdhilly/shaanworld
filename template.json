@@ -163,7 +163,9 @@
       "temper2":"",
       "archetype":"",
       "ressources":"",
-      "artefacts":""
+      "artefacts":"",
+      "currentXP":0,
+      "maxXP":0
     }
   },
   "Item": {

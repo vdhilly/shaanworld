@@ -57,6 +57,7 @@ export class ActorSheetSW extends ActorSheet {
       getProperty(this.actor.system, "biography.campagne.gm"),
       { async: true }
     );
+    sheetData.enrichedArtefactsNotes = await TextEditor.enrichHTML(getProperty(this.actor.system, "artefacts"), {async: true})
     sheetData.enrichedUserNotes = await TextEditor.enrichHTML(
       getProperty(this.actor.system, "biography.campagne.notes"),
       { async: true }

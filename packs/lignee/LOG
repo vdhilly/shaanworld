@@ -1,3 +1,5 @@
-2024/01/18-13:30:58.464 2fcc Recovering log #75
-2024/01/18-13:30:58.489 2fcc Delete type=0 #75
-2024/01/18-13:30:58.491 2fcc Delete type=3 #74
+2024/01/18-18:20:52.355 aa04 Recovering log #77
+2024/01/18-18:20:52.357 aa04 Level-0 table #79: started
+2024/01/18-18:20:52.362 aa04 Level-0 table #79: 5010 bytes OK
+2024/01/18-18:20:52.376 aa04 Delete type=0 #77
+2024/01/18-18:20:52.377 aa04 Delete type=3 #76

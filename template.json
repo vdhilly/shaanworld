@@ -27,54 +27,34 @@
       },
       "domains": {
         "technique": {
-          "rank": 0,
-          "vocation":{},
-          "vocations": []
+          "rank": 0
         },
         "savoir": {
-          "rank": 0,
-          "vocation":{},
-          "vocations": []
+          "rank": 0
         },
         "social": {
-          "rank": 0,
-          "vocation":{},
-          "vocations": []
+          "rank": 0
         },
         "arts": {
-          "rank": 0,
-          "vocation":{},
-          "vocations": []
+          "rank": 0
         },
         "shaan": {
-          "rank": 0,
-          "vocation":{},
-          "vocations": []
+          "rank": 0
         },
         "magie": {
-          "rank": 0,
-          "vocation":{},
-          "vocations": []
+          "rank": 0
         },
         "rituels": {
-          "rank": 0,
-          "vocation":{},
-          "vocations": []
+          "rank": 0
         },
         "survie": {
-          "rank": 0,
-          "vocation":{},
-          "vocations": []
+          "rank": 0
         },
         "combat": {
-          "rank": 0,
-          "vocation":{},
-          "vocations": []
+          "rank": 0
         },
         "necrose": {
-          "rank": 0,
-          "vocation":{},
-          "vocations": []
+          "rank": 0
         }
       },
       "abilities": {

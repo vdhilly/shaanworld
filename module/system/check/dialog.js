@@ -10,14 +10,20 @@ export class CheckDialog extends Dialog {
         }
 
         function updateVocOptions(selectedDomain, vocation1, vocation2, actor){
+            let vocations = {}
+            for (const domain of CONFIG.shaanworld.domains) {
+                vocations[domain.toLowerCase().replace("é", "e")] = actor.items.filter(function (item) {
+                  return item.system.domain === domain;
+                });
+            }
             
-            const selectedDomainVoc = actor.system.domains[selectedDomain].vocations
+            const selectedDomainVoc = vocations[selectedDomain]
 
             const otherDomainVoc = []
-            for (const domainKey in actor.system.domains){
-                const domain = actor.system.domains[domainKey]
+            for (const domainKey in vocations){
+                const domain = vocations[domainKey]
                 if(domainKey !== selectedDomain){
-                    for(const vocation of domain.vocations){
+                    for(const vocation of domain){
                         otherDomainVoc.push(vocation)
                     }
                 }

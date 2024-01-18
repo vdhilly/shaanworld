@@ -86,6 +86,7 @@ label.green-label {
   width: 335px;
   position: relative;
   left: 390px;
+  top:-12px;
   z-index: 10;
 }
 .actor.sheet .domainCheck {
@@ -133,7 +134,7 @@ label.green-label {
 .character-vocation-label {
   background: var(--green-bg);
   position: relative;
-  left: -27px;
+  left: -20px;
   width: 163px;
   font-size: 12px;
   justify-content: center;
@@ -217,7 +218,7 @@ section.circle input[type="checkbox"][data-trihn="corps"]:checked {
   accent-color: var(--corps);
 }
 .whitebox.vocation-box {
-  height: 65px;
+  height: 75px;
   width: 125px;
   position: relative;
   border-radius: 10px;
@@ -225,19 +226,23 @@ section.circle input[type="checkbox"][data-trihn="corps"]:checked {
 }
 .whitebox.vocation-box .vocation {
   display:flex;
+  flex-direction: column;;
+  padding-left: 3px;
+}
+.whitebox.vocation-box .vocation div {
+  display: flex; 
+  flex-direction:row;
+  font-size:12px;
 }
 .whitebox.vocation-box .vocation .item-controls {
+  display:flex;
   flex: 1;
   align-self: center;
-  position: absolute;
-  left: 89px;
-  top: 1px;
+  justify-content:right;
   font-size: 11px;
-  color: white;
   z-index: 10;
-  
-  display: flex;
 }
+
 .whitebox.vocation-box select {
   height: 46px;
   width: 100%;
@@ -276,7 +281,7 @@ section.vocations {
   box-shadow: 0 0 0 1px #918c88, 0 0 0 2px #e1d8cf, 0 0 0 3px #a98f39,
     inset 0 0 8px rgba(0, 0, 0, 0.5), 0 0 8px #000;
   cursor: pointer;
-  max-height: 178px;
+  max-height: 140px;
   object-fit: cover;
   object-position: top;
   width: 100%;
@@ -400,7 +405,7 @@ section.vocations {
 .actor.sheet .character-experience {
   width: 136px;
   position: relative;
-  top: -207px;
+  top: -196px;
   left: 584px;
 }
 .actor.sheet .character-experience label {

@@ -131,37 +131,12 @@ export class ActorSheetSW extends ActorSheet {
       sheetData.role = lastElement;
   }
   prepareVocations(sheetData) {
-    const beforeUpdate = JSON.parse(JSON.stringify(sheetData.actor.system.domains))
-    const actorBefore = JSON.parse(JSON.stringify(this.actor.system.domains))
-
+    sheetData.vocations = {}
 
     for (const domain of sheetData.config.domains) {
-      let domainVocations = sheetData.items.filter(function (item) {
+      sheetData.vocations[domain.toLowerCase().replace('é', 'e')] = sheetData.items.filter(function (item) {
         return item.system.domain === domain;
-      });
-  
-      let d = domain.toLowerCase().replace('é', 'e');
-  
-      for (const vocation of domainVocations) {
-        const isUnique = !sheetData.data.domains[d].vocations.some(existingVocation =>
-          existingVocation._id === vocation._id
-        );
-
-        if (isUnique) {
-          sheetData.data.domains[d].vocations.push(vocation);
-        }
-      }
-    }
-
-    this.updateVocations(sheetData, beforeUpdate)
-  }
-  updateVocations(sheetData, beforeUpdate){
-    const domains = sheetData.actor.system.domains
-
-    for(const domainKey in domains){
-      if(JSON.stringify(domains[domainKey]) !== JSON.stringify(beforeUpdate[domainKey])){
-        this.actor.update({[`system.domains.${domainKey}`]: domains[domainKey]})
-      }
+      });    
     }
   }
   activateListeners($html){
@@ -170,7 +145,6 @@ export class ActorSheetSW extends ActorSheet {
 
     $html.find(".domainCheck").click(this._onDomainCheck.bind(this));
     $html.find(".item-edit").click(this._onItemEdit.bind(this));
-    $html.find(".vocation-delete").click(this._onVocationDelete.bind(this));
     $html.find(".item-delete").click(this._onItemDelete.bind(this));
 
     const imageLink = htmlQuery(html, "a[data-action=show-image]");
@@ -211,50 +185,6 @@ export class ActorSheetSW extends ActorSheet {
 
     item.sheet.render(true);
   }
-  _onVocationDelete(event){
-    event.preventDefault();
-    let element = event.target;
-    let itemId = element.closest(".item").dataset.itemId;
-    let domain = element.closest(".item").dataset.vocationDomain
-    if(!itemId){
-        itemId = this.actor.system.domains[domain].vocations[0]._id 
-        this.actor.system.domains[domain].vocations.forEach((obj, index) => {
-          // Remove the object at the current index
-          const filteredVocations = this.actor.system.domains[domain].vocations.filter(function (vocation) {
-            return vocation._id !== itemId
-          });
-          if (obj._id === itemId) {
-            this.actor.update({[`system.domains.${domain}.vocations`]: filteredVocations})
-          }
-          if(this.actor.system.domains[domain].vocations.length > 1){
-            this.actor.update({[`system.domains.${domain}.vocation`]:filteredVocations[0]._id})
-          } else {
-            this.actor.update({[`system.domains.${domain}.vocation`]:""})
-          }
-        });
-        return this.actor.deleteEmbeddedDocuments("Item", [itemId])
-    }
-
-    if(this.actor.system.domains[domain].vocation === itemId){
-      this.actor.system.domains[domain].vocations.forEach((obj, index) => {
-        const filteredVocations = this.actor.system.domains[domain].vocations.filter(function (vocation) {
-          return vocation._id !== itemId
-        });
-        if (obj._id === itemId) {
-          // Remove the object at the current index
-          this.actor.update({[`system.domains.${domain}.vocations`]: filteredVocations})
-        }
-        if(this.actor.system.domains[domain].vocations.length > 1){
-          this.actor.update({[`system.domains.${domain}.vocation`]:filteredVocations[0]._id})
-        } else {
-          this.actor.update({[`system.domains.${domain}.vocation`]:""})
-        }
-      });
-
-      return this.actor.deleteEmbeddedDocuments("Item", [itemId])
-    }
-
-  }
   _onItemDelete(event) {
     try {
       event.preventDefault();
@@ -266,17 +196,6 @@ export class ActorSheetSW extends ActorSheet {
       return this.actor.deleteEmbeddedDocuments("Item", [itemId]) 
     } catch (error){
       console.error(error)
-    }
-  }
-  async _onDropItem(event, data){
-    let items = await super._onDropItem(event, data);
-    for (const item of items){
-      if(item.type === "vocation"){
-        const domain = item.system.domain.toLowerCase()
-        if(this.actor.system.domains[domain].vocations.length === 0){
-          this.actor.update({system:{domains:{[`${domain}`]:{vocation: item._id}}}})
-        }
-      } 
     }
   }
 }

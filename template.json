@@ -26,6 +26,7 @@
         }
       },
       "domains": {
+        "vocations":[],
         "technique": {
           "rank": 0,
           "vocation":{},
@@ -202,7 +203,7 @@
       "description":""
     },
     "vocation": {
-      "bonus":0,
+      "bonus":1,
       "description":"",
       "domain":"",
       "origine":"",

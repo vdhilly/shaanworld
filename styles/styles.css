@@ -11,6 +11,9 @@
   font-family: ITCOfficinaSans;
   src: url(../fonts/itc-officina-sans-lt-book.ttf);
 }
+.fa-solid, .fas {
+  font-weight: 500;
+}
 .system-shaanworld #pause img {
   content: url("../assets/symbole_pause.webp");
   object-fit: contain;
@@ -79,7 +82,7 @@ label.green-label {
 .actor.sheet .domainCheck {
   position: relative;
   top: -565px;
-  left: -15px;
+  left: -6px;
   display: grid;
   grid-template-rows: 0.1fr 0.1fr;
   justify-content: center;
@@ -206,9 +209,8 @@ section.circle input[type="checkbox"][data-trihn="corps"]:checked {
 }
 .whitebox.vocation-box {
   height: 65px;
-  width: 110px;
+  width: 125px;
   position: relative;
-  /* z-index: -1; */
   border-radius: 10px;
   overflow: hidden;
 }
@@ -216,9 +218,16 @@ section.circle input[type="checkbox"][data-trihn="corps"]:checked {
   display:flex;
 }
 .whitebox.vocation-box .vocation .item-controls {
-  flex:1;
-  align-self:center;
-  justify-self:center;
+  flex: 1;
+  align-self: center;
+  position: absolute;
+  left: 89px;
+  top: 1px;
+  font-size: 11px;
+  color: white;
+  z-index: 10;
+  
+  display: flex;
 }
 .whitebox.vocation-box select {
   height: 46px;

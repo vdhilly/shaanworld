@@ -1,3 +1,4 @@
+import { Vocation } from "../../items/vocation/document.js";
 import * as Dice from "../../system/check/dice.js";
 import { htmlQuery } from "../../utils/utils.js";
 
@@ -209,6 +210,7 @@ export class ActorSheetSW extends ActorSheet {
       return console.log("Aucun item n'a été trouvé")
     }
     let item = this.actor.items.get(itemId);
+    console.log(itemId)
 
     item.sheet.render(true);
   }
@@ -220,34 +222,38 @@ export class ActorSheetSW extends ActorSheet {
     if(!itemId){
         itemId = this.actor.system.domains[domain].vocations[0]._id 
         this.actor.system.domains[domain].vocations.forEach((obj, index) => {
-          if (obj._id === itemId) {
-            // Remove the object at the current index
-            const filteredVocations = this.actor.system.domains[domain].vocations.filter(function (vocation) {
-              return vocation._id !== itemId
-            });
-            this.actor.update({[`system.domains.${domain}.vocations`]: filteredVocations})
-          }
-        });
-        if(this.actor.system.domains[domain].vocations == itemId){
-          this.actor.update({[`system.domains.${domain}.vocation`]:""})
-        }
-        return this.actor.deleteEmbeddedDocuments("Item", [itemId])
-    }
-
-    if(this.actor.system.domains[domain].vocation == itemId){
-      const indexToRemove = this.actor.system.domains[domain].vocations;
-      this.actor.system.domains[domain].vocations.forEach((obj, index) => {
-        if (obj._id === itemId) {
           // Remove the object at the current index
           const filteredVocations = this.actor.system.domains[domain].vocations.filter(function (vocation) {
             return vocation._id !== itemId
           });
+          if (obj._id === itemId) {
+            this.actor.update({[`system.domains.${domain}.vocations`]: filteredVocations})
+          }
+          if(this.actor.system.domains[domain].vocations.length > 1){
+            this.actor.update({[`system.domains.${domain}.vocation`]:filteredVocations[0]._id})
+          } else {
+            this.actor.update({[`system.domains.${domain}.vocation`]:""})
+          }
+        });
+        return this.actor.deleteEmbeddedDocuments("Item", [itemId])
+    }
+
+    if(this.actor.system.domains[domain].vocation === itemId){
+      this.actor.system.domains[domain].vocations.forEach((obj, index) => {
+        const filteredVocations = this.actor.system.domains[domain].vocations.filter(function (vocation) {
+          return vocation._id !== itemId
+        });
+        if (obj._id === itemId) {
+          // Remove the object at the current index
           this.actor.update({[`system.domains.${domain}.vocations`]: filteredVocations})
         }
+        if(this.actor.system.domains[domain].vocations.length > 1){
+          this.actor.update({[`system.domains.${domain}.vocation`]:filteredVocations[0]._id})
+        } else {
+          this.actor.update({[`system.domains.${domain}.vocation`]:""})
+        }
       });
-      if(this.actor.system.domains[domain].vocations == itemId){
-        this.actor.update({[`system.domains.${domain}.vocation`]:""})
-      }
+
       return this.actor.deleteEmbeddedDocuments("Item", [itemId])
     }
 
@@ -260,5 +266,16 @@ export class ActorSheetSW extends ActorSheet {
       return console.log("Aucun item n'a été trouvé")
     }
     return this.actor.deleteEmbeddedDocuments("Item", [itemId]) 
+  }
+  async _onDropItem(event, data){
+    let items = await super._onDropItem(event, data);
+    for (const item of items){
+      if(item.type === "vocation"){
+        const domain = item.system.domain.toLowerCase()
+        if(this.actor.system.domains[domain].vocations.length === 0){
+          this.actor.update({system:{domains:{[`${domain}`]:{vocation: item._id}}}})
+        }
+      } 
+    }
   }
 }

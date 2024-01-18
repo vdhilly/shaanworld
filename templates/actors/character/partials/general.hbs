@@ -157,7 +157,7 @@
       />
       <section class="vocations">
         <div
-          style="top: 343px;left: 109px;"
+          style="top: 343px;left: 95px;"
           data-vocation-domain="technique"
           class="vocation-box whitebox item" data-item-id="{{data.domains.technique.vocation}}"
         ><label class="character-vocation-label">{{localize
@@ -172,7 +172,7 @@
             </div>          
           </div>
         <div
-          style="top: 182px;left: 65px;"
+          style="top: 182px;left: 50px;"
           data-vocation-domain="savoir"
           class="vocation-box whitebox item" data-item-id="{{data.domains.savoir.vocation}}"
         ><label class="character-vocation-label">{{localize
@@ -187,7 +187,7 @@
             </div>            
           </div>
         <div
-          style="top: 11px;left: 68px;"
+          style="top: 11px;left: 54px;"
           data-vocation-domain="social"
           class="vocation-box whitebox item" data-item-id="{{data.domains.social.vocation}}"
         ><label class="character-vocation-label">{{localize
@@ -281,7 +281,7 @@
               "SW.Labels.Vocation"
             }}</label>
             <div class="vocation">
-              <select name="system.domains.combat.vocation">{{#select data.domains.combat.vocation}}{{#each data.domains.combat.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select>
+              <select name="system.domains.combat.vocation" value="{{data.domains.combat.vocation}}">{{#select data.domains.combat.vocation}}{{#each data.domains.combat.vocations as |vocation|}}<option value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</option>{{/each}}{{/select}}</select>
               <div class="item-controls">
                   <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
                   <a class="vocation-delete"><i class="fas fa-fw fa-trash"></i></a>

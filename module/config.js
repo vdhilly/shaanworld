@@ -17,6 +17,7 @@ shaanworld.Item = {
     lignee: ItemSW,
     people: ItemSW,
     vocation: Vocation,
+    role:ItemSW
   },
 };
 

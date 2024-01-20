@@ -1,3 +1,5 @@
-2024/01/18-20:05:56.678 a8a8 Recovering log #80
-2024/01/18-20:05:56.692 a8a8 Delete type=0 #80
-2024/01/18-20:05:56.693 a8a8 Delete type=3 #78
+2024/01/19-23:57:56.739 caa8 Recovering log #84
+2024/01/19-23:57:56.740 caa8 Level-0 table #86: started
+2024/01/19-23:57:56.747 caa8 Level-0 table #86: 650 bytes OK
+2024/01/19-23:57:56.760 caa8 Delete type=0 #84
+2024/01/19-23:57:56.761 caa8 Delete type=3 #83

@@ -12,4 +12,9 @@ export const templatePaths = [
 
   // VOCATION
   "systems/shaanworld/templates/items/partials/header.hbs",
+
+  // Token Config
+  "templates/scene/parts/token-vision.html",
+  "templates/scene/parts/token-lighting.html",
+  "systems/shaanworld/templates/scene/parts/token-resources.hbs", 
 ];

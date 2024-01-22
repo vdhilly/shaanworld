@@ -16,7 +16,7 @@ export default () => {
         if(dialog.title === "Create New Item"){
             const $html = html[0]
 
-            const itemOptions =$html.querySelectorAll('select[name="type"] option')
+            const itemOptions = $html.querySelectorAll('select[name="type"] option')
             for (const itemOption of itemOptions) {
                 itemOption.textContent = game.i18n.localize('Item.' + itemOption.textContent)
             }

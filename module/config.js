@@ -1,4 +1,5 @@
 
+import { Adversite } from "./actors/adversite/document.js";
 import { character } from "./actors/character/document.js";
 import { ItemSW } from "./items/document.js";
 import { Vocation } from "./items/vocation/document.js";
@@ -9,7 +10,8 @@ export const shaanworld = {};
 
 shaanworld.Actor = {
   documentClasses: {
-    character: character
+    character: character,
+    adversite: Adversite
   }
 }
 shaanworld.Item = {

@@ -1,3 +1,4 @@
+import { AdversiteSheet } from "../module/actors/adversite/sheet.js";
 import { ActorSheetSW } from "../module/actors/character/sheet.js";
 import { BloodlineSheetSW } from "../module/items/lignee/sheet.js";
 import { PeopleSheetSW } from "../module/items/people/sheet.js";
@@ -8,6 +9,10 @@ export function registerSheets() {
   Actors.registerSheet("shaanrenaissance", ActorSheetSW, {
     types: ["character"],
     label: "character",
+  });
+  Actors.registerSheet("shaanrenaissance", AdversiteSheet, {
+    types: ["adversite"],
+    label: "adversite",
   });
   Items.unregisterSheet("core", ItemSheet);
   Items.registerSheet("shaanrenaissance", BloodlineSheetSW, {

@@ -22,9 +22,9 @@ export async function domainCheck(actor){
 
     let rollFormula
     if(domain == "necrose"){
-        rollFormula = "{1d10[Ame], 1d10[Necrose]}"
+        rollFormula = "{1d10[Necrose], 1d10[Ame]}"
     } else {
-        rollFormula = "{1d10[Corps], 1d10[Ame], 1d10[Esprit], 1d10[Necrose]}"
+        rollFormula = "{1d10[Esprit], 1d10[Ame], 1d10[Corps], 1d10[Necrose]}"
     }
 
     let rollData = {

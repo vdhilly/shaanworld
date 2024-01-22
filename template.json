@@ -1,26 +1,26 @@
 {
   "Actor": {
-    "types": ["character"],
+    "types": ["character", "adversite"],
     "templates": {
       "common": {}
     },
     "character": {
       "trihns": {
         "ame": {
-          "base": 0,
-          "temp": 0,
+          "max": 0,
+          "value": 0,
           "isMaintained": false,
           "isHealed":false
         },
         "corps": {
-          "base": 0,
-          "temp": 0,
+          "max": 0,
+          "value": 0,
           "isMaintained": false,
           "isHealed":false
         },
         "esprit": {
-          "base": 0,
-          "temp": 0,
+          "max": 0,
+          "value": 0,
           "isMaintained": false,
           "isHealed":false
         }
@@ -166,6 +166,19 @@
       "artefacts":"",
       "currentXP":0,
       "maxXP":0
+    },
+    "adversite":{
+      "description":"",
+      "domains":[],
+      "secret":"",
+      "resolution":"",
+      "gains":"",
+      "duree":"",
+      "bonus narratif":"",
+      "score":0,
+      "scoreMax":0,
+      "perte":"",
+      "perteIsEnergie":true
     }
   },
   "Item": {

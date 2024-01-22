@@ -12,13 +12,13 @@
     </div>
     <button class="puiser">Puiser</button>
     <div class="details">
-        <span class="domain {{domainFlavor}}">{{domain}} +{{domainLevel}}</span>
+        <span data-domain={{domain}} data-domain-level="{{domainLevel}}" class="domain {{domainFlavor}}">{{domain}} +{{domainLevel}}</span>
         <div class="vocations">
             <span class="vocation-label">{{localize "chat.domainCheck.options.vocations"}}</span>
             {{#each vocations as |vocation|}}
                 <div class="vocation {{vocation.system.domain}}">
                     {{#if vocation}}
-                        <span>{{vocation.name}} + {{vocation.system.bonus}}</span>
+                        <span>{{vocation.name}} <b class="puiser-bonus">+{{vocation.system.bonus}}</b></span>
                     {{else}}
                         <span>Aucune</span>
                     {{/if}}
@@ -28,19 +28,19 @@
         <div class="modifiers">
             <div class="bonus">
                 <span class="modifier-label">{{localize "chat.domainCheck.options.bonus"}}</span>
-                <span>{{#if bonus}}+{{bonus}}{{else}}0{{/if}}</span>
+                <span class="puiser-bonus">{{#if bonus}}+{{bonus}}{{else}}0{{/if}}</span>
             </div>
             <div class="malus">
                 <span class="modifier-label">{{localize "chat.domainCheck.options.malus"}}</span>
-                <span>{{#if malus}}-{{malus}}{{else}}0{{/if}}</span>
+                <span class="puiser-bonus">{{#if malus}}-{{malus}}{{else}}0{{/if}}</span>
             </div>
             <div class="lignee">
                 <span class="modifier-label">{{localize "chat.domainCheck.options.lignee"}}</span>
-                <span>{{#if lignee}}+2{{else}}0{{/if}}</span>
+                <span class="puiser-bonus">{{#if lignee}}+2{{else}}0{{/if}}</span>
             </div>
             <div class="people">
                 <span class="modifier-label">{{localize "chat.domainCheck.options.people"}}</span>
-                <span>{{#if people}}+2{{else}}0{{/if}}</span>
+                <span class="puiser-bonus">{{#if people}}+2{{else}}0{{/if}}</span>
             </div>
         </div>
         <span class="pertes">{{perte}}</span>

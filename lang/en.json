@@ -47,7 +47,8 @@
       "equipment":"Équipement",
       "backgroundL": "Vécu",
       "rupture":"Rupture",
-      "quest":"Quête"
+      "quest":"Quête",
+      "score":"Score"
     },
     "Abilities": {
       "Used": "Si le pouvoir a été utilisé",
@@ -76,7 +77,7 @@
     "domains":{
       "technique":"Technique",
       "savoir":"Savoir",
-      "social":"Savoir",
+      "social":"Social",
       "arts":"Arts",
       "shaan":"Shaan",
       "magie":"Magie",
@@ -103,7 +104,14 @@
         "great":"-3 énergies et un malus narratif"
       }
     },
+    "puiser": {
+      "title": "Puiser",
+      "choices": "Choix",
+      "score":"Score: ",
+      "aPuisé": "a puisé et perd un point en"
+    },
     "actions":{
+      "puiser":"Puiser",
       "roll": "Lancer",
       "cancel":"Annuler"
     }

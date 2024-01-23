@@ -169,16 +169,28 @@
     },
     "adversite":{
       "description":"",
-      "domains":[],
+      "domains": {
+        "technique": false,
+        "savoir": false,
+        "social": false,
+        "arts": false,
+        "shaan": false,
+        "magie": false,
+        "rituels": false,
+        "survie": false,
+        "combat": false,
+        "necrose": false
+      },
       "secret":"",
       "resolution":"",
       "gains":"",
       "duree":"",
-      "bonus narratif":"",
+      "bonusNarratif":"",
       "score":0,
       "scoreMax":0,
       "perte":"",
-      "perteIsEnergie":true
+      "perteIsEnergie":true,
+      "echec":""
     }
   },
   "Item": {

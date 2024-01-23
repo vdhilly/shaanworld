@@ -111,7 +111,7 @@ export function fontAwesomeIcon(glyph, {
         icon = document.createElement("i");
     return icon.classList.add(styleClass, glyphClass), fixedWidth && icon.classList.add("fa-fw"), icon
 }
-export const CHARACTER_ACTOR_TYPES = ["character"];
+export const CHARACTER_ACTOR_TYPES = ["character", "adversite"];
 
 export function isItemSystemData(data) {
     return (0, isObject)(data) && (0, isObject)(data.description) && "string" == typeof data.description.value && Array.isArray(data.rules) && (null === data.slug || "string" == typeof data.slug)

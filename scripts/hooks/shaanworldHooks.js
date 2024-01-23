@@ -12,7 +12,6 @@ export default () => {
     })
 
     Hooks.on('renderDialog', async (dialog, html, data) => {
-        console.log(dialog, html, data)
         if(dialog.title === "Create New Item"){
             const $html = html[0]
 

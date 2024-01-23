@@ -1,3 +1,4 @@
+import { Adversite } from "../actors/adversite/document.js";
 export class TokenSW extends Token {
   #unlinkedVideo = false;
   async _draw() {
@@ -137,12 +138,16 @@ export class TokenSW extends Token {
   }
   getBarAttribute(barName, { alternative } = {}) {
     let stat;
-    if (barName === "bar1") {
-      stat = "trihns.esprit";
-    } else if (barName === "bar2") {
-      stat = "trihns.ame";
-    } else if (barName === "bar3") {
-      stat = "trihns.corps";
+    if(this.actor instanceof Adversite){
+      return
+    } else {
+      if (barName === "bar1") {
+        stat = "trihns.esprit";
+      } else if (barName === "bar2") {
+        stat = "trihns.ame";
+      } else if (barName === "bar3") {
+        stat = "trihns.corps";
+      }
     }
 
     let data = getProperty(this.actor.system, stat);

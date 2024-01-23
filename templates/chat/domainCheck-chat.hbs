@@ -11,6 +11,7 @@
         {{/each}}
     </div>
     <button class="puiser">Puiser</button>
+    <button class="ajout-adversite">Ajouter à une adversité</button>
     <div class="details">
         <span data-domain={{domain}} data-domain-level="{{domainLevel}}" class="domain {{domainFlavor}}">{{domain}} +{{domainLevel}}</span>
         <div class="vocations">
@@ -45,5 +46,8 @@
         </div>
         <span class="pertes">{{perte}}</span>
     </div>
-    <span class="score">Score : {{score}}</span>
+    <div class="score-div">
+        <span>Score : </span><span class="score" style="margin-right:2px; width:5px;">{{score}}</span>
+    </div>
+    
 </div>

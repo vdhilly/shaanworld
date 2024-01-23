@@ -41,6 +41,7 @@
       "entretien":"Entretien",
       "soins":"Soins",
       "domain":"Domaine",
+      "domains":"Domaines",
       "bonus":"Bonus",
       "description":"Description",
       "origine":"Origine",
@@ -48,7 +49,14 @@
       "backgroundL": "Vécu",
       "rupture":"Rupture",
       "quest":"Quête",
-      "score":"Score"
+      "score":"Score",
+      "adversite": "Adversité",
+      "duree":"Durée",
+      "gain":"Gains",
+      "secret":"Secrets",
+      "resolution":"Résolution",
+      "bonusNarratif":"Bonus Narratif",
+      "difficulte":"Difficulté"
     },
     "Abilities": {
       "Used": "Si le pouvoir a été utilisé",

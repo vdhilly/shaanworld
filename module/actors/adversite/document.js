@@ -1,3 +1,5 @@
-export class Adversite extends Actor {
+import { ActorSW } from "../document.js";
+
+export class Adversite extends ActorSW {
 
 }

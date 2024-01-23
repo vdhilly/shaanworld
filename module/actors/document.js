@@ -6,7 +6,7 @@ export class ActorSW extends Actor{
               ? (0, tupleHasValue)(CHARACTER_ACTOR_TYPES, this.type)
               : this.type === t
           );
-      }
+    }
 }
 export const ActorProxySR = new Proxy(ActorSW, {
     construct: (_target, args) =>

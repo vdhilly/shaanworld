@@ -86,7 +86,7 @@ label.green-label {
   margin-bottom: -9px;
   margin-left: 0;
 }
-.actor.sheet header {
+.actor.sheet.character header {
   display: flex;
   flex-direction: column;
   height: 0px;
@@ -1206,13 +1206,14 @@ section.vocations {
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
 }
-.dice-roll.domainCheck .score {
+.dice-roll.domainCheck .score-div {
   display:flex;
   justify-content:center;
   font-family: Komikazoom;
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  gap: 5px;
 }
 .dice-roll.domainCheck button {
   border: 2px solid var(--whitebox-border);
@@ -1294,3 +1295,208 @@ section.vocations {
 }
 
 /* ADVERSITE */
+
+.sheet.adversite .window-content{
+  background: var(--green-bg);
+  width:100%
+}
+.actor.sheet.adversite input {
+  background-color: rgba(28, 28, 28, 0.1);
+  border: none;
+  color: var(--body);
+  display: flex;
+  font: 700 var(--font-size-14) var(--body-serif);
+  line-height: 1;
+  margin: 0;
+  padding: 8px 4px 6px;
+  width: 100%
+}
+.actor.sheet.adversite textarea {
+  background-color: rgba(28, 28, 28, 0.1);
+  border: none;
+  color: var(--body);
+  display: flex;
+  font: 700 var(--font-size-14) var(--body-serif);
+  line-height: 1;
+  margin: 0;
+  padding: 8px 4px 6px;
+  min-width: 375.2px;
+  max-width:375.2px;
+}
+.actor.sheet.adversite input:focus {
+  box-shadow: none;
+}
+.actor.sheet.adversite textarea:focus {
+  box-shadow: none;
+}
+.actor.sheet.adversite {
+  display: grid;
+  grid-template-rows: calc(375.2px + 50px) 90px 0.5fr 1fr;
+  grid-template-columns: 1fr;
+  gap:5px;
+  height:90px;
+}
+.actor.sheet.adversite h2 {
+  font-family: Komikazoom;
+  color: var(--green-bg);
+  text-align:center;
+}
+.actor.sheet.adversite header {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+.actor.sheet.adversite header input {
+  height: 50px;
+  font-family: ITCOfficinaSans;
+  font-size: 22px;
+  font-weight: 700;
+  width: 100%;
+  text-transform: capitalize;
+  text-align: center;
+  color:var(--green-bg)
+}
+.actor.sheet.adversite header img {
+  border:none;
+  max-width:375.2px;
+  max-height:375.2px;
+}
+.actor.sheet.adversite section.adversite {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  display:grid;
+  grid-template-rows: 25px 1fr;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 5px;
+  padding:2px;
+}
+.actor.sheet.adversite section.adversite input {
+  width: calc(100% - 6px);
+}
+.actor.sheet.adversite section.adversite h2 {
+  margin: 0;
+  border-bottom: 1px solid var(--green-bg);
+  text-align: center;
+  width: 100%;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.actor.sheet.adversite section.adversite label {
+  color:var(--green-bg)
+}
+.actor.sheet.adversite section.domains h2 {
+  border-bottom: 1px solid var(--green-bg);
+  margin: 0;
+  height:25px;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+.actor.sheet.adversite section.domains {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 25px 1fr 1fr 1fr 1fr;
+  row-gap: 5px;
+  justify-content: center;
+  text-align: center;
+  padding: 3px;
+}
+
+.actor.sheet.adversite section.domains div {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+.actor.sheet.adversite section.domains label {
+  padding-right: 5px;
+  padding-left:5px;
+  font-weight:700;
+  margin-bottom: 3px;
+  width: 80%;
+}
+.actor.sheet.adversite section.domains .technique label, .actor.sheet.adversite section.domains .savoir label, .actor.sheet.adversite section.domains .social label {
+  background:var(--esprit);
+  color:#fffcdb;
+}
+.actor.sheet.adversite section.domains .technique, .actor.sheet.adversite section.domains .savoir, .actor.sheet.adversite section.domains .social {
+  grid-column-start:1
+}
+.actor.sheet.adversite section.domains .arts label, .actor.sheet.adversite section.domains .shaan label, .actor.sheet.adversite section.domains .magie label {
+  background:var(--ame);
+  color:#d5eefc;
+}
+.actor.sheet.adversite section.domains .arts, .actor.sheet.adversite section.domains .shaan, .actor.sheet.adversite section.domains .magie {
+  grid-column-start:2
+}
+.actor.sheet.adversite section.domains .rituels label, .actor.sheet.adversite section.domains .survie label, .actor.sheet.adversite section.domains .combat label {
+  background:var(--corps);
+  color:#fbdaca;
+}
+.actor.sheet.adversite section.domains .rituels, .actor.sheet.adversite section.domains .survie, .actor.sheet.adversite section.domains .combat {
+  grid-column-start:3
+}
+.actor.sheet.adversite section.domains .necrose label {
+  background:var(--necrose);
+  color:#000;
+}
+.actor.sheet.adversite section.domains .necrose {
+  grid-column-start:2
+}
+.actor.sheet.adversite section.domains .arts, .actor.sheet.adversite section.domains .rituels{
+  grid-row-start: 2
+}
+.actor.sheet.adversite section.domains .shaan, .actor.sheet.adversite section.domains .survie{
+  grid-row-start: 3
+}
+.actor.sheet.adversite section.domains .magie, .actor.sheet.adversite section.domains .combat{
+  grid-row-start: 4
+}
+.actor.sheet.adversite .details {
+  max-width:100%
+}
+.actor.sheet.adversite .details div {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  display:flex;
+  flex-direction: column;
+  gap:3px;
+  margin-top: 5px;
+  padding:2px;
+}
+.actor.sheet.adversite .details div:first-child {
+  margin-top:0px
+}
+.actor.sheet.adversite .details div label {
+  color:var(--green-bg)
+}
+.actor.sheet.adversite .details .adversite-description textarea {
+  min-height: 300px;
+}
+.actor.sheet.adversite .details .adversite-secret textarea {
+  min-height: 300px;
+}
+.actor.sheet.adversite .details .adversite-resolution textarea {
+  min-height: 300px;
+}
+.actor.sheet.adversite .details .adversite-bonusNarratif textarea {
+  min-height: 300px;
+}
+.actor.sheet.adversite .details .adversite-gain textarea {
+  min-height: 80px;
+}
+.actor.sheet.adversite .details div:last-child {
+  margin-bottom: 10px;
+}

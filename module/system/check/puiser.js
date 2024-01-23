@@ -57,7 +57,7 @@ async function onPuiser(event){
     }
 }
 
-function calculPuiserBonus(chatCard){
+export function calculPuiserBonus(chatCard){
     let bonus = 0
     const puiserBonus = chatCard[0].querySelectorAll(".puiser-bonus")
     for(let i = 0; i < puiserBonus.length; i++){

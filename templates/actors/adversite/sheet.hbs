@@ -1,3 +1,64 @@
 <form class="actor sheet crb-style adversite" autocomplete="off">
-
+    <header>
+        <input name="name" value="{{actor.name}}">
+        <img class="player-image" alt="{{actor.name}}" src="{{actor.img}}" title="{{actor.name}}" {{#if editable}}data-edit="img"{{/if}} />
+    </header>
+    <section class="adversite">
+        <h2>{{localize "SW.Labels.adversite"}}</h2>
+        <div class="adversite-score">
+            <label for="score">{{localize "SW.Labels.score"}}</label>
+            <input id="score" type="number" name="system.score" value="{{data.score}}">
+        </div>
+        <div class="adversite-scoreMax">
+            <label for="scoreMax">{{localize "SW.Labels.difficulte"}}</label>
+            <input id="scoreMax" type="number" name="system.scoreMax" value="{{data.scoreMax}}">
+        </div>
+    </section>
+    <section class="domains">
+        <h2>{{localize "SW.Labels.domains"}}</h2>
+            {{#each data.domains as |domain d|}}
+                 <div class="domain-checkbox {{d}}">
+                    <label for="{{d}}">{{localize d}}</label>
+                    <input type="checkbox" name="system.domains.{{d}}" {{checked domain}}>
+                 </div>
+            {{/each}}
+    </section>
+    <section class="details">
+        <div class="adversite-description">
+            <label for="description">
+                {{localize "SW.Labels.description"}}
+            </label>
+            <textarea id="description" name="system.description">{{data.description}}</textarea>
+        </div>
+        <div class="adversite-duree">
+            <label for="duree">
+                {{localize "SW.Labels.duree"}}
+            </label>
+            <input id="duree" name="system.duree" value="{{data.duree}}">
+        </div>
+        <div class="adversite-secret">
+            <label for="secret">
+                {{localize "SW.Labels.secret"}}
+            </label>
+            <textarea id="secret" name="system.secret">{{data.secret}}</textarea>
+        </div>
+        <div class="adversite-resolution">
+            <label for="resolution">
+                {{localize "SW.Labels.resolution"}}
+            </label>
+            <textarea id="resolution" name="system.resolution">{{data.resolution}}</textarea>
+        </div>
+        <div class="adversite-gain">
+            <label for="gain">
+                {{localize "SW.Labels.gain"}}
+            </label>
+            <textarea id="gain" name="system.gain">{{data.gain}}</textarea>
+        </div>
+        <div class="adversite-bonusNarratif">
+            <label for="bonusNarratif">
+                {{localize "SW.Labels.bonusNarratif"}}
+            </label>
+            <textarea id="bonusNarratif" name="system.bonusNarratif">{{data.bonusNarratif}}</textarea>
+        </div>
+    </section>
 </form>

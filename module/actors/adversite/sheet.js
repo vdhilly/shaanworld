@@ -4,7 +4,7 @@ export class AdversiteSheet extends ActorSheet {
         return (
           (options.classes = [...options.classes, "adversite"]),
           (options.width = 400),
-          (options.height = 700),
+          (options.height = 780),
           options.scrollY.push(".sheet-body"),
 
           options
@@ -34,5 +34,8 @@ export class AdversiteSheet extends ActorSheet {
 
         console.log(sheetData);
         return sheetData;
+      }
+      activateListeners($html){
+        super.activateListeners($html);
       }
 }

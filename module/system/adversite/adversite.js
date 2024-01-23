@@ -15,7 +15,7 @@ async function onAddAdversite(event){
         return ui.notifications.warn("Aucune adversité n'est active.");
     
     let score = Number(chatCard.find(".score")[0].innerText)
-    let perte = Number(-(chatCard.find(".pertes")[0].innerText.replace("énergies", "").replace("et un malus narratif")))
+    let perte = Number(-(chatCard.find(".pertes")[0].innerText.replace("énergies", "").replace("et un malus narratif").replace("énergie", "")))
 
     let adversiteOptions = await getAdversiteOptions({adversites, score, perte})
     if(adversiteOptions.cancelled){

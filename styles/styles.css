@@ -1381,6 +1381,12 @@ section.vocations {
 .actor.sheet.adversite section.adversite h2 {
   margin: 0;
   border-bottom: 1px solid var(--green-bg);
+  display: flex;
+  flex-direction:row;
+  align-self: center;
+  justify-content: center;
+  gap: 3px;
+  margin-left: 3px;
   text-align: center;
   width: 100%;
   grid-column-start: 1;
@@ -1388,18 +1394,23 @@ section.vocations {
   grid-row-start: 1;
   grid-row-end: 2;
 }
+.actor.sheet.adversite section.adversite h2 input {
+  align-self: center;
+}
 .actor.sheet.adversite section.adversite label {
   color:var(--green-bg)
 }
 .actor.sheet.adversite section.domains h2 {
-  border-bottom: 1px solid var(--green-bg);
   margin: 0;
-  height:25px;
-  grid-row-start: 1;
-  grid-row-end: 1;
+  border-bottom: 1px solid var(--green-bg);
+  text-align: center;
+  width: 100%;
   grid-column-start: 1;
   grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;    
 }
+
 .actor.sheet.adversite section.domains {
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);
@@ -1408,6 +1419,7 @@ section.vocations {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 25px 1fr 1fr 1fr 1fr;
   row-gap: 5px;
+  column-gap: 2px;
   justify-content: center;
   text-align: center;
   padding: 3px;
@@ -1415,7 +1427,7 @@ section.vocations {
 
 .actor.sheet.adversite section.domains div {
   display:flex;
-  flex-direction:column;
+  flex-direction:row;
   justify-content:center;
   align-items:center;
 }
@@ -1424,32 +1436,32 @@ section.vocations {
   padding-left:5px;
   font-weight:700;
   margin-bottom: 3px;
-  width: 80%;
+  width: 60%;
 }
-.actor.sheet.adversite section.domains .technique label, .actor.sheet.adversite section.domains .savoir label, .actor.sheet.adversite section.domains .social label {
+.actor.sheet.adversite section.domains .technique, .actor.sheet.adversite section.domains .savoir, .actor.sheet.adversite section.domains .social {
   background:var(--esprit);
   color:#fffcdb;
 }
 .actor.sheet.adversite section.domains .technique, .actor.sheet.adversite section.domains .savoir, .actor.sheet.adversite section.domains .social {
   grid-column-start:1
 }
-.actor.sheet.adversite section.domains .arts label, .actor.sheet.adversite section.domains .shaan label, .actor.sheet.adversite section.domains .magie label {
+.actor.sheet.adversite section.domains .arts, .actor.sheet.adversite section.domains .shaan, .actor.sheet.adversite section.domains .magie {
   background:var(--ame);
   color:#d5eefc;
 }
 .actor.sheet.adversite section.domains .arts, .actor.sheet.adversite section.domains .shaan, .actor.sheet.adversite section.domains .magie {
   grid-column-start:2
 }
-.actor.sheet.adversite section.domains .rituels label, .actor.sheet.adversite section.domains .survie label, .actor.sheet.adversite section.domains .combat label {
+.actor.sheet.adversite section.domains .rituels, .actor.sheet.adversite section.domains .survie, .actor.sheet.adversite section.domains .combat {
   background:var(--corps);
   color:#fbdaca;
 }
 .actor.sheet.adversite section.domains .rituels, .actor.sheet.adversite section.domains .survie, .actor.sheet.adversite section.domains .combat {
   grid-column-start:3
 }
-.actor.sheet.adversite section.domains .necrose label {
+.actor.sheet.adversite section.domains .necrose {
   background:var(--necrose);
-  color:#000;
+  color:#c3c3c3;
 }
 .actor.sheet.adversite section.domains .necrose {
   grid-column-start:2
@@ -1499,4 +1511,98 @@ section.vocations {
 }
 .actor.sheet.adversite .details div:last-child {
   margin-bottom: 10px;
+}
+
+/* Dialog Adversite */
+.dialog.adversites .window-content {
+  background: var(--green-bg)
+}
+.dialog.adversites form select {
+  border: none;
+  border-radius:0;
+  display: flex;
+  width: calc(100%);
+  text-align: center;
+}
+.dialog.adversites form input {
+  background-color: rgba(28, 28, 28, 0.1);
+  border: none;
+  color: var(--body);
+  display: flex;
+  font: 700 var(--font-size-14) var(--body-serif);
+  line-height: 1;
+  margin: 0;
+  padding: 8px 4px 6px;
+  width: 100%;
+  border-radius:0;
+}
+.dialog.adversites h2 {
+  font-family: Komikazoom;
+  color: var(--green-bg);
+  border:none;
+  text-align:center;
+  margin:0;
+}
+.dialog.adversites label {
+  color: var(--green-bg);
+  font-family: ITCOfficinaSans;
+  text-transform:uppercase;
+}
+.dialog.adversites .form-group, .dialog.adversites button, .dialog.adversites button.default {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+}
+.dialog.adversites .form-group.adversites {
+  display:grid;
+  padding:5px;
+  gap: 5px;
+  row-gap:0px;
+  grid-template-columns: 1fr;
+  grid-template-rows:30px 1fr
+}
+.dialog.adversites .form-group.pertes {
+  display:flex;
+  flex-direction:column;
+}
+.dialog.adversites .form-group.pertes .perte {
+  display:grid;
+  padding:5px;
+  gap: 5px;
+  row-gap:0px;
+  grid-template-columns: 1fr;
+  grid-template-rows:30px 1fr
+}
+.dialog.adversites .form-group.pertes .perte div{
+  display:flex;
+  flex-direction:row;
+  justify-content: center;
+  gap: 3px;
+  align-items:center;
+}
+.dialog.adversites .form-group.pertes .perte input {
+  width:30%
+}
+.dialog.adversites .form-group.pertes .repartir {
+  display:grid;
+  padding:5px;
+  gap: 5px;
+  row-gap:0px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr
+}
+
+.dialog.adversites .form-group.score {
+  display:grid;
+  padding:5px;
+  gap: 5px;
+  row-gap:0px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 30px 1fr
+}
+.dialog.adversites .form-group.score h2 {
+  grid-column-start:1;
+  grid-column-end:3;
+  grid-row-start:1;
+  grid-row-end:1;
 }

@@ -1,0 +1,45 @@
+<form>
+    <div class="form-group adversites">
+        <h2>{{localize "SW.Labels.adversite"}}</h2>
+        <select id="adversite" name="adversite" value="{{adversite}}">
+            {{#each adversites as |adversite|}}
+                <option value="{{adversite._id}}">{{adversite.name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="form-group pertes">
+        <div class="perte">
+            <h2>{{localize "SW.Labels.pertes"}}</h2>
+            <div>
+            <span>Dé de perte : <b>-{{perte}}</b> {{localize "SW.Labels.energies"}}</span>
+            </div>
+        </div>
+        <div class="repartir">
+            <div class="esprit">
+                <label for="esprit">{{localize "SW.Labels.esprit"}}</label>
+                <input id="esprit" name="trihns.esprit" value="{{trihns.esprit}}">
+            </div>
+            <div class="ame">
+                <label for="ame">{{localize "SW.Labels.ame"}}</label>
+                <input id="ame" name="trihns.ame" value="{{trihns.ame}}">
+            </div>
+            <div class="corps">
+                <label for="corps">{{localize "SW.Labels.corps"}}</label>
+                <input id="corps" name="trihns.corps" value="{{trihns.corps}}">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group score">
+        <h2>{{localize "SW.Labels.score"}} : {{score}}</h2>
+        <div class="bonus">
+            <label for="bonus">{{localize "SW.Labels.bonus"}}</label>
+            <input id="bonus" name="bonus" value="{{bonus}}">
+        </div>
+        <div class="malus">
+            <label for="malus">{{localize "SW.Labels.malus"}}</label>
+            <input id="malus" name="malus" value="{{malus}}">
+        </div>
+    </div>
+    {{log this}}
+</form>

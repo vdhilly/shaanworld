@@ -43,6 +43,7 @@
       "domain":"Domaine",
       "domains":"Domaines",
       "bonus":"Bonus",
+      "malus":"Malus",
       "description":"Description",
       "origine":"Origine",
       "equipment":"Équipement",
@@ -56,7 +57,9 @@
       "secret":"Secrets",
       "resolution":"Résolution",
       "bonusNarratif":"Bonus Narratif",
-      "difficulte":"Difficulté"
+      "difficulte":"Difficulté",
+      "pertes":"Pertes",
+      "energies":"énergies"
     },
     "Abilities": {
       "Used": "Si le pouvoir a été utilisé",
@@ -121,7 +124,14 @@
     "actions":{
       "puiser":"Puiser",
       "roll": "Lancer",
-      "cancel":"Annuler"
+      "cancel":"Annuler",
+      "confirm":"Valider"
+    },
+    "adversite":{
+      "title":"Choix d'une Adversité",
+      "RepartirPertes": "Repartir les pertes",
+      "ajouté": "a ajouté {score} au score de {adversite}"
     }
   }
 }
+

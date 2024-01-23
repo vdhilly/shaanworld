@@ -14,6 +14,7 @@ async function onPuiser(event){
     const diceValues = chatCard.find("input.dice-value");
     const domainLevel = Number(chatCard.find("span.domain")[0].dataset.domainLevel)
     const domainName = chatCard.find("span.domain")[0].dataset.domain
+    const perte = Number(-(chatCard.find(".pertes")[0].innerText.replace("énergies", "").replace("et un malus narratif")))
 
     const bonus = await calculPuiserBonus(chatCard)
     const messageTemplate =  "systems/shaanworld/templates/chat/puiser.hbs";
@@ -48,12 +49,11 @@ async function onPuiser(event){
 
     for(const actor of actors){
         let flavor = puiserOptions.flavor.toLowerCase();
-        console.log(flavor)
         actor.update({
             [`system.trihns.${flavor}.value`]: actor.system.trihns[flavor].value -1
         })
         actor.sheet.render();
-        ToCustomMessage(actor, result, messageTemplate, flavor);
+        ToCustomMessage(actor, result, messageTemplate, flavor, perte);
     }
 }
 
@@ -210,12 +210,14 @@ async function GetPuiserOptions({
         }
     }
 }
-async function ToCustomMessage(Token, result, messageTemplate, flavor) {
-    let actor = Token.actor;
+async function ToCustomMessage(Token, result, messageTemplate, flavor, perte) {
+    
     let templateContext = {
-      Token: Token,
-      score: result,
-      flavor: flavor,
+        actorID: Token._id,
+        Token: Token,
+        score: result,
+        flavor: flavor,
+        perte
     };
     let chatData;
     let rollMode = game.settings.get("core", "rollMode");
@@ -239,7 +241,7 @@ async function ToCustomMessage(Token, result, messageTemplate, flavor) {
     }
     chatData = {
       user: game.user.id,
-      speaker: ChatMessage.getSpeaker({ actor }),
+      speaker: ChatMessage.getSpeaker({ actor: Token.actor }),
       content: await renderTemplate(messageTemplate, templateContext),
       sound: CONFIG.sounds.notification,
       type: CONST.CHAT_MESSAGE_TYPES.OTHER,

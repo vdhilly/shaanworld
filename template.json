@@ -181,6 +181,7 @@
         "combat": false,
         "necrose": false
       },
+      "active":false,
       "secret":"",
       "resolution":"",
       "gains":"",

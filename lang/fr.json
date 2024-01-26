@@ -59,7 +59,8 @@
       "bonusNarratif":"Bonus Narratif",
       "difficulte":"Difficulté",
       "pertes":"Pertes",
-      "energies":"énergies"
+      "energies":"énergies",
+      "Mythiques":"Objets Mythiques"
     },
     "Abilities": {
       "Used": "Si le pouvoir a été utilisé",
@@ -67,23 +68,23 @@
       "apprenti1": "Puiser sans perte",
       "apprenti2": "Échanger 5 énergies",
       "apprenti3": "Regagner 2 énergies",
-      "apprenti4": "Bonus de +2",
-      "apprenti5": "Ignorer 1 malus",
+      "apprenti4": "+2 sur le dé d'action",
+      "apprenti5": "Relancer le dé dé noir",
       "apprenti6": "Relancer le dé d'action",
       "apprenti7": "Relancer les 2 dés non-actifs",
       "initie1": "Puiser pour additionner",
       "initie2": "Regagner 3 énergies",
-      "initie3": "Bonus de +3",
+      "initie3": "+3 sur le dé d'action",
       "initie4": "Annuler 1 perte d'adversité",
-      "initie5": "Relancer 2 dés sur 3. En Nécrose : lancer 2 dés et choisir le meilleur",
+      "initie5": "Relancer 2 dés sur 4. En Nécrose : lancer 4 dés et choisir le meilleur",
       "maitre1": "Rajouter un dé d'action",
       "maitre2": "Regagner 4 énergies",
-      "maitre3": "Bonus de +4",
+      "maitre3": "+4 sur le dé d'action",
       "maitre4": "Action avec énergie à -3",
-      "maitre5": "Relancer les 3 dés. En Nécrose : lance 2 dés et les additionner",
+      "maitre5": "Relancer les 4 dés. En Nécrose : lance 4 dés et en additionner 2",
       "legende1": "Rajouter 2 dés d'action",
       "legende2": "Regagner 5 énergies",
-      "legende3": "Relancer les 3 dés. En Nécrose : lance 3 dés et les additionner"
+      "legende3": "Relancer les 4 dés. En Nécrose : lancer les 4 dés et les additionner"
     },
     "domains":{
       "technique":"Technique",

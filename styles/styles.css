@@ -20,6 +20,12 @@ h3 {
   font-weight: 400;
   border: 0;
 }
+.actor.sheet a:hover {
+  text-shadow: 0 0 8px #4d6452;
+}
+.actor.sheet .circle input::selection {
+  background: rgba(130, 129, 125, 0.5);
+}
 .actor.sheet .fa-solid,.actor.sheet .fas {
   font-weight: 500;
 }
@@ -98,7 +104,7 @@ label.green-label {
 }
 .actor.sheet .domainCheck {
   position: relative;
-  top: -565px;
+  top: -589px;
   left: -6px;
   display: grid;
   grid-template-rows: 0.1fr 0.1fr;
@@ -122,15 +128,14 @@ label.green-label {
   height: 50px;
   box-shadow: inset 0px 0px 30px #c5bda9;
   position: relative;
-  top: 30px;
+  top: 14px;
   left: 10px;
-  margin-top: -30px;
+  margin-top: -22px;
   z-index: 1;
 }
 .character-name-label {
   background: var(--green-bg);
   position: relative;
-  top: 7px;
   left: 21px;
   width: 50px;
   justify-content: center;
@@ -141,7 +146,7 @@ label.green-label {
 .character-vocation-label {
   background: var(--green-bg);
   position: relative;
-  left: -20px;
+  left: -15px;
   width: 163px;
   font-size: 12px;
   justify-content: center;
@@ -225,8 +230,8 @@ section.circle input[type="checkbox"][data-trihn="corps"]:checked {
   accent-color: var(--corps);
 }
 .whitebox.vocation-box {
-  height: 75px;
-  width: 125px;
+  height: 92px;
+  width: 135px;
   position: relative;
   border-radius: 10px;
   overflow: hidden;
@@ -236,12 +241,15 @@ section.circle input[type="checkbox"][data-trihn="corps"]:checked {
   flex-direction: column;;
   padding-left: 3px;
   overflow-y:scroll;
-  height:56px;
+  height:73px;
 }
 .whitebox.vocation-box .vocation div {
   display: flex; 
   flex-direction:row;
   font-size:12px;
+}
+.whitebox.vocation-box .vocation-name {
+  cursor:pointer;
 }
 .whitebox.vocation-box .vocation .item-controls {
   display:flex;
@@ -308,6 +316,7 @@ section.vocations {
   flex: 1;
 }
 .actor.sheet header > nav {
+  height: 30px;
   border-style: solid;
   border-image-outset: 0;
   border-width: 9px;
@@ -412,7 +421,7 @@ section.vocations {
   top: -2px;
 }
 .actor.sheet .character-experience {
-  margin-top: -213px;
+  margin-top: -194px;
   width: 136px;
   position: relative;
   top: 14px;
@@ -445,7 +454,6 @@ section.vocations {
 /* Entretien Soin */
 .actor.sheet .entretien-soin {
   position: relative;
-  top: 22px;
   left: -81px;
 }
 .actor.sheet .entretien-soin label {
@@ -696,7 +704,16 @@ section.vocations {
   height: 264px;
   padding: 10px;
 }
-
+.actor.sheet textarea {
+  border: none;
+  border-radius: 0;
+}
+.actor.sheet textarea:focus {
+  box-shadow: none;
+}
+.actor.sheet .mythiques textarea {
+  resize: none;
+}
 /* ITEMS */
 .item.sheet .window-content {
   background: var(--green-bg)
@@ -1023,6 +1040,15 @@ section.vocations {
 /* DOMAIN CHECK */
 
 /* DIALOG DOMAIN CHECK */
+.dialog.check input:focus {
+  box-shadow: 0 0 8px #4d6452;
+}
+.dialog.check select:focus {
+  box-shadow: 0 0 8px #4d6452;
+}
+.dialog.check button:hover {
+  text-shadow: 0 0 8px #4d6452;
+}
 .dialog.check .window-content{
   background: var(--green-bg)
 }
@@ -1073,6 +1099,9 @@ section.vocations {
 }
 
 /* CHAT DOMAIN CHECK */
+.dice-roll.domainCheck button:hover {
+  text-shadow: 0 0 8px #4d6452;
+}
 .dice-roll.domainCheck {
   display: grid;
   grid-template-columns: 1fr;
@@ -1295,7 +1324,6 @@ section.vocations {
 }
 
 /* ADVERSITE */
-
 .sheet.adversite .window-content{
   background: var(--green-bg);
   width:100%
@@ -1514,6 +1542,15 @@ section.vocations {
 }
 
 /* Dialog Adversite */
+.dialog.adversites input:focus {
+  box-shadow: 0 0 8px #4d6452;
+}
+.dialog.adversites select:focus {
+  box-shadow: 0 0 8px #4d6452;
+}
+.dialog.adversites button:hover {
+  text-shadow: 0 0 8px #4d6452;
+}
 .dialog.adversites .window-content {
   background: var(--green-bg)
 }
@@ -1605,4 +1642,42 @@ section.vocations {
   grid-column-end:3;
   grid-row-start:1;
   grid-row-end:1;
+}
+
+li:has(.chat-card.puiser), li:has(.chat-card.adversite) {
+  border-radius: 0;
+  background: var(--green-bg) !important;
+}
+.chat-card.puiser, .chat-card.adversite{
+  display:flex;
+  flex-direction:column;
+  gap: 5px;
+}
+.chat-card.puiser button:hover {
+  text-shadow: 0 0 8px #4d6452;
+}
+.chat-card.puiser button {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+}
+.chat-card.puiser span, .chat-card.adversite span {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+}
+.chat-card.puiser .score, .chat-card.adversite .score {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+.chat-card span[data-adversite-id] {
+  font-weight:700;
+  cursor:pointer;
+}
+.chat-card span[data-adversite-id]:hover {
+  text-shadow: 0 0 8px #4d6452;
 }

@@ -157,38 +157,36 @@
       />
       <section class="vocations">
         <div
-          style="top: 343px;left: 93px;"
+          style="top: 343px;left: 83px;"
           data-vocation-domain="technique"
           class="vocation-box whitebox">
           <label class="character-vocation-label">{{localize "SW.Labels.Vocation"}}</label>
           <div class="vocation">
             {{#each vocations.technique as |vocation|}}
             <div class="item" data-item-id="{{vocation._id}}">
-              <span value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</span>
+              <span value="{{vocation._id}}"><span class="vocation-name">{{vocation.name}}</span> +{{vocation.system.bonus}}</span>
               <div class="item-controls">
                   <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
-                  <a class="item-delete"><i class="fas fa-fw fa-trash"></i></a>
               </div>
             </div>
             {{/each}}
           </div>          
           </div>
-        <div style="top: 182px;left: 48px;" data-vocation-domain="savoir" class="vocation-box whitebox" >
+        <div style="top: 150px;left: 38px;" data-vocation-domain="savoir" class="vocation-box whitebox" >
           <label class="character-vocation-label">{{localize "SW.Labels.Vocation"}}</label>
             <div class="vocation">
             {{#each vocations.savoir as |vocation|}}
             <div class="item" data-item-id="{{vocation._id}}">
-              <span value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</span>
+              <span value="{{vocation._id}}"><span class="vocation-name">{{vocation.name}}</span> +{{vocation.system.bonus}}</span>
               <div class="item-controls">
                   <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
-                  <a class="item-delete"><i class="fas fa-fw fa-trash"></i></a>
               </div>
             </div>
             {{/each}}
           </div>           
           </div>
         <div
-          style="top: 11px;left: 49px;"
+          style="top: -43px;left: 39px;"
           data-vocation-domain="social"
           class="vocation-box whitebox" 
         ><label class="character-vocation-label">{{localize
@@ -197,17 +195,16 @@
             <div class="vocation">
             {{#each vocations.social as |vocation|}}
             <div class="item" data-item-id="{{vocation._id}}">
-              <span value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</span>
+              <span value="{{vocation._id}}"><span class="vocation-name">{{vocation.name}}</span> +{{vocation.system.bonus}}</span>
               <div class="item-controls">
                   <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
-                  <a class="item-delete"><i class="fas fa-fw fa-trash"></i></a>
               </div>
             </div>
             {{/each}}
           </div>             
         </div>
         <div
-          style="top: -202px;left: 176px;"
+          style="top: -268px;left: 156px;"
           data-vocation-domain="arts"
           class="vocation-box whitebox"
         ><label class="character-vocation-label">{{localize
@@ -216,17 +213,16 @@
             <div class="vocation">
             {{#each vocations.arts as |vocation|}}
             <div class="item" data-item-id="{{vocation._id}}">
-              <span value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</span>
+              <span value="{{vocation._id}}"><span class="vocation-name">{{vocation.name}}</span> +{{vocation.system.bonus}}</span>
               <div class="item-controls">
                   <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
-                  <a class="item-delete"><i class="fas fa-fw fa-trash"></i></a>
               </div>
             </div>
             {{/each}}
           </div>             
         </div>
         <div
-          style="top: -300px; left: 306px;"
+          style="top: -384px; left: 296px;"
           data-vocation-domain="shaan"
           class="vocation-box whitebox" 
         ><label class="character-vocation-label">{{localize
@@ -235,17 +231,16 @@
             <div class="vocation">
             {{#each vocations.shaan as |vocation|}}
             <div class="item" data-item-id="{{vocation._id}}">
-              <span value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</span>
+              <span value="{{vocation._id}}"><span class="vocation-name">{{vocation.name}}</span> +{{vocation.system.bonus}}</span>
               <div class="item-controls">
                   <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
-                  <a class="item-delete"><i class="fas fa-fw fa-trash"></i></a>
               </div>
             </div>
             {{/each}}
           </div>           
           </div>
         <div
-          style="top: -351px;left: 434px;"
+          style="top: -452px;left: 436px;"
           data-vocation-domain="magie"
           class="vocation-box whitebox" 
         ><label class="character-vocation-label">{{localize
@@ -254,17 +249,16 @@
             <div class="vocation">
             {{#each vocations.magie as |vocation|}}
             <div class="item" data-item-id="{{vocation._id}}">
-              <span value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</span>
+              <span value="{{vocation._id}}"><span class="vocation-name">{{vocation.name}}</span> +{{vocation.system.bonus}}</span>
               <div class="item-controls">
                   <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
-                  <a class="item-delete"><i class="fas fa-fw fa-trash"></i></a>
               </div>
             </div>
             {{/each}}
             </div>             
           </div>
         <div
-          style="top: -285px;left: 536px;"
+          style="top: -415px;left: 536px;"
           data-vocation-domain="rituels"
           class="vocation-box whitebox" 
         ><label class="character-vocation-label">{{localize
@@ -273,33 +267,31 @@
             <div class="vocation">
             {{#each vocations.rituels as |vocation|}}
             <div class="item" data-item-id="{{vocation._id}}">
-              <span value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</span>
+              <span value="{{vocation._id}}"><span class="vocation-name">{{vocation.name}}</span> +{{vocation.system.bonus}}</span>
               <div class="item-controls">
                   <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
-                  <a class="item-delete"><i class="fas fa-fw fa-trash"></i></a>
               </div>
             </div>
             {{/each}}
           </div> 
           </div>
-        <div style="top: -266px;left: 538px;" data-vocation-domain="survie" class="vocation-box whitebox" 
+        <div style="top: -406px;left: 538px;" data-vocation-domain="survie" class="vocation-box whitebox" 
         ><label class="character-vocation-label">{{localize
               "SW.Labels.Vocation"
             }}</label>
             <div class="vocation">
             {{#each vocations.survie as |vocation|}}
             <div class="item" data-item-id="{{vocation._id}}">
-              <span value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</span>
+              <span value="{{vocation._id}}"><span class="vocation-name">{{vocation.name}}</span> +{{vocation.system.bonus}}</span>
               <div class="item-controls">
                   <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
-                  <a class="item-delete"><i class="fas fa-fw fa-trash"></i></a>
               </div>
             </div>
             {{/each}}
           </div> 
         </div>
         <div
-          style="top: -258px;left: 494px;"
+          style="top: -396px;left: 494px;"
           data-vocation-domain="combat"
           class="vocation-box whitebox" 
         ><label class="character-vocation-label">{{localize
@@ -308,24 +300,22 @@
             <div class="vocation">
             {{#each vocations.combat as |vocation|}}
             <div class="item" data-item-id="{{vocation._id}}">
-              <span value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</span>
+              <span value="{{vocation._id}}"><span class="vocation-name">{{vocation.name}}</span> +{{vocation.system.bonus}}</span>
               <div class="item-controls">
                   <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
-                  <a class="item-delete"><i class="fas fa-fw fa-trash"></i></a>
               </div>
             </div>
             {{/each}}
           </div> 
             </div>
-        <div style="top: -239px;left: 373px;" data-vocation-domain="necrose" class="vocation-box whitebox" >
+        <div style="top: -389px;left: 373px;" data-vocation-domain="necrose" class="vocation-box whitebox" >
           <label class="character-vocation-label">{{localize "SW.Labels.Vocation"}}</label>
             <div class="vocation">
             {{#each vocations.necrose as |vocation|}}
             <div class="item" data-item-id="{{vocation._id}}">
-              <span value="{{vocation._id}}">{{vocation.name}} + {{vocation.system.bonus}}</span>
+              <span value="{{vocation._id}}"><span class="vocation-name">{{vocation.name}}</span> +{{vocation.system.bonus}}</span>
               <div class="item-controls">
                   <a class="item-edit"><i class="fas fa-fw fa-edit"></i></a>
-                  <a class="item-delete"><i class="fas fa-fw fa-trash"></i></a>
               </div>
             </div>
             {{/each}}

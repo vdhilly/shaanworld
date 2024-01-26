@@ -14,7 +14,7 @@ async function onPuiser(event){
     const diceValues = chatCard.find("input.dice-value");
     const domainLevel = Number(chatCard.find("span.domain")[0].dataset.domainLevel)
     const domainName = chatCard.find("span.domain")[0].dataset.domain
-    const perte = Number(-(chatCard.find(".pertes")[0].innerText.replace("énergies", "").replace("et un malus narratif")))
+    const perte = Number(-(chatCard.find(".pertes")[0].innerText.replace("énergies", "").replace("et un malus narratif").replace("énergie", "")))
 
     const bonus = await calculPuiserBonus(chatCard)
     const messageTemplate =  "systems/shaanworld/templates/chat/puiser.hbs";
@@ -37,7 +37,7 @@ async function onPuiser(event){
         domain: {value: domainLevel, name: domainName},
         dice,
         choix,
-        result
+        result,
     })
 
     if(puiserOptions.cancelled){

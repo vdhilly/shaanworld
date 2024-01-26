@@ -4,6 +4,8 @@ import { AdversiteDialog } from "./dialog.js";
 export function addChatListeners(app, html, data) {
     const Button = html.find("button.ajout-adversite");
     Button.on("click", onAddAdversite);
+    const adversiteName = html.find("span[data-adversite-id]");
+    adversiteName.on("click", onOpenAdversite)
 }
 
 async function onAddAdversite(event){
@@ -15,8 +17,8 @@ async function onAddAdversite(event){
         return ui.notifications.warn("Aucune adversité n'est active.");
     
     let score = Number(chatCard.find(".score")[0].innerText)
-    let perte = Number(-(chatCard.find(".pertes")[0].innerText.replace("énergies", "").replace("et un malus narratif").replace("énergie", "")))
-
+    let perte = Number((chatCard.find(".pertes")[0].value)) ? Number((chatCard.find(".pertes")[0].value)) : Number(-(chatCard.find(".pertes")[0].innerText.replace("énergie", "").replace("s", "").replace("et un malus narratif", "")))
+    console.log(perte)
     let adversiteOptions = await getAdversiteOptions({adversites, score, perte})
     if(adversiteOptions.cancelled){
       return;
@@ -39,6 +41,7 @@ async function getAdversiteOptions({
   trihns = {esprit:0, ame:0, corps:0},
   template = "systems/shaanworld/templates/actors/adversite/chat/dialog.hbs"
 } = {}){
+  console.log(perte)
   const html = await renderTemplate(template, {
     adversites, score, perte, trihns: {esprit:0, ame:0, corps:0},
   })
@@ -72,7 +75,7 @@ async function getAdversiteOptions({
       adversite: game.actors.get(form.adversite?.value),
       trihns: {esprit:Number(form.esprit?.value),ame:Number(form.ame?.value),corps:Number(form.corps?.value)},
       bonus: Number(form.bonus?.value),
-      malus: Number(form.malus?.value)
+      malus: Math.abs(Number(form.malus?.value))
     }
   }
 }
@@ -136,4 +139,12 @@ async function ToCustomMessage(actor, adversite, score, messageTemplate, pertes)
     whisper: whispers
   };
   ChatMessage.create(chatData);
+}
+
+function onOpenAdversite(event){
+  if(!game.user.isGM) return;
+  fromUuid(event.target.dataset.adversiteId).then((adversite) => {
+    console.log(adversite)
+    adversite.sheet.render(true)
+  })
 }

@@ -13,10 +13,12 @@ export const Setup = {
       // Set Hover by Owner as defaults for Default Token Configuration
       const defaultTokenSettingsDefaults =
         game.settings.settings.get("core.defaultToken").default;
+      console.log(defaultTokenSettingsDefaults)
       defaultTokenSettingsDefaults.displayName =
         CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER;
       defaultTokenSettingsDefaults.displayBars =
         CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER;
+      defaultTokenSettingsDefaults.actorLink = true
     });
   },
 };

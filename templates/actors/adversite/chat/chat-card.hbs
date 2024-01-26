@@ -1,3 +1,4 @@
 <div class="adversite SW chat-card" data-actor-id="{{actorID}}">
-    <span>{{actor.name}} {{localize "chat.adversite.ajouté" score=score adversite=adversite.name localize=true}}.</span>
+    <span data-adversite-id="{{adversite.uuid}}">{{adversite.name}}</span>
+    <span>{{actor.name}} a ajouté <b class="score">{{score}}</b> au score.</span>
 </div>

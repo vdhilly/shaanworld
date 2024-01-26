@@ -45,9 +45,9 @@ export async function domainCheck(actor){
 
     let Corps, Ame, Esprit, Necrose, perte, domainDice, domainFlavor
     if(domain !== "necrose"){
-        Corps = rollResult.dice[0]
+        Corps = rollResult.dice[2]
         Ame = rollResult.dice[1]
-        Esprit = rollResult.dice[2]
+        Esprit = rollResult.dice[0]
         Necrose = rollResult.dice[3]
     
         if(Corps.total == Ame.total && Ame.total == Esprit.total && Esprit.total != 10){
@@ -106,12 +106,13 @@ export async function domainCheck(actor){
             score = 0;
         } else {
             score = domainDice.total
+            console.log(score)
             score += actor.system.domains[domain].rank
             if(bonus){
                 score += bonus
             }
             if(malus){
-                score -= malus
+                score -= Math.abs(malus)
             }
             if(vocations.vocation1){
                 score += vocations.vocation1.system.bonus

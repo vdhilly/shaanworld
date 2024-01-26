@@ -1,6 +1,6 @@
 import { Vocation } from "../../items/vocation/document.js";
 import * as Dice from "../../system/check/dice.js";
-import { htmlQuery } from "../../utils/utils.js";
+import { htmlQuery, htmlQueryAll } from "../../utils/utils.js";
 
 export class ActorSheetSW extends ActorSheet {
   static get defaultOptions() {
@@ -145,8 +145,11 @@ export class ActorSheetSW extends ActorSheet {
     const html = $html[0];
 
     $html.find(".domainCheck").click(this._onDomainCheck.bind(this));
-    $html.find(".item-edit").click(this._onItemEdit.bind(this));
+    $html.find(".item-edit, .vocation-name").click(this._onItemEdit.bind(this));
     $html.find(".item-delete").click(this._onItemDelete.bind(this));
+    $html.find(".circle input").on("focus", (event) => {
+      event.target.select()
+    })
 
     const imageLink = htmlQuery(html, "a[data-action=show-image]");
     if (!imageLink) return;
@@ -169,6 +172,17 @@ export class ActorSheetSW extends ActorSheet {
         compendium && compendium.render(!0);
       }
     });
+
+    
+
+    const vocationNameSpans = htmlQueryAll(html, ".vocation-name")
+    for (let i = 0; i < vocationNameSpans.length; i++){
+      let vocationName = vocationNameSpans[i].innerText
+      if(vocationName.length >= 19){
+        let difference = vocationName.length - 19
+        vocationNameSpans[i].innerText = vocationName.substring(0, 19 - 2) + "..."
+      }
+    }
   }
   _onDomainCheck(event){
     let actor = this.actor

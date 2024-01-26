@@ -1,3 +1,4 @@
+
 export class AdversiteSheet extends ActorSheet {
     static get defaultOptions() {
         const options = super.defaultOptions;
@@ -30,12 +31,12 @@ export class AdversiteSheet extends ActorSheet {
               isGM: game.user.isGM,
             },
           };
-    
-
         console.log(sheetData);
         return sheetData;
       }
       activateListeners($html){
         super.activateListeners($html);
+        const html = $html[0];
+
       }
 }

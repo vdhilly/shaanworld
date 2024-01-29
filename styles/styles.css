@@ -793,6 +793,19 @@ section.vocations {
   font-family: Komikazoom;
   font-size: var(--font-size-28);
 }
+.item.sheet.vocation header .item-delete {
+    flex: 0.1;
+    float: right;
+    text-align: center;
+}
+.item.sheet.vocation header .item-delete:hover {
+  text-shadow: 0 0 8px #4d6452;
+}
+.item.sheet.vocation header .item-delete i {
+  font-weight:500;
+  font-size:25px;
+  
+}
 .item.sheet.vocation .details {
   display: grid;
   grid-template-rows: 50px 1fr 0.2fr;

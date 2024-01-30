@@ -10,7 +10,8 @@ export function addChatListeners(app, html, data) {
 
 async function onAddAdversite(event){
     const messageTemplate = "systems/shaanworld/templates/actors/adversite/chat/chat-card.hbs"
-    const chatCard = $(this.parentElement);
+    const chatCard = $(this.parentElement.parentElement.className) === "message-content" ? $(this.parentElement.parentElement) : $(this.parentElement);
+    console.log(chatCard)
     const actor = game.actors.get(chatCard[0].dataset.actorId.replace("Actor.", ""))
     const adversites = game.actors.filter((actor => actor.type === "adversite")).filter((adversite => adversite.system.active))
       if (adversites.length == 0)

@@ -10,7 +10,7 @@ async function onPuiser(event){
       ]);
       if (actors.length == 0)
         return ui.notifications.warn("Vous devez sélectionner au moins un token.");
-    const chatCard = $(this.parentElement);
+    const chatCard = $(this.parentElement.parentElement);
     const diceValues = chatCard.find("input.dice-value");
     const domainLevel = Number(chatCard.find("span.domain")[0].dataset.domainLevel)
     const domainName = chatCard.find("span.domain")[0].dataset.domain

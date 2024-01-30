@@ -1112,8 +1112,15 @@ section.vocations {
 }
 
 /* CHAT DOMAIN CHECK */
+.message-header {
+  color:white !important;
+}
 .dice-roll.domainCheck button:hover {
   text-shadow: 0 0 8px #4d6452;
+}
+.dice-roll.domainCheck .title {
+  margin: 0;
+  color:#394a3d
 }
 .dice-roll.domainCheck {
   display: grid;
@@ -1209,6 +1216,17 @@ section.vocations {
   display: flex;
   justify-content: center;
 }
+.dice-roll.domainCheck .vocations .vocation{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.dice-roll.domainCheck .vocations .vocation b {
+  display: flex;
+  
+}
 .dice-roll.domainCheck .vocation.Technique, .dice-roll.domainCheck .vocation.Savoir, .dice-roll.domainCheck .vocation.Social {
   border: 3px solid var(--esprit)
 }
@@ -1252,15 +1270,18 @@ section.vocations {
   display:flex;
   justify-content:center;
   font-family: Komikazoom;
+  font-size:25px;
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
   gap: 5px;
+  text-align:center;
 }
 .dice-roll.domainCheck button {
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  line-height: 20px;
 }
 
 /* TOKEN HUD */

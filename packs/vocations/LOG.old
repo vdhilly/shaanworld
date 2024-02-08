@@ -1,5 +1,5 @@
-2024/01/30-00:28:25.979 8fec Recovering log #147
-2024/01/30-00:28:25.980 8fec Level-0 table #149: started
-2024/01/30-00:28:25.985 8fec Level-0 table #149: 1002 bytes OK
-2024/01/30-00:28:25.998 8fec Delete type=0 #147
-2024/01/30-00:28:25.999 8fec Delete type=3 #146
+2024/01/30-17:28:29.808 97ac Recovering log #150
+2024/01/30-17:28:29.809 97ac Level-0 table #152: started
+2024/01/30-17:28:29.817 97ac Level-0 table #152: 1443 bytes OK
+2024/01/30-17:28:29.829 97ac Delete type=0 #150
+2024/01/30-17:28:29.833 97ac Delete type=3 #148

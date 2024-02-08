@@ -46,18 +46,25 @@ export class ActorSheetSW extends ActorSheet {
         },
       };
 
-    this.prepareEditors(sheetData);
+    await this.prepareEditors(sheetData);
     this.prepareVocations(sheetData);
     this.prepareData(sheetData, actorData);
     console.log(sheetData);
     return sheetData;
   }
-  async prepareEditors(sheetData){
+  async prepareEditors(sheetData) {
     sheetData.enrichedGMnotes = await TextEditor.enrichHTML(
       getProperty(this.actor.system, "biography.campagne.gm"),
       { async: true }
     );
-    sheetData.enrichedArtefactsNotes = await TextEditor.enrichHTML(getProperty(this.actor.system, "artefacts"), {async: true})
+    sheetData.enrichedArtefactsNotes = await TextEditor.enrichHTML(
+      getProperty(this.actor.system, "artefacts"),
+      { async: true }
+    );
+    sheetData.enrichedRessourcesNotes = await TextEditor.enrichHTML(
+      getProperty(this.actor.system, "ressources"),
+      { async: true }
+    );
     sheetData.enrichedUserNotes = await TextEditor.enrichHTML(
       getProperty(this.actor.system, "biography.campagne.notes"),
       { async: true }
@@ -87,24 +94,24 @@ export class ActorSheetSW extends ActorSheet {
       { async: true }
     );
   }
-  prepareData(sheetData, actorData){
-    let lastElement
-        // Filtre Lignee
-        let lignee = actorData.items.filter(function (item) {
-        return item.type == "lignee";
-      });
-      lastElement = lignee[lignee.length - 1];
-  
-      lignee.forEach((element) => {
-        if (element != lastElement) {
-          let itemId = element._id;
-          return this.actor.deleteEmbeddedDocuments("Item", [itemId]);
-        }
-      });
-      sheetData.lignee = lastElement;
+  prepareData(sheetData, actorData) {
+    let lastElement;
+    // Filtre Lignee
+    let lignee = actorData.items.filter(function (item) {
+      return item.type == "lignee";
+    });
+    lastElement = lignee[lignee.length - 1];
 
-     // Filtre Peuple
-     let people = actorData.items.filter(function (item) {
+    lignee.forEach((element) => {
+      if (element != lastElement) {
+        let itemId = element._id;
+        return this.actor.deleteEmbeddedDocuments("Item", [itemId]);
+      }
+    });
+    sheetData.lignee = lastElement;
+
+    // Filtre Peuple
+    let people = actorData.items.filter(function (item) {
       return item.type == "people";
     });
     lastElement = people[people.length - 1];
@@ -117,30 +124,31 @@ export class ActorSheetSW extends ActorSheet {
     });
     sheetData.people = lastElement;
 
-      // Filtre Role
-      let role = actorData.items.filter(function (item) {
-        return item.type == "role";
-      });
-      lastElement = role[role.length - 1];
-  
-      role.forEach((element) => {
-        if (element != lastElement) {
-          let itemId = element._id;
-          return this.actor.deleteEmbeddedDocuments("Item", [itemId]);
-        }
-      });
-      sheetData.role = lastElement;
+    // Filtre Role
+    let role = actorData.items.filter(function (item) {
+      return item.type == "role";
+    });
+    lastElement = role[role.length - 1];
+
+    role.forEach((element) => {
+      if (element != lastElement) {
+        let itemId = element._id;
+        return this.actor.deleteEmbeddedDocuments("Item", [itemId]);
+      }
+    });
+    sheetData.role = lastElement;
   }
   prepareVocations(sheetData) {
-    sheetData.vocations = {}
+    sheetData.vocations = {};
 
     for (const domain of sheetData.config.domains) {
-      sheetData.vocations[domain.toLowerCase().replace('é', 'e')] = sheetData.items.filter(function (item) {
-        return item.system.domain === domain;
-      });    
+      sheetData.vocations[domain.toLowerCase().replace("é", "e")] =
+        sheetData.items.filter(function (item) {
+          return item.system.domain === domain;
+        });
     }
   }
-  activateListeners($html){
+  activateListeners($html) {
     super.activateListeners($html);
     const html = $html[0];
 
@@ -148,8 +156,8 @@ export class ActorSheetSW extends ActorSheet {
     $html.find(".item-edit, .vocation-name").click(this._onItemEdit.bind(this));
     $html.find(".item-delete").click(this._onItemDelete.bind(this));
     $html.find(".circle input").on("focus", (event) => {
-      event.target.select()
-    })
+      event.target.select();
+    });
 
     const imageLink = htmlQuery(html, "a[data-action=show-image]");
     if (!imageLink) return;
@@ -173,28 +181,27 @@ export class ActorSheetSW extends ActorSheet {
       }
     });
 
-    
-
-    const vocationNameSpans = htmlQueryAll(html, ".vocation-name")
-    for (let i = 0; i < vocationNameSpans.length; i++){
-      let vocationName = vocationNameSpans[i].innerText
-      if(vocationName.length >= 19){
-        let difference = vocationName.length - 19
-        vocationNameSpans[i].innerText = vocationName.substring(0, 19 - 2) + "..."
+    const vocationNameSpans = htmlQueryAll(html, ".vocation-name");
+    for (let i = 0; i < vocationNameSpans.length; i++) {
+      let vocationName = vocationNameSpans[i].innerText;
+      if (vocationName.length >= 19) {
+        let difference = vocationName.length - 19;
+        vocationNameSpans[i].innerText =
+          vocationName.substring(0, 19 - 2) + "...";
       }
     }
   }
-  _onDomainCheck(event){
-    let actor = this.actor
+  _onDomainCheck(event) {
+    let actor = this.actor;
 
-    Dice.domainCheck(actor)
+    Dice.domainCheck(actor);
   }
   _onItemEdit(event) {
     event.preventDefault();
     let element = event.target;
     let itemId = element.closest(".item").dataset.itemId;
-    if(!itemId){
-      return console.log("Aucun item n'a été trouvé")
+    if (!itemId) {
+      return console.log("Aucun item n'a été trouvé");
     }
     let item = this.actor.items.get(itemId);
 
@@ -205,12 +212,12 @@ export class ActorSheetSW extends ActorSheet {
       event.preventDefault();
       let element = event.target;
       let itemId = element.closest(".item").dataset.itemId;
-      if(!itemId){
-        throw new Error("itemId is not defined")
+      if (!itemId) {
+        throw new Error("itemId is not defined");
       }
-      return this.actor.deleteEmbeddedDocuments("Item", [itemId]) 
-    } catch (error){
-      console.error(error)
+      return this.actor.deleteEmbeddedDocuments("Item", [itemId]);
+    } catch (error) {
+      console.error(error);
     }
   }
 }

@@ -26,7 +26,8 @@ h3 {
 .actor.sheet .circle input::selection {
   background: rgba(130, 129, 125, 0.5);
 }
-.actor.sheet .fa-solid,.actor.sheet .fas {
+.actor.sheet .fa-solid,
+.actor.sheet .fas {
   font-weight: 500;
 }
 .system-shaanworld #pause img {
@@ -56,7 +57,7 @@ h3 {
   margin-top: 2px;
   border: none;
   background-color: rgba(28, 28, 28, 0.1);
-  border-radius:none;
+  border-radius: none;
 }
 label.green-label {
   color: var(--green-bg);
@@ -68,7 +69,7 @@ label.green-label {
 .sheet.character .window-resizable-handle {
   display: none;
 }
-.sheet.character .window-content{
+.sheet.character .window-content {
   background: var(--green-bg);
 }
 .actor.sheet.character {
@@ -99,7 +100,7 @@ label.green-label {
   width: 335px;
   position: relative;
   left: 390px;
-  top:-12px;
+  top: -12px;
   z-index: 10;
 }
 .actor.sheet .domainCheck {
@@ -114,14 +115,14 @@ label.green-label {
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
-  font-family:Komikazoom;
-  color: var(--green-bg)
+  font-family: Komikazoom;
+  color: var(--green-bg);
 }
 .actor.sheet .domainCheck:hover span {
-  text-shadow: #404d48 !important
+  text-shadow: #404d48 !important;
 }
 .actor.sheet .domainCheck svg {
-  width:25px;
+  width: 25px;
 }
 .whitebox.box-character-name {
   width: 45%;
@@ -178,8 +179,12 @@ label.green-label {
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
   border-radius: 10px;
 }
-.domain-input:focus, .trihn-input:focus, .current-exp:focus, .max-exp:focus, .input input {
-  box-shadow:none !important;
+.domain-input:focus,
+.trihn-input:focus,
+.current-exp:focus,
+.max-exp:focus,
+.input input {
+  box-shadow: none !important;
 }
 input.domain-input {
   width: 30px;
@@ -237,25 +242,25 @@ section.circle input[type="checkbox"][data-trihn="corps"]:checked {
   overflow: hidden;
 }
 .whitebox.vocation-box .vocation {
-  display:flex;
-  flex-direction: column;;
+  display: flex;
+  flex-direction: column;
   padding-left: 3px;
-  overflow-y:scroll;
-  height:73px;
+  overflow-y: scroll;
+  height: 73px;
 }
 .whitebox.vocation-box .vocation div {
-  display: flex; 
-  flex-direction:row;
-  font-size:12px;
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
 }
 .whitebox.vocation-box .vocation-name {
-  cursor:pointer;
+  cursor: pointer;
 }
 .whitebox.vocation-box .vocation .item-controls {
-  display:flex;
+  display: flex;
   flex: 1;
   align-self: center;
-  justify-content:right;
+  justify-content: right;
   font-size: 10px;
   z-index: 10;
 }
@@ -298,7 +303,7 @@ section.vocations {
   box-shadow: 0 0 0 1px #918c88, 0 0 0 2px #e1d8cf, 0 0 0 3px #a98f39,
     inset 0 0 8px rgba(0, 0, 0, 0.5), 0 0 8px #000;
   cursor: pointer;
-  max-height: 140px;
+  max-height: 122px;
   object-fit: cover;
   object-position: top;
   width: 100%;
@@ -375,7 +380,7 @@ section.vocations {
   display: flex;
   flex-direction: row;
   width: 326px;
-  gap:5px;
+  gap: 5px;
 }
 .actor.sheet .character-details .pc label {
   align-self: center;
@@ -392,7 +397,7 @@ section.vocations {
   margin: 0;
   padding: 8px 4px 6px;
   width: calc(100% - 6px);
-  justify-content:space-between;
+  justify-content: space-between;
 }
 .actor.sheet .character-details input {
   background-color: rgba(28, 28, 28, 0.1);
@@ -412,7 +417,7 @@ section.vocations {
   float: right;
   position: relative;
   right: -2px;
-  display:flex;
+  display: flex;
 }
 .actor.sheet.character .character-details .pc h3 a i {
   float: right;
@@ -428,7 +433,7 @@ section.vocations {
   left: 584px;
 }
 .actor.sheet .character-experience label {
-  color: var(--green-bg)
+  color: var(--green-bg);
 }
 .actor.sheet .character-experience .exp-box {
   display: flex;
@@ -457,10 +462,10 @@ section.vocations {
   left: -81px;
 }
 .actor.sheet .entretien-soin label {
-  color: var(--green-bg)
+  color: var(--green-bg);
 }
 .actor.sheet .entretien-soin .whitebox {
-  width:220px;
+  width: 220px;
 }
 .actor.sheet .entretien-soin span {
   background: var(--green-bg);
@@ -555,10 +560,10 @@ section.vocations {
   z-index: 2;
 }
 .actor.sheet .whitebox.artefacts .artefacts-container {
-  height: 100%
+  height: 100%;
 }
 .actor.sheet .whitebox.artefacts .artefacts-container .editor {
-  height:100%
+  height: 100%;
 }
 .character-ressources-label {
   background: var(--green-bg);
@@ -577,10 +582,10 @@ section.vocations {
   height: 500px;
 }
 .actor.sheet .whitebox.ressources .ressources-container {
-  height: 100%
+  height: 100%;
 }
 .actor.sheet .whitebox.ressources .ressources-container .editor {
-  height:100%
+  height: 100%;
 }
 
 /* Biography */
@@ -680,18 +685,18 @@ section.vocations {
 .actor.sheet .whitebox.notes .notes-content .appearance-container {
   height: 100%;
 }
-.actor.sheet .whitebox.notes .notes-content .tab.background {
- display: grid;
- height: 97%;
- grid-template-rows: 15px 1fr 15px 1fr 15px 1fr;
- grid-template-columns: 1fr;
- gap: 2px;
- margin-top: 2px;
+.actor.sheet .whitebox.notes .notes-content .tab.background.active {
+  display: grid;
+  height: 97%;
+  grid-template-rows: 15px 1fr 15px 1fr 15px 1fr;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  margin-top: 2px;
 }
-.actor.sheet .whitebox.notes .notes-content .tab.background:first-child{
+.actor.sheet .whitebox.notes .notes-content .tab.background:first-child {
   border-bottom: 3px solid var(--green-bg);
 }
-.actor.sheet .whitebox.notes .notes-content .tab.background:last-child{
+.actor.sheet .whitebox.notes .notes-content .tab.background:last-child {
   border-top: 3px solid var(--green-bg);
 }
 .actor.sheet .whitebox.notes .editor,
@@ -716,7 +721,7 @@ section.vocations {
 }
 /* ITEMS */
 .item.sheet .window-content {
-  background: var(--green-bg)
+  background: var(--green-bg);
 }
 .item.sheet input {
   border-radius: 0;
@@ -745,7 +750,7 @@ section.vocations {
   display: grid;
   grid-template-rows: 70px 1fr;
   grid-template-columns: 1fr;
-  gap:5px;
+  gap: 5px;
 }
 .item.sheet.vocation input {
   background-color: rgba(28, 28, 28, 0.1);
@@ -773,7 +778,7 @@ section.vocations {
 }
 .item.sheet.vocation label {
   margin-left: 2px;
-  font-weight: 700
+  font-weight: 700;
 }
 .item.sheet.vocation .sheet-header {
   border: 2px solid var(--whitebox-border);
@@ -786,7 +791,7 @@ section.vocations {
 }
 .item.sheet.vocation .sheet-header h2 {
   border: none;
-  margin:0;
+  margin: 0;
 }
 .item.sheet.vocation .sheet-header h2 input {
   height: 50px;
@@ -794,23 +799,22 @@ section.vocations {
   font-size: var(--font-size-28);
 }
 .item.sheet.vocation header .item-delete {
-    flex: 0.1;
-    float: right;
-    text-align: center;
+  flex: 0.1;
+  float: right;
+  text-align: center;
 }
 .item.sheet.vocation header .item-delete:hover {
   text-shadow: 0 0 8px #4d6452;
 }
 .item.sheet.vocation header .item-delete i {
-  font-weight:500;
-  font-size:25px;
-  
+  font-weight: 500;
+  font-size: 25px;
 }
 .item.sheet.vocation .details {
   display: grid;
   grid-template-rows: 50px 1fr 0.2fr;
   grid-template-columns: 1fr 1fr 1fr;
-  gap:5px;
+  gap: 5px;
 }
 .item.sheet.vocation .details .item-domain {
   border: 2px solid var(--whitebox-border);
@@ -845,7 +849,6 @@ section.vocations {
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
   grid-area: 3 / 1 / 3 / 4;
-
 }
 .item.sheet.vocation .details .item-equipment textarea {
   border: none;
@@ -861,7 +864,7 @@ section.vocations {
   display: grid;
   grid-template-rows: 70px 1fr;
   grid-template-columns: 1fr;
-  gap:5px;
+  gap: 5px;
 }
 .item.sheet.lignee input {
   background-color: rgba(28, 28, 28, 0.1);
@@ -882,7 +885,7 @@ section.vocations {
 }
 .item.sheet.lignee .sheet-header h2 {
   border: none;
-  margin:0;
+  margin: 0;
 }
 .item.sheet.lignee .sheet-header h2 input {
   height: 50px;
@@ -893,10 +896,10 @@ section.vocations {
   display: grid;
   grid-template-rows: 50px 1fr;
   grid-template-columns: 0.6fr 1fr 1fr;
-  gap:5px;
+  gap: 5px;
 }
 .item.sheet.lignee .details .frame-container {
-  display:flex;
+  display: flex;
   justify-content: center;
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);
@@ -906,7 +909,7 @@ section.vocations {
 }
 .item.sheet.lignee .details img {
   height: 100%;
-  border:none;
+  border: none;
 }
 .item.sheet.lignee .details .item-domain {
   border: 2px solid var(--whitebox-border);
@@ -938,7 +941,7 @@ section.vocations {
   display: grid;
   grid-template-rows: 70px 1fr;
   grid-template-columns: 1fr;
-  gap:5px;
+  gap: 5px;
 }
 .item.sheet.people input {
   background-color: rgba(28, 28, 28, 0.1);
@@ -959,7 +962,7 @@ section.vocations {
 }
 .item.sheet.people .sheet-header h2 {
   border: none;
-  margin:0;
+  margin: 0;
 }
 .item.sheet.people .sheet-header h2 input {
   height: 50px;
@@ -970,14 +973,14 @@ section.vocations {
   display: grid;
   grid-template-rows: 50px 1fr;
   grid-template-columns: 0.6fr 1fr 1fr;
-  gap:5px;
+  gap: 5px;
 }
 .item.sheet.people .details img {
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
   grid-area: 1 / 1 / 3 / 3;
-  height:100%
+  height: 100%;
 }
 .item.sheet.people .details .item-domain {
   border: 2px solid var(--whitebox-border);
@@ -1009,7 +1012,7 @@ section.vocations {
   display: grid;
   grid-template-rows: 70px 1fr;
   grid-template-columns: 1fr;
-  gap:5px;
+  gap: 5px;
 }
 .item.sheet.role input {
   background-color: rgba(28, 28, 28, 0.1);
@@ -1030,7 +1033,7 @@ section.vocations {
 }
 .item.sheet.role .sheet-header h2 {
   border: none;
-  margin:0;
+  margin: 0;
 }
 .item.sheet.role .sheet-header h2 input {
   height: 50px;
@@ -1062,27 +1065,32 @@ section.vocations {
 .dialog.check button:hover {
   text-shadow: 0 0 8px #4d6452;
 }
-.dialog.check .window-content{
-  background: var(--green-bg)
+.dialog.check .window-content {
+  background: var(--green-bg);
 }
 .dialog.check form select {
   border: none;
-  border-radius:0;
+  border-radius: 0;
   display: flex;
-  width: calc(100%)
+  width: calc(100%);
 }
 .dialog.check form input {
   border: none;
-  border-radius:0;
+  border-radius: 0;
   display: flex;
-  width: calc(100%)
+  width: calc(100%);
 }
 .dialog.check form label {
   font-family: Komikazoom;
   display: flex;
   justify-content: center;
 }
-.dialog.check .domain-container, .dialog.check .vocation, .dialog.check .bonus, .dialog.check .malus, .dialog.check .lignee, .dialog.check .people {
+.dialog.check .domain-container,
+.dialog.check .vocation,
+.dialog.check .bonus,
+.dialog.check .malus,
+.dialog.check .lignee,
+.dialog.check .people {
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
@@ -1091,14 +1099,14 @@ section.vocations {
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
-  gap:2px;
+  gap: 2px;
 }
 .dialog.check .domain-container {
-    justify-self: center;
-    grid-area: 1 / 1 / 2 / 3;
-    display: flex;
-    flex-direction: column;
-    width:200px
+  justify-self: center;
+  grid-area: 1 / 1 / 2 / 3;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
 }
 .dialog.check button {
   border: 2px solid var(--whitebox-border);
@@ -1113,20 +1121,20 @@ section.vocations {
 
 /* CHAT DOMAIN CHECK */
 .message-header {
-  color:white !important;
+  color: white !important;
 }
 .dice-roll.domainCheck button:hover {
   text-shadow: 0 0 8px #4d6452;
 }
 .dice-roll.domainCheck .title {
   margin: 0;
-  color:#394a3d
+  color: #394a3d;
 }
 .dice-roll.domainCheck {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 0.1fr 1fr;
-  gap:5px;
+  gap: 5px;
 }
 .dice-roll.domainCheck h2 {
   border: 2px solid var(--whitebox-border);
@@ -1134,14 +1142,14 @@ section.vocations {
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
   justify-content: center;
   display: flex;
-  font-family: Komikazoom
+  font-family: Komikazoom;
 }
 .chat-message.roll-message {
-  border-radius:0;
-  background:var(--green-bg) !important;
+  border-radius: 0;
+  background: var(--green-bg) !important;
 }
 .dice-roll.domainCheck .dice {
-  display:grid;
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template: 1fr;
   border: 2px solid var(--whitebox-border);
@@ -1154,7 +1162,7 @@ section.vocations {
 }
 .dice-roll.domainCheck .dice.necrose img {
   height: 68px;
-  align-self:center;
+  align-self: center;
 }
 .dice-roll.domainCheck .dice img {
   border: none;
@@ -1162,61 +1170,63 @@ section.vocations {
 .dice-roll.domainCheck .dice .die {
   opacity: 0.6;
 }
-.dice-roll.domainCheck .dice .die.Necrose{
-  opacity:1 !important;
+.dice-roll.domainCheck .dice .die.Necrose {
+  opacity: 1 !important;
 }
 .dice-roll.domainCheck .dice .die.trihnDie {
-  opacity: 1 !important; 
+  opacity: 1 !important;
 }
 .dice-roll.domainCheck .details {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 0.1fr 0.7fr 1fr;
-  gap:5px;
+  gap: 5px;
 }
-.dice-roll.domainCheck .domain{
-  display:flex;
-  justify-content:center;
+.dice-roll.domainCheck .domain {
+  display: flex;
+  justify-content: center;
   padding: 4px;
-  text-transform:capitalize;
-  font-family: Komikazoom
+  text-transform: capitalize;
+  font-family: Komikazoom;
+  font-size: 22px;
 }
 .dice-roll.domainCheck .domain.Esprit {
-  background-color:var(--esprit);
-  color:#fffcdb
+  background-color: var(--esprit);
+  color: #fffcdb;
 }
 .dice-roll.domainCheck .domain.Ame {
-  background-color:var(--ame);
+  background-color: var(--ame);
   color: #d5eefc;
 }
 .dice-roll.domainCheck .domain.Corps {
-  background-color:var(--corps);
+  background-color: var(--corps);
   color: #fbdaca;
 }
 .dice-roll.domainCheck .domain.Necrose {
-  background-color:var(--necrose);
+  background-color: var(--necrose);
   color: black;
 }
 .dice-roll.domainCheck .vocations {
-  display:grid;
+  display: grid;
   grid-template-rows: 0.5fr 1fr;
   grid-template-columns: 1fr 1fr;
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
-  gap:5px;
-  padding:5px;
-  align-items:center;
+  gap: 5px;
+  padding: 5px;
+  align-items: center;
 }
 .dice-roll.domainCheck .vocations .vocation-label {
   grid-area: 1 / 1 / 2 / 3;
   font-family: Komikazoom;
+  color: #394a3d;
 }
 .dice-roll.domainCheck .vocations span {
   display: flex;
   justify-content: center;
 }
-.dice-roll.domainCheck .vocations .vocation{
+.dice-roll.domainCheck .vocations .vocation {
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -1225,33 +1235,42 @@ section.vocations {
 }
 .dice-roll.domainCheck .vocations .vocation b {
   display: flex;
-  
 }
-.dice-roll.domainCheck .vocation.Technique, .dice-roll.domainCheck .vocation.Savoir, .dice-roll.domainCheck .vocation.Social {
-  border: 3px solid var(--esprit)
+.dice-roll.domainCheck .vocation.Technique,
+.dice-roll.domainCheck .vocation.Savoir,
+.dice-roll.domainCheck .vocation.Social {
+  border: 3px solid var(--esprit);
 }
-.dice-roll.domainCheck .vocation.Arts, .dice-roll.domainCheck .vocation.Shaan, .dice-roll.domainCheck .vocation.Magie {
-  border: 3px solid var(--ame)
+.dice-roll.domainCheck .vocation.Arts,
+.dice-roll.domainCheck .vocation.Shaan,
+.dice-roll.domainCheck .vocation.Magie {
+  border: 3px solid var(--ame);
 }
-.dice-roll.domainCheck .vocation.Rituels, .dice-roll.domainCheck .vocation.Survie, .dice-roll.domainCheck .vocation.Combat {
-  border: 3px solid var(--corps)
+.dice-roll.domainCheck .vocation.Rituels,
+.dice-roll.domainCheck .vocation.Survie,
+.dice-roll.domainCheck .vocation.Combat {
+  border: 3px solid var(--corps);
 }
 .dice-roll.domainCheck .vocation.Nécrose {
-  border: 3px solid var(--necrose)
+  border: 3px solid var(--necrose);
 }
 .dice-roll.domainCheck .modifiers {
-  display:grid;
-  grid-template-rows:1fr 1fr;
-  grid-template-columns:1fr 1fr;
-  gap:5px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  color: #394a3d;
 }
 .dice-roll.domainCheck .modifiers span {
-  display:flex;
-  justify-content:center;
+  display: flex;
+  justify-content: center;
   font-family: Komikazoom;
 }
-.dice-roll.domainCheck .modifiers .bonus, .dice-roll.domainCheck .modifiers .malus, .dice-roll.domainCheck .modifiers .lignee, .dice-roll.domainCheck .modifiers .people {
-  display:grid;
+.dice-roll.domainCheck .modifiers .bonus,
+.dice-roll.domainCheck .modifiers .malus,
+.dice-roll.domainCheck .modifiers .lignee,
+.dice-roll.domainCheck .modifiers .people {
+  display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr;
   border: 2px solid var(--whitebox-border);
@@ -1259,23 +1278,23 @@ section.vocations {
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
 }
 .dice-roll.domainCheck .pertes {
-  display:flex;
-  justify-content:center;
+  display: flex;
+  justify-content: center;
   font-family: Komikazoom;
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
 }
 .dice-roll.domainCheck .score-div {
-  display:flex;
-  justify-content:center;
+  display: flex;
+  justify-content: center;
   font-family: Komikazoom;
-  font-size:25px;
+  font-size: 25px;
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
   gap: 5px;
-  text-align:center;
+  text-align: center;
 }
 .dice-roll.domainCheck button {
   border: 2px solid var(--whitebox-border);
@@ -1305,7 +1324,7 @@ section.vocations {
   left: -25%;
   top: 97%;
   color: black;
-  font-family:Komikazoom;
+  font-family: Komikazoom;
 }
 #token-hud .attribute.bar2 img {
   border: none;
@@ -1319,7 +1338,7 @@ section.vocations {
   left: 24%;
   top: 95%;
   color: black;
-  font-family:Komikazoom;
+  font-family: Komikazoom;
 }
 #token-hud .attribute.bar3 img {
   border: none;
@@ -1333,7 +1352,7 @@ section.vocations {
   left: 77%;
   top: 95%;
   color: black;
-  font-family:Komikazoom;
+  font-family: Komikazoom;
 }
 #token-hud .col.middle .attribute input {
   border: none;
@@ -1358,9 +1377,9 @@ section.vocations {
 }
 
 /* ADVERSITE */
-.sheet.adversite .window-content{
+.sheet.adversite .window-content {
   background: var(--green-bg);
-  width:100%
+  width: 100%;
 }
 .actor.sheet.adversite input {
   background-color: rgba(28, 28, 28, 0.1);
@@ -1371,7 +1390,7 @@ section.vocations {
   line-height: 1;
   margin: 0;
   padding: 8px 4px 6px;
-  width: 100%
+  width: 100%;
 }
 .actor.sheet.adversite textarea {
   background-color: rgba(28, 28, 28, 0.1);
@@ -1383,7 +1402,7 @@ section.vocations {
   margin: 0;
   padding: 8px 4px 6px;
   min-width: 375.2px;
-  max-width:375.2px;
+  max-width: 375.2px;
 }
 .actor.sheet.adversite input:focus {
   box-shadow: none;
@@ -1395,22 +1414,22 @@ section.vocations {
   display: grid;
   grid-template-rows: calc(375.2px + 50px) 90px 0.5fr 1fr;
   grid-template-columns: 1fr;
-  gap:5px;
-  height:90px;
+  gap: 5px;
+  height: 90px;
 }
 .actor.sheet.adversite h2 {
   font-family: Komikazoom;
   color: var(--green-bg);
-  text-align:center;
+  text-align: center;
 }
 .actor.sheet.adversite header {
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .actor.sheet.adversite header input {
   height: 50px;
@@ -1420,22 +1439,22 @@ section.vocations {
   width: 100%;
   text-transform: capitalize;
   text-align: center;
-  color:var(--green-bg)
+  color: var(--green-bg);
 }
 .actor.sheet.adversite header img {
-  border:none;
-  max-width:375.2px;
-  max-height:375.2px;
+  border: none;
+  max-width: 375.2px;
+  max-height: 375.2px;
 }
 .actor.sheet.adversite section.adversite {
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
-  display:grid;
+  display: grid;
   grid-template-rows: 25px 1fr;
   grid-template-columns: 1fr 1fr;
   row-gap: 5px;
-  padding:2px;
+  padding: 2px;
 }
 .actor.sheet.adversite section.adversite input {
   width: calc(100% - 6px);
@@ -1444,7 +1463,7 @@ section.vocations {
   margin: 0;
   border-bottom: 1px solid var(--green-bg);
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   align-self: center;
   justify-content: center;
   gap: 3px;
@@ -1460,7 +1479,7 @@ section.vocations {
   align-self: center;
 }
 .actor.sheet.adversite section.adversite label {
-  color:var(--green-bg)
+  color: var(--green-bg);
 }
 .actor.sheet.adversite section.domains h2 {
   margin: 0;
@@ -1470,7 +1489,7 @@ section.vocations {
   grid-column-start: 1;
   grid-column-end: 4;
   grid-row-start: 1;
-  grid-row-end: 2;    
+  grid-row-end: 2;
 }
 
 .actor.sheet.adversite section.domains {
@@ -1488,73 +1507,88 @@ section.vocations {
 }
 
 .actor.sheet.adversite section.domains div {
-  display:flex;
-  flex-direction:row;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .actor.sheet.adversite section.domains label {
   padding-right: 5px;
-  padding-left:5px;
-  font-weight:700;
+  padding-left: 5px;
+  font-weight: 700;
   margin-bottom: 3px;
   width: 60%;
 }
-.actor.sheet.adversite section.domains .technique, .actor.sheet.adversite section.domains .savoir, .actor.sheet.adversite section.domains .social {
-  background:var(--esprit);
-  color:#fffcdb;
+.actor.sheet.adversite section.domains .technique,
+.actor.sheet.adversite section.domains .savoir,
+.actor.sheet.adversite section.domains .social {
+  background: var(--esprit);
+  color: #fffcdb;
 }
-.actor.sheet.adversite section.domains .technique, .actor.sheet.adversite section.domains .savoir, .actor.sheet.adversite section.domains .social {
-  grid-column-start:1
+.actor.sheet.adversite section.domains .technique,
+.actor.sheet.adversite section.domains .savoir,
+.actor.sheet.adversite section.domains .social {
+  grid-column-start: 1;
 }
-.actor.sheet.adversite section.domains .arts, .actor.sheet.adversite section.domains .shaan, .actor.sheet.adversite section.domains .magie {
-  background:var(--ame);
-  color:#d5eefc;
+.actor.sheet.adversite section.domains .arts,
+.actor.sheet.adversite section.domains .shaan,
+.actor.sheet.adversite section.domains .magie {
+  background: var(--ame);
+  color: #d5eefc;
 }
-.actor.sheet.adversite section.domains .arts, .actor.sheet.adversite section.domains .shaan, .actor.sheet.adversite section.domains .magie {
-  grid-column-start:2
+.actor.sheet.adversite section.domains .arts,
+.actor.sheet.adversite section.domains .shaan,
+.actor.sheet.adversite section.domains .magie {
+  grid-column-start: 2;
 }
-.actor.sheet.adversite section.domains .rituels, .actor.sheet.adversite section.domains .survie, .actor.sheet.adversite section.domains .combat {
-  background:var(--corps);
-  color:#fbdaca;
+.actor.sheet.adversite section.domains .rituels,
+.actor.sheet.adversite section.domains .survie,
+.actor.sheet.adversite section.domains .combat {
+  background: var(--corps);
+  color: #fbdaca;
 }
-.actor.sheet.adversite section.domains .rituels, .actor.sheet.adversite section.domains .survie, .actor.sheet.adversite section.domains .combat {
-  grid-column-start:3
+.actor.sheet.adversite section.domains .rituels,
+.actor.sheet.adversite section.domains .survie,
+.actor.sheet.adversite section.domains .combat {
+  grid-column-start: 3;
 }
 .actor.sheet.adversite section.domains .necrose {
-  background:var(--necrose);
-  color:#c3c3c3;
+  background: var(--necrose);
+  color: #c3c3c3;
 }
 .actor.sheet.adversite section.domains .necrose {
-  grid-column-start:2
+  grid-column-start: 2;
 }
-.actor.sheet.adversite section.domains .arts, .actor.sheet.adversite section.domains .rituels{
-  grid-row-start: 2
+.actor.sheet.adversite section.domains .arts,
+.actor.sheet.adversite section.domains .rituels {
+  grid-row-start: 2;
 }
-.actor.sheet.adversite section.domains .shaan, .actor.sheet.adversite section.domains .survie{
-  grid-row-start: 3
+.actor.sheet.adversite section.domains .shaan,
+.actor.sheet.adversite section.domains .survie {
+  grid-row-start: 3;
 }
-.actor.sheet.adversite section.domains .magie, .actor.sheet.adversite section.domains .combat{
-  grid-row-start: 4
+.actor.sheet.adversite section.domains .magie,
+.actor.sheet.adversite section.domains .combat {
+  grid-row-start: 4;
 }
 .actor.sheet.adversite .details {
-  max-width:100%
+  max-width: 100%;
 }
 .actor.sheet.adversite .details div {
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
-  display:flex;
+  display: flex;
   flex-direction: column;
-  gap:3px;
+  gap: 3px;
   margin-top: 5px;
-  padding:2px;
+  padding: 2px;
 }
 .actor.sheet.adversite .details div:first-child {
-  margin-top:0px
+  margin-top: 0px;
 }
 .actor.sheet.adversite .details div label {
-  color:var(--green-bg)
+  color: var(--green-bg);
 }
 .actor.sheet.adversite .details .adversite-description textarea {
   min-height: 300px;
@@ -1586,11 +1620,11 @@ section.vocations {
   text-shadow: 0 0 8px #4d6452;
 }
 .dialog.adversites .window-content {
-  background: var(--green-bg)
+  background: var(--green-bg);
 }
 .dialog.adversites form select {
   border: none;
-  border-radius:0;
+  border-radius: 0;
   display: flex;
   width: calc(100%);
   text-align: center;
@@ -1605,86 +1639,90 @@ section.vocations {
   margin: 0;
   padding: 8px 4px 6px;
   width: 100%;
-  border-radius:0;
+  border-radius: 0;
 }
 .dialog.adversites h2 {
   font-family: Komikazoom;
   color: var(--green-bg);
-  border:none;
-  text-align:center;
-  margin:0;
+  border: none;
+  text-align: center;
+  margin: 0;
 }
 .dialog.adversites label {
   color: var(--green-bg);
   font-family: ITCOfficinaSans;
-  text-transform:uppercase;
+  text-transform: uppercase;
 }
-.dialog.adversites .form-group, .dialog.adversites button, .dialog.adversites button.default {
+.dialog.adversites .form-group,
+.dialog.adversites button,
+.dialog.adversites button.default {
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
 }
 .dialog.adversites .form-group.adversites {
-  display:grid;
-  padding:5px;
+  display: grid;
+  padding: 5px;
   gap: 5px;
-  row-gap:0px;
+  row-gap: 0px;
   grid-template-columns: 1fr;
-  grid-template-rows:30px 1fr
+  grid-template-rows: 30px 1fr;
 }
 .dialog.adversites .form-group.pertes {
-  display:flex;
-  flex-direction:column;
+  display: flex;
+  flex-direction: column;
 }
 .dialog.adversites .form-group.pertes .perte {
-  display:grid;
-  padding:5px;
+  display: grid;
+  padding: 5px;
   gap: 5px;
-  row-gap:0px;
+  row-gap: 0px;
   grid-template-columns: 1fr;
-  grid-template-rows:30px 1fr
+  grid-template-rows: 30px 1fr;
 }
-.dialog.adversites .form-group.pertes .perte div{
-  display:flex;
-  flex-direction:row;
+.dialog.adversites .form-group.pertes .perte div {
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   gap: 3px;
-  align-items:center;
+  align-items: center;
 }
 .dialog.adversites .form-group.pertes .perte input {
-  width:30%
+  width: 30%;
 }
 .dialog.adversites .form-group.pertes .repartir {
-  display:grid;
-  padding:5px;
+  display: grid;
+  padding: 5px;
   gap: 5px;
-  row-gap:0px;
+  row-gap: 0px;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr
+  grid-template-rows: 1fr;
 }
 
 .dialog.adversites .form-group.score {
-  display:grid;
-  padding:5px;
+  display: grid;
+  padding: 5px;
   gap: 5px;
-  row-gap:0px;
+  row-gap: 0px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 30px 1fr
+  grid-template-rows: 30px 1fr;
 }
 .dialog.adversites .form-group.score h2 {
-  grid-column-start:1;
-  grid-column-end:3;
-  grid-row-start:1;
-  grid-row-end:1;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 1;
 }
 
-li:has(.chat-card.puiser), li:has(.chat-card.adversite) {
+li:has(.chat-card.puiser),
+li:has(.chat-card.adversite) {
   border-radius: 0;
   background: var(--green-bg) !important;
 }
-.chat-card.puiser, .chat-card.adversite{
-  display:flex;
-  flex-direction:column;
+.chat-card.puiser,
+.chat-card.adversite {
+  display: flex;
+  flex-direction: column;
   gap: 5px;
 }
 .chat-card.puiser button:hover {
@@ -1695,22 +1733,24 @@ li:has(.chat-card.puiser), li:has(.chat-card.adversite) {
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
 }
-.chat-card.puiser span, .chat-card.adversite span {
+.chat-card.puiser span,
+.chat-card.adversite span {
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 30px;
 }
-.chat-card.puiser .score, .chat-card.adversite .score {
+.chat-card.puiser .score,
+.chat-card.adversite .score {
   margin-left: 2px;
   margin-right: 2px;
 }
 .chat-card span[data-adversite-id] {
-  font-weight:700;
-  cursor:pointer;
+  font-weight: 700;
+  cursor: pointer;
 }
 .chat-card span[data-adversite-id]:hover {
   text-shadow: 0 0 8px #4d6452;

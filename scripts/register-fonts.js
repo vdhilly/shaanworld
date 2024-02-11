@@ -19,6 +19,11 @@ export function registerFonts() {
         style: "italic",
         weight: "700",
       },
+      {
+        urls: ["systems/shaanworld/fonts/OfficinaSansStd-BookItalic.otf"],
+        style: "italic",
+        weight: "500",
+      },
     ],
   };
 }

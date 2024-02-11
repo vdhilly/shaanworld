@@ -6,14 +6,37 @@
   --green-bg: #768c84;
   --whitebox-border: #aeb6aa;
   --whitebox-background: #ffffff;
+  --title: "GodOfWaraccent2";
+  --journal-title: "Amazdoo";
+  --color-esprit: #b8985a;
+  --color-ame: #4263a3;
+  --color-corps: #c95b40;
+  --color-necrose: #707070;
 }
+
 @font-face {
   font-family: ITCOfficinaSans;
   src: url(../fonts/itc-officina-sans-lt-book.ttf);
 }
 @font-face {
+  font-family: ITCOfficinaSansItalic;
+  src: url(../fonts/itc-officina-sans-std-book-italic-1361502754.ttf);
+}
+@font-face {
+  font-family: Roboto;
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+@font-face {
+  font-family: GodOfWaraccent2;
+  src: url(../fonts/GodOfWaraccent-Regular.ttf);
+}
+@font-face {
   font-family: Komikazoom;
   src: url(../fonts/KAMIKZOM.ttf);
+}
+@font-face {
+  font-family: Amazdoo;
+  src: url(../fonts/AmazDooMLeft.ttf);
 }
 h3 {
   font-family: Komikazoom;

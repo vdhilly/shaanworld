@@ -1,4 +1,8 @@
 <div class="adversite SW chat-card" data-actor-id="{{actorID}}">
-    <span data-adversite-id="{{adversite.uuid}}">{{adversite.name}}</span>
-    <span>{{actor.name}} a ajouté <b class="score">{{score}}</b> au score.</span>
+  <span data-adversite-id="{{adversite.uuid}}">{{adversite.name}}</span>
+  <span>{{actor.name}} a ajouté <b class="score">{{score}}</b> au score.</span>
+  {{log this}}
+  {{#if isFinished}}
+    <span>L'adversité est vaincue.</span>
+  {{/if}}
 </div>

@@ -12,6 +12,8 @@
   --color-ame: #4263a3;
   --color-corps: #c95b40;
   --color-necrose: #707070;
+  scrollbar-width: thin !important;
+  scrollbar-color: var(--necrose) #111;
 }
 
 @font-face {
@@ -1076,6 +1078,9 @@ section.vocations {
   height: 204px !important;
 }
 
+.message-header {
+  color: white !important;
+}
 /* DOMAIN CHECK */
 
 /* DIALOG DOMAIN CHECK */
@@ -1143,9 +1148,6 @@ section.vocations {
 }
 
 /* CHAT DOMAIN CHECK */
-.message-header {
-  color: white !important;
-}
 .dice-roll.domainCheck button:hover {
   text-shadow: 0 0 8px #4d6452;
 }

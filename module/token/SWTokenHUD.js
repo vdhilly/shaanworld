@@ -41,6 +41,18 @@ export class SWTokenHUD extends TokenHUD {
       });
     }
     data.statusEffects = this._getStatusEffectChoices(data);
+    data.actor = game.actors.get(data.actorId)
     return data;
+  }
+  activateListeners($html){
+    super.activateListeners($html)
+
+    $html.find("[data-action='activate']").on("change", (event) => {
+      const actor = this.object.actor
+      actor.update({
+        "system.active": !actor.system.active
+      })
+      actor.sheet.render()
+    })
   }
 }

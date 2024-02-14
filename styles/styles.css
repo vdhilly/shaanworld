@@ -40,6 +40,13 @@
   font-family: Amazdoo;
   src: url(../fonts/AmazDooMLeft.ttf);
 }
+#token-hud .col.middle-top {
+  width: 100%;
+  top: -92px;
+}
+#token-hud .col.middle-top .control-icon.active {
+  width:90px;
+}
 h3 {
   font-family: Komikazoom;
   font-weight: 400;

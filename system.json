@@ -13,7 +13,7 @@
       "flags": {}
     }
   ],
-  "version": "1.0.8",
+  "version": "1.0.0",
   "compatibility": {
     "minimum": "11",
     "verified": "11",
@@ -44,52 +44,12 @@
       "path": "packs/macros",
       "type": "Macro",
       "flags": {}
-    },
-    {
-      "name": "lignee",
-      "label": "Lignées",
-      "system": "shaanworld",
-      "path": "packs/lignee",
-      "type": "Item",
-      "flags": {}
-    },
-    {
-      "name": "people",
-      "label": "Peuples",
-      "system": "shaanworld",
-      "path": "packs/people",
-      "type": "Item",
-      "flags": {}
-    },
-    {
-      "name": "vocations",
-      "label": "Vocations",
-      "system": "shaanworld",
-      "path": "packs/vocations",
-      "type": "Item",
-      "flags": {}
-    },
-    {
-      "name": "role",
-      "label": "Rôles",
-      "system": "shaanworld",
-      "path": "packs/role",
-      "type": "Item",
-      "flags": {}
-    },
-    {
-      "name": "vecus",
-      "label": "Vécus",
-      "system": "shaanworld",
-      "path": "packs/vecus",
-      "type": "RollTable",
-      "flags": {}
     }
   ],
   "background": "systems/shaanworld/assets/Banniere_ShaanWorld.jpg",
-  "gridDistance": 5,
+  "gridDistance": 2,
   "gridUnits": "m",
   "url": "https://github.com/YoimPouet/shaanworld",
-  "download": "https://github.com/YoimPouet/shaanworld/releases/download/v1.0.8/shaanworld.zip",
+  "download": "https://github.com/YoimPouet/shaanworld/releases/download/v1.0.0/shaanworld.zip",
   "manifest": "https://raw.githubusercontent.com/YoimPouet/shaanworld/main/system.json"
 }

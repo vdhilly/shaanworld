@@ -6,6 +6,11 @@ export const RenderChatMessage = {
       Puiser.hideChatPuiserButtons(app, html, data);
       Puiser.addChatListeners(app, html, data);
       Adversite.addChatListeners(app, html, data);
+      console.log(html)
+
+      // Handle Table messages
+      const table = html[0].querySelector(".table-draw")
+      if(table) html[0].classList.add("table-draw")
     });
   },
 };

@@ -1088,6 +1088,9 @@ section.vocations {
 .message-header {
   color: white !important;
 }
+li.table-draw .message-header {
+  color: var(--color-text-dark-secondary) !important;
+}
 /* DOMAIN CHECK */
 
 /* DIALOG DOMAIN CHECK */

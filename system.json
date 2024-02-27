@@ -44,6 +44,46 @@
       "path": "packs/macros",
       "type": "Macro",
       "flags": {}
+    },
+    {
+      "name": "lignee",
+      "label": "Lignées",
+      "system": "shaanworld",
+      "path": "packs/lignee",
+      "type": "Item",
+      "flags": {}
+    },
+    {
+      "name": "people",
+      "label": "Peuples",
+      "system": "shaanworld",
+      "path": "packs/people",
+      "type": "Item",
+      "flags": {}
+    },
+    {
+      "name": "vocations",
+      "label": "Vocations",
+      "system": "shaanworld",
+      "path": "packs/vocations",
+      "type": "Item",
+      "flags": {}
+    },
+    {
+      "name": "role",
+      "label": "Rôles",
+      "system": "shaanworld",
+      "path": "packs/role",
+      "type": "Item",
+      "flags": {}
+    },
+    {
+      "name": "vecus",
+      "label": "Vécus",
+      "system": "shaanworld",
+      "path": "packs/vecus",
+      "type": "RollTable",
+      "flags": {}
     }
   ],
   "background": "systems/shaanworld/assets/Banniere_ShaanWorld.jpg",

@@ -151,10 +151,11 @@ function prepareDice(diceValues, trihn){
 
 function getChoice(domainLevel, dice) {
     let choix = {}
-    if(dice.puiser1.value !== 0){
+    console.log(dice)
+    if(dice.puiser1.value !== 10){
         choix.choix1 = dice.puiser1
     }
-    if(dice.puiser2.value !== 0){
+    if(dice.puiser2.value !== 10){
         choix.choix2 = dice.puiser2
     }
     return choix

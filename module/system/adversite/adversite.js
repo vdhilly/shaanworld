@@ -117,9 +117,9 @@ function applyPertes(trihns, actor) {
   actor.update({
     system: {
       trihns: {
-        esprit: { value: actor.system.trihns.esprit.value - trihns.esprit },
-        ame: { value: actor.system.trihns.ame.value - trihns.ame },
-        corps: { value: actor.system.trihns.corps.value - trihns.corps },
+        esprit: { value: actor.system.trihns.esprit.value - Math.abs(trihns.esprit) },
+        ame: { value: actor.system.trihns.ame.value - Math.abs(trihns.ame) },
+        corps: { value: actor.system.trihns.corps.value - Math.abs(trihns.corps) },
       },
     },
   });

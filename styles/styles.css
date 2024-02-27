@@ -13,9 +13,11 @@
   --color-corps: #c95b40;
   --color-necrose: #707070;
   scrollbar-width: thin !important;
-  scrollbar-color: var(--necrose) #111;
+  scrollbar-color: var(--necrose) #111 !important;
 }
-
+* {
+  scrollbar-width:none;
+}
 @font-face {
   font-family: ITCOfficinaSans;
   src: url(../fonts/itc-officina-sans-lt-book.ttf);

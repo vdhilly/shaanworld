@@ -189,3 +189,16 @@ function onOpenAdversite(event) {
     adversite.sheet.render(true);
   });
 }
+
+export const hideChatAdversiteButtons = function (message, html, data) {
+  const chatCard = html.find(".chat-card");
+  if (chatCard.length > 0) {
+    if (game.user.isGM) {
+      return;
+    }
+    const buttons = chatCard.find("button.ajout-adversite");
+    buttons.each((i, btn) => {
+      btn.style.display = "none";
+    });
+  }
+};

@@ -1,0 +1,92 @@
+:root {
+    --shaan-blue: #4766a1;
+    --shaan-green: #4a7f75;
+  }
+  
+  .sheet.journal-entry .journal-entry-content {
+    background: url(../assets/kit/background.png) repeat !important;
+  }
+  .journal-entry-content p {
+    font-family: ITCOfficinaSans;
+  }
+  
+  .journal-entry-content .blue-title {
+    background: url(../assets/kit/titres/template_shaan_titre_bleu.png);
+    border: none;
+    height: 200px;
+    color: var(--shaan-blue);
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-family: var(--journal-title);
+  }
+  .journal-entry-content .blue-title h1 {
+    border: none;
+    position: relative;
+    top: 39px;
+    left: 111px;
+    font-size: 49px;
+  }
+
+  .journal-entry-content .green-title {
+    background: url(../assets/kit/titres/template_shaan_titre_vert.png);
+    border: none;
+    height: 200px;
+    color: var(--shaan-green);
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-family: var(--journal-title);
+  }
+  .journal-entry-content .green-title h1 {
+    border: none;
+    position: relative;
+    top: 39px;
+    left: 111px;
+    font-size: 49px;
+  }
+  .journal-entry-content h2 {
+    font: 400 var(--font-size-18) Komikazoom;
+    color: white;
+    justify-content: center;
+    text-align: center;
+    height: 72px;
+    border: none;
+    margin: 0;
+    background: url(../assets/kit/titres/soustitre_bleu.png) no-repeat;
+    background-position: 49% 25%;
+    background-size: 300px 70px;
+    margin-top: 0 !important;
+    margin-bottom: 10px;
+  }
+  .journal-entry-content h2 span {
+    position: relative;
+    top: 30%;
+  }
+  .journal-entry-content .italique-bleu {
+    font-style: italic;
+    color: var(--shaan-blue);
+  }
+  .bulle.neutre {
+    color: #a7a396;
+    border: 2px solid rgb(167, 163, 150, 0.9);
+    padding: 10px;
+    border-radius: 10px;
+    background: #ffffff;
+    font: 500 var(--font-size-14) ITCOfficinaSans;
+  }
+  .journal-entry-content .content-link {
+    background-color: #fcf5e7;
+    color: var(--green-bg);
+    border-color: var(--green-bg);
+  }
+  .journal-entry-content .content-link:hover {
+    text-shadow: 0 0 8px #3c534b !important;
+  }
+  
+  /* PUB Chrysalis */
+  
+  .promo-chrysalis {
+    height: 877px;
+    background: no-repeat url(../assets/kit/Cartouches/fondchrys.jpg);
+    background-position: center;
+    background-size: contain;
+  }

@@ -35,7 +35,7 @@
       "flags": {}
     }
   ],
-  "styles": ["styles/styles.css"],
+  "styles": ["styles/styles.css", "styles/kit.css"],
   "packs": [
     {
       "name": "macros",
@@ -83,6 +83,18 @@
       "system": "shaanworld",
       "path": "packs/vecus",
       "type": "RollTable",
+      "flags": {}
+    },
+    {
+      "name": "kit-de-decouverte",
+      "label": "Kit de découverte",
+      "path": "packs/kit-de-decouverte",
+      "type": "Adventure",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      },
+      "system": "shaanworld",
       "flags": {}
     }
   ],

@@ -1449,7 +1449,7 @@ li.table-draw .message-header {
 }
 .actor.sheet.adversite {
   display: grid;
-  grid-template-rows: calc(375.2px + 50px) 90px 0.5fr 1fr;
+  grid-template-rows: 1fr 90px 0.5fr 1fr;
   grid-template-columns: 1fr;
   gap: 5px;
   height: 90px;

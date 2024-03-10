@@ -1,0 +1,27 @@
+<form class="regen-dialog">
+  <div class="form-group bonuses">
+    <h2>{{localize "chat.regenHP.bonusTitle"}}</h2>
+    <div class="bonus-container">
+      <div class="bonus">
+        <label for="malusEsprit">{{localize "chat.regenHP.malusEsprit"}}</label>
+        <input id="malusEsprit" type="number" name="malusEsprit" value="0" />
+      </div>
+      <div class="bonus">
+        <label for="malusAme">{{localize "chat.regenHP.malusAme"}}</label>
+        <input id="malusAme" type="number" name="malusAme" value="0" />
+      </div>
+      <div class="bonus">
+        <label for="malusCorps">{{localize "chat.regenHP.malusCorps"}}</label>
+        <input id="malusCorps" type="number" name="malusCorps" value="0" />
+      </div>
+    </div>
+  </div>
+  <div class="form-group room-container">
+    <label for="chambre">{{localize "chat.regenHP.roomQuality"}}</label>
+    <select id="chambre" name="chambre" value="{{chambre}}">
+      <option value="1">Dortoir (Gratuit)</option>
+      <option value="2">Chambre Individuelle (1 Richesse)</option>
+      <option value="3">Chambre de luxe (2 Richesses)</option>
+    </select>
+  </div>
+</form>

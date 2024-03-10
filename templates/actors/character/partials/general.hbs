@@ -450,6 +450,8 @@
     </div>
     <span>{{localize "SW.Labels.soins"}}</span>
     <div class="character-soins whitebox">
+      <a class="regeneration heal" data-action="regen" title="Régénération naturelle"><i class="fa-solid fa-bed"></i></a>
+      <a class="soin heal" data-action="heal" title="Soigner quelqu'un"><i class="fa-solid fa-suitcase-medical"></i></a>
       <label for="soin-esprit">{{localize "SW.Labels.esprit"}}</label>
       <input
         style="top: 265px;left: -251px;"
@@ -478,6 +480,10 @@
         {{checked data.trihns.corps.isHealed}}
       />
     </div>
+  </div>
+  <div class="richesses-container">
+    <label for="richesses">Richesses</label>
+    <input type="number" id="richesses" name="system.richesses" value="{{data.richesses}}">
   </div>
   <a class="domainCheck">
       <div class="dice">

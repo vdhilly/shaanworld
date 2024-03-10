@@ -16,7 +16,7 @@
   scrollbar-color: var(--necrose) #111 !important;
 }
 * {
-  scrollbar-width:none;
+  scrollbar-width: none;
 }
 @font-face {
   font-family: ITCOfficinaSans;
@@ -47,7 +47,7 @@
   top: -92px;
 }
 #token-hud .col.middle-top .control-icon.active {
-  width:90px;
+  width: 90px;
 }
 h3 {
   font-family: Komikazoom;
@@ -490,6 +490,20 @@ section.vocations {
   margin-left: -1px;
 }
 
+/* Richesses */
+
+.actor.sheet .richesses-container {
+  position: relative;
+  top: -620px;
+}
+.actor.sheet .richesses-container input {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  border-radius: 10px;
+  width: 50px;
+}
+
 /* Entretien Soin */
 .actor.sheet .entretien-soin {
   position: relative;
@@ -512,7 +526,18 @@ section.vocations {
   color: #ffffff;
   z-index: 2;
 }
-
+.actor.sheet a.soin {
+  position: absolute;
+  color: white;
+  left: -21px;
+  top: 96px;
+}
+.actor.sheet a.regeneration {
+  position: absolute;
+  left: -23px;
+  top: 76px;
+  color: white;
+}
 /* Tab Abilities */
 
 .tab.abilities.active {
@@ -1334,6 +1359,309 @@ li.table-draw .message-header {
   text-align: center;
 }
 .dice-roll.domainCheck button {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  line-height: 20px;
+}
+
+/* CHAT DOMAIN CHECK */
+.dice-roll.healCheck button:hover {
+  text-shadow: 0 0 8px #4d6452;
+}
+.dice-roll.healCheck .title {
+  margin: 0;
+  color: #394a3d;
+}
+.dice-roll.healCheck {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.1fr 1fr;
+  gap: 5px;
+}
+.dice-roll.healCheck h2 {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  justify-content: center;
+  display: flex;
+  font-family: Komikazoom;
+}
+.chat-message.roll-message {
+  border-radius: 0;
+  background: var(--green-bg) !important;
+}
+.dice-roll.healCheck .dice {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template: 1fr;
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+}
+.dice-roll.healCheck .dice.necrose {
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
+.dice-roll.healCheck .dice.necrose img {
+  height: 68px;
+  align-self: center;
+}
+.dice-roll.healCheck .dice img {
+  border: none;
+}
+.dice-roll.healCheck .dice .die {
+  opacity: 0.6;
+}
+.dice-roll.healCheck .dice .die.Necrose {
+  opacity: 1 !important;
+}
+.dice-roll.healCheck .dice .die.trihnDie {
+  opacity: 1 !important;
+}
+.dice-roll.healCheck .details {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.1fr 0.7fr 1fr;
+  gap: 5px;
+}
+.dice-roll.healCheck .domain {
+  display: flex;
+  justify-content: center;
+  padding: 4px;
+  text-transform: capitalize;
+  font-family: Komikazoom;
+  font-size: 22px;
+}
+.dice-roll.healCheck .domain.Esprit {
+  background-color: var(--esprit);
+  color: #fffcdb;
+}
+.dice-roll.healCheck .domain.Ame {
+  background-color: var(--ame);
+  color: #d5eefc;
+}
+.dice-roll.healCheck .domain.Corps {
+  background-color: var(--corps);
+  color: #fbdaca;
+}
+.dice-roll.healCheck .domain.Necrose {
+  background-color: var(--necrose);
+  color: black;
+}
+.dice-roll.healCheck .vocations {
+  display: grid;
+  grid-template-rows: 0.5fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  gap: 5px;
+  padding: 5px;
+  align-items: center;
+}
+.dice-roll.healCheck .vocations .vocation-label {
+  grid-area: 1 / 1 / 2 / 3;
+  font-family: Komikazoom;
+  color: #394a3d;
+}
+.dice-roll.healCheck .vocations span {
+  display: flex;
+  justify-content: center;
+}
+.dice-roll.healCheck .vocations .vocation {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.dice-roll.healCheck .vocations .vocation b {
+  display: flex;
+}
+.dice-roll.healCheck .vocation.Technique,
+.dice-roll.healCheck .vocation.Savoir,
+.dice-roll.healCheck .vocation.Social {
+  border: 3px solid var(--esprit);
+}
+.dice-roll.healCheck .vocation.Arts,
+.dice-roll.healCheck .vocation.Shaan,
+.dice-roll.healCheck .vocation.Magie {
+  border: 3px solid var(--ame);
+}
+.dice-roll.healCheck .vocation.Rituels,
+.dice-roll.healCheck .vocation.Survie,
+.dice-roll.healCheck .vocation.Combat {
+  border: 3px solid var(--corps);
+}
+.dice-roll.healCheck .vocation.Nécrose {
+  border: 3px solid var(--necrose);
+}
+.dice-roll.healCheck .modifiers {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  color: #394a3d;
+}
+.dice-roll.healCheck .modifiers span {
+  display: flex;
+  justify-content: center;
+  font-family: Komikazoom;
+}
+.dice-roll.healCheck .modifiers .bonus,
+.dice-roll.healCheck .modifiers .malus,
+.dice-roll.healCheck .modifiers .lignee,
+.dice-roll.healCheck .modifiers .people {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr;
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+}
+.dice-roll.healCheck .pertes {
+  display: flex;
+  justify-content: center;
+  font-family: Komikazoom;
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+}
+.dice-roll.healCheck .score-div {
+  display: flex;
+  justify-content: center;
+  font-family: Komikazoom;
+  font-size: 25px;
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  gap: 5px;
+  text-align: center;
+}
+.dice-roll.healCheck button {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  line-height: 20px;
+}
+.healing-dialog {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+.healing-dialog label {
+  font-family: Komikazoom;
+  text-align: center;
+  width: 100%;
+}
+.healing-dialog select {
+  border: none;
+  border-radius: 0;
+  display: flex;
+  width: calc(50%);
+}
+
+/* REGEN */
+.chat-card.regen {
+  display: flex;
+  flex-direction: column;
+}
+.chat-card.regen h2 {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  color: var(--green-bg);
+  font-family: Komikazoom;
+  text-align: center;
+  padding: 5px;
+}
+.chat-card.regen .details {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  display: flex;
+  justify-content: space-around;
+}
+.chat-card.regen .details div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.chat-card.regen .details h3 {
+  font-family: Komikazoom;
+}
+.chat-card.regen .details .esprit h3 {
+  color: var(--color-esprit);
+}
+.chat-card.regen .details .ame h3 {
+  color: var(--color-ame);
+}
+.chat-card.regen .details .corps h3 {
+  color: var(--color-corps);
+}
+.green-bg {
+  background: var(--green-bg) !important;
+}
+.regen-dialog .bonuses {
+  display: flex;
+  flex-direction: column;
+}
+.regen-dialog .bonus-container {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+.regen-dialog .bonuses h2 {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  width: 100%;
+  text-align: center;
+  font-family: "Komikazoom";
+}
+.regen-dialog .bonus {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  width: 32%;
+}
+.regen-dialog .room-container {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  display: flex;
+  flex-direction: column;
+}
+.regen-dialog .room-container label {
+  text-align: center;
+  font-family: "Komikazoom";
+}
+.regen-dialog .room-container select {
+  border: none;
+  border-radius: 0;
+  display: flex;
+  width: calc(100%);
+}
+.regen-dialog input {
+  border: none;
+  border-radius: 0;
+  display: flex;
+  width: calc(100%);
+}
+.window-content.green-bg button {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  line-height: 20px;
+}
+.window-content.green-bg button.default {
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);
   box-shadow: inset 0px 0px 20px var(--whitebox-border);

@@ -10,19 +10,19 @@
           "max": 0,
           "value": 0,
           "isMaintained": false,
-          "isHealed":false
+          "isHealed": false
         },
         "corps": {
           "max": 0,
           "value": 0,
           "isMaintained": false,
-          "isHealed":false
+          "isHealed": false
         },
         "esprit": {
           "max": 0,
           "value": 0,
           "isMaintained": false,
-          "isHealed":false
+          "isHealed": false
         }
       },
       "domains": {
@@ -149,9 +149,9 @@
       },
       "biography": {
         "appearance": "",
-        "quest":"",
-        "background":"",
-        "rupture":"",
+        "quest": "",
+        "background": "",
+        "rupture": "",
         "campagne": {
           "notes": "",
           "gm": "",
@@ -159,17 +159,18 @@
           "enemies": ""
         }
       },
-      "mythiques":"",
-      "temper1":"",
-      "temper2":"",
-      "archetype":"",
-      "ressources":"",
-      "artefacts":"",
-      "currentXP":0,
-      "maxXP":0
+      "mythiques": "",
+      "temper1": "",
+      "temper2": "",
+      "archetype": "",
+      "ressources": "",
+      "artefacts": "",
+      "currentXP": 0,
+      "maxXP": 0,
+      "richesses": 0
     },
-    "adversite":{
-      "description":"",
+    "adversite": {
+      "description": "",
       "domains": {
         "technique": false,
         "savoir": false,
@@ -182,17 +183,17 @@
         "combat": false,
         "necrose": false
       },
-      "active":false,
-      "secret":"",
-      "resolution":"",
-      "gains":"",
-      "duree":"",
-      "bonusNarratif":"",
-      "score":0,
-      "scoreMax":0,
-      "perte":"",
-      "perteIsEnergie":true,
-      "echec":""
+      "active": false,
+      "secret": "",
+      "resolution": "",
+      "gains": "",
+      "duree": "",
+      "bonusNarratif": "",
+      "score": 0,
+      "scoreMax": 0,
+      "perte": "",
+      "perteIsEnergie": true,
+      "echec": ""
     }
   },
   "Item": {
@@ -201,25 +202,25 @@
       "common": {}
     },
     "lignee": {
-      "domain":"",
-      "bonus":"",
-      "description":""
+      "domain": "",
+      "bonus": "",
+      "description": ""
     },
     "people": {
-      "domain":"",
-      "bonus":"",
-      "description":""
+      "domain": "",
+      "bonus": "",
+      "description": ""
     },
     "vocation": {
-      "bonus":1,
-      "description":"",
-      "domain":"",
-      "origine":"",
-      "equipment":"",
-      "active":false
-    }, 
+      "bonus": 1,
+      "description": "",
+      "domain": "",
+      "origine": "",
+      "equipment": "",
+      "active": false
+    },
     "role": {
-      "description":""
+      "description": ""
     }
   }
 }

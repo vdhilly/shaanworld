@@ -1,5 +1,6 @@
-import { Vocation } from "../../items/vocation/document.js";
 import * as Dice from "../../system/check/dice.js";
+import { Heal } from "../../system/check/heal.js";
+import { Regen } from "../../system/check/regen.js";
 import { htmlQuery, htmlQueryAll } from "../../utils/utils.js";
 
 export class ActorSheetSW extends ActorSheet {
@@ -155,6 +156,7 @@ export class ActorSheetSW extends ActorSheet {
     $html.find(".domainCheck").click(this._onDomainCheck.bind(this));
     $html.find(".item-edit, .vocation-name").click(this._onItemEdit.bind(this));
     $html.find(".item-delete").click(this._onItemDelete.bind(this));
+    $html.find(".heal").click(this._onHeal.bind(this));
     $html.find(".circle input").on("focus", (event) => {
       event.target.select();
     });
@@ -195,6 +197,18 @@ export class ActorSheetSW extends ActorSheet {
     let actor = this.actor;
 
     Dice.domainCheck(actor);
+  }
+  _onHeal(event) {
+    let action = event.currentTarget.dataset.action;
+    let actor = this.actor;
+    switch (action) {
+      case "heal":
+        Heal(actor);
+        break;
+      case "regen":
+        Regen(actor);
+        break;
+    }
   }
   _onItemEdit(event) {
     event.preventDefault();

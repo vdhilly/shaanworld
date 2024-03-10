@@ -14,7 +14,7 @@
       "Possessions": "Possessions",
       "Name": "Nom",
       "Vocation": "Vocations",
-      "vocation":"Vocation",
+      "vocation": "Vocation",
       "Bloodline": "Lignée",
       "People": "Peuple",
       "Archetype": "Archétype",
@@ -35,31 +35,32 @@
       "background": "Histoire",
       "Allies": "Alliés",
       "Enemies": "Ennemies",
-      "esprit":"Esprit",
-      "ame":"Âme",
-      "corps":"Corps",
-      "entretien":"Entretien",
-      "soins":"Soins",
-      "domain":"Domaine",
-      "domains":"Domaines",
-      "bonus":"Bonus",
-      "malus":"Malus",
-      "description":"Description",
-      "origine":"Origine",
-      "equipment":"Équipement",
+      "esprit": "Esprit",
+      "ame": "Âme",
+      "corps": "Corps",
+      "entretien": "Entretien",
+      "soins": "Soins",
+      "domain": "Domaine",
+      "domains": "Domaines",
+      "bonus": "Bonus",
+      "malus": "Malus",
+      "description": "Description",
+      "origine": "Origine",
+      "equipment": "Équipement",
       "backgroundL": "Vécu",
-      "rupture":"Rupture",
-      "quest":"Quête",
-      "score":"Score",
+      "rupture": "Rupture",
+      "quest": "Quête",
+      "score": "Score",
       "adversite": "Adversité",
-      "duree":"Durée",
-      "gain":"Gains",
-      "secret":"Secrets",
-      "resolution":"Résolution",
-      "bonusNarratif":"Bonus Narratif",
-      "difficulte":"Difficulté",
-      "pertes":"Pertes",
-      "energies":"énergies"
+      "duree": "Durée",
+      "gain": "Gains",
+      "secret": "Secrets",
+      "resolution": "Résolution",
+      "bonusNarratif": "Bonus Narratif",
+      "difficulte": "Difficulté",
+      "pertes": "Pertes",
+      "energies": "énergies",
+      "Mythiques": "Objets Mythiques"
     },
     "Abilities": {
       "Used": "Si le pouvoir a été utilisé",
@@ -85,53 +86,63 @@
       "legende2": "Regagner 5 énergies",
       "legende3": "Relancer les 4 dés. En Nécrose : lancer les 4 dés et les additionner"
     },
-    "domains":{
-      "technique":"Technique",
-      "savoir":"Savoir",
-      "social":"Social",
-      "arts":"Arts",
-      "shaan":"Shaan",
-      "magie":"Magie",
-      "rituels":"Rituels",
-      "survie":"Survie",
-      "combat":"Combat",
-      "necrose":"Nécrose"
+    "domains": {
+      "technique": "Technique",
+      "savoir": "Savoir",
+      "social": "Social",
+      "arts": "Arts",
+      "shaan": "Shaan",
+      "magie": "Magie",
+      "rituels": "Rituels",
+      "survie": "Survie",
+      "combat": "Combat",
+      "necrose": "Nécrose"
     }
   },
-  "chat":{
-    "domainCheck":{
-      "title":"Test de Domaine",
-      "options":{
-        "domain":"Domaine",
-        "vocations":"Vocations",
-        "bonus":"Bonus",
-        "malus":"Malus",
-        "lignee":"Bonus de Lignée",
-        "people":"Bonus de Peuple"
+  "chat": {
+    "domainCheck": {
+      "title": "Test de Domaine",
+      "options": {
+        "domain": "Domaine",
+        "vocations": "Vocations",
+        "bonus": "Bonus",
+        "malus": "Malus",
+        "lignee": "Bonus de Lignée",
+        "people": "Bonus de Peuple"
       },
-      "pertes":{
-        "low":"-1 énergie",
-        "medium":"-2 énergies",
-        "great":"-3 énergies et un malus narratif"
+      "pertes": {
+        "low": "-1 énergie",
+        "medium": "-2 énergies",
+        "great": "-3 énergies et un malus narratif"
       }
+    },
+    "Heal": {
+      "title": "Jet de soin"
+    },
+    "regenHP": {
+      "title": "Régénération",
+      "malusEsprit": "Esprit",
+      "malusAme": "Âme",
+      "malusCorps": "Corps",
+      "roomQuality": "Qualité de la chambre",
+      "bonusTitle": "Bonus/Malus"
     },
     "puiser": {
       "title": "Puiser",
       "choices": "Choix",
-      "score":"Score: ",
+      "score": "Score: ",
       "aPuisé": "a puisé et perd un point en"
     },
-    "actions":{
-      "puiser":"Puiser",
+    "actions": {
+      "puiser": "Puiser",
       "roll": "Lancer",
-      "cancel":"Annuler",
-      "confirm":"Valider"
+      "cancel": "Annuler",
+      "confirm": "Valider"
     },
-    "adversite":{
-      "title":"Choix d'une Adversité",
+    "adversite": {
+      "title": "Choix d'une Adversité",
       "RepartirPertes": "Repartir les pertes",
       "ajouté": "a ajouté {score} au score de {adversite}"
     }
   }
 }
-

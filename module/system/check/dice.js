@@ -17,7 +17,7 @@ export async function domainCheck(actor) {
   vocations.vocation1 = actor.items.get(vocations.vocation1);
   vocations.vocation2 = actor.items.get(vocations.vocation2);
   bonus = checkOptions.bonus;
-  malus = checkOptions.malus;
+  malus = Math.abs(checkOptions.malus);
   lignee = checkOptions.lignee;
   people = checkOptions.people;
 

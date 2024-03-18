@@ -1582,6 +1582,15 @@ li.table-draw .message-header {
   text-align: center;
   padding: 5px;
 }
+.chat-card.regen .dice {
+  display: flex;
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+}
+.chat-card.regen .dice img {
+  border: none;
+}
 .chat-card.regen .details {
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);

@@ -70,6 +70,7 @@ async function onPuiser(event) {
 export function calculPuiserBonus(chatCard) {
   let bonus = 0;
   const puiserBonus = chatCard[0].querySelectorAll(".puiser-bonus");
+  console.log(puiserBonus);
   for (let i = 0; i < puiserBonus.length; i++) {
     bonus += Number(puiserBonus[i].innerText);
   }

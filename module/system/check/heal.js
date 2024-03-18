@@ -200,9 +200,8 @@ async function _onHeal() {
 
   const score = Number(chatCard.find(".score")[0].innerText);
 
-  let heal = Math.ceil(score / 3);
-  if (heal > 5) heal = 5;
-  else if (heal < 0) heal = -1;
+  let heal = Math.ceil(score / 5);
+  if (heal < 0) heal = -1;
   else heal = heal;
 
   let healedTrihn = await getHealOptions();

@@ -1,4 +1,5 @@
 import { getSelectedOrOwnActors, htmlQueryAll } from "../../utils/utils.js";
+import { PuiserDialog } from "./PuiserDialog.js";
 export function addChatListeners(app, html, data) {
   const Button = html.find("button.puiser");
   Button.on("click", onPuiser);
@@ -214,7 +215,7 @@ async function GetPuiserOptions({
       default: "normal",
       close: () => resolve({ cancelled: true }),
     };
-    new Dialog(data, null).render(true);
+    new PuiserDialog(data, null).render(true);
   });
   function _processPuiserOptions(form) {
     let checked = form.querySelector("input:checked");

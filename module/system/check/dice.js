@@ -94,8 +94,8 @@ export async function domainCheck(actor) {
       perte = game.i18n.localize("chat.domainCheck.pertes.medium");
     }
   } else {
-    Ame = rollResult.dice[0];
-    Necrose = rollResult.dice[1];
+    Ame = rollResult.dice[1];
+    Necrose = rollResult.dice[0];
 
     if (Ame.total == 10) {
       perte = game.i18n.localize("chat.domainCheck.pertes.great");
@@ -175,7 +175,6 @@ export async function domainCheck(actor) {
   if (rollResult.symbioseLimbe)
     perte += ". Le score doit être ajouté à la difficulté de l'adversité.";
 
-  console.log(rollResult, rollData);
   RollToCustomMessage(actor, rollResult, messageTemplate, {
     domain: domain,
     domainLevel: actor.system.domains[domain].rank,

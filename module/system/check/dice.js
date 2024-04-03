@@ -172,6 +172,8 @@ export async function domainCheck(actor) {
       score += 2;
     }
   }
+  if (rollResult.symbioseLimbe)
+    perte += ". Le score doit être ajouté à la difficulté de l'adversité.";
 
   console.log(rollResult, rollData);
   RollToCustomMessage(actor, rollResult, messageTemplate, {

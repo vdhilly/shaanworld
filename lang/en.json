@@ -113,11 +113,12 @@
       "pertes": {
         "low": "-1 énergie",
         "medium": "-2 énergies",
-        "great": "-3 énergies et un malus narratif"
+        "great": "-3 énergies"
       }
     },
     "Heal": {
-      "title": "Jet de soin"
+      "title": "Jet de soin",
+      "soin": "Soigner"
     },
     "regenHP": {
       "title": "Régénération",

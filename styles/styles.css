@@ -1965,16 +1965,16 @@ li.table-draw .message-header {
   color: var(--green-bg);
 }
 .actor.sheet.adversite .details .adversite-description textarea {
-  min-height: 300px;
+  min-height: 150px;
 }
 .actor.sheet.adversite .details .adversite-secret textarea {
-  min-height: 300px;
+  min-height: 80px;
 }
 .actor.sheet.adversite .details .adversite-resolution textarea {
-  min-height: 300px;
+  min-height: 80px;
 }
 .actor.sheet.adversite .details .adversite-bonusNarratif textarea {
-  min-height: 300px;
+  min-height: 80px;
 }
 .actor.sheet.adversite .details .adversite-gain textarea {
   min-height: 80px;

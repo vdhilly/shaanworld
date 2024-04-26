@@ -21,11 +21,14 @@ export async function Regen(actor) {
   };
 
   const trihns = actorData.trihns;
+  console.log(trihns);
+  // TO DO : roll -1 donc image non affichée
   const regen = await _calculateRegen(roll, bonus, chambreBonus);
 
-  _updateActor(actor, regen, trihns);
+  const newTrihns = await _updateActor(actor, regen, trihns);
+  console.log(newTrihns);
 
-  RollToCustomMessage(actor, regen, messageTemplate, {
+  RollToCustomMessage(actor, roll, messageTemplate, {
     trihns,
     regen,
     actor,
@@ -121,4 +124,6 @@ function _updateActor(actor, regen, trihns) {
     "data.trihns.ame.value": trihns.ame.value,
     "data.trihns.corps.value": trihns.corps.value,
   });
+
+  return actor.system.trihns;
 }

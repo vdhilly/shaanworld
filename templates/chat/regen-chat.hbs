@@ -4,9 +4,9 @@
   </h2>
   <div class="dice">
     {{log this}}
-        {{#each regen as |die i|}}
+        {{#each roll as |die i|}}
             <div class="die {{i}}">
-                <img src="systems/shaanworld/assets/dice/{{capitalize i}}/d10_{{#if (eq i "esprit")}}jaune{{/if}}{{#if (eq i "ame")}}bleu{{/if}}{{#if (eq i "corps")}}rouge{{/if}}_{{die}}.png">
+                <img src="systems/shaanworld/assets/dice/{{capitalize i}}/d10_{{#if (eq i "esprit")}}jaune{{/if}}{{#if (eq i "ame")}}bleu{{/if}}{{#if (eq i "corps")}}rouge{{/if}}_{{#if (eq die 0)}}10{{else}}{{die}}{{/if}}.png">
             </div>
         {{/each}}
   </div>

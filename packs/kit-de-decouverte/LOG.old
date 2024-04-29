@@ -1,3 +1,17 @@
-2024/04/04-00:03:16.197 914 Recovering log #58
-2024/04/04-00:03:16.208 914 Delete type=0 #58
-2024/04/04-00:03:16.209 914 Delete type=3 #56
+2024/04/26-09:27:51.018 6920 Recovering log #60
+2024/04/26-09:27:51.022 6920 Level-0 table #62: started
+2024/04/26-09:27:51.033 6920 Level-0 table #62: 113531 bytes OK
+2024/04/26-09:27:51.042 6920 Delete type=0 #60
+2024/04/26-09:27:51.043 6920 Delete type=3 #59
+2024/04/26-09:40:24.408 6778 Level-0 table #65: started
+2024/04/26-09:40:24.408 6778 Level-0 table #65: 0 bytes OK
+2024/04/26-09:40:24.415 6778 Delete type=0 #63
+2024/04/26-09:40:24.422 6778 Manual compaction at level-0 from '!adventures!90Nh6YH9xsz2YPGA' @ 72057594037927935 : 1 .. '!adventures!90Nh6YH9xsz2YPGA' @ 0 : 0; will stop at '!adventures!90Nh6YH9xsz2YPGA' @ 2 : 1
+2024/04/26-09:40:24.422 6778 Compacting 2@0 + 1@1 files
+2024/04/26-09:40:24.450 6778 Generated table #66@0: 1 keys, 113531 bytes
+2024/04/26-09:40:24.450 6778 Compacted 2@0 + 1@1 files => 113531 bytes
+2024/04/26-09:40:24.454 6778 compacted to: files[ 0 1 0 0 0 0 0 ]
+2024/04/26-09:40:24.455 6778 Delete type=2 #37
+2024/04/26-09:40:24.456 6778 Delete type=2 #57
+2024/04/26-09:40:24.458 6778 Delete type=2 #62
+2024/04/26-09:40:24.491 6778 Manual compaction at level-0 from '!adventures!90Nh6YH9xsz2YPGA' @ 2 : 1 .. '!adventures!90Nh6YH9xsz2YPGA' @ 0 : 0; will stop at (end)

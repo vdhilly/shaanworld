@@ -15,9 +15,9 @@
   ],
   "version": "1.0.5",
   "compatibility": {
-    "minimum": "11",
-    "verified": "11",
-    "maximum": "11"
+    "minimum": "12",
+    "verified": "12",
+    "maximum": "12"
   },
   "esmodules": ["scripts/shaanworld.js"],
   "scripts": [],
@@ -112,8 +112,10 @@
     }
   ],
   "background": "systems/shaanworld/assets/Banniere_ShaanWorld.jpg",
-  "gridDistance": 2,
-  "gridUnits": "m",
+  "grid": {
+    "distance": 2,
+    "units": "m"
+  },
   "url": "https://github.com/YoimPouet/shaanworld",
   "download": "https://github.com/YoimPouet/shaanworld/releases/download/v1.0.5/shaanworld.zip",
   "manifest": "https://raw.githubusercontent.com/YoimPouet/shaanworld/main/system.json"

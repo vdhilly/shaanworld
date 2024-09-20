@@ -55,43 +55,40 @@ export class ActorSheetSW extends ActorSheet {
   }
   async prepareEditors(sheetData) {
     sheetData.enrichedGMnotes = await TextEditor.enrichHTML(
-      getProperty(this.actor.system, "biography.campagne.gm"),
+      foundry.utils.getProperty(this.actor.system, "biography.campagne.gm"),
       { async: true }
     );
-    sheetData.enrichedArtefactsNotes = await TextEditor.enrichHTML(
-      getProperty(this.actor.system, "artefacts"),
-      { async: true }
-    );
-    sheetData.enrichedRessourcesNotes = await TextEditor.enrichHTML(
-      getProperty(this.actor.system, "ressources"),
-      { async: true }
-    );
+    sheetData.enrichedArtefactsNotes = await TextEditor.enrichHTML(foundry.utils.getProperty(this.actor.system, "artefacts"), {
+      async: true,
+    });
+    sheetData.enrichedRessourcesNotes = await TextEditor.enrichHTML(foundry.utils.getProperty(this.actor.system, "ressources"), {
+      async: true,
+    });
     sheetData.enrichedUserNotes = await TextEditor.enrichHTML(
-      getProperty(this.actor.system, "biography.campagne.notes"),
+      foundry.utils.getProperty(this.actor.system, "biography.campagne.notes"),
       { async: true }
     );
     sheetData.enrichedBGNotes = await TextEditor.enrichHTML(
-      getProperty(this.actor.system, "biography.background"),
+      foundry.utils.getProperty(this.actor.system, "biography.background"),
       { async: true }
     );
     sheetData.enrichedRuptureNotes = await TextEditor.enrichHTML(
-      getProperty(this.actor.system, "biography.rupture"),
+      foundry.utils.getProperty(this.actor.system, "biography.rupture"),
       { async: true }
     );
-    sheetData.enrichedQuestNotes = await TextEditor.enrichHTML(
-      getProperty(this.actor.system, "biography.quest"),
-      { async: true }
-    );
+    sheetData.enrichedQuestNotes = await TextEditor.enrichHTML(foundry.utils.getProperty(this.actor.system, "biography.quest"), {
+      async: true,
+    });
     sheetData.enrichedAppearanceNotes = await TextEditor.enrichHTML(
-      getProperty(this.actor.system, "biography.appearance"),
+      foundry.utils.getProperty(this.actor.system, "biography.appearance"),
       { async: true }
     );
     sheetData.enrichedAlliesNotes = await TextEditor.enrichHTML(
-      getProperty(this.actor.system, "biography.campagne.allies"),
+      foundry.utils.getProperty(this.actor.system, "biography.campagne.allies"),
       { async: true }
     );
     sheetData.enrichedEnemiesNotes = await TextEditor.enrichHTML(
-      getProperty(this.actor.system, "biography.campagne.enemies"),
+      foundry.utils.getProperty(this.actor.system, "biography.campagne.enemies"),
       { async: true }
     );
   }
@@ -143,10 +140,9 @@ export class ActorSheetSW extends ActorSheet {
     sheetData.vocations = {};
 
     for (const domain of sheetData.config.domains) {
-      sheetData.vocations[domain.toLowerCase().replace("é", "e")] =
-        sheetData.items.filter(function (item) {
-          return item.system.domain === domain;
-        });
+      sheetData.vocations[domain.toLowerCase().replace("é", "e")] = sheetData.items.filter(function (item) {
+        return item.system.domain === domain;
+      });
     }
   }
   activateListeners($html) {
@@ -166,8 +162,7 @@ export class ActorSheetSW extends ActorSheet {
 
     imageLink.addEventListener("click", () => {
       const actor = this.actor;
-      const title =
-        actor?.token?.name || actor?.prototypeToken?.name || actor.name;
+      const title = actor?.token?.name || actor?.prototypeToken?.name || actor.name;
 
       new ImagePopout(actor.img, {
         title,
@@ -176,9 +171,7 @@ export class ActorSheetSW extends ActorSheet {
     });
     $html.find(".open-compendium").on("click", (event) => {
       if (event.currentTarget.dataset.compendium) {
-        const compendium = game.packs.get(
-          event.currentTarget.dataset.compendium
-        );
+        const compendium = game.packs.get(event.currentTarget.dataset.compendium);
         compendium && compendium.render(!0);
       }
     });
@@ -188,8 +181,7 @@ export class ActorSheetSW extends ActorSheet {
       let vocationName = vocationNameSpans[i].innerText;
       if (vocationName.length >= 19) {
         let difference = vocationName.length - 19;
-        vocationNameSpans[i].innerText =
-          vocationName.substring(0, 19 - 2) + "...";
+        vocationNameSpans[i].innerText = vocationName.substring(0, 19 - 2) + "...";
       }
     }
   }

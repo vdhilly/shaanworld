@@ -1,38 +1,20 @@
 <div class="tab biography" data-group="primary" data-tab="biography">
   <div style="width:50%">
-    <label class="character-notes-label label-polygon">{{localize
-        "SW.Labels.Notes"
-      }}</label>
+    <label class="character-notes-label label-polygon">{{localize "SW.Labels.Notes"}}</label>
     <div class="whitebox notes">
       <nav class="nav-notes" data-group="secondary">
-        <a
-          class="item"
-          data-tab="userNotes"
-          title="{{localize 'SW.Labels.Notes'}}"
-        >
+        <a class="item" data-tab="userNotes" title="{{localize 'SW.Labels.Notes'}}">
           {{localize "SW.Labels.Notes"}}
         </a>
         {{#if user.isGM}}
-          <a
-            class="item"
-            data-tab="gmNotes"
-            title="{{localize 'SW.Labels.gmNotes'}}"
-          >
+          <a class="item" data-tab="gmNotes" title="{{localize 'SW.Labels.gmNotes'}}">
             {{localize "SW.Labels.gmNotes"}}
           </a>
         {{/if}}
-        <a
-          class="item"
-          data-tab="background"
-          title="{{localize 'SW.Labels.background'}}"
-        >
+        <a class="item" data-tab="background" title="{{localize 'SW.Labels.background'}}">
           {{localize "SW.Labels.background"}}
         </a>
-        <a
-          class="item"
-          data-tab="appearance"
-          title="{{localize 'SW.Labels.appearance'}}"
-        >
+        <a class="item" data-tab="appearance" title="{{localize 'SW.Labels.appearance'}}">
           {{localize "SW.Labels.appearance"}}
         </a>
       </nav>
@@ -61,11 +43,7 @@
             }}
           </div>
         </div>
-        <div
-          class="tab background"
-          data-group="secondary"
-          data-tab="background"
-        >
+        <div class="tab background" data-group="secondary" data-tab="background">
           <label class="green-label">{{localize "SW.Labels.quest"}}</label>
           <div class="quest-container">
             {{editor
@@ -77,9 +55,7 @@
               engine="prosemirror"
             }}
           </div>
-          <label class="green-label">{{localize
-              "SW.Labels.backgroundL"
-            }}</label>
+          <label class="green-label">{{localize "SW.Labels.backgroundL"}}</label>
           <div class="background-container">
             {{editor
               enrichedBGNotes
@@ -102,11 +78,7 @@
             }}
           </div>
         </div>
-        <div
-          class="tab appearance"
-          data-group="secondary"
-          data-tab="appearance"
-        >
+        <div class="tab appearance" data-group="secondary" data-tab="appearance">
           <div class="appearance-container">
             {{editor
               enrichedAppearanceNotes
@@ -122,9 +94,7 @@
     </div>
   </div>
   <div style="width:48%; margin-left:5px;">
-    <label class="allies-notes-label label-polygon">{{localize
-        "SW.Labels.Allies"
-      }}</label>
+    <label class="allies-notes-label label-polygon">{{localize "SW.Labels.Allies"}}</label>
     <div class="whitebox allies">
       {{editor
         enrichedAlliesNotes
@@ -135,9 +105,7 @@
         engine="prosemirror"
       }}
     </div>
-    <label class="enemies-notes-label label-polygon">{{localize
-        "SW.Labels.Enemies"
-      }}</label>
+    <label class="enemies-notes-label label-polygon">{{localize "SW.Labels.Enemies"}}</label>
     <div class="whitebox enemies">
       {{editor
         enrichedEnemiesNotes

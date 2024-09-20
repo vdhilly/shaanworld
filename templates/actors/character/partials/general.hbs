@@ -374,11 +374,7 @@
             <div class="input">
                 <label class="details-label green-label" style="font-weight:700;">{{localize "Item.archetype"}}</label>
                 <select name="system.archetype" value="{{data.archetype}}">
-                  {{#select data.archetype}}
-                  {{#each config.archetypes as |archetype|}}
-                    <option value="{{archetype}}">{{archetype}}</option>
-                  {{/each}}
-                  {{/select}}
+                  {{selectOptions config.archetypes selected=data.archetype}}
                 </select>
             </div>            
         </div>

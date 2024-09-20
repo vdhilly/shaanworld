@@ -8,21 +8,38 @@
       "trihns": {
         "ame": {
           "max": 0,
-          "value": 0,
-          "isMaintained": false,
-          "isHealed": false
+          "value": 0
         },
         "corps": {
           "max": 0,
-          "value": 0,
-          "isMaintained": false,
-          "isHealed": false
+          "value": 0
         },
         "esprit": {
           "max": 0,
-          "value": 0,
-          "isMaintained": false,
-          "isHealed": false
+          "value": 0
+        }
+      },
+      "protections": {
+        "esprit": {
+          "1": false,
+          "2": false,
+          "3": false,
+          "4": false,
+          "5": false
+        },
+        "ame": {
+          "1": false,
+          "2": false,
+          "3": false,
+          "4": false,
+          "5": false
+        },
+        "corps": {
+          "1": false,
+          "2": false,
+          "3": false,
+          "4": false,
+          "5": false
         }
       },
       "domains": {
@@ -58,92 +75,70 @@
         }
       },
       "abilities": {
-        "apprenti": {
-          "apprenti1": {
-            "isUsed": false,
-            "isLearned": false
-          },
-          "apprenti2": {
-            "isUsed": false,
-            "isLearned": false
-          },
-          "apprenti3": {
-            "isUsed": false,
-            "isLearned": false
-          },
-          "apprenti4": {
-            "isUsed": false,
-            "isLearned": false
-          },
-          "apprenti5": {
-            "isUsed": false,
-            "isLearned": false
-          },
-          "apprenti6": {
-            "isUsed": false,
-            "isLearned": false
-          },
-          "apprenti7": {
-            "isUsed": false,
-            "isLearned": false
+        "eclair_de_genie": {
+          "label": "Éclair de génie",
+          "resume": "+2 au dé d'action",
+          "description": "Vous pouvez ajouter 2 au résultat de votre dé d’action (cela peut déclencher un bonus narratif).",
+          "rang": {
+            "1": false,
+            "2": false,
+            "3": false,
+            "4": false
           }
         },
-        "initie": {
-          "initie1": {
-            "isUsed": false,
-            "isLearned": false
-          },
-          "initie2": {
-            "isUsed": false,
-            "isLearned": false
-          },
-          "initie3": {
-            "isUsed": false,
-            "isLearned": false
-          },
-          "initie4": {
-            "isUsed": false,
-            "isLearned": false
-          },
-          "initie5": {
-            "isUsed": false,
-            "isLearned": false
+        "optimisation": {
+          "label": "Optimisation",
+          "resume": "Puiser pour additionner",
+          "description": "Lorsque vous dépensez un point d’énergie pour utiliser un autre dé, vous pouvez l’ajouter au dé d’action au lieu de le remplacer.",
+          "rang": {
+            "1": false,
+            "2": false,
+            "3": false,
+            "4": false
           }
         },
-        "maitre": {
-          "maitre1": {
-            "isUsed": false,
-            "isLearned": false
-          },
-          "maitre2": {
-            "isUsed": false,
-            "isLearned": false
-          },
-          "maitre3": {
-            "isUsed": false,
-            "isLearned": false
-          },
-          "maitre4": {
-            "isUsed": false,
-            "isLearned": false
-          },
-          "maitre5": {
-            "isUsed": false,
-            "isLearned": false
+        "adaptation": {
+          "label": "Adaptation",
+          "resume": "Répartir les pertes",
+          "description": "Vous pouvez répartir les dégâts du dé de perte entre vos 3 énergies au lieu de tout prendre dans la même énergie.",
+          "rang": {
+            "1": false,
+            "2": false,
+            "3": false,
+            "4": false
           }
         },
-        "legende": {
-          "legende1": {
-            "isUsed": false,
-            "isLearned": false
-          },
-          "legende2": {
-            "isUsed": false,
-            "isLearned": false
-          },
-          "legende3": {
-            "isUsed": false,
-            "isLearned": false
+        "coup_de_chance": {
+          "label": "Coup de chance",
+          "resume": "Relancer le dé d’action",
+          "description": "Vous pouvez relancer les 4 dés, mais vous gardez ce nouveau résultat.",
+          "rang": {
+            "1": false,
+            "2": false,
+            "3": false,
+            "4": false
+          }
+        },
+        "second_souffle": {
+          "label": "Second souffle",
+          "resume": "Regagner 2 énergies",
+          "description": "Vous pouvez regagner 2 points dans une énergie.",
+          "rang": {
+            "1": false,
+            "2": false,
+            "3": false,
+            "4": false
+          }
+        },
+        "clairvoyance": {
+          "label": "Clairvoyance",
+          "resume": "Baisser la difficulté de 1",
+          "description": "Vous pouvez diminuer la difficulté d’une adversité de 1 (que pour vous et sur tous les actes de l’adversité).",
+          "rang": {
+            "1": false,
+            "2": false,
+            "3": false,
+            "4": false
           }
         }
       },

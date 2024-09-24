@@ -198,8 +198,7 @@ label.green-label {
   font-size: 44px;
 }
 .actor.sheet.character .tab.character .circle {
-  background: center / contain no-repeat
-    url("../assets/sheet/Shaan_World_Fiche_de_Perso_Cercle.png");
+  background: center / contain no-repeat url("../assets/sheet/Shaan_World_Fiche_de_Perso_Cercle.png");
   background-size: auto 400px;
   height: 600px;
 }
@@ -311,16 +310,7 @@ section.vocations {
   height: 561px;
 }
 .label-polygon {
-  clip-path: polygon(
-    15% 0,
-    85% 0,
-    100% 50%,
-    100% 50%,
-    85% 100%,
-    15% 100%,
-    0 50%,
-    0 50%
-  );
+  clip-path: polygon(15% 0, 85% 0, 100% 50%, 100% 50%, 85% 100%, 15% 100%, 0 50%, 0 50%);
 }
 
 /* Actor IMG */
@@ -334,8 +324,7 @@ section.vocations {
 .actor.sheet.character .frame .player-image {
   border: none;
   border-radius: 0;
-  box-shadow: 0 0 0 1px #918c88, 0 0 0 2px #e1d8cf, 0 0 0 3px #a98f39,
-    inset 0 0 8px rgba(0, 0, 0, 0.5), 0 0 8px #000;
+  box-shadow: 0 0 0 1px #918c88, 0 0 0 2px #e1d8cf, 0 0 0 3px #a98f39, inset 0 0 8px rgba(0, 0, 0, 0.5), 0 0 8px #000;
   cursor: pointer;
   max-height: 122px;
   object-fit: cover;
@@ -365,8 +354,8 @@ section.vocations {
   display: inline-flex;
   justify-content: space-evenly;
   align-items: center;
-  background: url("../assets/sheet/border-pattern.webp") repeat-x top,
-    url("../assets/sheet/border-pattern.webp") repeat-x bottom, var(--green-bg);
+  background: url("../assets/sheet/border-pattern.webp") repeat-x top, url("../assets/sheet/border-pattern.webp") repeat-x bottom,
+    var(--green-bg);
 }
 .actor.sheet header > nav > a {
   color: white;
@@ -505,17 +494,17 @@ section.vocations {
 }
 
 /* Entretien Soin */
-.actor.sheet .entretien-soin {
+.actor.sheet .protections {
   position: relative;
   left: -81px;
 }
-.actor.sheet .entretien-soin label {
+.actor.sheet .protections label {
   color: var(--green-bg);
 }
-.actor.sheet .entretien-soin .whitebox {
+.actor.sheet .protections .whitebox {
   width: 220px;
 }
-.actor.sheet .entretien-soin span {
+.actor.sheet .protections span {
   background: var(--green-bg);
   position: relative;
   top: 7px;
@@ -525,6 +514,15 @@ section.vocations {
   display: flex;
   color: #ffffff;
   z-index: 2;
+}
+.actor.sheet .protections input[type="checkbox"] {
+  height: 15px;
+  width: 15px;
+}
+.character-protections {
+  display: flex;
+  text-align: center;
+  margin-top: 5px;
 }
 .actor.sheet a.soin {
   position: absolute;
@@ -571,7 +569,17 @@ section.vocations {
 .actor.sheet .pouvoir-item {
   display: grid;
   grid-template-rows: 1fr;
-  grid-template-columns: 0.1fr 1fr 0.1fr;
+  grid-template-columns: 1fr 0.4fr;
+}
+.actor.sheet .pouvoir-item input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  margin: 3px 3px;
+}
+.ability-checkbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .actor.sheet .fields {
   display: flex;

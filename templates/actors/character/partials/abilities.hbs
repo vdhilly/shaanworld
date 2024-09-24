@@ -1,35 +1,21 @@
 <div class="tab abilities" data-group="primary" data-tab="abilities">
   <div style="width: 50%;">
-    <label class="character-abilities-label label-polygon">{{localize
-        "SW.Labels.Abilities"
-      }}</label>
+    <label class="character-abilities-label label-polygon">{{localize "SW.Labels.Abilities"}}</label>
     <div class="whitebox pouvoirs">
-      {{#each data.abilities as |rang key|}}
-        <div class="pouvoir-rank">
-          <label class="pouvoir-rank-label green-label">{{localize
-              (concat "SW.Labels." key)
-            }}</label>
-          {{#each rang as |ability i|}}
-            <div class="pouvoir-item">
+      {{#each data.abilities as |ability key|}}
+        <div class="pouvoir-item">
+          <label class="pouvoir-label"><b>{{ability.label}}</b> : {{ability.resume}}<br />{{ability.description}}</label>
+          <div class="ability-checkbox-container">
+            {{#each ability.rang as |rang i|}}
               <input
                 class="isUsed"
                 type="checkbox"
-                title="SW.Abilities.Used"
-                name="{{concat 'system.abilities.' key '.' i '.isUsed'}}"
-                {{checked ability.isUsed}}
+                title="{{localize SW.Abilities.Used}}"
+                name="{{concat 'system.abilities.' key '.rang.' i '.isUsed'}}"
+                {{checked rang.isUsed}}
               />
-              <label class="pouvoir-label">{{localize
-                  (concat "SW.Abilities." i)
-                }}</label>
-              <input
-                class="isLearned"
-                type="checkbox"
-                title="SW.Abilities.Learned"
-                name="{{concat 'system.abilities.' key '.' i '.isLearned'}}"
-                {{checked ability.isLearned}}
-              />
-            </div>
-          {{/each}}
+            {{/each}}
+          </div>
         </div>
       {{/each}}
     </div>

@@ -413,68 +413,33 @@
     </div>
     <input name="system.maxXP" value="{{data.maxXP}}" type="number" class="max-exp">
   </div>
-  <div class="entretien-soin">
-    <span>{{localize "SW.Labels.entretien"}}</span>
-    <div class="character-entretien whitebox">
-      <label for="entretien-esprit">{{localize "SW.Labels.esprit"}}</label>
-      <input
-        id="entretien-esprit"
-        style="top: 265px;left: -251px;"
-        type="checkbox"
-        data-trihn="esprit"
-        name="system.trihns.esprit.isMaintained"
-        {{checked data.trihns.esprit.isMaintained}}
-      />
-      <label for="entretien-ame">{{localize "SW.Labels.ame"}}</label>
-      <input
-        id="entretien-ame"
-        style="top: 201px;left: -198px;"
-        type="checkbox"
-        data-trihn="ame"
-        name="system.trihns.ame.isMaintained"
-        {{checked data.trihns.ame.isMaintained}}
-      />
-      <label for="entretien-corps">{{localize "SW.Labels.corps"}}</label>
-      <input
-        id="entretien-corpst"
-        style="top:273px;left:-207.7px"
-        type="checkbox"
-        data-trihn="corps"
-        name="system.trihns.corps.isMaintained"
-        {{checked data.trihns.corps.isMaintained}}
-      />
-    </div>
-    <span>{{localize "SW.Labels.soins"}}</span>
-    <div class="character-soins whitebox">
-      <a class="regeneration heal" data-action="regen" title="Régénération naturelle"><i class="fa-solid fa-bed"></i></a>
-      <a class="soin heal" data-action="heal" title="Soigner quelqu'un"><i class="fa-solid fa-suitcase-medical"></i></a>
-      <label for="soin-esprit">{{localize "SW.Labels.esprit"}}</label>
-      <input
-        style="top: 265px;left: -251px;"
-        id="soin-esprit"
-        type="checkbox"
-        data-trihn="esprit"
-        name="system.trihns.esprit.isHealed"
-        {{checked data.trihns.esprit.isHealed}}
-      />
-      <label for="soin-ame">{{localize "SW.Labels.ame"}}</label>
-      <input
-        id="soin-ame"
-        style="top: 201px;left: -198px;"
-        type="checkbox"
-        data-trihn="ame"
-        name="system.trihns.ame.isHealed"
-        {{checked data.trihns.ame.isHealed}}
-      />
-      <label for="soin-corps">{{localize "SW.Labels.corps"}}</label>
-      <input
-        id="soin-corps"
-        style="top:273px;left:-207.7px"
-        type="checkbox"
-        data-trihn="corps"
-        name="system.trihns.corps.isHealed"
-        {{checked data.trihns.corps.isHealed}}
-      />
+  <div class="protections">
+    <span>{{localize "SW.Labels.protections"}}</span>
+    <div class="character-protections whitebox">
+      <div class="protection-trihn">
+        <label>{{localize "SW.Labels.esprit"}}</label>
+        <div>
+          {{#each data.protections.esprit as |protection key|}}
+          <input type="checkbox" name="{{concat "system.protections.esprit." key}}" {{checked protection}}/>
+          {{/each}}
+        </div>
+      </div>
+      <div class="protection-trihn">
+        <label>{{localize "SW.Labels.ame"}}</label>
+        <div>
+          {{#each data.protections.ame as |protection key|}}
+          <input type="checkbox" name="{{concat "system.protections.ame." key}}" {{checked protection}}/>
+          {{/each}}
+        </div>
+      </div>
+      <div class="protection-trihn">
+        <label>{{localize "SW.Labels.corps"}}</label>
+        <div>
+          {{#each data.protections.corps as |protection key|}}
+          <input type="checkbox" name="{{concat "system.protections.corps." key}}" {{checked protection}}/>
+          {{/each}}
+        </div>
+      </div>
     </div>
   </div>
   <div class="richesses-container">

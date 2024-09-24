@@ -80,10 +80,10 @@
           "resume": "+2 au dé d'action",
           "description": "Vous pouvez ajouter 2 au résultat de votre dé d’action (cela peut déclencher un bonus narratif).",
           "rang": {
-            "1": false,
-            "2": false,
-            "3": false,
-            "4": false
+            "1": { "isLearned": false, "isUsed": false },
+            "2": { "isLearned": false, "isUsed": false },
+            "3": { "isLearned": false, "isUsed": false },
+            "4": { "isLearned": false, "isUsed": false }
           }
         },
         "optimisation": {
@@ -91,10 +91,10 @@
           "resume": "Puiser pour additionner",
           "description": "Lorsque vous dépensez un point d’énergie pour utiliser un autre dé, vous pouvez l’ajouter au dé d’action au lieu de le remplacer.",
           "rang": {
-            "1": false,
-            "2": false,
-            "3": false,
-            "4": false
+            "1": { "isLearned": false, "isUsed": false },
+            "2": { "isLearned": false, "isUsed": false },
+            "3": { "isLearned": false, "isUsed": false },
+            "4": { "isLearned": false, "isUsed": false }
           }
         },
         "adaptation": {
@@ -102,10 +102,10 @@
           "resume": "Répartir les pertes",
           "description": "Vous pouvez répartir les dégâts du dé de perte entre vos 3 énergies au lieu de tout prendre dans la même énergie.",
           "rang": {
-            "1": false,
-            "2": false,
-            "3": false,
-            "4": false
+            "1": { "isLearned": false, "isUsed": false },
+            "2": { "isLearned": false, "isUsed": false },
+            "3": { "isLearned": false, "isUsed": false },
+            "4": { "isLearned": false, "isUsed": false }
           }
         },
         "coup_de_chance": {
@@ -113,10 +113,10 @@
           "resume": "Relancer le dé d’action",
           "description": "Vous pouvez relancer les 4 dés, mais vous gardez ce nouveau résultat.",
           "rang": {
-            "1": false,
-            "2": false,
-            "3": false,
-            "4": false
+            "1": { "isLearned": false, "isUsed": false },
+            "2": { "isLearned": false, "isUsed": false },
+            "3": { "isLearned": false, "isUsed": false },
+            "4": { "isLearned": false, "isUsed": false }
           }
         },
         "second_souffle": {
@@ -124,10 +124,10 @@
           "resume": "Regagner 2 énergies",
           "description": "Vous pouvez regagner 2 points dans une énergie.",
           "rang": {
-            "1": false,
-            "2": false,
-            "3": false,
-            "4": false
+            "1": { "isLearned": false, "isUsed": false },
+            "2": { "isLearned": false, "isUsed": false },
+            "3": { "isLearned": false, "isUsed": false },
+            "4": { "isLearned": false, "isUsed": false }
           }
         },
         "clairvoyance": {
@@ -135,10 +135,10 @@
           "resume": "Baisser la difficulté de 1",
           "description": "Vous pouvez diminuer la difficulté d’une adversité de 1 (que pour vous et sur tous les actes de l’adversité).",
           "rang": {
-            "1": false,
-            "2": false,
-            "3": false,
-            "4": false
+            "1": { "isLearned": false, "isUsed": false },
+            "2": { "isLearned": false, "isUsed": false },
+            "3": { "isLearned": false, "isUsed": false },
+            "4": { "isLearned": false, "isUsed": false }
           }
         }
       },

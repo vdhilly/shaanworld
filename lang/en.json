@@ -60,31 +60,8 @@
       "difficulte": "Difficulté",
       "pertes": "Pertes",
       "energies": "énergies",
-      "Mythiques": "Objets Mythiques"
-    },
-    "Abilities": {
-      "Used": "Si le pouvoir a été utilisé",
-      "Learned": "Si le pouvoir a été appris",
-      "apprenti1": "Puiser sans perte",
-      "apprenti2": "Échanger 5 énergies",
-      "apprenti3": "Regagner 2 énergies",
-      "apprenti4": "+2 sur le dé d'action",
-      "apprenti5": "Relancer le dé dé noir",
-      "apprenti6": "Relancer le dé d'action",
-      "apprenti7": "Relancer les 2 dés non-actifs",
-      "initie1": "Puiser pour additionner",
-      "initie2": "Regagner 3 énergies",
-      "initie3": "+3 sur le dé d'action",
-      "initie4": "Annuler 1 perte d'adversité",
-      "initie5": "Relancer 2 dés sur 4. En Nécrose : lancer 4 dés et choisir le meilleur",
-      "maitre1": "Rajouter un dé d'action",
-      "maitre2": "Regagner 4 énergies",
-      "maitre3": "+4 sur le dé d'action",
-      "maitre4": "Action avec énergie à -3",
-      "maitre5": "Relancer les 4 dés. En Nécrose : lance 4 dés et en additionner 2",
-      "legende1": "Rajouter 2 dés d'action",
-      "legende2": "Regagner 5 énergies",
-      "legende3": "Relancer les 4 dés. En Nécrose : lancer les 4 dés et les additionner"
+      "Mythiques": "Objets Mythiques",
+      "protections": "Protections"
     },
     "domains": {
       "technique": "Technique",

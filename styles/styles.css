@@ -568,18 +568,22 @@ section.vocations {
 }
 .actor.sheet .pouvoir-item {
   display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 0.4fr;
+  grid-template-columns: 52px 1fr 52px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 .actor.sheet .pouvoir-item input[type="checkbox"] {
   width: 15px;
   height: 15px;
   margin: 3px 3px;
 }
+
 .ability-checkbox-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+}
+
+.ability-description {
+  color: var(--green-bg);
 }
 .actor.sheet .fields {
   display: flex;

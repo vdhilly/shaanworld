@@ -88,8 +88,8 @@
         },
         "optimisation": {
           "label": "Optimisation",
-          "resume": "Puiser pour additionner",
-          "description": "Lorsque vous dépensez un point d’énergie pour utiliser un autre dé, vous pouvez l’ajouter au dé d’action au lieu de le remplacer.",
+          "resume": "Puiser pour ajouter",
+          "description": "Lorsque vous dépensez un point d’énergie pour utiliser un autre dé, vous pouvez l’ajouter à votre Score au lieu de remplacer le dé d’action.",
           "rang": {
             "1": { "isLearned": false, "isUsed": false },
             "2": { "isLearned": false, "isUsed": false },

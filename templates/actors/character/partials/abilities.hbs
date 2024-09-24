@@ -4,7 +4,25 @@
     <div class="whitebox pouvoirs">
       {{#each data.abilities as |ability key|}}
         <div class="pouvoir-item">
-          <label class="pouvoir-label"><b>{{ability.label}}</b> : {{ability.resume}}<br />{{ability.description}}</label>
+          <div class="ability-checkbox-container">
+            {{#each ability.rang as |rang i|}}
+              {{#ifeq i 3}}
+                <br />
+              {{/ifeq}}
+              <input
+                class="isLearned"
+                type="checkbox"
+                title="{{localize SW.Abilities.Learned}}"
+                name="{{concat 'system.abilities.' key '.rang.' i '.isLearned'}}"
+                {{checked rang.isLearned}}
+              />
+            {{/each}}
+          </div>
+          <label class="pouvoir-label"><b>{{ability.label}}</b>
+            :
+            {{ability.resume}}<br /><span class="ability-description">{{ability.description}}</span>
+          </label>
+
           <div class="ability-checkbox-container">
             {{#each ability.rang as |rang i|}}
               <input

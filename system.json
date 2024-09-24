@@ -86,6 +86,14 @@
       "flags": {}
     },
     {
+      "name": "tables",
+      "label": "Tables",
+      "system": "shaanworld",
+      "path": "packs/tables",
+      "type": "RollTable",
+      "flags": {}
+    },
+    {
       "name": "kit-de-decouverte",
       "label": "Kit de découverte",
       "path": "packs/kit-de-decouverte",
@@ -109,6 +117,11 @@
       "name": "Macros",
       "sorting": "m",
       "packs": ["macros"]
+    },
+    {
+      "name": "Tables",
+      "sorting": "m",
+      "packs": ["tables"]
     }
   ],
   "background": "systems/shaanworld/assets/Banniere_ShaanWorld.jpg",

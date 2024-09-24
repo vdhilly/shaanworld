@@ -50,6 +50,7 @@ export class ActorSheetSW extends ActorSheet {
     await this.prepareEditors(sheetData);
     this.prepareVocations(sheetData);
     this.prepareData(sheetData, actorData);
+    this.prepareRank(sheetData);
     console.log(sheetData);
     return sheetData;
   }
@@ -145,6 +146,45 @@ export class ActorSheetSW extends ActorSheet {
       });
     }
   }
+  async prepareRank(sheetData) {
+    const domains = sheetData.data.domains;
+
+    // Get the highest domain rank
+    let highestDomain = Math.max(...Object.values(domains).map((domain) => domain.rank));
+
+    // Calculate rank based on highest domain
+    function calculateRank(highestDomain) {
+      if (highestDomain >= 6 && highestDomain <= 8) return 2;
+      if (highestDomain >= 9 && highestDomain <= 11) return 3;
+      if (highestDomain >= 12 && highestDomain <= 14) return 4;
+      if (highestDomain === 15) return 5;
+      return 1; // Default case
+    }
+
+    const rank = calculateRank(highestDomain);
+
+    // Update sheetData with the calculated rank and baseDifficulty
+    sheetData.data.rank = rank;
+    sheetData.data.baseDifficulty = rank === 1 ? 10 : 5 * rank;
+    switch (rank) {
+      case 1:
+        sheetData.data.rankLabel = "Profane";
+        break;
+      case 2:
+        sheetData.data.rankLabel = "Apprenti";
+        break;
+      case 3:
+        sheetData.data.rankLabel = "Initié";
+        break;
+      case 4:
+        sheetData.data.rankLabel = "Maître";
+        break;
+      case 5:
+        sheetData.data.rankLabel = "Légende";
+        break;
+    }
+  }
+
   activateListeners($html) {
     super.activateListeners($html);
     const html = $html[0];

@@ -110,7 +110,7 @@
         },
         "coup_de_chance": {
           "label": "Coup de chance",
-          "resume": "Relancer le dé d’action",
+          "resume": "Relancer les 4 dés",
           "description": "Vous pouvez relancer les 4 dés, mais vous gardez ce nouveau résultat.",
           "rang": {
             "1": { "isLearned": false, "isUsed": false },
@@ -184,8 +184,7 @@
       "gains": "",
       "duree": "",
       "bonusNarratif": "",
-      "score": 0,
-      "scoreMax": 0,
+      "nbActe": 0,
       "perte": "",
       "perteIsEnergie": true,
       "echec": ""

@@ -9,17 +9,11 @@ export class TokenDocumentSW extends TokenDocument {
   }
   _onUpdate(data, options, userId) {
     // Update references to original state so that resetting the preview does not clobber these updates in-memory.
-    if (!options.preview)
-      Object.values(this.apps).forEach(
-        (app) => (app.original = this.toObject())
-      );
+    if (!options.preview) Object.values(this.apps).forEach((app) => (app.original = this.toObject()));
 
     // If the Actor association has changed, expire the cached Token actor
     if ("actorId" in data || "actorLink" in data) {
-      if (this._actor)
-        Object.values(this._actor.apps).forEach((app) =>
-          app.close({ submit: false })
-        );
+      if (this._actor) Object.values(this._actor.apps).forEach((app) => app.close({ submit: false }));
       this._actor = null;
     }
 

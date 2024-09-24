@@ -496,7 +496,7 @@ section.vocations {
 /* Entretien Soin */
 .actor.sheet .protections {
   position: relative;
-  left: -81px;
+  left: -72px;
 }
 .actor.sheet .protections label {
   color: var(--green-bg);
@@ -584,6 +584,13 @@ section.vocations {
 
 .ability-description {
   color: var(--green-bg);
+}
+.actor.sheet .character-rank {
+  position: relative;
+  width: 146px !important;
+  color: var(--green-bg);
+  top: -169px;
+  right: 223px;
 }
 .actor.sheet .fields {
   display: flex;
@@ -1839,7 +1846,9 @@ li.table-draw .message-header {
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
   display: grid;
   grid-template-rows: 25px 1fr;
-  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  justify-items: center;
+  grid-template-columns: 1fr;
   row-gap: 5px;
   padding: 2px;
 }

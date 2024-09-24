@@ -1,44 +1,40 @@
 <form>
-    <div class="form-group check">
-        <div class="domain-container">
-            <label>{{localize "SW.Labels.domain"}}</label>
-            <select class="domain" name="domain" data-actor-id="{{actor._id}}">
-                {{#select domain}}
-                    {{#each actor.system.domains as |domain|}}
-                        <option value="{{@key}}">{{localize (concat "SW.domains." @key)}}</option>
-                    {{/each}}
-                {{/select}}
-            </select>
-        </div>
-        <div class="vocation">
-            <label>{{localize "SW.Labels.vocation"}}</label>
-            <select class="vocation1" name="vocation1">
-            </select>
-        </div>
-        <div class="vocation">
-            <label>{{localize "SW.Labels.vocation"}}</label>
-            <select class="vocation2" name="vocation2">
-            </select>
-        </div>
+  <div class="form-group check">
+    <div class="domain-container">
+      <label>{{localize "SW.Labels.domain"}}</label>
+      <select class="domain" name="domain" data-actor-id="{{actor._id}}">
+        {{selectOptions actor.system.domains selected=domain localize=true}}
+      </select>
     </div>
-    <div class="form-group">
-        <div class="bonus">
-            <label>Bonus</label>
-            <input type="number" name="bonus"/>
-        </div>
-        <div class="malus">
-            <label>Malus</label>
-            <input type="number" name="malus"/>
-        </div>
+    <div class="vocation">
+      <label>{{localize "SW.Labels.vocation"}}</label>
+      <select class="vocation1" name="vocation1">
+      </select>
     </div>
-    <div class="form-group">
-        <div class="lignee">
-            <label>Bonus de Lignée (-1 énergie)</label>
-            <input type="checkbox" name="lignee" {{checked lignee}}>
-        </div>
-        <div class="people">
-            <label>Bonus de Peuple (-1 énergie)</label>
-            <input type="checkbox" name="people" {{checked people}}>
-        </div>
+    <div class="vocation">
+      <label>{{localize "SW.Labels.vocation"}}</label>
+      <select class="vocation2" name="vocation2">
+      </select>
     </div>
+  </div>
+  <div class="form-group">
+    <div class="bonus">
+      <label>Bonus</label>
+      <input type="number" name="bonus" />
+    </div>
+    <div class="malus">
+      <label>Malus</label>
+      <input type="number" name="malus" />
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="lignee">
+      <label>Bonus de Lignée (-1 énergie)</label>
+      <input type="checkbox" name="lignee" {{checked lignee}} />
+    </div>
+    <div class="people">
+      <label>Bonus de Peuple (-1 énergie)</label>
+      <input type="checkbox" name="people" {{checked people}} />
+    </div>
+  </div>
 </form>

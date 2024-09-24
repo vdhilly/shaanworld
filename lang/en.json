@@ -54,14 +54,17 @@
       "adversite": "Adversité",
       "duree": "Durée",
       "gain": "Gains",
-      "secret": "Secrets",
+      "secret": "Aléas",
       "resolution": "Résolution",
       "bonusNarratif": "Bonus Narratif",
       "difficulte": "Difficulté",
       "pertes": "Pertes",
       "energies": "énergies",
       "Mythiques": "Objets Mythiques",
-      "protections": "Protections"
+      "protections": "Protections",
+      "rank": "Rang",
+      "baseDiff": "Difficulté",
+      "nbActe": "Nombre d'actes"
     },
     "domains": {
       "technique": "Technique",
@@ -122,5 +125,15 @@
       "RepartirPertes": "Repartir les pertes",
       "ajouté": "a ajouté {score} au score de {adversite}"
     }
-  }
+  },
+  "technique": "Technique",
+  "savoir": "Savoir",
+  "social": "Social",
+  "arts": "Arts",
+  "shaan": "Shaan",
+  "magie": "Magie",
+  "rituels": "Rituels",
+  "survie": "Survie",
+  "combat": "Combat",
+  "necrose": "Nécrose"
 }

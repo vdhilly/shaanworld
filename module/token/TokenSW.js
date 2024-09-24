@@ -1,16 +1,19 @@
-import { Adversite } from "../actors/adversite/document.js";
 export class TokenSW extends Token {
   #unlinkedVideo = false;
-  async _draw() {
+
+  #ring;
+
+  async _draw(options) {
     this.#cleanData();
 
     // Load token texture
     let texture;
     if (this._original) texture = this._original.texture?.clone();
-    else
-      texture = await loadTexture(this.document.texture.src, {
-        fallback: CONST.DEFAULT_TOKEN,
-      });
+    else texture = await loadTexture(this.document.texture.src, { fallback: CONST.DEFAULT_TOKEN });
+
+    // Cache token ring subject texture if needed
+    const ring = this.document.ring;
+    if (ring.enabled && !ring.subject.texture) await loadTexture(ring.subject.texture);
 
     // Manage video playback
     let video = game.video.getVideoSource(texture);
@@ -19,10 +22,7 @@ export class TokenSW extends Token {
       texture = await game.video.cloneTexture(video);
       video = game.video.getVideoSource(texture);
       const playOptions = { volume: 0 };
-      if (
-        this.document.getFlag("core", "randomizeVideo") !== false &&
-        Number.isFinite(video.duration)
-      ) {
+      if (this.document.getFlag("core", "randomizeVideo") !== false && Number.isFinite(video.duration)) {
         playOptions.offset = Math.random() * video.duration;
       }
       game.video.play(video, playOptions);
@@ -32,8 +32,27 @@ export class TokenSW extends Token {
     // Draw the TokenMesh in the PrimaryCanvasGroup
     this.mesh = canvas.primary.addToken(this);
 
-    // Draw the border frame in the GridLayer
-    this.border ||= canvas.grid.borders.addChild(new PIXI.Graphics());
+    // Initialize token ring
+    this.#initializeRing();
+
+    // Draw the border
+    this.border ||= this.addChild(new PIXI.Graphics());
+
+    // Draw the void of the TokenMesh
+    if (!this.voidMesh) {
+      this.voidMesh = this.addChild(new PIXI.Container());
+      this.voidMesh.updateTransform = () => {};
+      this.voidMesh.render = (renderer) => this.mesh?._renderVoid(renderer);
+    }
+
+    // Draw the detection filter of the TokenMesh
+    if (!this.detectionFilterMesh) {
+      this.detectionFilterMesh = this.addChild(new PIXI.Container());
+      this.detectionFilterMesh.updateTransform = () => {};
+      this.detectionFilterMesh.render = (renderer) => {
+        if (this.detectionFilter) this._renderDetectionFilter(renderer);
+      };
+    }
 
     // Draw Token interface components
     this.bars ||= this.addChild(this.#drawAttributeBars());
@@ -43,13 +62,33 @@ export class TokenSW extends Token {
     this.target ||= this.addChild(new PIXI.Graphics());
     this.nameplate ||= this.addChild(this.#drawNameplate());
 
+    // Add filter effects
+    this._updateSpecialStatusFilterEffects();
+
     // Draw elements
-    await this.drawEffects();
+    await this._drawEffects();
 
-    // Define initial interactivity and visibility state
-    this.hitArea = new PIXI.Rectangle(0, 0, this.w, this.h);
+    // Create all sources and perform initialization
+    this.initializeSources(); // TODO should this be removed?
   }
+  #initializeRing() {
+    // Construct a TokenRing instance
+    if (this.document.ring.enabled) {
+      if (!this.hasDynamicRing) {
+        const cls = CONFIG.Token.ring.ringClass;
+        if (!foundry.utils.isSubclass(cls, foundry.canvas.tokens.TokenRing)) {
+          throw new Error("The configured CONFIG.Token.ring.ringClass is not a TokenRing subclass.");
+        }
+        this.#ring = new cls(this);
+      }
+      this.#ring.configure(this.mesh);
+      return;
+    }
 
+    // Deactivate a prior TokenRing instance
+    if (this.hasDynamicRing) this.#ring.clear();
+    this.#ring = null;
+  }
   /* -------------------------------------------- */
 
   /**
@@ -59,8 +98,8 @@ export class TokenSW extends Token {
   #cleanData() {
     if (!canvas || !this.scene?.active) return;
     const d = canvas.dimensions;
-    this.document.x = Math.clamped(this.document.x, 0, d.width - this.w);
-    this.document.y = Math.clamped(this.document.y, 0, d.height - this.h);
+    this.document.x = Math.clamp(this.document.x, 0, d.width - this.w);
+    this.document.y = Math.clamp(this.document.y, 0, d.height - this.h);
   }
   #drawTooltip() {
     let text = this._getTooltipText();
@@ -78,27 +117,18 @@ export class TokenSW extends Token {
     return name;
   }
   drawBars() {
-    if (
-      !this.actor ||
-      this.document.displayBars === CONST.TOKEN_DISPLAY_MODES.NONE
-    )
-      return;
-    // TO DO - Ajouter bar3
-    const bars = ["bar1", "bar2", "bar3"];
-    bars.forEach((b, i) => {
-      if (!this.hasOwnProperty("bars")) return;
-
+    if (!this.actor || this.document.displayBars === CONST.TOKEN_DISPLAY_MODES.NONE) return;
+    ["bar1", "bar2", "bar3"].forEach((b, i) => {
       const bar = this.bars[b];
-      const attr = this.getBarAttribute(b);
-      if (!attr || attr.type !== "bar") return (bar.visible = false);
+      const attr = this.document.getBarAttribute(b);
+      if (!attr || attr.type !== "bar" || attr.max === 0) return (bar.visible = false);
       this._drawBar(i, bar, attr);
       bar.visible = true;
     });
-    this.bars.visible = this._canViewMode(this.document.displayBars);
   }
   _drawBar(number, bar, data) {
     const val = Number(data.value);
-    const pct = Math.clamped(val, 0, data.max) / data.max;
+    const pct = Math.clamp(val, 0, data.max) / data.max;
     let h = Math.max(canvas.dimensions.size / 12, 8);
     if (this.document.height >= 2) h *= 1.6;
 
@@ -136,28 +166,11 @@ export class TokenSW extends Token {
     bars.bar3 = bars.addChild(new PIXI.Graphics());
     return bars;
   }
-  getBarAttribute(barName, { alternative } = {}) {
-    let stat;
-    if(this.actor instanceof Adversite){
-      return
-    } else {
-      if (barName === "bar1") {
-        stat = "trihns.esprit";
-      } else if (barName === "bar2") {
-        stat = "trihns.ame";
-      } else if (barName === "bar3") {
-        stat = "trihns.corps";
-      }
-    }
+  _onUpdate(changed, options, userId) {
+    super._onUpdate(changed, options, userId);
 
-    let data = getProperty(this.actor.system, stat);
-    data = duplicate(data);
-
-    return {
-      type: "bar",
-      attribute: stat,
-      value: parseInt(data.value || 0),
-      max: parseInt(data.max || 0),
-    };
+    this.renderFlags.set({
+      refreshBars: ["displayBars", "bar1", "bar2", "bar3"].some((k) => k in changed),
+    });
   }
 }

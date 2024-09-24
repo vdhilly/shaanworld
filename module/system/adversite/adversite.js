@@ -8,32 +8,18 @@ export function addChatListeners(app, html, data) {
 }
 
 async function onAddAdversite(event) {
-  const messageTemplate =
-    "systems/shaanworld/templates/actors/adversite/chat/chat-card.hbs";
-  const chatCard = this.parentElement.parentElement.className.includes(
-    "domainCheck"
-  )
+  const messageTemplate = "systems/shaanworld/templates/actors/adversite/chat/chat-card.hbs";
+  const chatCard = this.parentElement.parentElement.className.includes("domainCheck")
     ? $(this.parentElement.parentElement)
     : $(this.parentElement);
-  const actor = game.actors.get(
-    chatCard[0].dataset.actorId.replace("Actor.", "")
-  );
-  const adversites = game.actors
-    .filter((actor) => actor.type === "adversite")
-    .filter((adversite) => adversite.system.active);
-  if (adversites.length == 0)
-    return ui.notifications.warn("Aucune adversité n'est active.");
+  const actor = game.actors.get(chatCard[0].dataset.actorId.replace("Actor.", ""));
+  const adversites = game.actors.filter((actor) => actor.type === "adversite").filter((adversite) => adversite.system.active);
+  if (adversites.length == 0) return ui.notifications.warn("Aucune adversité n'est active.");
 
   let score = Number(chatCard.find(".score")[0].innerText);
   let perte = Number(chatCard.find(".pertes")[0].value)
     ? Number(chatCard.find(".pertes")[0].value)
-    : Number(
-        -chatCard
-          .find(".pertes")[0]
-          .innerText.replace("énergie", "")
-          .replace("s", "")
-          .replace("et un malus narratif", "")
-      );
+    : Number(-chatCard.find(".pertes")[0].innerText.replace("énergie", "").replace("s", "").replace("et un malus narratif", ""));
   let adversiteOptions = await getAdversiteOptions({
     adversites,
     score,
@@ -49,14 +35,7 @@ async function onAddAdversite(event) {
   applyPertes(adversiteOptions.trihns, actor);
   let isFinished = await applyScore(score, adversiteOptions.adversite);
 
-  ToCustomMessage(
-    actor,
-    adversiteOptions.adversite,
-    score,
-    messageTemplate,
-    adversiteOptions.trihns,
-    isFinished
-  );
+  ToCustomMessage(actor, adversiteOptions.adversite, score, messageTemplate, adversiteOptions.trihns, isFinished);
 }
 
 async function getAdversiteOptions({
@@ -86,8 +65,7 @@ async function getAdversiteOptions({
       buttons: {
         normal: {
           label: game.i18n.localize("chat.actions.confirm"),
-          callback: (html) =>
-            resolve(_processAdversiteOptions(html[0].querySelector("form"))),
+          callback: (html) => resolve(_processAdversiteOptions(html[0].querySelector("form"))),
         },
         cancel: {
           label: game.i18n.localize("chat.actions.cancel"),
@@ -136,14 +114,7 @@ async function applyScore(score, adversite) {
   }
 }
 
-async function ToCustomMessage(
-  actor,
-  adversite,
-  score,
-  messageTemplate,
-  pertes,
-  isFinished
-) {
+async function ToCustomMessage(actor, adversite, score, messageTemplate, pertes, isFinished) {
   let templateContext = {
     actorID: actor._id,
     adversite: adversite,
@@ -193,9 +164,9 @@ function onOpenAdversite(event) {
 export const hideChatAdversiteButtons = function (message, html, data) {
   const chatCard = html.find(".chat-card");
   if (chatCard.length > 0) {
-    if (game.user.isGM) {
-      return;
-    }
+    // if (game.user.isGM) {
+    //   return;
+    // }
     const buttons = chatCard.find("button.ajout-adversite");
     buttons.each((i, btn) => {
       btn.style.display = "none";

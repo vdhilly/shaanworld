@@ -16,7 +16,7 @@ export class SWTokenHUD extends TokenHUD {
     const bar2 = this.object.document.getBarAttribute("bar2");
     const bar3 = this.object.document.getBarAttribute("bar3");
     let bars = [bar1, bar2, bar3];
-    if (this.object.actor.type !== "adversite") {
+    if (this.object.actor.type !== "Loot") {
       bars.forEach((b) => {
         if (b & b.value) {
           if (b.value > b.max) {
@@ -32,7 +32,7 @@ export class SWTokenHUD extends TokenHUD {
         displayBar2: bar2 && bar2.type !== "none",
         bar2Data: bar2,
         displayBar3: bar3 && bar3.type !== "none",
-        bar3: bar3.attribute,
+        bar3: bar3,
         bar3Data: bar3,
         visibilityClass: data.hidden ? "active" : "",
         effectsClass: this._statusEffects ? "active" : "",
@@ -41,18 +41,17 @@ export class SWTokenHUD extends TokenHUD {
       });
     }
     data.statusEffects = this._getStatusEffectChoices(data);
-    data.actor = game.actors.get(data.actorId)
     return data;
   }
-  activateListeners($html){
-    super.activateListeners($html)
+  activateListeners($html) {
+    super.activateListeners($html);
 
     $html.find("[data-action='activate']").on("change", (event) => {
-      const actor = this.object.actor
+      const actor = this.object.actor;
       actor.update({
-        "system.active": !actor.system.active
-      })
-      actor.sheet.render()
-    })
+        "system.active": !actor.system.active,
+      });
+      actor.sheet.render();
+    });
   }
 }

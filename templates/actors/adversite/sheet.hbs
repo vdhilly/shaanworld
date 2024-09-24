@@ -5,14 +5,11 @@
     </header>
     <section class="adversite">
         <h2>{{localize "SW.Labels.adversite"}} <input type="checkbox" name="system.active" title="Cliquez ici pour activer l'Adversité" {{checked data.active}}></h2>
-        <div class="adversite-score">
-            <label for="score">{{localize "SW.Labels.score"}}</label>
-            <input id="score" type="number" name="system.score" value="{{data.score}}">
+        <div class="adversite-nbActe">
+            <label for="nbActe">{{localize "SW.Labels.nbActe"}}</label>
+            <input id="nbActe" type="number" name="system.nbActe" value="{{data.nbActe}}">
         </div>
-        <div class="adversite-scoreMax">
-            <label for="scoreMax">{{localize "SW.Labels.difficulte"}}</label>
-            <input id="scoreMax" type="number" name="system.scoreMax" value="{{data.scoreMax}}">
-        </div>
+
     </section>
     <section class="domains">
         <h2>{{localize "SW.Labels.domains"}}</h2>

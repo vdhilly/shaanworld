@@ -1,7 +1,7 @@
-import { shaanworld } from "../../module/config.js";
-import { registerHandlebarsHelpers } from "../handlebars.js";
-import { templatePaths } from "../preloadTemplates.js";
-import { registerFonts } from "../register-fonts.js";
+import {shaanworld} from "../../module/config.js";
+import {registerHandlebarsHelpers} from "../handlebars.js";
+import {templatePaths} from "../preloadTemplates.js";
+import {registerFonts} from "../register-fonts.js";
 import shaanworldHooks from "./shaanworldHooks.js";
 
 export const Init = {
@@ -10,6 +10,7 @@ export const Init = {
       console.log("SHAAN WORLD | Initialising Shaan World System");
 
       CONFIG.shaanworld = shaanworld;
+
       registerFonts();
       registerHandlebarsHelpers();
       preloadHandleBarTemplates();

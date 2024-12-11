@@ -10,7 +10,7 @@ export class TokenConfigSW extends TokenConfig {
 
     // Prepare Token data
     const doc = this.preview ?? this.document;
-    doc.bar3 = { attribute: "attribute.hpCorps" };
+    doc.bar3 = { attribute: "trihns.corps" };
     const source = doc.toObject();
     const sourceDetectionModes = new Set(source.detectionModes.map((m) => m.id));
     const preparedDetectionModes = doc.detectionModes.filter((m) => !sourceDetectionModes.has(m.id));
@@ -44,12 +44,12 @@ export class TokenConfigSW extends TokenConfig {
       }, {}),
       showHexagonalShapes: this.isPrototype || !doc.parent || doc.parent.grid.isHexagonal,
       actors: game.actors
-        .reduce((actors, a) => {
-          if (!a.isOwner) return actors;
-          actors.push({ _id: a.id, name: a.name });
-          return actors;
-        }, [])
-        .sort((a, b) => a.name.localeCompare(b.name, game.i18n.lang)),
+          .reduce((actors, a) => {
+            if (!a.isOwner) return actors;
+            actors.push({ _id: a.id, name: a.name });
+            return actors;
+          }, [])
+          .sort((a, b) => a.name.localeCompare(b.name, game.i18n.lang)),
       dispositions: Object.entries(CONST.TOKEN_DISPOSITIONS).reduce((obj, e) => {
         obj[e[1]] = game.i18n.localize(`TOKEN.DISPOSITION.${e[0]}`);
         return obj;

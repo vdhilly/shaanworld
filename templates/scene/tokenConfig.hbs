@@ -24,12 +24,12 @@
         </div>
 
         {{#unless isPrototype}}
-        <div class="form-group">
-            <label>{{localize "TOKEN.CharActor"}}</label>
-            <select class="actor-template" name="actorId">
-                {{selectOptions actors selected=object.actorId valueAttr="_id" labelAttr="name" blank=(localize 'None')}}
-            </select>
-        </div>
+            <div class="form-group">
+                <label>{{localize "TOKEN.CharActor"}}</label>
+                <select class="actor-template" name="actorId">
+                    {{selectOptions actors selected=object.actorId valueAttr="_id" labelAttr="name" blank=(localize 'None')}}
+                </select>
+            </div>
         {{/unless}}
 
         <div class="form-group">
@@ -38,47 +38,47 @@
         </div>
 
         {{#if isPrototype}}
-        <hr>
+            <hr>
 
-        <div class="form-group">
-            <label>{{localize "TOKEN.AppendNumber"}}</label>
-            <input type="checkbox" name="appendNumber" {{checked object.appendNumber}}/>
-            <p class="notes">{{localize "TOKEN.AppendNumberHint" name=object.name}}</p>
-        </div>
+            <div class="form-group">
+                <label>{{localize "TOKEN.AppendNumber"}}</label>
+                <input type="checkbox" name="appendNumber" {{checked object.appendNumber}}/>
+                <p class="notes">{{localize "TOKEN.AppendNumberHint" name=object.name}}</p>
+            </div>
 
-        <div class="form-group">
-            <label>{{localize "TOKEN.PrependAdjective"}}</label>
-            <input type="checkbox" name="prependAdjective" {{checked object.prependAdjective}}/>
-            <p class="notes">{{localize "TOKEN.PrependAdjectiveHint" name=object.name}}</p>
-        </div>
+            <div class="form-group">
+                <label>{{localize "TOKEN.PrependAdjective"}}</label>
+                <input type="checkbox" name="prependAdjective" {{checked object.prependAdjective}}/>
+                <p class="notes">{{localize "TOKEN.PrependAdjectiveHint" name=object.name}}</p>
+            </div>
 
-        <hr>
+            <hr>
         {{/if}}
 
         {{#unless isPrototype}}
-        <div class="form-group slim">
-            <label>{{localize "TOKEN.Coordinates"}} <span class="units">({{localize "Pixels"}})</span></label>
-            <div class="form-fields">
-                <label>X</label>
-                {{numberInput object.x name="x" step=1 disabled=(not isGM) placeholder=(localize "Pixels")}}
-                <label>Y</label>
-                {{numberInput object.y name="y" step=1 disabled=(not isGM) placeholder=(localize "Pixels")}}
+            <div class="form-group slim">
+                <label>{{localize "TOKEN.Coordinates"}} <span class="units">({{localize "Pixels"}})</span></label>
+                <div class="form-fields">
+                    <label>X</label>
+                    {{numberInput object.x name="x" step=1 disabled=(not isGM) placeholder=(localize "Pixels")}}
+                    <label>Y</label>
+                    {{numberInput object.y name="y" step=1 disabled=(not isGM) placeholder=(localize "Pixels")}}
+                </div>
             </div>
-        </div>
 
-        <div class="form-group slim">
-            <label>{{localize "Elevation"}} <span class="units">({{gridUnits}})</span></label>
-            <div class="form-fields">
-                {{numberInput object.elevation name="elevation" placeholder=gridUnits}}
+            <div class="form-group slim">
+                <label>{{localize "Elevation"}} <span class="units">({{gridUnits}})</span></label>
+                <div class="form-fields">
+                    {{numberInput object.elevation name="elevation" placeholder=gridUnits}}
+                </div>
             </div>
-        </div>
 
-        <div class="form-group slim">
-            <label>{{ localize "Sort" }}</label>
-            <div class="form-fields">
-                {{numberInput object.sort name="sort" step=1}}
+            <div class="form-group slim">
+                <label>{{ localize "Sort" }}</label>
+                <div class="form-fields">
+                    {{numberInput object.sort name="sort" step=1}}
+                </div>
             </div>
-        </div>
         {{/unless}}
 
         <div class="form-group slim">
@@ -118,17 +118,17 @@
         </div>
 
         {{#if randomImgEnabled}}
-        <div class="form-group">
-            <label>{{localize "TOKEN.RandomImg"}}</label>
-            <input type="checkbox" name="randomImg" {{checked object.randomImg}}/>
-        </div>
+            <div class="form-group">
+                <label>{{localize "TOKEN.RandomImg"}}</label>
+                <input type="checkbox" name="randomImg" {{checked object.randomImg}}/>
+            </div>
         {{else if hasAlternates}}
-        <div class="form-group">
-            <label>{{localize "TOKEN.ImageAlts"}}</label>
-            <select class="alternate-images" name="alternateImages">
-                {{selectOptions alternateImages selected=object.texture.src blank=""}}
-            </select>
-        </div>
+            <div class="form-group">
+                <label>{{localize "TOKEN.ImageAlts"}}</label>
+                <select class="alternate-images" name="alternateImages">
+                    {{selectOptions alternateImages selected=object.texture.src blank=""}}
+                </select>
+            </div>
         {{/if}}
 
         <div class="form-group slim">
@@ -143,15 +143,15 @@
         </div>
 
         {{#if showHexagonalShapes}}
-        <div class="form-group slim">
-            <label>{{localize "TOKEN.HexagonalShape"}}</label>
-            <div class="form-fields">
-                <select name="hexagonalShape">
-                    {{selectOptions hexagonalShapes selected=object.hexagonalShape}}
-                </select>
+            <div class="form-group slim">
+                <label>{{localize "TOKEN.HexagonalShape"}}</label>
+                <div class="form-fields">
+                    <select name="hexagonalShape">
+                        {{selectOptions hexagonalShapes selected=object.hexagonalShape}}
+                    </select>
+                </div>
+                <p class="hint">{{localize "TOKEN.HexagonalShapeHint"}}</p>
             </div>
-            <p class="hint">{{localize "TOKEN.HexagonalShapeHint"}}</p>
-        </div>
         {{/if}}
 
         <div class="form-group slim">
@@ -222,12 +222,12 @@
     {{> "templates/scene/parts/token-lighting.hbs"}}
 
     <!-- Resource Bars -->
-    {{> "systems/shaanworld/templates/scene/parts/token-resources.hbs"}} 
+    {{> "systems/shaanworld/templates/scene/parts/token-resources.hbs"}}
 
     <!-- Token Sheet Footer -->
     <footer class="sheet-footer flexrow">
         {{#if isPrototype}}
-        <button type="button" class="assign-token"><i class="fas fa-user"></i> {{localize "TOKEN.Assign"}}</button>
+            <button type="button" class="assign-token"><i class="fas fa-user"></i> {{localize "TOKEN.Assign"}}</button>
         {{/if}}
         <button type="submit">
             <i class="far fa-save"></i> {{localize "TOKEN.Update"}}

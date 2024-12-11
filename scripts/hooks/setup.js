@@ -1,4 +1,5 @@
-import { registerSheets } from "../register-sheets.js";
+import {registerSheets} from "../register-sheets.js";
+
 export const Setup = {
   listen: () => {
     Hooks.once("setup", () => {
@@ -13,7 +14,6 @@ export const Setup = {
       // Set Hover by Owner as defaults for Default Token Configuration
       const defaultTokenSettingsDefaults =
         game.settings.settings.get("core.defaultToken").default;
-      console.log(defaultTokenSettingsDefaults)
       defaultTokenSettingsDefaults.displayName =
         CONST.TOKEN_DISPLAY_MODES.OWNER_HOVER;
       defaultTokenSettingsDefaults.displayBars =

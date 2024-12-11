@@ -1,29 +1,38 @@
 import { objectHasKey } from "../utils/utils.js";
 export class TokenDocumentSW extends TokenDocument {
-  _onCreate(data, options, userId) {
-    super._onCreate(data, options, userId);
-    if (this.parent.isView) this.object?._onCreate(data, options, userId);
-    this.bar1 = { attribute: "trihns.esprit" };
-    this.bar2 = { attribute: "trihns.ame" };
+  getBarAttribute(barName, { alternative } = {}) {
     this.bar3 = { attribute: "trihns.corps" };
-  }
-  _onUpdate(data, options, userId) {
-    // Update references to original state so that resetting the preview does not clobber these updates in-memory.
-    if (!options.preview) Object.values(this.apps).forEach((app) => (app.original = this.toObject()));
+    const attribute = alternative || this[barName]?.attribute;
+    if (!attribute || !this.actor) return null;
+    const system = this.actor.system;
+    const isSystemDataModel = system instanceof foundry.abstract.DataModel;
+    const templateModel = game.model.Actor[this.actor.type];
 
-    // If the Actor association has changed, expire the cached Token actor
-    if ("actorId" in data || "actorLink" in data) {
-      if (this._actor) Object.values(this._actor.apps).forEach((app) => app.close({ submit: false }));
-      this._actor = null;
+    // Get the current attribute value
+    const data = foundry.utils.getProperty(system, attribute);
+    if (data === null || data === undefined) return null;
+
+    // Single values
+    if (Number.isNumeric(data)) {
+      let editable = foundry.utils.hasProperty(templateModel, attribute);
+      if (isSystemDataModel) {
+        const field = system.schema.getField(attribute);
+        if (field) editable = field instanceof foundry.data.fields.NumberField;
+      }
+      return { type: "value", attribute, value: Number(data), editable };
     }
 
-    // If the Actor data override changed, simulate updating the synthetic Actor
-    if ("actorData" in data && !this.isLinked) {
-      this._onUpdateTokenActor(data.actorData, options, userId);
+    // Attribute objects
+    else if ("value" in data && "max" in data) {
+      let editable = foundry.utils.hasProperty(templateModel, `${attribute}.value`);
+      if (isSystemDataModel) {
+        const field = system.schema.getField(`${attribute}.value`);
+        if (field) editable = field instanceof foundry.data.fields.NumberField;
+      }
+      return { type: "bar", attribute, value: parseInt(data.value || 0), max: parseInt(data.max || 0), editable };
     }
 
-    // Post-update the Token itself
-
-    return super._onUpdate(data, options, userId);
+    // Otherwise null
+    return null;
   }
 }

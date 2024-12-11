@@ -147,13 +147,13 @@ export class TokenSW extends Token {
 
     let color = colors[number];
     bar
-      .clear()
-      .beginFill(0x000000, 0.5)
-      .lineStyle(2, 0x000000, 0.9)
-      .drawRoundedRect(0, 0, this.w, h, 3)
-      .beginFill(color, 0.8)
-      .lineStyle(1, 0x000000, 0.8)
-      .drawRoundedRect(1, 1, pct * (this.w - 2), h - 2, 2);
+        .clear()
+        .beginFill(0x000000, 0.5)
+        .lineStyle(2, 0x000000, 0.9)
+        .drawRoundedRect(0, 0, this.w, h, 3)
+        .beginFill(color, 0.8)
+        .lineStyle(1, 0x000000, 0.8)
+        .drawRoundedRect(1, 1, pct * (this.w - 2), h - 2, 2);
 
     // Set position
     let posY = yPositions[number];

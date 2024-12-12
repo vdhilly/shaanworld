@@ -454,11 +454,15 @@
       {{> "systems/shaanworld/templates/actors/icons/d10Black.hbs"}}
       </div>
       <span>{{localize "chat.domainCheck.title"}}</span>
-    </a>
+  </a>
     <div class="character-rank whitebox">
       <div>
         <b>{{localize "SW.Labels.rank"}} : </b><span>{{data.rank}} ({{data.rankLabel}})</span>
       </div>
+    </div>
+    <div id="regen-heal-container">
+      <a class="regeneration heal" data-action="regen" title="Régénération naturelle"><i class="fa-solid fa-bed"></i></a>
+      <a class="soin heal" data-action="heal" title="Soigner quelqu'un"><i class="fa-solid fa-suitcase-medical"></i></a>
     </div>
   </div>
 </div>

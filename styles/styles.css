@@ -478,6 +478,11 @@ section.vocations {
   border-bottom: 2px solid #768c84;
   margin-left: -1px;
 }
+#regen-heal-container {
+  position: relative;
+  left: -75px;
+  top: -237px;
+}
 
 /* Richesses */
 

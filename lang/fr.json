@@ -128,5 +128,14 @@
       "ajouté": "a ajouté {score} au score de {adversite}"
     }
   },
-  "technique": "Technique"
+  "technique": "Technique",
+  "savoir": "Savoir",
+  "social": "Social",
+  "arts": "Arts",
+  "shaan": "Shaan",
+  "magie": "Magie",
+  "rituels": "Rituels",
+  "survie": "Survie",
+  "combat": "Combat",
+  "necrose": "Nécrose"
 }

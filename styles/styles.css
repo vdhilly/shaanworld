@@ -546,6 +546,7 @@ section.vocations {
 .tab.abilities.active {
   display: flex !important;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 .character-abilities-label {
   background: var(--green-bg);
@@ -623,13 +624,9 @@ section.vocations {
 }
 
 /* Possessions */
-.tab.possessions.active {
-  display: flex !important;
-  flex-direction: row;
-}
 .actor.sheet .whitebox.artefacts {
   padding: 5px;
-  height: 645px;
+  height: 191px;
 }
 .character-artefacts-label {
   background: var(--green-bg);

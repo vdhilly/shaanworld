@@ -62,9 +62,6 @@ export class ActorSheetSW extends ActorSheet {
     sheetData.enrichedArtefactsNotes = await TextEditor.enrichHTML(foundry.utils.getProperty(this.actor.system, "artefacts"), {
       async: true,
     });
-    sheetData.enrichedRessourcesNotes = await TextEditor.enrichHTML(foundry.utils.getProperty(this.actor.system, "ressources"), {
-      async: true,
-    });
     sheetData.enrichedUserNotes = await TextEditor.enrichHTML(
       foundry.utils.getProperty(this.actor.system, "biography.campagne.notes"),
       { async: true }

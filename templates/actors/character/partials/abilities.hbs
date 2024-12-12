@@ -38,10 +38,18 @@
       {{/each}}
     </div>
   </div>
-  <div style="margin-top: 30px; width: 50%; margin-left: 5px;">
+  <div style="margin-top: 55px; width: 49%; margin-left: 5px;">
     <label class="character-abilities-label label-polygon" style="width: 142px;">{{localize "SW.Labels.Mythiques"}}</label>
     <div class="whitebox mythiques">
-      <textarea style="height: 575px; margin-top: 10px;" name="system.mythiques">{{data.mythiques}}</textarea>
+      <textarea style="height: 403px; margin-top: 10px;" name="system.mythiques">{{data.mythiques}}</textarea>
+    </div>
+  </div>
+  <div style="width:100%">
+    <label class="character-artefacts-label label-polygon">{{localize "SW.Labels.Artefacts"}}</label>
+    <div class="whitebox artefacts">
+      <div class="artefacts-container">
+        {{editor enrichedArtefactsNotes target="system.artefacts" button=true owner=owner editable=editable engine="prosemirror"}}
+      </div>
     </div>
   </div>
 </div>

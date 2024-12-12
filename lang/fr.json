@@ -64,7 +64,9 @@
       "protections": "Protections",
       "rank": "Rang",
       "baseDiff": "Difficulté",
-      "nbActe": "Nombre d'actes"
+      "nbActe": "Nombre d'actes",
+      "difficulty": "Difficulté",
+      "damages": "Dégats"
     },
     "domains": {
       "technique": "Technique",

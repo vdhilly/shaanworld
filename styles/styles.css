@@ -1848,7 +1848,7 @@ li.table-draw .message-header {
   grid-template-rows: 25px 1fr;
   text-align: center;
   justify-items: center;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   row-gap: 5px;
   padding: 2px;
 }
@@ -1867,7 +1867,7 @@ li.table-draw .message-header {
   text-align: center;
   width: 100%;
   grid-column-start: 1;
-  grid-column-end: 3;
+  grid-column-end: 4;
   grid-row-start: 1;
   grid-row-end: 2;
 }

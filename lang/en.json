@@ -64,7 +64,9 @@
       "protections": "Protections",
       "rank": "Rang",
       "baseDiff": "Difficulté",
-      "nbActe": "Nombre d'actes"
+      "nbActe": "Nombre d'actes",
+      "difficulty": "Difficulté",
+      "damages": "Dégats"
     },
     "domains": {
       "technique": "Technique",
@@ -126,14 +128,5 @@
       "ajouté": "a ajouté {score} au score de {adversite}"
     }
   },
-  "technique": "Technique",
-  "savoir": "Savoir",
-  "social": "Social",
-  "arts": "Arts",
-  "shaan": "Shaan",
-  "magie": "Magie",
-  "rituels": "Rituels",
-  "survie": "Survie",
-  "combat": "Combat",
-  "necrose": "Nécrose"
+  "technique": "Technique"
 }

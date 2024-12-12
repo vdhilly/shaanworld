@@ -187,7 +187,9 @@
       "nbActe": 0,
       "perte": "",
       "perteIsEnergie": true,
-      "echec": ""
+      "echec": "",
+      "difficulty": 0,
+      "damages": 0
     }
   },
   "Item": {

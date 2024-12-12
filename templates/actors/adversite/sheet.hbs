@@ -9,6 +9,14 @@
             <label for="nbActe">{{localize "SW.Labels.nbActe"}}</label>
             <input id="nbActe" type="number" name="system.nbActe" value="{{data.nbActe}}">
         </div>
+        <div class="adversite-difficulty">
+            <label for="difficulty">{{localize "SW.Labels.difficulty"}}</label>
+            <input id="difficulty" type="number" name="system.difficulty" value="{{data.difficulty}}">
+        </div>
+        <div class="adversite-damages">
+            <label for="damages">{{localize "SW.Labels.damages"}}</label>
+            <input id="damages" type="number" name="system.damages" value="{{data.damages}}">
+        </div>
 
     </section>
     <section class="domains">
@@ -27,29 +35,23 @@
             </label>
             <textarea id="description" name="system.description">{{data.description}}</textarea>
         </div>
-        <div class="adversite-duree">
-            <label for="duree">
-                {{localize "SW.Labels.duree"}}
-            </label>
-            <input id="duree" name="system.duree" value="{{data.duree}}">
-        </div>
         <div class="adversite-secret">
             <label for="secret">
                 {{localize "SW.Labels.secret"}}
             </label>
             <textarea id="secret" name="system.secret">{{data.secret}}</textarea>
         </div>
+        <div class="adversite-duree">
+            <label for="duree">
+                {{localize "SW.Labels.duree"}}
+            </label>
+            <input id="duree" name="system.duree" value="{{data.duree}}">
+        </div>
         <div class="adversite-resolution">
             <label for="resolution">
                 {{localize "SW.Labels.resolution"}}
             </label>
             <textarea id="resolution" name="system.resolution">{{data.resolution}}</textarea>
-        </div>
-        <div class="adversite-gain">
-            <label for="gain">
-                {{localize "SW.Labels.gain"}}
-            </label>
-            <textarea id="gain" name="system.gain">{{data.gain}}</textarea>
         </div>
         <div class="adversite-bonusNarratif">
             <label for="bonusNarratif">

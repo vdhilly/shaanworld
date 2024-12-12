@@ -1993,13 +1993,10 @@ li.table-draw .message-header {
   min-height: 100px;
 }
 .actor.sheet.adversite .details .adversite-resolution textarea {
-  min-height: 100px;
+  min-height: 150px;
 }
 .actor.sheet.adversite .details .adversite-bonusNarratif textarea {
   min-height: 80px;
-}
-.actor.sheet.adversite .details .adversite-gain textarea {
-  min-height: 50px;
 }
 .actor.sheet.adversite .details div:last-child {
   margin-bottom: 10px;

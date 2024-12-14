@@ -18,6 +18,14 @@
       {{localize 'SW.Labels.Abilities'}}
     </a>
 
+    <a 
+      class="item"
+      data-tab="allies"
+      title="{{localize 'SW.Labels.Allies'}}"
+    >
+      {{localize 'SW.Labels.Allies'}}
+    </a>
+
     <a
       class="item"
       data-tab="biography"
@@ -34,6 +42,8 @@
       {{~> "systems/shaanworld/templates/actors/character/partials/general.hbs" }}
       {{! Pouvoirs }}
       {{~> "systems/shaanworld/templates/actors/character/partials/abilities.hbs" }}
+      {{!-- Alliés --}}
+      {{~> "systems/shaanworld/templates/actors/character/partials/allies.hbs"}}
       {{! Biography }}
       {{~> "systems/shaanworld/templates/actors/character/partials/biography.hbs" }}
 

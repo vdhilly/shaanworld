@@ -263,4 +263,12 @@ export class ActorSheetSW extends ActorSheet {
       console.error(error);
     }
   }
+  async _onDropActor(event, data) {
+    await super._onDropActor(event, data);
+
+    const actor = fromUuidSync(data.uuid);
+    if (actor instanceof PersonnageSR || actor instanceof NpcSR || actor instanceof CreatureSR) {
+      this.document.addMembers(actor);
+    }
+  }
 }

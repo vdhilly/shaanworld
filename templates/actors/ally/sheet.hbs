@@ -1,0 +1,59 @@
+<form class="actor sheet crb-style ally" autocomplete="off">
+  <div id="ally-header">
+    <div class="frame-container">
+        <div class="frame image-container">
+            <img class="player-image" alt="{{actor.name}}" src="{{actor.img}}" title="{{actor.name}}" {{#if editable}}data-edit="img"{{/if}} />
+            <a class="hover-icon" data-action="show-image"><i class="fa-solid fa-image fa-fw"></i></a>
+        </div>
+    </div>
+    <div class="ally-header-details">
+      <label class="ally-name-label label-polygon" for="ally-name">{{localize "SW.Labels.Name"}}</label>
+      <div class="whitebox box-ally-name">
+        <input id="ally-name" type="text" name="name" value="{{actor.name}}" />
+      </div>
+      <label class="ally-lignee-label label-polygon" for="ally-lignee">{{localize "SW.Labels.Bloodline"}}</label>
+      <div class="whitebox box-ally-lignee">
+        <input id="ally-lignee" type="text" value="{{lignee.name}}" disabled/>
+      </div>
+    </div>
+  </div>
+  <div id="ally-domains" class="whitebox">
+    <span id="ally-domains-title">{{localize "SW.Labels.domains"}}</span>
+    <select name="system.domaines.domaine1">
+      {{selectOptions config.domains selected=data.domaines.domaine1}}
+    </select>
+    
+    <select name="system.domaines.domaine2">
+      {{selectOptions config.domains selected=data.domaines.domaine2}}
+    </select>
+    
+    <select name="system.domaines.domaine3">
+      {{selectOptions config.domains selected=data.domaines.domaine3}}
+    </select>
+  </div>
+  <div id="ally-influence" class="whitebox">
+    <label for="influence">{{localize "SW.Labels.influence"}}</label>
+    <select id="influence" name="system.influence">
+      {{selectOptions config.influences selected=data.influence}}
+    </select>
+  </div>
+
+  <div id="ally-relation" class="whitebox">
+    <label for="relation">{{localize "SW.Labels.relation"}}</label>
+    <select id="relation" name="system.relation">
+      {{selectOptions config.relations selected=data.relation}}
+    </select>
+  </div>
+
+  <div id="ally-loyalty" class="whitebox">
+    <label for="loyalty">{{localize "SW.Labels.loyalty"}}</label>
+    <select id="loyalty" name="system.loyalty">
+      {{selectOptions config.loyalties selected=data.loyalty}}
+    </select>
+  </div>
+
+  <div id="ally-particularity" class="whitebox">
+    <label for="particularity">{{localize "SW.Labels.particularity"}}</label>
+    <textarea id="particularity" name="system.particularity">{{data.particularity}}</textarea>
+  </div>
+</form>

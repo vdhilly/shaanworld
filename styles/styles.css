@@ -626,7 +626,7 @@ section.vocations {
 /* Possessions */
 .actor.sheet .whitebox.artefacts {
   padding: 5px;
-  height: 191px;
+  height: 133px;
 }
 .character-artefacts-label {
   background: var(--green-bg);
@@ -2149,4 +2149,141 @@ li:has(.chat-card.adversite) {
 }
 .chat-card span[data-adversite-id]:hover {
   text-shadow: 0 0 8px #4d6452;
+}
+
+/* Ally */
+
+.actor.sheet.ally {
+  width: 100%;
+  height: 100%;
+  background: var(--green-bg);
+  padding: 10px;
+  resize: none;
+  display: grid;
+  grid-template-rows: 100px 0.35fr 0.3fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 5px;
+  column-gap: 5px;
+}
+#ally-header {
+  display: flex;
+  gap: 10px;
+  grid-area: 1 / 1 / 1 / 4;
+}
+.actor.sheet.ally .frame-container {
+  width: 120px;
+  margin-left: 5px;
+}
+.actor.sheet.ally .frame .player-image {
+  border: none;
+  border-radius: 0;
+  box-shadow: 0 0 0 1px #918c88, 0 0 0 2px #e1d8cf, 0 0 0 3px #a98f39, inset 0 0 8px rgba(0, 0, 0, 0.5), 0 0 8px #000;
+  cursor: pointer;
+  max-height: 122px;
+  object-fit: cover;
+  object-position: top;
+  width: 100%;
+}
+.ally-header-details {
+  display: flex;
+  flex-direction: column;
+}
+#ally-header .box-ally-name {
+  margin-top: -11px;
+  height: 50px;
+}
+#ally-header label {
+  justify-content: center;
+  display: flex;
+  color: #ffffff;
+  height: 16px;
+  background: var(--green-bg);
+}
+.ally-name-label {
+  position: relative;
+  top: -3px;
+  left: 15px;
+  width: 50px;
+  z-index: 2;
+}
+.ally-lignee-label {
+  width: 80px;
+  position: relative;
+  margin-top: 2px;
+  margin-bottom: -7px;
+}
+#ally-header .box-ally-name input {
+  border: none;
+  height: 46px;
+  margin-top: 2px;
+  border-radius: none;
+  font-family: ITCOfficinaSans;
+  font-size: 44px;
+}
+.box-ally-lignee {
+  height: 35px;
+}
+#ally-lignee {
+  height: 30px;
+  font-family: "ITCOfficinaSans";
+  font-size: 20px;
+  margin-top: 2px;
+}
+#ally-header .box-lignee-label {
+  background: var(--green-bg);
+  position: relative;
+  top: -3px;
+  left: 15px;
+  width: 50px;
+  justify-content: center;
+  display: flex;
+  color: #ffffff;
+  z-index: 2;
+  height: 16px;
+}
+
+#ally-domains {
+  grid-area: 2 / 1 / 2 / 4;
+
+  display: grid;
+  grid-template-rows: 25px 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 5px;
+  padding: 5px;
+  padding-top: 0px;
+}
+#ally-domains select {
+  align-self: center;
+}
+#ally-domains-title {
+  grid-area: 1 / 1 / 1 / 4;
+  row-gap: 2px;
+  border-bottom: 1px solid var(--green-bg);
+  font-family: ITCOfficinaSans;
+  text-transform: uppercase;
+  color: var(--green-bg);
+  text-align: center;
+  padding-bottom: 5px;
+  margin: 5px 15px 0px 15px;
+}
+#ally-particularity {
+  grid-area: 4 / 1 / 4 / 4;
+}
+
+#ally-influence,
+#ally-relation,
+#ally-loyalty,
+#ally-particularity {
+  padding: 5px;
+}
+
+#ally-influence label,
+#ally-relation label,
+#ally-loyalty label,
+#ally-particularity label {
+  color: var(--green-bg);
+}
+#ally-particularity textarea {
+  height: 89%;
+  resize: none;
 }

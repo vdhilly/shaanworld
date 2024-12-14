@@ -1,6 +1,6 @@
 {
   "Actor": {
-    "types": ["character", "adversite"],
+    "types": ["character", "adversite", "ally"],
     "templates": {
       "common": {}
     },
@@ -78,7 +78,29 @@
         "eclair_de_genie": {
           "label": "Éclair de génie",
           "resume": "+2 au dé d'action",
-          "description": "Vous pouvez ajouter 2 au résultat de votre dé d’action (cela peut déclencher un bonus narratif).",
+          "description": "Vous pouvez ajouter 2 au résultat de votre dé d’action (cela peut déclencher un succès supplémentaire si le dé vaut 9 ou plus).",
+          "rang": {
+            "1": { "isLearned": false, "isUsed": false },
+            "2": { "isLearned": false, "isUsed": false },
+            "3": { "isLearned": false, "isUsed": false },
+            "4": { "isLearned": false, "isUsed": false }
+          }
+        },
+        "clairvoyance": {
+          "label": "Clairvoyance",
+          "resume": "+4 sur le Score",
+          "description": "Vous pouvez ajouter +4 à votre Score.",
+          "rang": {
+            "1": { "isLearned": false, "isUsed": false },
+            "2": { "isLearned": false, "isUsed": false },
+            "3": { "isLearned": false, "isUsed": false },
+            "4": { "isLearned": false, "isUsed": false }
+          }
+        },
+        "coup_de_chance": {
+          "label": "Coup de chance",
+          "resume": "Relancer les 4 dés",
+          "description": "Vous pouvez relancer les 4 dés, mais vous devez garder ce nouveau résultat.",
           "rang": {
             "1": { "isLearned": false, "isUsed": false },
             "2": { "isLearned": false, "isUsed": false },
@@ -88,8 +110,19 @@
         },
         "optimisation": {
           "label": "Optimisation",
-          "resume": "Puiser pour ajouter",
-          "description": "Lorsque vous dépensez un point d’énergie pour utiliser un autre dé, vous pouvez l’ajouter à votre Score au lieu de remplacer le dé d’action.",
+          "resume": "Annuler les crânes",
+          "description": "Vous pouvez ignorer la perte de succès lorsque des crânes (valeur 0) apparaissent sur les dés.",
+          "rang": {
+            "1": { "isLearned": false, "isUsed": false },
+            "2": { "isLearned": false, "isUsed": false },
+            "3": { "isLearned": false, "isUsed": false },
+            "4": { "isLearned": false, "isUsed": false }
+          }
+        },
+        "anticipation": {
+          "label": "Anticipation",
+          "resume": "Ignorer un aléa",
+          "description": "Vous pouvez ignorer les effets d'un aléa pour vous durant un acte.",
           "rang": {
             "1": { "isLearned": false, "isUsed": false },
             "2": { "isLearned": false, "isUsed": false },
@@ -108,32 +141,10 @@
             "4": { "isLearned": false, "isUsed": false }
           }
         },
-        "coup_de_chance": {
-          "label": "Coup de chance",
-          "resume": "Relancer les 4 dés",
-          "description": "Vous pouvez relancer les 4 dés, mais vous gardez ce nouveau résultat.",
-          "rang": {
-            "1": { "isLearned": false, "isUsed": false },
-            "2": { "isLearned": false, "isUsed": false },
-            "3": { "isLearned": false, "isUsed": false },
-            "4": { "isLearned": false, "isUsed": false }
-          }
-        },
         "second_souffle": {
           "label": "Second souffle",
           "resume": "Regagner 2 énergies",
           "description": "Vous pouvez regagner 2 points dans une énergie.",
-          "rang": {
-            "1": { "isLearned": false, "isUsed": false },
-            "2": { "isLearned": false, "isUsed": false },
-            "3": { "isLearned": false, "isUsed": false },
-            "4": { "isLearned": false, "isUsed": false }
-          }
-        },
-        "clairvoyance": {
-          "label": "Clairvoyance",
-          "resume": "Baisser la difficulté de 1",
-          "description": "Vous pouvez diminuer la difficulté d’une adversité de 1 (que pour vous et sur tous les actes de l’adversité).",
           "rang": {
             "1": { "isLearned": false, "isUsed": false },
             "2": { "isLearned": false, "isUsed": false },
@@ -189,6 +200,15 @@
       "echec": "",
       "difficulty": 0,
       "damages": 0
+    },
+    "ally": {
+      "name": "",
+      "lignee": {},
+      "domaines": { "domaine1": "", "domaine2": "", "domaines3": "" },
+      "influence": "",
+      "relation": "",
+      "particularity": "",
+      "loyalty": ""
     }
   },
   "Item": {

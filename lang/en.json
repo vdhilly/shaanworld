@@ -11,7 +11,6 @@
       "Character": "Personnage",
       "Abilities": "Pouvoirs",
       "Biography": "Biographie",
-      "Possessions": "Possessions",
       "Name": "Nom",
       "Vocation": "Vocations",
       "vocation": "Vocation",
@@ -66,7 +65,11 @@
       "baseDiff": "Difficulté",
       "nbActe": "Nombre d'actes",
       "difficulty": "Difficulté",
-      "damages": "Dégats"
+      "damages": "Dégats",
+      "influence": "Influence",
+      "loyalty": "Loyauté",
+      "relation": "Relation",
+      "particularity": "Particularité"
     },
     "domains": {
       "technique": "Technique",
@@ -128,5 +131,14 @@
       "ajouté": "a ajouté {score} au score de {adversite}"
     }
   },
-  "technique": "Technique"
+  "technique": "Technique",
+  "savoir": "Savoir",
+  "social": "Social",
+  "arts": "Arts",
+  "shaan": "Shaan",
+  "magie": "Magie",
+  "rituels": "Rituels",
+  "survie": "Survie",
+  "combat": "Combat",
+  "necrose": "Nécrose"
 }

@@ -172,7 +172,8 @@
       "artefacts": "",
       "currentXP": 0,
       "maxXP": 0,
-      "richesses": 0
+      "richesses": 0,
+      "allies": []
     },
     "adversite": {
       "description": "",

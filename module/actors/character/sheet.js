@@ -2,6 +2,7 @@ import * as Dice from "../../system/check/dice.js";
 import { Heal } from "../../system/check/heal.js";
 import { Regen } from "../../system/check/regen.js";
 import { htmlQuery, htmlQueryAll } from "../../utils/utils.js";
+import { AllySW } from "../ally/document.js";
 
 export class ActorSheetSW extends ActorSheet {
   static get defaultOptions() {
@@ -267,8 +268,8 @@ export class ActorSheetSW extends ActorSheet {
     await super._onDropActor(event, data);
 
     const actor = fromUuidSync(data.uuid);
-    if (actor instanceof PersonnageSR || actor instanceof NpcSR || actor instanceof CreatureSR) {
-      this.document.addMembers(actor);
+    if (actor instanceof AllySW) {
+      this.document.addAllies(actor);
     }
   }
 }

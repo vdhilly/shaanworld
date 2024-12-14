@@ -1,5 +1,5 @@
 import { Adversite } from "./actors/adversite/document.js";
-import { Ally } from "./actors/ally/document.js";
+import { AllySW } from "./actors/ally/document.js";
 import { character } from "./actors/character/document.js";
 import { ItemSW } from "./items/document.js";
 import { Vocation } from "./items/vocation/document.js";
@@ -12,7 +12,7 @@ shaanworld.Actor = {
   documentClasses: {
     character: character,
     adversite: Adversite,
-    ally: Ally,
+    ally: AllySW,
   },
 };
 shaanworld.Item = {

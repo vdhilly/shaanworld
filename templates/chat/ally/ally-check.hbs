@@ -1,0 +1,24 @@
+<div class="dice-roll SW ally-check chat-card" data-actor-id="{{ally.uuid}}">
+  <h2 class="title">
+    <div class="check-type">{{localize "chat.allyCheck.title"}}</div>
+  </h2>
+  <div class="dice">
+    {{#each roll.dice as |die|}}
+        <div class="die {{die.flavor}}">
+            <img src="systems/shaanworld/assets/dice/{{die.flavor}}/d10_{{#if (eq die.flavor "Ame")}}bleu{{/if}}{{#if (eq die.flavor "Necrose")}}noir{{/if}}_{{die.total}}.png">
+        </div>
+        <input type="hidden" class="dice-value" value="{{die.total}}">
+    {{/each}}
+  </div>
+  <div class="details">
+    <div class="detail ally-success">
+        <span class="modifier-label">{{localize "chat.allyCheck.options.success"}}</span>
+        <span class="puiser-bonus">{{#if (gt roll.success -1)}}+{{roll.success}}{{else}}{{roll.success}}{{/if}}</span>
+    </div>
+    <div class="detail ally-loyalty">
+        <span class="modifier-label">{{localize "chat.allyCheck.options.loyalty"}}</span>
+        <span class="puiser-bonus">{{#if (gt roll.loyalty -1)}}+{{roll.loyalty}}{{else}}{{roll.loyalty}}{{/if}}</span>
+    </div>
+  </div>
+  {{log this}}
+</div>

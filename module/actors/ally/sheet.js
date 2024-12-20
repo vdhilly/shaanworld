@@ -1,3 +1,5 @@
+import { AllyCheck } from "../../system/check/ally.js";
+
 export class AllySheetSW extends ActorSheet {
   static get defaultOptions() {
     const options = super.defaultOptions;
@@ -45,5 +47,11 @@ export class AllySheetSW extends ActorSheet {
   activateListeners($html) {
     super.activateListeners($html);
     const html = $html[0];
+
+    $html.find(".roll-ally").click(this._onAllyRoll.bind(this));
+  }
+  _onAllyRoll(event) {
+    let actor = this.actor;
+    AllyCheck(actor);
   }
 }

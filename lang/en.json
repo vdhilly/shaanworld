@@ -101,6 +101,13 @@
         "great": "-3 énergies"
       }
     },
+    "allyCheck": {
+      "title": "Jet d'allié",
+      "options": {
+        "success": "Succès",
+        "loyalty": "Loyauté"
+      }
+    },
     "Heal": {
       "title": "Jet de soin",
       "soin": "Soigner"

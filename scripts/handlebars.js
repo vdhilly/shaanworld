@@ -36,4 +36,9 @@ export function registerHandlebarsHelpers() {
 
     return str.charAt(0).toUpperCase() + str.slice(1);
   });
+  Handlebars.registerHelper("getName", function (a, b) {
+    const root = CONFIG.shaanworld[a];
+    const toFind = Number(b);
+    return root[toFind];
+  });
 }

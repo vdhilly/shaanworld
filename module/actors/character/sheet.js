@@ -1,3 +1,4 @@
+import { AllyCheck } from "../../system/check/ally.js";
 import * as Dice from "../../system/check/dice.js";
 import { Heal } from "../../system/check/heal.js";
 import { Regen } from "../../system/check/regen.js";
@@ -194,6 +195,7 @@ export class ActorSheetSW extends ActorSheet {
     $html.find(".circle input").on("focus", (event) => {
       event.target.select();
     });
+    $html.find(".roll-ally").click(this._onAllyRoll.bind(this));
 
     const imageLink = htmlQuery(html, "a[data-action=show-image]");
     if (!imageLink) return;
@@ -271,5 +273,10 @@ export class ActorSheetSW extends ActorSheet {
     if (actor instanceof AllySW) {
       this.document.addAllies(actor);
     }
+  }
+  _onAllyRoll(event) {
+    const target = event.currentTarget;
+    let actor = game.actors.get(target.dataset.id);
+    AllyCheck(actor);
   }
 }

@@ -2222,6 +2222,7 @@ li:has(.chat-card.adversite) {
 }
 .box-ally-lignee {
   height: 35px;
+  width: 200px;
 }
 #ally-lignee {
   height: 30px;
@@ -2286,4 +2287,104 @@ li:has(.chat-card.adversite) {
 #ally-particularity textarea {
   height: 89%;
   resize: none;
+}
+
+#allies-container {
+  margin-top: 33px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#allies-cards-container {
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+}
+.ally-card {
+  position: relative;
+  display: flex;
+  padding: 10px;
+}
+.ally-card .ally-frame-container {
+  width: 89px;
+}
+.ally-card .ally-resume {
+  margin-left: 10px;
+}
+.ally-name {
+  font-weight: 700;
+  font-size: 20px;
+}
+.ally-domains {
+  font-size: 15px;
+}
+.actor.sheet.character .roll-ally {
+  display: flex;
+  width: 40px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.actor.sheet.ally .roll-ally {
+  display: flex;
+  width: 60px;
+  position: absolute;
+  right: 10px;
+  top: 103px;
+}
+
+/* Ally check */
+
+.dice-roll.ally-check h2 {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  justify-content: center;
+  display: flex;
+  font-family: Komikazoom;
+}
+
+.dice-roll.ally-check .title {
+  margin: 0;
+  color: #394a3d;
+}
+.dice-roll.ally-check {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.1fr 1fr;
+  gap: 5px;
+}
+.dice-roll.ally-check .dice {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template: 1fr;
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+}
+.dice-roll.ally-check .dice img {
+  width: 80px;
+  border: none;
+  align-self: center;
+}
+.dice-roll.ally-check .dice .die {
+  justify-self: center;
+}
+.dice-roll.ally-check .details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  color: #394a3d;
+}
+.dice-roll.ally-check .details .detail {
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+}
+.dice-roll.ally-check .detail span {
+  display: flex;
+  justify-content: center;
+  font-family: Komikazoom;
 }

@@ -46,7 +46,7 @@ shaanworld.influences = [
   "Reines parasites",
 ];
 
-shaanworld.relations = ["Toxique", "Saine"];
+shaanworld.relations = ["Amicale", "Neutre", "Ambiguë", "Toxique"];
 shaanworld.loyalties = [1, 2];
 shaanworld.macros = {
   domainCheck: domainCheck,

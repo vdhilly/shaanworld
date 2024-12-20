@@ -1,3 +1,25 @@
 <div class="tab allies" data-group="primary" data-tab="allies">
-
+  <div id="allies-cards-container">
+    {{#each document.allies as |ally|}}
+      <div class="ally-card whitebox">
+        <a class="roll-ally" data-id="{{ally.id}}">{{> "systems/shaanworld/templates/actors/icons/d10Blue.hbs"}}{{> "systems/shaanworld/templates/actors/icons/d10Black.hbs"}}</a>
+        <div class="ally-frame-container">
+          <div class="frame image-container">
+            <img class="player-image" alt="{{ally.name}}" src="{{ally.img}}" title="{{ally.name}}" />
+          </div>
+        </div>
+        <div class="ally-resume">
+          <span class="ally-name">{{ally.name}}</span><br />
+          <span class="ally-domains">{{getName "domains" ally.system.domaines.domaine1}}
+            •
+            {{getName "domains" ally.system.domaines.domaine2}}
+            •
+            {{getName "domains" ally.system.domaines.domaine3}}</span><br />
+          <span class="ally-influence">Influence : {{getName "influences" ally.system.influence}}</span><br />
+          <span class="ally-relation">Relation : {{getName "relations" ally.system.relation}}</span><br />
+          <span class="ally-loyalty">Loyauté : {{getName "loyalties" ally.system.loyalty}}</span><br />
+        </div>
+      </div>
+    {{/each}}
+  </div>
 </div>

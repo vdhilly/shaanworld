@@ -2388,3 +2388,11 @@ li:has(.chat-card.adversite) {
   justify-content: center;
   font-family: Komikazoom;
 }
+.ally-check .ally-9 {
+  grid-area: 2 / 1 / 2 / 3;
+  border: 2px solid var(--whitebox-border);
+  background-color: var(--whitebox-background);
+  box-shadow: inset 0px 0px 20px var(--whitebox-border);
+  text-align: center;
+  font-family: Komikazoom;
+}

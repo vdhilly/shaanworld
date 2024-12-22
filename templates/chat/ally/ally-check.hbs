@@ -19,6 +19,10 @@
         <span class="modifier-label">{{localize "chat.allyCheck.options.loyalty"}}</span>
         <span class="puiser-bonus">{{#if (gt roll.loyalty -1)}}+{{roll.loyalty}}{{else}}{{roll.loyalty}}{{/if}}</span>
     </div>
+    <span class="ally-9">
+      {{#if (ne ally.system.domaines.domaine1 "0")}}{{getName "domains" ally.system.domaines.domaine1}}{{/if}}{{#if (ne ally.system.domaines.domaine2 "0")}} | {{getName "domains" ally.system.domaines.domaine2}}{{/if}}{{#if (ne getName "domains" ally.system.domaines.domaine3 "0")}} | {{getName "domains" ally.system.domaines.domaine3}}{{/if}}<br>{{#if (gt (add roll.success 1) -1)}}+{{add roll.success 1}}{{else}}{{add roll.success 1}}{{/if}} Succès/Loyauté{{#if (gt roll.loyalty -1)}}+{{roll.loyalty}}{{else}}{{roll.loyalty}}{{/if}}
+    </span>
+    
   </div>
   {{log this}}
 </div>

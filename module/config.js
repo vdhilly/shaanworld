@@ -24,7 +24,7 @@ shaanworld.Item = {
   },
 };
 
-shaanworld.domains = ["Technique", "Savoir", "Social", "Arts", "Shaan", "Magie", "Rituels", "Survie", "Combat", "Nécrose"];
+shaanworld.domains = ["", "Technique", "Savoir", "Social", "Arts", "Shaan", "Magie", "Rituels", "Survie", "Combat", "Nécrose"];
 shaanworld.archetypes = [
   "Technicien",
   "Savant",

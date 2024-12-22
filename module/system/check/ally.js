@@ -47,7 +47,7 @@ export async function toCustomMessage(ally = null, roll, template) {
       speaker: ChatMessage.getSpeaker({ ally }),
       content: await renderTemplate(template, templateContext),
       sound: CONFIG.sounds.dice,
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      type: CONST.CHAT_MESSAGE_STYLES.ROLL,
     };
   } else {
     chatData = {
@@ -55,7 +55,7 @@ export async function toCustomMessage(ally = null, roll, template) {
       speaker: ChatMessage.getSpeaker({ ally }),
       content: await renderTemplate(template, templateContext),
       sound: CONFIG.sounds.dice,
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      type: CONST.CHAT_MESSAGE_STYLES.ROLL,
     };
   }
   let message = await ChatMessage.create(chatData);

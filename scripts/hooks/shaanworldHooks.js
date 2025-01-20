@@ -23,7 +23,7 @@ export default () => {
     const dialogSelectors = [".regen-dialog", ".healing-dialog"];
     dialogSelectors.forEach((selector) => {
       const targetDialog = html.find(selector).first();
-      if (targetDialog) {
+      if (targetDialog.closest(".window-content").classList) {
         targetDialog.closest(".window-content").classList.add("green-bg");
       }
     });

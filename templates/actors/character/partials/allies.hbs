@@ -10,11 +10,13 @@
         </div>
         <div class="ally-resume">
           <span class="ally-name">{{ally.name}}</span><br />
-          <span class="ally-domains">{{getName "domains" ally.system.domaines.domaine1}}
-            •
-            {{getName "domains" ally.system.domaines.domaine2}}
-            •
-            {{getName "domains" ally.system.domaines.domaine3}}</span><br />
+          <span class="ally-domains">
+            <span data-trihn="{{getTrihn ally.system.domaines.domaine1}}">{{getName "domains" ally.system.domaines.domaine1}}</span>
+            {{#if (ne ally.system.domaines.domaine2 "0")}}•{{/if}}
+            <span data-trihn="{{getTrihn ally.system.domaines.domaine2}}">{{getName "domains" ally.system.domaines.domaine2}}</span>
+            {{#if (ne ally.system.domaines.domaine3 "0")}}•{{/if}}
+            <span data-trihn="{{getTrihn ally.system.domaines.domaine3}}">{{getName "domains" ally.system.domaines.domaine3}}</span>
+          </span><br />
           <span class="ally-influence">Influence : {{getName "influences" ally.system.influence}}</span><br />
           <span class="ally-relation">Relation : {{getName "relations" ally.system.relation}}</span><br />
           <span class="ally-loyalty">Loyauté : {{getName "loyalties" ally.system.loyalty}}</span><br />

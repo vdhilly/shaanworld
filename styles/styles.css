@@ -241,6 +241,18 @@ input.trihn-input {
   font-size: 21px;
   padding-bottom: 9px;
 }
+[data-trihn="esprit"] {
+  color: var(--esprit);
+}
+[data-trihn="ame"] {
+  color: var(--ame);
+}
+[data-trihn="corps"] {
+  color: var(--corps);
+}
+[data-trihn="necrose"] {
+  color: var(--necrose);
+}
 input[data-trihn="esprit"] {
   color: var(--esprit);
 }

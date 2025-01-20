@@ -38,7 +38,7 @@ export async function domainCheck(actor) {
     people: people,
   };
 
-  let rollResult = await new Roll(rollFormula, rollData).roll({ async: true });
+  let rollResult = await new Roll(rollFormula, rollData).roll();
   let dice3d;
   if (game.dice3d != undefined) {
     dice3d = game.dice3d.showForRoll(rollResult, game.user, true);
@@ -267,7 +267,7 @@ export async function RollToCustomMessage(
       speaker: ChatMessage.getSpeaker({ actor }),
       content: await renderTemplate(template, templateContext),
       sound: CONFIG.sounds.dice,
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      type: CONST.CHAT_MESSAGE_STYLES.ROLL,
     };
   } else {
     chatData = {
@@ -275,7 +275,7 @@ export async function RollToCustomMessage(
       speaker: ChatMessage.getSpeaker({ actor }),
       content: await renderTemplate(template, templateContext),
       sound: CONFIG.sounds.dice,
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      type: CONST.CHAT_MESSAGE_STYLES.ROLL,
     };
   }
   let message = await ChatMessage.create(chatData);

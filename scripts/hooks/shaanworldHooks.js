@@ -20,11 +20,11 @@ export default () => {
       });
     }
 
-    const dialogSelectors = [".regen-dialog", ".healing-dialog"];
+    const dialogSelectors = [".regen-dialog"];
     dialogSelectors.forEach((selector) => {
       const targetDialog = html.find(selector).first();
-      if (targetDialog.closest(".window-content").classList) {
-        targetDialog.closest(".window-content").classList.add("green-bg");
+      if (targetDialog) {
+        targetDialog.closest(".window-content")[0].classList.add("green-bg");
       }
     });
   });

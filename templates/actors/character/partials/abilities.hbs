@@ -18,9 +18,9 @@
               />
             {{/each}}
           </div>
-          <label class="pouvoir-label"><b>{{ability.label}}</b>
+          <label class="pouvoir-label"><b>{{localize (concat "SW.abilities." key ".label")}}</b>
             :
-            {{ability.resume}}<br /><span class="ability-description">{{ability.description}}</span>
+            {{localize (concat "SW.abilities." key ".resume")}}<br /><span class="ability-description">{{localize (concat "SW.abilities." key ".description")}}</span>
           </label>
 
           <div class="ability-checkbox-container">

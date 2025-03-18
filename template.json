@@ -76,9 +76,6 @@
       },
       "abilities": {
         "eclair_de_genie": {
-          "label": "Éclair de génie",
-          "resume": "+2 au dé d'action",
-          "description": "Vous pouvez ajouter 2 au résultat de votre dé d’action (cela peut déclencher un succès supplémentaire si le dé vaut 9 ou plus).",
           "rang": {
             "1": { "isLearned": false, "isUsed": false },
             "2": { "isLearned": false, "isUsed": false },
@@ -87,9 +84,6 @@
           }
         },
         "clairvoyance": {
-          "label": "Clairvoyance",
-          "resume": "+4 sur le Score",
-          "description": "Vous pouvez ajouter +4 à votre Score.",
           "rang": {
             "1": { "isLearned": false, "isUsed": false },
             "2": { "isLearned": false, "isUsed": false },
@@ -98,9 +92,6 @@
           }
         },
         "coup_de_chance": {
-          "label": "Coup de chance",
-          "resume": "Relancer les 4 dés",
-          "description": "Vous pouvez relancer les 4 dés, mais vous devez garder ce nouveau résultat.",
           "rang": {
             "1": { "isLearned": false, "isUsed": false },
             "2": { "isLearned": false, "isUsed": false },
@@ -109,9 +100,6 @@
           }
         },
         "optimisation": {
-          "label": "Optimisation",
-          "resume": "Annuler les crânes",
-          "description": "Vous pouvez ignorer la perte de succès lorsque des crânes (valeur 0) apparaissent sur les dés.",
           "rang": {
             "1": { "isLearned": false, "isUsed": false },
             "2": { "isLearned": false, "isUsed": false },
@@ -120,9 +108,6 @@
           }
         },
         "anticipation": {
-          "label": "Anticipation",
-          "resume": "Ignorer un aléa",
-          "description": "Vous pouvez ignorer les effets d'un aléa pour vous durant un acte.",
           "rang": {
             "1": { "isLearned": false, "isUsed": false },
             "2": { "isLearned": false, "isUsed": false },
@@ -131,9 +116,6 @@
           }
         },
         "adaptation": {
-          "label": "Adaptation",
-          "resume": "Répartir les pertes",
-          "description": "Vous pouvez répartir les dégâts du dé de perte entre vos 3 énergies au lieu de tout prendre dans la même énergie.",
           "rang": {
             "1": { "isLearned": false, "isUsed": false },
             "2": { "isLearned": false, "isUsed": false },
@@ -142,9 +124,6 @@
           }
         },
         "second_souffle": {
-          "label": "Second souffle",
-          "resume": "Regagner 2 énergies",
-          "description": "Vous pouvez regagner 2 points dans une énergie.",
           "rang": {
             "1": { "isLearned": false, "isUsed": false },
             "2": { "isLearned": false, "isUsed": false },

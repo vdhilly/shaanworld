@@ -5,57 +5,88 @@ import { Regen } from "../../system/check/regen.js";
 import { htmlQuery, htmlQueryAll } from "../../utils/utils.js";
 import { AllySW } from "../ally/document.js";
 
-export class ActorSheetSW extends foundry.appv1.sheets.ActorSheet {
-  static get defaultOptions() {
-    const options = super.defaultOptions;
-    return (
-      (options.classes = [...options.classes, "character"]),
-      (options.width = 750),
-      (options.height = 750),
-      options.scrollY.push(".sheet-body"),
-      (options.tabs = [
-        {
-          navSelector: ".sheet-navigation",
-          contentSelector: ".sheet-content",
-          initial: "character",
-        },
-        {
-          navSelector: ".nav-notes",
-          contentSelector: ".notes-content",
-          initial: "userNotes",
-        },
-      ]),
-      options
-    );
+export class ActorSheetSW extends foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2) {
+  static DEFAULT_OPTIONS = {
+    ...super.DEFAULT_OPTIONS,
+    classes: [...(super.DEFAULT_OPTIONS?.classes ?? []), "character"],
+    position: {
+      width: 750,
+      height: 750,
+
+    },
+    form: {
+      submitOnChange: true,
+      closeOnSubmit: false
+    },
+    scrollY: [".sheet-body"],
+    
   }
-  get template() {
-    return `systems/shaanworld/templates/actors/${this.actor.type}/sheet.hbs`;
+
+  static PARTS = {
+    header: { template: "systems/shaanworld/templates/actors/character/sheet.hbs"},
+    tabs: { template: "systems/shaanworld/templates/actors/character/partials/nav.hbs"},
+    character: { template: "systems/shaanworld/templates/actors/character/partials/general.hbs" },
+    abilities: { template: "systems/shaanworld/templates/actors/character/partials/abilities.hbs" },
+    allies: { template: "systems/shaanworld/templates/actors/character/partials/allies.hbs" },
+    biography: { template: "systems/shaanworld/templates/actors/character/partials/biography.hbs" },
+  };
+
+  get title() {
+    return this.actor.name
   }
-  async getData(options = this.options) {
-    options.id || (options.id = this.id);
-    const actorData = this.actor.toObject(!1),
-      sheetData = {
-        editable: this.isEditable,
-        document: this.actor,
-        effects: this.actor.getEmbeddedCollection("ActiveEffect"),
-        owner: this.actor.isOwner,
-        actor: actorData,
-        data: actorData.system,
-        items: actorData.items,
-        flags: actorData.flags,
-        config: CONFIG.shaanworld,
-        user: {
-          isGM: game.user.isGM,
-        },
-      };
+
+  static TABS = {
+    primary: {
+      tabs: [{ id: "character", group:"primary"}, {id:"abilities", group:"primary"}, {id:"allies", group:"primary"}, {id:"biography", group:"primary"}],
+      labelPrefix: "",
+      initial: "character",
+    },
+  };
+
+
+
+  async _prepareContext(options) {
+    const context = await super._prepareContext(options);
+
+    options.id ||= this.id;
+
+    const actorData = this.actor.toObject(false);
+    const sheetData = {
+      editable: this.isEditable,
+      document: this.actor,
+      effects: this.actor.getEmbeddedCollection("ActiveEffect"),
+      owner: this.actor.isOwner,
+      actor: actorData,
+      data: actorData.system,
+      items: actorData.items,
+      flags: actorData.flags,
+      config: CONFIG.shaanworld,
+      user: {
+        isGM: game.user.isGM,
+      },
+      tabs: this._prepareTabs("primary"),
+    };
 
     await this.prepareEditors(sheetData);
     this.prepareVocations(sheetData);
     this.prepareData(sheetData, actorData);
     this.prepareRank(sheetData);
+
     console.log(sheetData);
-    return sheetData;
+
+    console.log(this)
+
+    return {
+      ...context,
+      ...sheetData,
+    };
   }
+
+  async _preparePartContext(partId, context) {
+    context.tab = context.tabs[partId]
+    return context;
+  }
+
   async prepareEditors(sheetData) {
     sheetData.enrichedGMnotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
       foundry.utils.getProperty(this.actor.system, "biography.campagne.gm"),

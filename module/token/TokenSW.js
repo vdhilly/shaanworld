@@ -1,4 +1,4 @@
-export class TokenSW extends Token {
+export class TokenSW extends foundry.canvas.placeables.Token {
   #unlinkedVideo = false;
 
   #ring;

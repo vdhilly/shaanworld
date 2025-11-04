@@ -5,7 +5,7 @@ import { Regen } from "../../system/check/regen.js";
 import { htmlQuery, htmlQueryAll } from "../../utils/utils.js";
 import { AllySW } from "../ally/document.js";
 
-export class ActorSheetSW extends ActorSheet {
+export class ActorSheetSW extends foundry.appv1.sheets.ActorSheet {
   static get defaultOptions() {
     const options = super.defaultOptions;
     return (
@@ -57,37 +57,37 @@ export class ActorSheetSW extends ActorSheet {
     return sheetData;
   }
   async prepareEditors(sheetData) {
-    sheetData.enrichedGMnotes = await TextEditor.enrichHTML(
+    sheetData.enrichedGMnotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
       foundry.utils.getProperty(this.actor.system, "biography.campagne.gm"),
       { async: true }
     );
-    sheetData.enrichedArtefactsNotes = await TextEditor.enrichHTML(foundry.utils.getProperty(this.actor.system, "artefacts"), {
+    sheetData.enrichedArtefactsNotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(foundry.utils.getProperty(this.actor.system, "artefacts"), {
       async: true,
     });
-    sheetData.enrichedUserNotes = await TextEditor.enrichHTML(
+    sheetData.enrichedUserNotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
       foundry.utils.getProperty(this.actor.system, "biography.campagne.notes"),
       { async: true }
     );
-    sheetData.enrichedBGNotes = await TextEditor.enrichHTML(
+    sheetData.enrichedBGNotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
       foundry.utils.getProperty(this.actor.system, "biography.background"),
       { async: true }
     );
-    sheetData.enrichedRuptureNotes = await TextEditor.enrichHTML(
+    sheetData.enrichedRuptureNotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
       foundry.utils.getProperty(this.actor.system, "biography.rupture"),
       { async: true }
     );
-    sheetData.enrichedQuestNotes = await TextEditor.enrichHTML(foundry.utils.getProperty(this.actor.system, "biography.quest"), {
+    sheetData.enrichedQuestNotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(foundry.utils.getProperty(this.actor.system, "biography.quest"), {
       async: true,
     });
-    sheetData.enrichedAppearanceNotes = await TextEditor.enrichHTML(
+    sheetData.enrichedAppearanceNotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
       foundry.utils.getProperty(this.actor.system, "biography.appearance"),
       { async: true }
     );
-    sheetData.enrichedAlliesNotes = await TextEditor.enrichHTML(
+    sheetData.enrichedAlliesNotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
       foundry.utils.getProperty(this.actor.system, "biography.campagne.allies"),
       { async: true }
     );
-    sheetData.enrichedEnemiesNotes = await TextEditor.enrichHTML(
+    sheetData.enrichedEnemiesNotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
       foundry.utils.getProperty(this.actor.system, "biography.campagne.enemies"),
       { async: true }
     );

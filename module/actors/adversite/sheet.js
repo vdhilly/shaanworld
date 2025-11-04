@@ -1,5 +1,5 @@
 
-export class AdversiteSheet extends ActorSheet {
+export class AdversiteSheet extends foundry.appv1.sheets.ActorSheet {
     static get defaultOptions() {
         const options = super.defaultOptions;
         return (

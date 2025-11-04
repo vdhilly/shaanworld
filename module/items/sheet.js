@@ -1,4 +1,4 @@
-export class ItemSheetSW extends ItemSheet {
+export class ItemSheetSW extends foundry.appv1.sheets.ItemSheet {
   get template() {
     return `systems/shaanworld/templates/items/${this.item.type}/sheet.hbs`;
   }

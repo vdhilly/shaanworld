@@ -1,4 +1,5 @@
-export class TokenConfigSW extends TokenConfig {
+export class TokenConfigSW extends foundry.applications.sheets.TokenConfig {
+
   get template() {
     return "systems/shaanworld/templates/scene/tokenConfig.hbs";
   }

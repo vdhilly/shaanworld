@@ -7,9 +7,9 @@ export default () => {
     }
   };
 
-  Hooks.on("renderChatMessage", async (message, html, data) => {
+  Hooks.on("renderChatMessageHTML", async (message, html, data) => {
     const selectors = [".domainCheck", ".ally-check", ".healCheck", ".regen"];
-    selectors.forEach((selector) => addRollMessageClass(html, selector));
+    selectors.forEach((selector) => addRollMessageClass($(html) , selector));
   });
 
   Hooks.on("renderDialog", async (dialog, html, data) => {

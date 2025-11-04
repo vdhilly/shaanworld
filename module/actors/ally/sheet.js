@@ -1,6 +1,6 @@
 import { AllyCheck } from "../../system/check/ally.js";
 
-export class AllySheetSW extends ActorSheet {
+export class AllySheetSW extends foundry.appv1.sheets.ActorSheet {
   static get defaultOptions() {
     const options = super.defaultOptions;
     return (options.classes = [...options.classes, "character"]), (options.width = 500), (options.height = 500), options;

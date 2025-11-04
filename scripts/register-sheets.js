@@ -6,33 +6,33 @@ import { PeopleSheetSW } from "../module/items/people/sheet.js";
 import { RoleSheetSW } from "../module/items/role/sheet.js";
 import { VocationSheetSW } from "../module/items/vocation/sheet.js";
 export function registerSheets() {
-  Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("shaanworld", ActorSheetSW, {
+  foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
+  foundry.documents.collections.Actors.registerSheet("shaanworld", ActorSheetSW, {
     types: ["character"],
     label: "character",
   });
-  Actors.registerSheet("shaanworld", AdversiteSheet, {
+  foundry.documents.collections.Actors.registerSheet("shaanworld", AdversiteSheet, {
     types: ["adversite"],
     label: "adversite",
   });
-  Actors.registerSheet("shaanworld", AllySheetSW, {
+  foundry.documents.collections.Actors.registerSheet("shaanworld", AllySheetSW, {
     types: ["ally"],
     label: "ally",
   });
-  Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("shaanworld", BloodlineSheetSW, {
+  foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
+  foundry.documents.collections.Items.registerSheet("shaanworld", BloodlineSheetSW, {
     types: ["lignee"],
     label: "lignee",
   });
-  Items.registerSheet("shaanworld", PeopleSheetSW, {
+  foundry.documents.collections.Items.registerSheet("shaanworld", PeopleSheetSW, {
     types: ["people"],
     label: "people",
   });
-  Items.registerSheet("shaanworld", VocationSheetSW, {
+  foundry.documents.collections.Items.registerSheet("shaanworld", VocationSheetSW, {
     types: ["vocation"],
     label: "vocation",
   });
-  Items.registerSheet("shaanworld", RoleSheetSW, {
+  foundry.documents.collections.Items.registerSheet("shaanworld", RoleSheetSW, {
     types: ["role"],
     label: "role",
   });

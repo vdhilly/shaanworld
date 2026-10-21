@@ -7,14 +7,9 @@ import { AllySW } from "../ally/document.js";
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
 
-// Types d'items dont l'acteur ne peut posséder qu'un seul exemplaire
 const UNIQUE_ITEM_TYPES = ["lignee", "people", "role"];
 
 export class ActorSheetSW extends HandlebarsApplicationMixin(ActorSheetV2) {
-  /**
-   * Les DEFAULT_OPTIONS sont fusionnés automatiquement avec ceux des classes parentes
-   * (classes, actions, position, etc.), pas besoin de spread de super.
-   */
   static DEFAULT_OPTIONS = {
     classes: ["character", "actor", "sheet"],
     position: {
@@ -48,13 +43,16 @@ export class ActorSheetSW extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static TABS = {
     primary: {
-      tabs: [{ id: "character" }, { id: "abilities" }, { id: "allies" }, { id: "biography" }],
-      labelPrefix: "",
+      tabs: [
+        { id: "character", group: "primary" },
+        { id: "abilities", group: "primary" },
+        { id: "allies", group: "primary" },
+        { id: "biography", group: "primary" },
+      ],
       initial: "character",
     },
   };
 
-  /** Mémorise les onglets scrollés */
   scrollY = [".sheet-body"];
 
   get title() {
@@ -98,7 +96,17 @@ export class ActorSheetSW extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   async _preparePartContext(partId, context, options) {
     context = await super._preparePartContext(partId, context, options);
-    context.tab = context.tabs?.[partId];
+
+    // Détermine si cette part est l'onglet actuellement actif
+    const activeTab = this.tabGroups.primary;
+    const isActive = activeTab === partId;
+
+    context.tab = {
+      id: partId,
+      group: "primary",
+      cssClass: isActive ? "active" : "",
+    };
+
     return context;
   }
 
@@ -122,11 +130,6 @@ export class ActorSheetSW extends HandlebarsApplicationMixin(ActorSheetV2) {
     sheetData.enrichedEnemiesNotes = await this.#enrich("biography.campagne.enemies");
   }
 
-  /**
-   * Expose le dernier item de chaque type unique (lignee, people, role).
-   * La suppression des doublons est gérée au drop (voir _onDropItem),
-   * jamais pendant le rendu.
-   */
   #prepareUniqueItems(sheetData, actorData) {
     for (const type of UNIQUE_ITEM_TYPES) {
       const items = actorData.items.filter((item) => item.type === type);
@@ -180,12 +183,10 @@ export class ActorSheetSW extends HandlebarsApplicationMixin(ActorSheetV2) {
     await super._onRender(context, options);
     const html = this.element;
 
-    // Sélectionne le contenu des champs au focus
     html.querySelectorAll(".circle input").forEach((input) => {
       input.addEventListener("focus", (event) => event.target.select());
     });
 
-    // Tronque les noms de vocation trop longs
     html.querySelectorAll(".vocation-name").forEach((span) => {
       const name = span.innerText;
       if (name.length >= 19) {
@@ -257,10 +258,6 @@ export class ActorSheetSW extends HandlebarsApplicationMixin(ActorSheetV2) {
     return result;
   }
 
-  /**
-   * Garantit l'unicité des items lignee / people / role :
-   * l'ancien est supprimé quand un nouveau est déposé.
-   */
   async _onDropItem(event, data) {
     if (!this.actor.isOwner) return null;
 

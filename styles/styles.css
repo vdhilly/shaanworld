@@ -354,7 +354,7 @@ section.vocations {
 .actor.sheet .window-content nav {
   flex: 1;
 }
-.actor.sheet .window-content header > nav {
+.actor.sheet .window-content > nav {
   height: 30px;
   border-style: solid;
   border-image-outset: 0;
@@ -368,7 +368,7 @@ section.vocations {
   background: url("../assets/sheet/border-pattern.webp") repeat-x top, url("../assets/sheet/border-pattern.webp") repeat-x bottom,
     var(--green-bg);
 }
-.actor.sheet .window-content header > nav > a {
+.actor.sheet .window-content nav > a {
   color: white;
   padding: 4px 0;
   font-family: var(--sans-serif);
@@ -378,7 +378,7 @@ section.vocations {
   display: flex;
   align-items: center;
 }
-.actor.sheet .window-content header > nav > a.active::after {
+.actor.sheet .window-content nav > a.active::after {
   bottom: -2px;
   right: 39%;
   position: absolute;
@@ -389,7 +389,9 @@ section.vocations {
   border-right: 4px solid transparent;
   border-top: 4px solid var(--sidebar-label);
 }
-.actor.sheet .window-content header nav {
+.actor.sheet .window-content nav {
+  width: 50%;
+  margin-bottom: 5px;
   border-width: unset;
 }
 
@@ -1577,6 +1579,10 @@ li.table-draw .message-header {
   box-shadow: inset 0px 0px 20px var(--whitebox-border);
   line-height: 20px;
 }
+
+.dialog .window-content { 
+background: var(--green-bg);
+}
 .healing-dialog {
   border: 2px solid var(--whitebox-border);
   background-color: var(--whitebox-background);
@@ -1768,6 +1774,10 @@ li.table-draw .message-header {
 }
 
 /* Dialog Puiser */
+.puiser-dialog {
+  padding:0;
+}
+
 
 .puiser-dialog img {
   width: 15%;
@@ -1784,7 +1794,7 @@ li.table-draw .message-header {
 }
 
 /* ADVERSITE */
-.sheet.adversite .window-content {
+.sheet.adversite {
   background: var(--green-bg);
   width: 100%;
 }

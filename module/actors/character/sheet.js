@@ -2,53 +2,71 @@ import { AllyCheck } from "../../system/check/ally.js";
 import * as Dice from "../../system/check/dice.js";
 import { Heal } from "../../system/check/heal.js";
 import { Regen } from "../../system/check/regen.js";
-import { htmlQuery, htmlQueryAll } from "../../utils/utils.js";
 import { AllySW } from "../ally/document.js";
 
-export class ActorSheetSW extends foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2) {
+const { HandlebarsApplicationMixin } = foundry.applications.api;
+const { ActorSheetV2 } = foundry.applications.sheets;
+
+// Types d'items dont l'acteur ne peut posséder qu'un seul exemplaire
+const UNIQUE_ITEM_TYPES = ["lignee", "people", "role"];
+
+export class ActorSheetSW extends HandlebarsApplicationMixin(ActorSheetV2) {
+  /**
+   * Les DEFAULT_OPTIONS sont fusionnés automatiquement avec ceux des classes parentes
+   * (classes, actions, position, etc.), pas besoin de spread de super.
+   */
   static DEFAULT_OPTIONS = {
-    ...super.DEFAULT_OPTIONS,
-    classes: [...(super.DEFAULT_OPTIONS?.classes ?? []), "character", "actor", "sheet"],
+    classes: ["character", "actor", "sheet"],
     position: {
       width: 750,
       height: 750,
-
     },
     form: {
       submitOnChange: true,
-      closeOnSubmit: false
+      closeOnSubmit: false,
     },
-    scrollY: [".sheet-body"],
-    
-  }
+    actions: {
+      domainCheck: ActorSheetSW.#onDomainCheck,
+      heal: ActorSheetSW.#onHeal,
+      regen: ActorSheetSW.#onRegen,
+      editItem: ActorSheetSW.#onItemEdit,
+      deleteItem: ActorSheetSW.#onItemDelete,
+      rollAlly: ActorSheetSW.#onAllyRoll,
+      showImage: ActorSheetSW.#onShowImage,
+      openCompendium: ActorSheetSW.#onOpenCompendium,
+    },
+  };
 
   static PARTS = {
-    header: { template: "systems/shaanworld/templates/actors/character/sheet.hbs"},
-    tabs: { template: "systems/shaanworld/templates/actors/character/partials/nav.hbs"},
+    header: { template: "systems/shaanworld/templates/actors/character/sheet.hbs" },
+    tabs: { template: "systems/shaanworld/templates/actors/character/partials/nav.hbs" },
     character: { template: "systems/shaanworld/templates/actors/character/partials/general.hbs" },
     abilities: { template: "systems/shaanworld/templates/actors/character/partials/abilities.hbs" },
     allies: { template: "systems/shaanworld/templates/actors/character/partials/allies.hbs" },
     biography: { template: "systems/shaanworld/templates/actors/character/partials/biography.hbs" },
   };
 
-  get title() {
-    return this.actor.name
-  }
-
   static TABS = {
     primary: {
-      tabs: [{ id: "character", group:"primary"}, {id:"abilities", group:"primary"}, {id:"allies", group:"primary"}, {id:"biography", group:"primary"}],
+      tabs: [{ id: "character" }, { id: "abilities" }, { id: "allies" }, { id: "biography" }],
       labelPrefix: "",
       initial: "character",
     },
   };
 
+  /** Mémorise les onglets scrollés */
+  scrollY = [".sheet-body"];
 
+  get title() {
+    return this.actor.name;
+  }
+
+  /* -------------------------------------------- */
+  /*  Préparation des données                     */
+  /* -------------------------------------------- */
 
   async _prepareContext(options) {
     const context = await super._prepareContext(options);
-
-    options.id ||= this.id;
 
     const actorData = this.actor.toObject(false);
     const sheetData = {
@@ -67,14 +85,10 @@ export class ActorSheetSW extends foundry.applications.api.HandlebarsApplication
       tabs: this._prepareTabs("primary"),
     };
 
-    await this.prepareEditors(sheetData);
-    this.prepareVocations(sheetData);
-    this.prepareData(sheetData, actorData);
-    this.prepareRank(sheetData);
-
-    console.log(sheetData);
-
-    console.log(this)
+    await this.#prepareEditors(sheetData);
+    this.#prepareVocations(sheetData);
+    this.#prepareUniqueItems(sheetData, actorData);
+    this.#prepareRank(sheetData);
 
     return {
       ...context,
@@ -82,232 +96,180 @@ export class ActorSheetSW extends foundry.applications.api.HandlebarsApplication
     };
   }
 
-  async _preparePartContext(partId, context) {
-    context.tab = context.tabs[partId]
+  async _preparePartContext(partId, context, options) {
+    context = await super._preparePartContext(partId, context, options);
+    context.tab = context.tabs?.[partId];
     return context;
   }
 
-  async prepareEditors(sheetData) {
-    sheetData.enrichedGMnotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-      foundry.utils.getProperty(this.actor.system, "biography.campagne.gm"),
-      { async: true }
-    );
-    sheetData.enrichedArtefactsNotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(foundry.utils.getProperty(this.actor.system, "artefacts"), {
-      async: true,
+  async #enrich(path) {
+    const value = foundry.utils.getProperty(this.actor.system, path) ?? "";
+    return foundry.applications.ux.TextEditor.implementation.enrichHTML(value, {
+      secrets: this.actor.isOwner,
+      relativeTo: this.actor,
     });
-    sheetData.enrichedUserNotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-      foundry.utils.getProperty(this.actor.system, "biography.campagne.notes"),
-      { async: true }
-    );
-    sheetData.enrichedBGNotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-      foundry.utils.getProperty(this.actor.system, "biography.background"),
-      { async: true }
-    );
-    sheetData.enrichedRuptureNotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-      foundry.utils.getProperty(this.actor.system, "biography.rupture"),
-      { async: true }
-    );
-    sheetData.enrichedQuestNotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(foundry.utils.getProperty(this.actor.system, "biography.quest"), {
-      async: true,
-    });
-    sheetData.enrichedAppearanceNotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-      foundry.utils.getProperty(this.actor.system, "biography.appearance"),
-      { async: true }
-    );
-    sheetData.enrichedAlliesNotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-      foundry.utils.getProperty(this.actor.system, "biography.campagne.allies"),
-      { async: true }
-    );
-    sheetData.enrichedEnemiesNotes = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
-      foundry.utils.getProperty(this.actor.system, "biography.campagne.enemies"),
-      { async: true }
-    );
   }
-  prepareData(sheetData, actorData) {
-    let lastElement;
-    // Filtre Lignee
-    let lignee = actorData.items.filter(function (item) {
-      return item.type == "lignee";
-    });
-    lastElement = lignee[lignee.length - 1];
 
-    lignee.forEach((element) => {
-      if (element != lastElement) {
-        let itemId = element._id;
-        return this.actor.deleteEmbeddedDocuments("Item", [itemId]);
-      }
-    });
-    sheetData.lignee = lastElement;
-
-    // Filtre Peuple
-    let people = actorData.items.filter(function (item) {
-      return item.type == "people";
-    });
-    lastElement = people[people.length - 1];
-
-    people.forEach((element) => {
-      if (element != lastElement) {
-        let itemId = element._id;
-        return this.actor.deleteEmbeddedDocuments("Item", [itemId]);
-      }
-    });
-    sheetData.people = lastElement;
-
-    // Filtre Role
-    let role = actorData.items.filter(function (item) {
-      return item.type == "role";
-    });
-    lastElement = role[role.length - 1];
-
-    role.forEach((element) => {
-      if (element != lastElement) {
-        let itemId = element._id;
-        return this.actor.deleteEmbeddedDocuments("Item", [itemId]);
-      }
-    });
-    sheetData.role = lastElement;
+  async #prepareEditors(sheetData) {
+    sheetData.enrichedGMnotes = await this.#enrich("biography.campagne.gm");
+    sheetData.enrichedArtefactsNotes = await this.#enrich("artefacts");
+    sheetData.enrichedUserNotes = await this.#enrich("biography.campagne.notes");
+    sheetData.enrichedBGNotes = await this.#enrich("biography.background");
+    sheetData.enrichedRuptureNotes = await this.#enrich("biography.rupture");
+    sheetData.enrichedQuestNotes = await this.#enrich("biography.quest");
+    sheetData.enrichedAppearanceNotes = await this.#enrich("biography.appearance");
+    sheetData.enrichedAlliesNotes = await this.#enrich("biography.campagne.allies");
+    sheetData.enrichedEnemiesNotes = await this.#enrich("biography.campagne.enemies");
   }
-  prepareVocations(sheetData) {
+
+  /**
+   * Expose le dernier item de chaque type unique (lignee, people, role).
+   * La suppression des doublons est gérée au drop (voir _onDropItem),
+   * jamais pendant le rendu.
+   */
+  #prepareUniqueItems(sheetData, actorData) {
+    for (const type of UNIQUE_ITEM_TYPES) {
+      const items = actorData.items.filter((item) => item.type === type);
+      sheetData[type] = items.at(-1);
+    }
+  }
+
+  #prepareVocations(sheetData) {
     sheetData.vocations = {};
 
-    for (const domain of sheetData.config.domains) {
-      sheetData.vocations[domain.toLowerCase().replace("é", "e")] = sheetData.items.filter(function (item) {
-        return item.system.domain === domain;
-      });
+    for (const domain of sheetData.config?.domains ?? []) {
+      sheetData.vocations[domain.toLowerCase().replace("é", "e")] = sheetData.items.filter(
+        (item) => item.system?.domain === domain
+      );
     }
   }
-  async prepareRank(sheetData) {
-    const domains = sheetData.data.domains;
 
-    // Get the highest domain rank
-    let highestDomain = Math.max(...Object.values(domains).map((domain) => domain.rank));
+  #prepareRank(sheetData) {
+    const domains = sheetData.data.domains ?? {};
+    const ranks = Object.values(domains).map((domain) => domain.rank ?? 0);
+    const highestDomain = ranks.length ? Math.max(...ranks) : 0;
 
-    // Calculate rank based on highest domain
-    function calculateRank(highestDomain) {
-      if (highestDomain >= 6 && highestDomain <= 8) return 2;
-      if (highestDomain >= 9 && highestDomain <= 11) return 3;
-      if (highestDomain >= 12 && highestDomain <= 14) return 4;
-      if (highestDomain === 15) return 5;
-      return 1; // Default case
-    }
+    const calculateRank = (value) => {
+      if (value >= 6 && value <= 8) return 2;
+      if (value >= 9 && value <= 11) return 3;
+      if (value >= 12 && value <= 14) return 4;
+      if (value === 15) return 5;
+      return 1;
+    };
+
+    const rankLabels = {
+      1: "Profane",
+      2: "Apprenti",
+      3: "Initié",
+      4: "Maître",
+      5: "Légende",
+    };
 
     const rank = calculateRank(highestDomain);
 
-    // Update sheetData with the calculated rank and baseDifficulty
     sheetData.data.rank = rank;
     sheetData.data.baseDifficulty = rank === 1 ? 10 : 5 * rank;
-    switch (rank) {
-      case 1:
-        sheetData.data.rankLabel = "Profane";
-        break;
-      case 2:
-        sheetData.data.rankLabel = "Apprenti";
-        break;
-      case 3:
-        sheetData.data.rankLabel = "Initié";
-        break;
-      case 4:
-        sheetData.data.rankLabel = "Maître";
-        break;
-      case 5:
-        sheetData.data.rankLabel = "Légende";
-        break;
-    }
+    sheetData.data.rankLabel = rankLabels[rank];
   }
 
-  activateListeners($html) {
-    super.activateListeners($html);
-    const html = $html[0];
+  /* -------------------------------------------- */
+  /*  Rendu                                       */
+  /* -------------------------------------------- */
 
-    $html.find(".domainCheck").click(this._onDomainCheck.bind(this));
-    $html.find(".item-edit, .vocation-name").click(this._onItemEdit.bind(this));
-    $html.find(".item-delete").click(this._onItemDelete.bind(this));
-    $html.find(".heal").click(this._onHeal.bind(this));
-    $html.find(".circle input").on("focus", (event) => {
-      event.target.select();
-    });
-    $html.find(".roll-ally").click(this._onAllyRoll.bind(this));
+  async _onRender(context, options) {
+    await super._onRender(context, options);
+    const html = this.element;
 
-    const imageLink = htmlQuery(html, "a[data-action=show-image]");
-    if (!imageLink) return;
-
-    imageLink.addEventListener("click", () => {
-      const actor = this.actor;
-      const title = actor?.token?.name || actor?.prototypeToken?.name || actor.name;
-
-      new ImagePopout(actor.img, {
-        title,
-        uuid: actor.uuid,
-      }).render(true);
-    });
-    $html.find(".open-compendium").on("click", (event) => {
-      if (event.currentTarget.dataset.compendium) {
-        const compendium = game.packs.get(event.currentTarget.dataset.compendium);
-        compendium && compendium.render(!0);
-      }
+    // Sélectionne le contenu des champs au focus
+    html.querySelectorAll(".circle input").forEach((input) => {
+      input.addEventListener("focus", (event) => event.target.select());
     });
 
-    const vocationNameSpans = htmlQueryAll(html, ".vocation-name");
-    for (let i = 0; i < vocationNameSpans.length; i++) {
-      let vocationName = vocationNameSpans[i].innerText;
-      if (vocationName.length >= 19) {
-        let difference = vocationName.length - 19;
-        vocationNameSpans[i].innerText = vocationName.substring(0, 19 - 2) + "...";
+    // Tronque les noms de vocation trop longs
+    html.querySelectorAll(".vocation-name").forEach((span) => {
+      const name = span.innerText;
+      if (name.length >= 19) {
+        span.innerText = name.substring(0, 17) + "...";
       }
-    }
+    });
   }
-  _onDomainCheck(event) {
-    let actor = this.actor;
 
-    Dice.domainCheck(actor);
-  }
-  _onHeal(event) {
-    let action = event.currentTarget.dataset.action;
-    let actor = this.actor;
-    switch (action) {
-      case "heal":
-        Heal(actor);
-        break;
-      case "regen":
-        Regen(actor);
-        break;
-    }
-  }
-  _onItemEdit(event) {
-    event.preventDefault();
-    let element = event.target;
-    let itemId = element.closest(".item").dataset.itemId;
-    if (!itemId) {
-      return console.log("Aucun item n'a été trouvé");
-    }
-    let item = this.actor.items.get(itemId);
+  /* -------------------------------------------- */
+  /*  Actions (data-action="...")                 */
+  /* -------------------------------------------- */
 
-    item.sheet.render(true);
+  static #onDomainCheck(event, target) {
+    Dice.domainCheck(this.actor);
   }
-  _onItemDelete(event) {
-    try {
-      event.preventDefault();
-      let element = event.target;
-      let itemId = element.closest(".item").dataset.itemId;
-      if (!itemId) {
-        throw new Error("itemId is not defined");
-      }
-      return this.actor.deleteEmbeddedDocuments("Item", [itemId]);
-    } catch (error) {
-      console.error(error);
-    }
+
+  static #onHeal(event, target) {
+    Heal(this.actor);
   }
+
+  static #onRegen(event, target) {
+    Regen(this.actor);
+  }
+
+  static #onItemEdit(event, target) {
+    const itemId = target.closest("[data-item-id]")?.dataset.itemId;
+    if (!itemId) return console.warn("Aucun item n'a été trouvé");
+    this.actor.items.get(itemId)?.sheet.render(true);
+  }
+
+  static async #onItemDelete(event, target) {
+    const itemId = target.closest("[data-item-id]")?.dataset.itemId;
+    if (!itemId) return console.error("itemId is not defined");
+    return this.actor.deleteEmbeddedDocuments("Item", [itemId]);
+  }
+
+  static #onAllyRoll(event, target) {
+    const actor = game.actors.get(target.dataset.id);
+    if (actor) AllyCheck(actor);
+  }
+
+  static #onShowImage(event, target) {
+    const actor = this.actor;
+    const title = actor.token?.name || actor.prototypeToken?.name || actor.name;
+
+    new foundry.applications.apps.ImagePopout({
+      src: actor.img,
+      window: { title },
+      uuid: actor.uuid,
+    }).render({ force: true });
+  }
+
+  static #onOpenCompendium(event, target) {
+    const pack = game.packs.get(target.dataset.compendium);
+    pack?.render({ force: true });
+  }
+
+  /* -------------------------------------------- */
+  /*  Drag & drop                                 */
+  /* -------------------------------------------- */
+
   async _onDropActor(event, data) {
-    await super._onDropActor(event, data);
+    const result = await super._onDropActor(event, data);
 
-    const actor = fromUuidSync(data.uuid);
+    const actor = await fromUuid(data.uuid);
     if (actor instanceof AllySW) {
-      this.document.addAllies(actor);
+      await this.document.addAllies(actor);
     }
+    return result;
   }
-  _onAllyRoll(event) {
-    const target = event.currentTarget;
-    let actor = game.actors.get(target.dataset.id);
-    AllyCheck(actor);
+
+  /**
+   * Garantit l'unicité des items lignee / people / role :
+   * l'ancien est supprimé quand un nouveau est déposé.
+   */
+  async _onDropItem(event, data) {
+    if (!this.actor.isOwner) return null;
+
+    const item = await Item.implementation.fromDropData(data);
+    if (item && UNIQUE_ITEM_TYPES.includes(item.type)) {
+      const previous = this.actor.items.filter((i) => i.type === item.type).map((i) => i.id);
+      if (previous.length) await this.actor.deleteEmbeddedDocuments("Item", previous);
+    }
+
+    return super._onDropItem(event, data);
   }
 }

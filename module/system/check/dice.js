@@ -1,282 +1,228 @@
-import { CheckDialog } from "./dialog.js";
+import { setupCheckDialog } from "./dialog.js";
+
+const DOMAIN_CHECK_DIALOG_TEMPLATE = "systems/shaanworld/templates/chat/domainCheck.hbs";
+const DOMAIN_CHECK_CHAT_TEMPLATE = "systems/shaanworld/templates/chat/domainCheck-chat.hbs";
+
+/** Trihn associé à chaque domaine */
+export const DOMAIN_TRIHN = {
+  technique: "Esprit",
+  savoir: "Esprit",
+  social: "Esprit",
+  arts: "Ame",
+  shaan: "Ame",
+  magie: "Ame",
+  rituels: "Corps",
+  survie: "Corps",
+  combat: "Corps",
+  necrose: "Necrose",
+};
+
+const toInt = (value) => Number.parseInt(value) || 0;
+
+/* -------------------------------------------- */
+/*  Test de domaine                             */
+/* -------------------------------------------- */
 
 export async function domainCheck(actor) {
-  const actorData = actor ? actor.system : null;
-  const messageTemplate =
-    "systems/shaanworld/templates/chat/domainCheck-chat.hbs";
-  let domain, vocations, bonus, malus, lignee, people;
+  if (!actor) return;
 
-  let checkOptions = await GetRollOptions();
+  const options = await getRollOptions(actor);
+  if (options.cancelled) return;
 
-  if (checkOptions.cancelled) {
-    return;
-  }
-
-  domain = checkOptions.domain;
-  vocations = checkOptions.vocations;
-  vocations.vocation1 = actor.items.get(vocations.vocation1);
-  vocations.vocation2 = actor.items.get(vocations.vocation2);
-  bonus = checkOptions.bonus;
-  malus = Math.abs(checkOptions.malus);
-  lignee = checkOptions.lignee;
-  people = checkOptions.people;
-
-  let rollFormula;
-  if (domain == "necrose") {
-    rollFormula = "{1d10[Necrose], 1d10[Ame]}";
-  } else {
-    rollFormula = "{1d10[Esprit], 1d10[Ame], 1d10[Corps], 1d10[Necrose]}";
-  }
-
-  let rollData = {
-    actor: actorData,
-    domain: domain,
-    vocations: vocations,
-    bonus: bonus,
-    malus: malus,
-    lignee: lignee,
-    people: people,
+  const { domain } = options;
+  const bonus = options.bonus;
+  const malus = Math.abs(options.malus);
+  const { lignee, people } = options;
+  const vocations = {
+    vocation1: actor.items.get(options.vocations.vocation1),
+    vocation2: actor.items.get(options.vocations.vocation2),
   };
 
-  let rollResult = await new Roll(rollFormula, rollData).roll();
-  let dice3d;
-  if (game.dice3d != undefined) {
-    dice3d = game.dice3d.showForRoll(rollResult, game.user, true);
-    dice3d;
-  }
+  const isNecrose = domain === "necrose";
+  const rollFormula = isNecrose
+    ? "{1d10[Necrose], 1d10[Ame]}"
+    : "{1d10[Esprit], 1d10[Ame], 1d10[Corps], 1d10[Necrose]}";
 
-  let Corps, Ame, Esprit, Necrose, perte, domainDice, domainFlavor;
-  if (domain !== "necrose") {
-    Corps = rollResult.dice[2];
+  const rollResult = await new Roll(rollFormula, {
+    actor: actor.system,
+    domain,
+    vocations,
+    bonus,
+    malus,
+    lignee,
+    people,
+  }).roll();
+
+  if (game.dice3d) await game.dice3d.showForRoll(rollResult, game.user, true);
+
+  // Dés selon le type de test
+  let Esprit, Ame, Corps, Necrose;
+  let perte;
+
+  if (isNecrose) {
+    Necrose = rollResult.dice[0];
     Ame = rollResult.dice[1];
+    perte = getPerte(Ame.total);
+  } else {
     Esprit = rollResult.dice[0];
+    Ame = rollResult.dice[1];
+    Corps = rollResult.dice[2];
     Necrose = rollResult.dice[3];
 
-    if (
-      Corps.total == Ame.total &&
-      Ame.total == Esprit.total &&
-      Esprit.total != 10
-    ) {
-      //Symbiose
-      rollResult.symbiose = true;
-    } else if (Corps.total == Ame.total && Ame.total == Necrose.total) {
-      rollResult.symbioseLimbe = true;
-    } else if (
-      Corps.total == Ame.total &&
-      Ame.total == Esprit.total &&
-      Esprit.total == 10
-    ) {
-      rollResult.symbioseLimbe = true;
-    } else if (Corps.total == Esprit.total && Esprit.total == Necrose.total) {
-      rollResult.symbioseLimbe = true;
-    } else if (Esprit.total == Ame.total && Ame.total == Necrose.total) {
-      rollResult.symbioseLimbe = true;
-    } else if (
-      Esprit.total == Ame.total &&
-      Ame.total == Esprit.total &&
-      Esprit.total == Necrose.total &&
-      Necrose.total !== 10
-    ) {
-      rollResult.symbioseTrans = true;
-    } else if (
-      Esprit.total == Ame.total &&
-      Ame.total == Esprit.total &&
-      Esprit.total == Necrose.total &&
-      Necrose.total == 10
-    ) {
-      rollResult.symbioseTransLimbes = true;
-    }
-    if (Necrose.total == 10) {
-      perte = game.i18n.localize("chat.domainCheck.pertes.great");
-    } else if (Necrose.total > 0 && Necrose.total < 6) {
-      perte = game.i18n.localize("chat.domainCheck.pertes.low");
-    } else if (Necrose.total > 5 && Necrose.total < 10) {
-      perte = game.i18n.localize("chat.domainCheck.pertes.medium");
-    }
-  } else {
-    Ame = rollResult.dice[1];
-    Necrose = rollResult.dice[0];
-
-    if (Ame.total == 10) {
-      perte = game.i18n.localize("chat.domainCheck.pertes.great");
-    } else if (Ame.total > 0 && Ame.total < 6) {
-      perte = game.i18n.localize("chat.domainCheck.pertes.low");
-    } else if (Ame.total > 5 && Ame.total < 10) {
-      perte = game.i18n.localize("chat.domainCheck.pertes.medium");
-    }
+    applySymbiose(rollResult, { Esprit, Ame, Corps, Necrose });
+    perte = getPerte(Necrose.total);
   }
 
-  if (domain == "technique" || domain == "savoir" || domain == "social") {
-    domainDice = Esprit;
-    domainFlavor = "Esprit";
-  } else if (domain == "arts" || domain == "shaan" || domain == "magie") {
-    domainDice = Ame;
-    domainFlavor = "Ame";
-  } else if (domain == "rituels" || domain == "survie" || domain == "combat") {
-    domainDice = Corps;
-    domainFlavor = "Corps";
-  } else if (domain == "necrose") {
-    domainDice = Necrose;
-    domainFlavor = "Necrose";
-  }
+  const domainFlavor = DOMAIN_TRIHN[domain];
+  const domainDice = { Esprit, Ame, Corps, Necrose }[domainFlavor];
+  const domainLevel = actor.system.domains[domain].rank;
+
+  // Calcul du score
+  const baseScore =
+    domainDice.total +
+    domainLevel +
+    bonus -
+    malus +
+    (vocations.vocation1?.system.bonus ?? 0) +
+    (vocations.vocation2?.system.bonus ?? 0) +
+    (lignee ? 2 : 0) +
+    (people ? 2 : 0);
 
   let score;
-  if (domainFlavor !== "Necrose") {
-    if (domainDice.total == 10) {
-      score = 0;
-    } else {
-      score = domainDice.total;
-
-      score += actor.system.domains[domain].rank;
-      if (bonus) {
-        score += bonus;
-      }
-      if (malus) {
-        score -= Math.abs(malus);
-      }
-      if (vocations.vocation1) {
-        score += vocations.vocation1.system.bonus;
-      }
-      if (vocations.vocation2) {
-        score += vocations.vocation2.system.bonus;
-      }
-      if (lignee) {
-        score += 2;
-      }
-      if (people) {
-        score += 2;
-      }
-      if (rollResult.symbiose || rollResult.symbioseTrans) {
-        score += 30;
-      }
-    }
+  if (isNecrose) {
+    score = baseScore;
+  } else if (domainDice.total === 10) {
+    score = 0;
   } else {
-    score = domainDice.total;
-    score += actor.system.domains[domain].rank;
-    if (bonus) {
-      score += bonus;
-    }
-    if (malus) {
-      score -= Math.abs(malus);
-    }
-    if (vocations.vocation1) {
-      score += vocations.vocation1.system.bonus;
-    }
-    if (vocations.vocation2) {
-      score += vocations.vocation2.system.bonus;
-    }
-    if (lignee) {
-      score += 2;
-    }
-    if (people) {
-      score += 2;
-    }
+    score = baseScore + (rollResult.symbiose || rollResult.symbioseTrans ? 30 : 0);
   }
-  if (rollResult.symbioseLimbe)
-    perte += ". Le score doit être ajouté à la difficulté de l'adversité.";
 
-  RollToCustomMessage(actor, rollResult, messageTemplate, {
-    domain: domain,
-    domainLevel: actor.system.domains[domain].rank,
-    score: score,
-    bonus: bonus,
-    malus: malus,
-    vocations: vocations,
-    lignee: lignee,
-    people: people,
+  if (rollResult.symbioseLimbe) {
+    perte = `${perte ?? ""}. Le score doit être ajouté à la difficulté de l'adversité.`;
+  }
+
+  await rollToCustomMessage(actor, rollResult, DOMAIN_CHECK_CHAT_TEMPLATE, {
+    domain,
+    domainLevel,
+    score,
+    bonus,
+    malus,
+    vocations,
+    lignee,
+    people,
     actorID: actor.uuid,
-    domainFlavor: domainFlavor,
-    perte: perte,
+    domainFlavor,
+    perte,
+  });
+}
+
+/* -------------------------------------------- */
+/*  Helpers                                     */
+/* -------------------------------------------- */
+
+function getPerte(value) {
+  if (value === 10) return game.i18n.localize("chat.domainCheck.pertes.great");
+  if (value > 5 && value < 10) return game.i18n.localize("chat.domainCheck.pertes.medium");
+  if (value > 0 && value < 6) return game.i18n.localize("chat.domainCheck.pertes.low");
+  return undefined;
+}
+
+/**
+ * Détecte les symbioses et pose les drapeaux correspondants sur le jet.
+ * L'ordre des tests est celui de l'implémentation d'origine.
+ */
+function applySymbiose(rollResult, { Esprit, Ame, Corps, Necrose }) {
+  const e = Esprit.total;
+  const a = Ame.total;
+  const c = Corps.total;
+  const n = Necrose.total;
+
+  if (c === a && a === e && e !== 10) {
+    rollResult.symbiose = true;
+  } else if (c === a && a === n) {
+    rollResult.symbioseLimbe = true;
+  } else if (c === a && a === e && e === 10) {
+    rollResult.symbioseLimbe = true;
+  } else if (c === e && e === n) {
+    rollResult.symbioseLimbe = true;
+  } else if (e === a && a === n) {
+    rollResult.symbioseLimbe = true;
+  }
+  // NB : les cas symbioseTrans / symbioseTransLimbes (4 dés identiques) de l'ancien code
+  // n'étaient jamais atteints, car interceptés par les tests précédents.
+}
+
+/**
+ * Ouvre la boîte de dialogue du test de domaine.
+ * @returns {Promise<object>} les options choisies, ou { cancelled: true }
+ */
+export async function getRollOptions(actor) {
+  const content = await foundry.applications.handlebars.renderTemplate(DOMAIN_CHECK_DIALOG_TEMPLATE, {
+    actor,
+    domain: null,
+    vocations: { vocation1: null, vocation2: null },
+    bonus: null,
+    malus: null,
+    lignee: false,
+    people: false,
+    domains: CONFIG.shaanworld.domains,
   });
 
-  async function GetRollOptions({
-    template = "systems/shaanworld/templates/chat/domainCheck.hbs",
-    domain = null,
-    vocations = { vocation1: null, vocation2: null },
-    bonus = null,
-    malus = null,
-    lignee = false,
-    people = false,
-  } = {}) {
-    const html = await foundry.applications.handlebars.renderTemplate(template, {
-      actor,
-      domain,
-      vocations,
-      bonus,
-      malus,
-      lignee,
-      people,
-    });
-    const config = CONFIG.shaanworld;
-
-    return new Promise((resolve) => {
-      const data = {
-        title: game.i18n.format("chat.domainCheck.title"),
-        content: html,
-        domains: config.domains,
-        actor: actorData,
-        buttons: {
-          normal: {
-            label: game.i18n.localize("chat.actions.roll"),
-            callback: (html) =>
-              resolve(
-                _processDomainCheckOptions(html[0].querySelector("form"))
-              ),
-          },
-          cancel: {
-            label: game.i18n.localize("chat.actions.cancel"),
-            callback: (html) => resolve({ cancelled: true }),
-          },
-        },
-        default: "normal",
-        close: () => resolve({ cancelled: true }),
-      };
-
-      new CheckDialog(data, null).render(true);
-    });
-  }
-  function _processDomainCheckOptions(form) {
-    return {
-      domain: form.domain?.value,
-      vocations: {
-        vocation1: form.vocation1.value,
-        vocation2: form.vocation2.value,
+  const result = await foundry.applications.api.DialogV2.wait({
+    window: { title: game.i18n.localize("chat.domainCheck.title") },
+    content,
+    render: (event, dialog) => setupCheckDialog(dialog, actor),
+    buttons: [
+      {
+        action: "normal",
+        label: game.i18n.localize("chat.actions.roll"),
+        default: true,
+        callback: (event, button) => processDomainCheckOptions(button.form),
       },
-      bonus: parseInt(form.bonus?.value),
-      malus: parseInt(form.malus?.value),
-      lignee: form.lignee?.checked,
-      people: form.people?.checked,
-    };
-  }
+      {
+        action: "cancel",
+        label: game.i18n.localize("chat.actions.cancel"),
+      },
+    ],
+    rejectClose: false,
+  });
+
+  if (!result || result === "cancel") return { cancelled: true };
+  return result;
 }
 
-export async function RollToCustomMessage(
-  actor = null,
-  rollResult,
-  template,
-  extraData
-) {
-  let templateContext = {
+function processDomainCheckOptions(form) {
+  return {
+    domain: form.elements.domain?.value,
+    vocations: {
+      vocation1: form.elements.vocation1?.value,
+      vocation2: form.elements.vocation2?.value,
+    },
+    bonus: toInt(form.elements.bonus?.value),
+    malus: toInt(form.elements.malus?.value),
+    lignee: form.elements.lignee?.checked ?? false,
+    people: form.elements.people?.checked ?? false,
+  };
+}
+
+/* -------------------------------------------- */
+/*  Message de chat                             */
+/* -------------------------------------------- */
+
+export async function rollToCustomMessage(actor = null, rollResult, template, extraData) {
+  const content = await foundry.applications.handlebars.renderTemplate(template, {
     ...extraData,
     roll: rollResult,
-  };
-  let chatData;
-  if (game.dice3d != undefined) {
-    chatData = {
-      user: game.user.id,
-      speaker: ChatMessage.getSpeaker({ actor }),
-      content: await foundry.applications.handlebars.renderTemplate(template, templateContext),
-      sound: CONFIG.sounds.dice,
-      type: CONST.CHAT_MESSAGE_STYLES.ROLL,
-    };
-  } else {
-    chatData = {
-      user: game.user.id,
-      speaker: ChatMessage.getSpeaker({ actor }),
-      content: await foundry.applications.handlebars.renderTemplate(template, templateContext),
-      sound: CONFIG.sounds.dice,
-      type: CONST.CHAT_MESSAGE_STYLES.ROLL,
-    };
-  }
-  let message = await ChatMessage.create(chatData);
+  });
+
+  return ChatMessage.create({
+    author: game.user.id,
+    speaker: ChatMessage.getSpeaker({ actor }),
+    content,
+    sound: CONFIG.sounds.dice,
+    style: CONST.CHAT_MESSAGE_STYLES.ROLL,
+  });
 }
+
+// Alias conservé pour ne pas casser les imports existants
+export const RollToCustomMessage = rollToCustomMessage;

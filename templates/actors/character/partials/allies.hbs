@@ -2,7 +2,7 @@
   <div id="allies-cards-container">
     {{#each document.allies as |ally|}}
       <div class="ally-card whitebox">
-        <a class="roll-ally" data-id="{{ally.id}}">{{> "systems/shaanworld/templates/actors/icons/d10Blue.hbs"}}{{> "systems/shaanworld/templates/actors/icons/d10Black.hbs"}}</a>
+        <a class="roll-ally" data-action="rollAlly" data-id="{{ally.id}}">{{> "systems/shaanworld/templates/actors/icons/d10Blue.hbs"}}{{> "systems/shaanworld/templates/actors/icons/d10Black.hbs"}}</a>
         <div class="ally-frame-container">
           <div class="frame image-container">
             <img class="player-image" alt="{{ally.name}}" src="{{ally.img}}" title="{{ally.name}}" />

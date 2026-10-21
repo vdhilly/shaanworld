@@ -45,7 +45,7 @@ export async function toCustomMessage(ally = null, roll, template) {
     chatData = {
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ ally }),
-      content: await renderTemplate(template, templateContext),
+      content: await foundry.applications.handlebars.renderTemplate(template, templateContext),
       sound: CONFIG.sounds.dice,
       type: CONST.CHAT_MESSAGE_STYLES.ROLL,
     };
@@ -53,7 +53,7 @@ export async function toCustomMessage(ally = null, roll, template) {
     chatData = {
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ ally }),
-      content: await renderTemplate(template, templateContext),
+      content: await foundry.applications.handlebars.renderTemplate(template, templateContext),
       sound: CONFIG.sounds.dice,
       type: CONST.CHAT_MESSAGE_STYLES.ROLL,
     };

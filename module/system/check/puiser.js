@@ -185,7 +185,7 @@ async function GetPuiserOptions({
   result = null,
   template = "systems/shaanworld/templates/chat/puiser-dialog.hbs",
 } = {}) {
-  const html = await renderTemplate(template, {
+  const html = await foundry.applications.handlebars.renderTemplate(template, {
     domain,
     dice,
     choix,
@@ -262,7 +262,7 @@ async function ToCustomMessage(Token, result, messageTemplate, flavor, perte) {
   chatData = {
     user: game.user.id,
     speaker: ChatMessage.getSpeaker({ actor: Token.actor }),
-    content: await renderTemplate(messageTemplate, templateContext),
+    content: await foundry.applications.handlebars.renderTemplate(messageTemplate, templateContext),
     sound: CONFIG.sounds.notification,
     type: CONST.CHAT_MESSAGE_TYPES.OTHER,
     whisper: whispers,

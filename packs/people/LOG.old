@@ -1,3 +1,7 @@
-2025/11/04-13:58:52.595 2b68 Recovering log #309
-2025/11/04-13:58:52.604 2b68 Delete type=0 #309
-2025/11/04-13:58:52.614 2b68 Delete type=3 #308
+2026/10/21-15:53:30.469 4bbc Recovering log #317
+2026/10/21-15:53:30.480 4bbc Delete type=0 #317
+2026/10/21-15:53:30.480 4bbc Delete type=3 #316
+2026/10/21-16:10:12.677 3fb4 Level-0 table #321: started
+2026/10/21-16:10:12.677 3fb4 Level-0 table #321: 0 bytes OK
+2026/10/21-16:10:12.682 3fb4 Delete type=0 #319
+2026/10/21-16:10:12.692 3fb4 Manual compaction at level-0 from '!items!0QktvGB7zTml7qjH' @ 72057594037927935 : 1 .. '!items!sPukQdIJMrXXtil3' @ 0 : 0; will stop at (end)

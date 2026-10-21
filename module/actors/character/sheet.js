@@ -8,7 +8,7 @@ import { AllySW } from "../ally/document.js";
 export class ActorSheetSW extends foundry.applications.api.HandlebarsApplicationMixin(foundry.applications.sheets.ActorSheetV2) {
   static DEFAULT_OPTIONS = {
     ...super.DEFAULT_OPTIONS,
-    classes: [...(super.DEFAULT_OPTIONS?.classes ?? []), "character"],
+    classes: [...(super.DEFAULT_OPTIONS?.classes ?? []), "character", "actor", "sheet"],
     position: {
       width: 750,
       height: 750,

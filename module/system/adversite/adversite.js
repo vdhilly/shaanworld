@@ -45,7 +45,7 @@ async function getAdversiteOptions({
   trihns = { esprit: 0, ame: 0, corps: 0 },
   template = "systems/shaanworld/templates/actors/adversite/chat/dialog.hbs",
 } = {}) {
-  const html = await renderTemplate(template, {
+  const html = await foundry.applications.handlebars.renderTemplate(template, {
     adversites,
     score,
     perte,
@@ -146,7 +146,7 @@ async function ToCustomMessage(actor, adversite, score, messageTemplate, pertes,
   chatData = {
     user: game.user.id,
     speaker: ChatMessage.getSpeaker({ actor }),
-    content: await renderTemplate(messageTemplate, templateContext),
+    content: await foundry.applications.handlebars.renderTemplate(messageTemplate, templateContext),
     sound: CONFIG.sounds.notification,
     type: CONST.CHAT_MESSAGE_TYPES.OTHER,
     whisper: whispers,

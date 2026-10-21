@@ -60,7 +60,7 @@ async function getRegenOptions({
   chambre,
   template = "systems/shaanworld/templates/chat/regen-dialog.hbs",
 } = {}) {
-  const html = await renderTemplate(template, {
+  const html = await foundry.applications.handlebars.renderTemplate(template, {
     bonusEsprit,
     bonusAme,
     bonusCorps,

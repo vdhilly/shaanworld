@@ -132,7 +132,7 @@ export async function Heal(actor) {
     lignee = false,
     people = false,
   } = {}) {
-    const html = await renderTemplate(template, {
+    const html = await foundry.applications.handlebars.renderTemplate(template, {
       actor,
       domain,
       vocations,
@@ -221,7 +221,7 @@ async function _onHeal() {
 async function getHealOptions() {
   let template = "systems/shaanworld/templates/chat/healing-dialog.hbs";
   let trihn;
-  const html = await renderTemplate(template, { trihn });
+  const html = await foundry.applications.handlebars.renderTemplate(template, { trihn });
 
   return new Promise((resolve) => {
     const data = {

@@ -198,7 +198,7 @@ export async function domainCheck(actor) {
     lignee = false,
     people = false,
   } = {}) {
-    const html = await renderTemplate(template, {
+    const html = await foundry.applications.handlebars.renderTemplate(template, {
       actor,
       domain,
       vocations,
@@ -265,7 +265,7 @@ export async function RollToCustomMessage(
     chatData = {
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor }),
-      content: await renderTemplate(template, templateContext),
+      content: await foundry.applications.handlebars.renderTemplate(template, templateContext),
       sound: CONFIG.sounds.dice,
       type: CONST.CHAT_MESSAGE_STYLES.ROLL,
     };
@@ -273,7 +273,7 @@ export async function RollToCustomMessage(
     chatData = {
       user: game.user.id,
       speaker: ChatMessage.getSpeaker({ actor }),
-      content: await renderTemplate(template, templateContext),
+      content: await foundry.applications.handlebars.renderTemplate(template, templateContext),
       sound: CONFIG.sounds.dice,
       type: CONST.CHAT_MESSAGE_STYLES.ROLL,
     };

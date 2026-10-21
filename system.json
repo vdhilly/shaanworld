@@ -15,9 +15,9 @@
   ],
   "version": "1.0.8",
   "compatibility": {
-    "minimum": "13",
-    "verified": "13",
-    "maximum": "13"
+    "minimum": "14",
+    "verified": "14",
+    "maximum": "14"
   },
   "esmodules": ["scripts/shaanworld.js"],
   "scripts": [],

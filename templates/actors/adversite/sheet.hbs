@@ -1,6 +1,6 @@
 <form class="actor sheet crb-style adversite" autocomplete="off">
     <header>
-        <input name="name" value="{{actor.name}}">
+        <input type="text" name="name" value="{{actor.name}}">
         <img class="player-image" alt="{{actor.name}}" src="{{actor.img}}" title="{{actor.name}}" {{#if editable}}data-edit="img"{{/if}} />
     </header>
     <section class="adversite">
@@ -45,7 +45,7 @@
             <label for="duree">
                 {{localize "SW.Labels.duree"}}
             </label>
-            <input id="duree" name="system.duree" value="{{data.duree}}">
+            <input type="text" id="duree" name="system.duree" value="{{data.duree}}">
         </div>
         <div class="adversite-resolution">
             <label for="resolution">

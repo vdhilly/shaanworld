@@ -115,7 +115,7 @@ label.green-label {
   padding: 8px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 0.05fr 1fr;
+  grid-template-rows: 0px 2.5rem 1fr;
 }
 /* header */
 .actor.sheet #logo {
@@ -693,6 +693,8 @@ section.vocations {
   align-items: center;
   display: flex;
   flex-direction: row;
+  width:100% !important;
+  margin-top: 3px;
 }
 .actor.sheet .nav-notes > a {
   color: white;
@@ -811,6 +813,7 @@ section.vocations {
 }
 .actor.sheet .mythiques textarea {
   resize: none;
+  width: 100%;
 }
 /* ITEMS */
 .item.sheet .window-content {

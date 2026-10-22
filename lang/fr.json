@@ -65,7 +65,7 @@
       "baseDiff": "Difficulté",
       "nbActe": "Nombre d'actes",
       "difficulty": "Difficulté",
-      "damages": "Dégats",
+      "damages": "Succès",
       "influence": "Influence",
       "loyalty": "Loyauté",
       "relation": "Relation",
@@ -100,9 +100,9 @@
           "description": "Vous pouvez relancer les 4 dés, mais vous devez garder ce nouveau résultat."
         },
         "optimisation": {
-          "label": "Optimisation",
-          "resume": "Annuler les crânes",
-          "description": "Vous pouvez ignorer la perte de succès lorsque des crânes (valeur 0) apparaissent sur les dés."
+          "label": "Osmose",
+          "resume": "Puiser dans les 2 dés",
+          "description": "Vous pouvez puiser dans les deux dés non-actifs sur le même Test en dépensant comme d'habitude une énergie pour chaque dé ajouté à votre Score."
         },
         "anticipation": {
           "label": "Anticipation",
